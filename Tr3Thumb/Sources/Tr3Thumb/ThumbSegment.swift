@@ -1,0 +1,3 @@
+
+class ThumbSegment: ThumbSlider {
+}

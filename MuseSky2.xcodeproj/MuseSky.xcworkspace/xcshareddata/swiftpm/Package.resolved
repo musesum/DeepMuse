@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AudioKit",
+        "repositoryURL": "https://github.com/AudioKit/AudioKit",
+        "state": {
+          "branch": "staging",
+          "revision": "e77cb5530b18bf8b4a6f2a76f9bcefe2e3578070",
+          "version": null
+        }
+      },
+      {
+        "package": "Par",
+        "repositoryURL": "https://github.com/musesum/Par.git",
+        "state": {
+          "branch": null,
+          "revision": "264dab767deb789650f8b3db08cf6aee190e038c",
+          "version": "0.1.10"
+        }
+      },
+      {
+        "package": "Tr3",
+        "repositoryURL": "https://github.com/musesum/Tr3.git",
+        "state": {
+          "branch": null,
+          "revision": "d3a641b4d266080d5ae08770250f6e17eda43e7f",
+          "version": "0.1.89"
+        }
+      },
+      {
+        "package": "ZIPFoundation",
+        "repositoryURL": "https://github.com/weichsel/ZIPFoundation/",
+        "state": {
+          "branch": null,
+          "revision": "ec32d62d412578542c0ffb7a6ce34d3e64b43b94",
+          "version": "0.9.11"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

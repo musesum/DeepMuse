@@ -1,0 +1,1133 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		802650DE25574BC9005B4119 /* panel.shader.color.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 802650DD25574BC9005B4119 /* panel.shader.color.tr3.h */; };
+		802650EC25575DBF005B4119 /* panel.cell.scroll.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 802650EB25575DBF005B4119 /* panel.cell.scroll.tr3.h */; };
+		802C5BD0265AEC6000DBFFEA /* Par in Frameworks */ = {isa = PBXBuildFile; productRef = 802C5BCF265AEC6000DBFFEA /* Par */; };
+		8037637626AB7EB600F2363C /* MuArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037637526AB7EB600F2363C /* MuArchive.swift */; };
+		8037637826AB885100F2363C /* MuFile-extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037637726AB885100F2363C /* MuFile-extras.swift */; };
+		80703D3D23A04F570093C016 /* cell.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80703D3C23A04F570093C016 /* cell.camix.metal */; };
+		807048EB23378A090001617D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EA23378A090001617D /* AppDelegate.swift */; };
+		807048ED23378A090001617D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EC23378A090001617D /* SceneDelegate.swift */; };
+		8070490223378A0B0001617D /* MuseSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490123378A0B0001617D /* MuseSkyTests.swift */; };
+		8070490D23378A0B0001617D /* MuseSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490C23378A0B0001617D /* MuseSkyUITests.swift */; };
+		807049ED23378ADC0001617D /* SkyTr3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070495C23378ADB0001617D /* SkyTr3.swift */; };
+		807049EE23378ADC0001617D /* cell.fred.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070495F23378ADB0001617D /* cell.fred.metal */; };
+		807049EF23378ADC0001617D /* cell.ave.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496023378ADB0001617D /* cell.ave.metal */; };
+		807049F023378ADC0001617D /* cell.mod.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496123378ADB0001617D /* cell.mod.metal */; };
+		807049F123378ADC0001617D /* cell.fade.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496223378ADB0001617D /* cell.fade.metal */; };
+		807049F223378ADC0001617D /* pipe.color.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496323378ADB0001617D /* pipe.color.metal */; };
+		807049F323378ADC0001617D /* cell.tunl.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496423378ADB0001617D /* cell.tunl.metal */; };
+		807049F423378ADC0001617D /* cell.erode.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496523378ADB0001617D /* cell.erode.metal */; };
+		807049F523378ADC0001617D /* cell.zha.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496623378ADB0001617D /* cell.zha.metal */; };
+		807049F623378ADC0001617D /* pipe.draw.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496723378ADB0001617D /* pipe.draw.metal */; };
+		807049F723378ADC0001617D /* cell.melt.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496823378ADB0001617D /* cell.melt.metal */; };
+		807049F823378ADC0001617D /* pipe.render.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496923378ADB0001617D /* pipe.render.metal */; };
+		807049F923378ADC0001617D /* cell.slide.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.slide.metal */; };
+		807049FA23378ADC0001617D /* SkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496C23378ADB0001617D /* SkyView.swift */; };
+		807049FB23378ADC0001617D /* TouchFinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496D23378ADB0001617D /* TouchFinger.swift */; };
+		807049FD23378ADC0001617D /* TouchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496F23378ADB0001617D /* TouchItem.swift */; };
+		807049FE23378ADC0001617D /* SkyDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497023378ADB0001617D /* SkyDraw.swift */; };
+		80704A0023378ADC0001617D /* WorkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497223378ADB0001617D /* WorkLink.swift */; };
+		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
+		80704A0223378ADC0001617D /* SkyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497423378ADB0001617D /* SkyVC.swift */; };
+		80704A0323378ADC0001617D /* SkyMetal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497523378ADB0001617D /* SkyMetal.swift */; };
+		80704A0523378ADC0001617D /* SkyMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497723378ADB0001617D /* SkyMain.swift */; };
+		80704A0623378ADC0001617D /* SkyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497823378ADB0001617D /* SkyColor.swift */; };
+		80704A0723378ADC0001617D /* SkyDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497923378ADB0001617D /* SkyDock.swift */; };
+		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
+		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
+		80704B3C23378DB40001617D /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 80704B3B23378DB40001617D /* Tr3 */; };
+		807962A22558B110005BBFA6 /* sky.shader.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8079629F2558B110005BBFA6 /* sky.shader.tr3.h */; };
+		807962A32558B110005BBFA6 /* panel.shader.weave.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962A02558B110005BBFA6 /* panel.shader.weave.tr3.h */; };
+		807962A42558B110005BBFA6 /* panel.shader.tile.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962A12558B110005BBFA6 /* panel.shader.tile.tr3.h */; };
+		807962B12558B68E005BBFA6 /* panel.cell.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962AF2558B68E005BBFA6 /* panel.cell.tr3.h */; };
+		807962B22558B68E005BBFA6 /* panel.camera.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962B02558B68E005BBFA6 /* panel.camera.tr3.h */; };
+		807962C32558BB69005BBFA6 /* panel.cell.camera.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962BE2558BB69005BBFA6 /* panel.cell.camera.tr3.h */; };
+		807962C42558BB69005BBFA6 /* panel.cell.brush.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962BF2558BB69005BBFA6 /* panel.cell.brush.tr3.h */; };
+		807962C52558BB69005BBFA6 /* panel.record.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962C02558BB69005BBFA6 /* panel.record.tr3.h */; };
+		807962C62558BB69005BBFA6 /* panel.cell.midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962C12558BB69005BBFA6 /* panel.cell.midi.tr3.h */; };
+		807962C72558BB69005BBFA6 /* panel.cell.speed.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962C22558BB69005BBFA6 /* panel.cell.speed.tr3.h */; };
+		807962D52558C031005BBFA6 /* midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D32558C031005BBFA6 /* midi.tr3.h */; };
+		807962D62558C031005BBFA6 /* sky.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.tr3.h */; };
+		807962E92558C3B3005BBFA6 /* panel.cell.gas.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962DF2558C3B2005BBFA6 /* panel.cell.gas.tr3.h */; };
+		807962EA2558C3B3005BBFA6 /* panel.cell.tunl.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E02558C3B2005BBFA6 /* panel.cell.tunl.tr3.h */; };
+		807962EB2558C3B3005BBFA6 /* panel.cell.fade.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E12558C3B2005BBFA6 /* panel.cell.fade.tr3.h */; };
+		807962EC2558C3B3005BBFA6 /* panel.cell.drift.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E22558C3B2005BBFA6 /* panel.cell.drift.tr3.h */; };
+		807962ED2558C3B3005BBFA6 /* panel.cell.ave.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E32558C3B2005BBFA6 /* panel.cell.ave.tr3.h */; };
+		807962EE2558C3B3005BBFA6 /* panel.cell.zha.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E42558C3B2005BBFA6 /* panel.cell.zha.tr3.h */; };
+		807962EF2558C3B3005BBFA6 /* panel.cell.melt.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E52558C3B3005BBFA6 /* panel.cell.melt.tr3.h */; };
+		807962F02558C3B3005BBFA6 /* panel.cell.mod.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E62558C3B3005BBFA6 /* panel.cell.mod.tr3.h */; };
+		807962F12558C3B3005BBFA6 /* panel.cell.slide.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E72558C3B3005BBFA6 /* panel.cell.slide.tr3.h */; };
+		807962F22558C3B3005BBFA6 /* panel.cell.fred.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E82558C3B3005BBFA6 /* panel.cell.fred.tr3.h */; };
+		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
+		808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90D823384CCD004EB9C9 /* MuFile.swift */; };
+		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
+		808E90DE2338B532004EB9C9 /* FileManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90DD2338B532004EB9C9 /* FileManager+extension.swift */; };
+		80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */; };
+		80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B70CC32576ACDE007BAAA8 /* AudioKit */; };
+		80B9E12525169D0E0074AEEA /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9E12425169D0E0074AEEA /* MuMidi.swift */; };
+		80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */; };
+		80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
+		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
+		80F23D37288CE16F003AC055 /* MuDrawBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F23D32288CE16F003AC055 /* MuDrawBox.swift */; };
+		80F23D38288CE16F003AC055 /* MuDrawBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F23D33288CE16F003AC055 /* MuDrawBubble.swift */; };
+		80F23D39288CE16F003AC055 /* ColorRGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F23D34288CE16F003AC055 /* ColorRGBA.swift */; };
+		80F23D3A288CE16F003AC055 /* MuBezel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F23D35288CE16F003AC055 /* MuBezel.swift */; };
+		80F23D3B288CE16F003AC055 /* MuDrawCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F23D36288CE16F003AC055 /* MuDrawCircle.swift */; };
+		80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D4B288CE7B8003AC055 /* MuMetal */; };
+		80F23D4F288CE923003AC055 /* MuCubic in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D4E288CE923003AC055 /* MuCubic */; };
+		80F23D52288CE94B003AC055 /* MuUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D51288CE94B003AC055 /* MuUtilities */; };
+		80F23D55288CE97E003AC055 /* Tr3Thumb in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D54288CE97E003AC055 /* Tr3Thumb */; };
+		80F23D57288CE9CE003AC055 /* MuColor in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D56288CE9CE003AC055 /* MuColor */; };
+		80F846E1234D016A009022F7 /* cell.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80F846E0234D016A009022F7 /* cell.camera.metal */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		807048FE23378A0B0001617D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 807048DF23378A090001617D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 807048E623378A090001617D;
+			remoteInfo = MuseSky;
+		};
+		8070490923378A0B0001617D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 807048DF23378A090001617D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 807048E623378A090001617D;
+			remoteInfo = MuseSky;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		802650D025574388005B4119 /* panel.shader.color.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = panel.shader.color.json; sourceTree = "<group>"; };
+		802650DD25574BC9005B4119 /* panel.shader.color.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.shader.color.tr3.h; sourceTree = "<group>"; };
+		802650EB25575DBF005B4119 /* panel.cell.scroll.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.scroll.tr3.h; sourceTree = "<group>"; };
+		802FD54B2649976D00564B19 /* sky.main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.main.py; sourceTree = "<group>"; };
+		802FD54C26499E6F00564B19 /* sky.midi.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.midi.tr3.py; sourceTree = "<group>"; };
+		802FD54D2649A1F700564B19 /* sky.shader.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.shader.tr3.py; sourceTree = "<group>"; };
+		802FD54E2649A2C200564B19 /* panel.shader.tile.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = panel.shader.tile.tr3.py; sourceTree = "<group>"; };
+		802FD54F2649A6B100564B19 /* panel.cell.ave.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = panel.cell.ave.tr3.py; sourceTree = "<group>"; };
+		8037637526AB7EB600F2363C /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
+		8037637726AB885100F2363C /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
+		80437B6627D0717800348513 /* scratch3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch3.h; sourceTree = "<group>"; };
+		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
+		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		807048EC23378A090001617D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		807048FD23378A0B0001617D /* MuseSky2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseSky2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8070490123378A0B0001617D /* MuseSkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseSkyTests.swift; sourceTree = "<group>"; };
+		8070490323378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8070490823378A0B0001617D /* MuseSky2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseSky2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8070490C23378A0B0001617D /* MuseSkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseSkyUITests.swift; sourceTree = "<group>"; };
+		8070490E23378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8070495C23378ADB0001617D /* SkyTr3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyTr3.swift; sourceTree = "<group>"; };
+		8070495E23378ADB0001617D /* MetalShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalShaderTypes.h; sourceTree = "<group>"; };
+		8070495F23378ADB0001617D /* cell.fred.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.fred.metal; sourceTree = "<group>"; };
+		8070496023378ADB0001617D /* cell.ave.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.ave.metal; sourceTree = "<group>"; };
+		8070496123378ADB0001617D /* cell.mod.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.mod.metal; sourceTree = "<group>"; };
+		8070496223378ADB0001617D /* cell.fade.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.fade.metal; sourceTree = "<group>"; };
+		8070496323378ADB0001617D /* pipe.color.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.color.metal; sourceTree = "<group>"; };
+		8070496423378ADB0001617D /* cell.tunl.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.tunl.metal; sourceTree = "<group>"; };
+		8070496523378ADB0001617D /* cell.erode.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.erode.metal; sourceTree = "<group>"; };
+		8070496623378ADB0001617D /* cell.zha.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.zha.metal; sourceTree = "<group>"; };
+		8070496723378ADB0001617D /* pipe.draw.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.draw.metal; sourceTree = "<group>"; };
+		8070496823378ADB0001617D /* cell.melt.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.melt.metal; sourceTree = "<group>"; };
+		8070496923378ADB0001617D /* pipe.render.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.render.metal; sourceTree = "<group>"; };
+		8070496A23378ADB0001617D /* cell.slide.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.slide.metal; sourceTree = "<group>"; };
+		8070496C23378ADB0001617D /* SkyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyView.swift; sourceTree = "<group>"; };
+		8070496D23378ADB0001617D /* TouchFinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchFinger.swift; sourceTree = "<group>"; };
+		8070496F23378ADB0001617D /* TouchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchItem.swift; sourceTree = "<group>"; };
+		8070497023378ADB0001617D /* SkyDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyDraw.swift; sourceTree = "<group>"; };
+		8070497223378ADB0001617D /* WorkLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkLink.swift; sourceTree = "<group>"; };
+		8070497323378ADB0001617D /* SkyPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPipeline.swift; sourceTree = "<group>"; };
+		8070497423378ADB0001617D /* SkyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVC.swift; sourceTree = "<group>"; };
+		8070497523378ADB0001617D /* SkyMetal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMetal.swift; sourceTree = "<group>"; };
+		8070497723378ADB0001617D /* SkyMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMain.swift; sourceTree = "<group>"; };
+		8070497823378ADB0001617D /* SkyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyColor.swift; sourceTree = "<group>"; };
+		8070497923378ADB0001617D /* SkyDock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyDock.swift; sourceTree = "<group>"; };
+		8070497B23378ADB0001617D /* scratch2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scratch2.h; sourceTree = "<group>"; };
+		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		8079629E2558A415005BBFA6 /* sketch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sketch.h; sourceTree = "<group>"; };
+		8079629F2558B110005BBFA6 /* sky.shader.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.shader.tr3.h; sourceTree = "<group>"; };
+		807962A02558B110005BBFA6 /* panel.shader.weave.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.shader.weave.tr3.h; sourceTree = "<group>"; };
+		807962A12558B110005BBFA6 /* panel.shader.tile.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.shader.tile.tr3.h; sourceTree = "<group>"; };
+		807962AF2558B68E005BBFA6 /* panel.cell.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.tr3.h; sourceTree = "<group>"; };
+		807962B02558B68E005BBFA6 /* panel.camera.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.camera.tr3.h; sourceTree = "<group>"; };
+		807962BE2558BB69005BBFA6 /* panel.cell.camera.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.camera.tr3.h; sourceTree = "<group>"; };
+		807962BF2558BB69005BBFA6 /* panel.cell.brush.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.brush.tr3.h; sourceTree = "<group>"; };
+		807962C02558BB69005BBFA6 /* panel.record.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.record.tr3.h; sourceTree = "<group>"; };
+		807962C12558BB69005BBFA6 /* panel.cell.midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.midi.tr3.h; sourceTree = "<group>"; };
+		807962C22558BB69005BBFA6 /* panel.cell.speed.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.speed.tr3.h; sourceTree = "<group>"; };
+		807962D32558C031005BBFA6 /* midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = midi.tr3.h; sourceTree = "<group>"; };
+		807962D42558C031005BBFA6 /* sky.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.tr3.h; sourceTree = "<group>"; };
+		807962DF2558C3B2005BBFA6 /* panel.cell.gas.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.gas.tr3.h; sourceTree = "<group>"; };
+		807962E02558C3B2005BBFA6 /* panel.cell.tunl.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.tunl.tr3.h; sourceTree = "<group>"; };
+		807962E12558C3B2005BBFA6 /* panel.cell.fade.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.fade.tr3.h; sourceTree = "<group>"; };
+		807962E22558C3B2005BBFA6 /* panel.cell.drift.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.drift.tr3.h; sourceTree = "<group>"; };
+		807962E32558C3B2005BBFA6 /* panel.cell.ave.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.ave.tr3.h; sourceTree = "<group>"; };
+		807962E42558C3B2005BBFA6 /* panel.cell.zha.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.zha.tr3.h; sourceTree = "<group>"; };
+		807962E52558C3B3005BBFA6 /* panel.cell.melt.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.melt.tr3.h; sourceTree = "<group>"; };
+		807962E62558C3B3005BBFA6 /* panel.cell.mod.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.mod.tr3.h; sourceTree = "<group>"; };
+		807962E72558C3B3005BBFA6 /* panel.cell.slide.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.slide.tr3.h; sourceTree = "<group>"; };
+		807962E82558C3B3005BBFA6 /* panel.cell.fred.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.fred.tr3.h; sourceTree = "<group>"; };
+		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
+		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
+		808E90D823384CCD004EB9C9 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
+		808E90DD2338B532004EB9C9 /* FileManager+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extension.swift"; sourceTree = "<group>"; };
+		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
+		80B9E12425169D0E0074AEEA /* MuMidi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidi.swift; sourceTree = SOURCE_ROOT; };
+		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80DC21862337ADB000B99CD9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		80F23D32288CE16F003AC055 /* MuDrawBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBox.swift; sourceTree = "<group>"; };
+		80F23D33288CE16F003AC055 /* MuDrawBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBubble.swift; sourceTree = "<group>"; };
+		80F23D34288CE16F003AC055 /* ColorRGBA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRGBA.swift; sourceTree = "<group>"; };
+		80F23D35288CE16F003AC055 /* MuBezel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuBezel.swift; sourceTree = "<group>"; };
+		80F23D36288CE16F003AC055 /* MuDrawCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawCircle.swift; sourceTree = "<group>"; };
+		80F23D46288CE45D003AC055 /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = Packages/MuColor; sourceTree = "<group>"; };
+		80F23D4A288CE7AB003AC055 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = Packages/MuMetal; sourceTree = "<group>"; };
+		80F23D4D288CE8F3003AC055 /* MuCubic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuCubic; path = Packages/MuCubic; sourceTree = "<group>"; };
+		80F23D50288CE93F003AC055 /* MuUtilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuUtilities; path = Packages/MuUtilities; sourceTree = "<group>"; };
+		80F23D53288CE96E003AC055 /* Tr3Thumb */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3Thumb; path = Packages/Tr3Thumb; sourceTree = "<group>"; };
+		80F846E0234D016A009022F7 /* cell.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camera.metal; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		807048E423378A090001617D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				802C5BD0265AEC6000DBFFEA /* Par in Frameworks */,
+				80F23D55288CE97E003AC055 /* Tr3Thumb in Frameworks */,
+				80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */,
+				80704B3C23378DB40001617D /* Tr3 in Frameworks */,
+				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
+				80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */,
+				80F23D57288CE9CE003AC055 /* MuColor in Frameworks */,
+				808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */,
+				80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */,
+				80F23D52288CE94B003AC055 /* MuUtilities in Frameworks */,
+				80F23D4F288CE923003AC055 /* MuCubic in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		807048FA23378A0B0001617D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8070490523378A0B0001617D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		802C5BD1265B2D3700DBFFEA /* Xplore */ = {
+			isa = PBXGroup;
+			children = (
+				80D6AAAA264C829600CBAF99 /* tr3_maybe */,
+				80D045EF2597A6D3008DBF6B /* Scratch */,
+			);
+			path = Xplore;
+			sourceTree = "<group>";
+		};
+		807048DE23378A090001617D = {
+			isa = PBXGroup;
+			children = (
+				80F23D45288CE45D003AC055 /* Packages */,
+				80F23D31288CE16F003AC055 /* MuDraw */,
+				802C5BD1265B2D3700DBFFEA /* Xplore */,
+				807048E923378A090001617D /* MuseSky */,
+				8070495B23378ADB0001617D /* Sky */,
+				80704A3023378B000001617D /* SkyTr3 */,
+				80B9E12325169B6F0074AEEA /* MuAudio */,
+				808E90D723384C94004EB9C9 /* MuFiles */,
+				8070490023378A0B0001617D /* MuseSkyTests */,
+				8070490B23378A0B0001617D /* MuseSkyUITests */,
+				807048E823378A090001617D /* Products */,
+				80704A7623378C1A0001617D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		807048E823378A090001617D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				807048E723378A090001617D /* Muse Sky.app */,
+				807048FD23378A0B0001617D /* MuseSky2Tests.xctest */,
+				8070490823378A0B0001617D /* MuseSky2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		807048E923378A090001617D /* MuseSky */ = {
+			isa = PBXGroup;
+			children = (
+				80DC21842337ACFB00B99CD9 /* Assets.xcassets */,
+				80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */,
+				80DC21862337ADB000B99CD9 /* Main.storyboard */,
+				807048EA23378A090001617D /* AppDelegate.swift */,
+				807048EC23378A090001617D /* SceneDelegate.swift */,
+				807048F823378A0B0001617D /* Info.plist */,
+			);
+			path = MuseSky;
+			sourceTree = "<group>";
+		};
+		8070490023378A0B0001617D /* MuseSkyTests */ = {
+			isa = PBXGroup;
+			children = (
+				8070490123378A0B0001617D /* MuseSkyTests.swift */,
+				8070490323378A0B0001617D /* Info.plist */,
+			);
+			path = MuseSkyTests;
+			sourceTree = "<group>";
+		};
+		8070490B23378A0B0001617D /* MuseSkyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8070490C23378A0B0001617D /* MuseSkyUITests.swift */,
+				8070490E23378A0B0001617D /* Info.plist */,
+			);
+			path = MuseSkyUITests;
+			sourceTree = "<group>";
+		};
+		8070495B23378ADB0001617D /* Sky */ = {
+			isa = PBXGroup;
+			children = (
+				8097DC472833E2A300059A59 /* Main */,
+				8070495D23378ADB0001617D /* Metal */,
+				8070496B23378ADB0001617D /* Touch */,
+			);
+			path = Sky;
+			sourceTree = "<group>";
+		};
+		8070495D23378ADB0001617D /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				8070495E23378ADB0001617D /* MetalShaderTypes.h */,
+				8070496323378ADB0001617D /* pipe.color.metal */,
+				8070496923378ADB0001617D /* pipe.render.metal */,
+				8070496723378ADB0001617D /* pipe.draw.metal */,
+				80F846E0234D016A009022F7 /* cell.camera.metal */,
+				80703D3C23A04F570093C016 /* cell.camix.metal */,
+				8070495F23378ADB0001617D /* cell.fred.metal */,
+				8070496023378ADB0001617D /* cell.ave.metal */,
+				8070496123378ADB0001617D /* cell.mod.metal */,
+				8070496223378ADB0001617D /* cell.fade.metal */,
+				8070496423378ADB0001617D /* cell.tunl.metal */,
+				8070496523378ADB0001617D /* cell.erode.metal */,
+				8070496623378ADB0001617D /* cell.zha.metal */,
+				8070496823378ADB0001617D /* cell.melt.metal */,
+				8070496A23378ADB0001617D /* cell.slide.metal */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		8070496B23378ADB0001617D /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				8070496C23378ADB0001617D /* SkyView.swift */,
+				8070496D23378ADB0001617D /* TouchFinger.swift */,
+				8070496F23378ADB0001617D /* TouchItem.swift */,
+				8070497023378ADB0001617D /* SkyDraw.swift */,
+			);
+			path = Touch;
+			sourceTree = "<group>";
+		};
+		80704A3023378B000001617D /* SkyTr3 */ = {
+			isa = PBXGroup;
+			children = (
+				8070495C23378ADB0001617D /* SkyTr3.swift */,
+				807962D42558C031005BBFA6 /* sky.tr3.h */,
+				807962D32558C031005BBFA6 /* midi.tr3.h */,
+				80B8ACA72375E6A100F80DB0 /* shader */,
+				80B8ACA62375E65900F80DB0 /* panel.cell */,
+			);
+			path = SkyTr3;
+			sourceTree = "<group>";
+		};
+		80704A7623378C1A0001617D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80704A7723378C1A0001617D /* Metal.framework */,
+				80704A7823378C1B0001617D /* MetalKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		808E90D723384C94004EB9C9 /* MuFiles */ = {
+			isa = PBXGroup;
+			children = (
+				808E90D823384CCD004EB9C9 /* MuFile.swift */,
+				8037637526AB7EB600F2363C /* MuArchive.swift */,
+				8037637726AB885100F2363C /* MuFile-extras.swift */,
+				808E90DD2338B532004EB9C9 /* FileManager+extension.swift */,
+			);
+			path = MuFiles;
+			sourceTree = "<group>";
+		};
+		8097DC472833E2A300059A59 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8070497723378ADB0001617D /* SkyMain.swift */,
+				8070497423378ADB0001617D /* SkyVC.swift */,
+				8070497323378ADB0001617D /* SkyPipeline.swift */,
+				80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */,
+				8070497223378ADB0001617D /* WorkLink.swift */,
+				8070497523378ADB0001617D /* SkyMetal.swift */,
+				8070497823378ADB0001617D /* SkyColor.swift */,
+				8070497923378ADB0001617D /* SkyDock.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		80B8ACA62375E65900F80DB0 /* panel.cell */ = {
+			isa = PBXGroup;
+			children = (
+				807962B02558B68E005BBFA6 /* panel.camera.tr3.h */,
+				807962AF2558B68E005BBFA6 /* panel.cell.tr3.h */,
+				80B8ACCC23761BF500F80DB0 /* other */,
+				80B8ACA82375E6CD00F80DB0 /* rule */,
+			);
+			path = panel.cell;
+			sourceTree = "<group>";
+		};
+		80B8ACA72375E6A100F80DB0 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				8079629F2558B110005BBFA6 /* sky.shader.tr3.h */,
+				807962A12558B110005BBFA6 /* panel.shader.tile.tr3.h */,
+				807962A02558B110005BBFA6 /* panel.shader.weave.tr3.h */,
+				802650DD25574BC9005B4119 /* panel.shader.color.tr3.h */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+		80B8ACA82375E6CD00F80DB0 /* rule */ = {
+			isa = PBXGroup;
+			children = (
+				807962E32558C3B2005BBFA6 /* panel.cell.ave.tr3.h */,
+				807962E22558C3B2005BBFA6 /* panel.cell.drift.tr3.h */,
+				807962E12558C3B2005BBFA6 /* panel.cell.fade.tr3.h */,
+				807962E82558C3B3005BBFA6 /* panel.cell.fred.tr3.h */,
+				807962DF2558C3B2005BBFA6 /* panel.cell.gas.tr3.h */,
+				807962E52558C3B3005BBFA6 /* panel.cell.melt.tr3.h */,
+				807962E62558C3B3005BBFA6 /* panel.cell.mod.tr3.h */,
+				807962E72558C3B3005BBFA6 /* panel.cell.slide.tr3.h */,
+				807962E02558C3B2005BBFA6 /* panel.cell.tunl.tr3.h */,
+				807962E42558C3B2005BBFA6 /* panel.cell.zha.tr3.h */,
+			);
+			path = rule;
+			sourceTree = "<group>";
+		};
+		80B8ACCC23761BF500F80DB0 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				802650EB25575DBF005B4119 /* panel.cell.scroll.tr3.h */,
+				807962BF2558BB69005BBFA6 /* panel.cell.brush.tr3.h */,
+				807962BE2558BB69005BBFA6 /* panel.cell.camera.tr3.h */,
+				807962C12558BB69005BBFA6 /* panel.cell.midi.tr3.h */,
+				807962C02558BB69005BBFA6 /* panel.record.tr3.h */,
+				807962C22558BB69005BBFA6 /* panel.cell.speed.tr3.h */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		80B9E12325169B6F0074AEEA /* MuAudio */ = {
+			isa = PBXGroup;
+			children = (
+				80B9E12425169D0E0074AEEA /* MuMidi.swift */,
+				80892A0C26A9D6B300332A15 /* MuAudio.swift */,
+			);
+			path = MuAudio;
+			sourceTree = "<group>";
+		};
+		80D045EF2597A6D3008DBF6B /* Scratch */ = {
+			isa = PBXGroup;
+			children = (
+				8082FD8624B2589A002F880A /* scratch1.h */,
+				8070497B23378ADB0001617D /* scratch2.h */,
+				80437B6627D0717800348513 /* scratch3.h */,
+				8079629E2558A415005BBFA6 /* sketch.h */,
+			);
+			path = Scratch;
+			sourceTree = "<group>";
+		};
+		80D6AAAA264C829600CBAF99 /* tr3_maybe */ = {
+			isa = PBXGroup;
+			children = (
+				802FD54B2649976D00564B19 /* sky.main.py */,
+				802FD54C26499E6F00564B19 /* sky.midi.tr3.py */,
+				802FD54D2649A1F700564B19 /* sky.shader.tr3.py */,
+				802FD54E2649A2C200564B19 /* panel.shader.tile.tr3.py */,
+				802FD54F2649A6B100564B19 /* panel.cell.ave.tr3.py */,
+				802650D025574388005B4119 /* panel.shader.color.json */,
+			);
+			path = tr3_maybe;
+			sourceTree = "<group>";
+		};
+		80F23D31288CE16F003AC055 /* MuDraw */ = {
+			isa = PBXGroup;
+			children = (
+				80F23D32288CE16F003AC055 /* MuDrawBox.swift */,
+				80F23D33288CE16F003AC055 /* MuDrawBubble.swift */,
+				80F23D34288CE16F003AC055 /* ColorRGBA.swift */,
+				80F23D35288CE16F003AC055 /* MuBezel.swift */,
+				80F23D36288CE16F003AC055 /* MuDrawCircle.swift */,
+			);
+			path = MuDraw;
+			sourceTree = "<group>";
+		};
+		80F23D45288CE45D003AC055 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				80F23D46288CE45D003AC055 /* MuColor */,
+				80F23D4A288CE7AB003AC055 /* MuMetal */,
+				80F23D4D288CE8F3003AC055 /* MuCubic */,
+				80F23D50288CE93F003AC055 /* MuUtilities */,
+				80F23D53288CE96E003AC055 /* Tr3Thumb */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		807048E623378A090001617D /* MuseSky2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2" */;
+			buildPhases = (
+				807048E323378A090001617D /* Sources */,
+				807048E423378A090001617D /* Frameworks */,
+				807048E523378A090001617D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MuseSky2;
+			packageProductDependencies = (
+				80704B3B23378DB40001617D /* Tr3 */,
+				808E90DB2338B4D0004EB9C9 /* ZIPFoundation */,
+				80B70CC32576ACDE007BAAA8 /* AudioKit */,
+				802C5BCF265AEC6000DBFFEA /* Par */,
+				80F23D4B288CE7B8003AC055 /* MuMetal */,
+				80F23D4E288CE923003AC055 /* MuCubic */,
+				80F23D51288CE94B003AC055 /* MuUtilities */,
+				80F23D54288CE97E003AC055 /* Tr3Thumb */,
+				80F23D56288CE9CE003AC055 /* MuColor */,
+			);
+			productName = MuseSky;
+			productReference = 807048E723378A090001617D /* Muse Sky.app */;
+			productType = "com.apple.product-type.application";
+		};
+		807048FC23378A0B0001617D /* MuseSky2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8070491423378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2Tests" */;
+			buildPhases = (
+				807048F923378A0B0001617D /* Sources */,
+				807048FA23378A0B0001617D /* Frameworks */,
+				807048FB23378A0B0001617D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				807048FF23378A0B0001617D /* PBXTargetDependency */,
+			);
+			name = MuseSky2Tests;
+			productName = MuseSkyTests;
+			productReference = 807048FD23378A0B0001617D /* MuseSky2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8070490723378A0B0001617D /* MuseSky2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8070491723378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2UITests" */;
+			buildPhases = (
+				8070490423378A0B0001617D /* Sources */,
+				8070490523378A0B0001617D /* Frameworks */,
+				8070490623378A0B0001617D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8070490A23378A0B0001617D /* PBXTargetDependency */,
+			);
+			name = MuseSky2UITests;
+			productName = MuseSkyUITests;
+			productReference = 8070490823378A0B0001617D /* MuseSky2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		807048DF23378A090001617D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1400;
+				ORGANIZATIONNAME = Muse;
+				TargetAttributes = {
+					807048E623378A090001617D = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					807048FC23378A0B0001617D = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 807048E623378A090001617D;
+					};
+					8070490723378A0B0001617D = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 807048E623378A090001617D;
+					};
+				};
+			};
+			buildConfigurationList = 807048E223378A090001617D /* Build configuration list for PBXProject "MuseSky2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 807048DE23378A090001617D;
+			packageReferences = (
+				80704B3A23378DB40001617D /* XCRemoteSwiftPackageReference "Tr3" */,
+				808E90DA2338B4D0004EB9C9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */,
+			);
+			productRefGroup = 807048E823378A090001617D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				807048E623378A090001617D /* MuseSky2 */,
+				807048FC23378A0B0001617D /* MuseSky2Tests */,
+				8070490723378A0B0001617D /* MuseSky2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		807048E523378A090001617D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807962A22558B110005BBFA6 /* sky.shader.tr3.h in Resources */,
+				802650EC25575DBF005B4119 /* panel.cell.scroll.tr3.h in Resources */,
+				807962B12558B68E005BBFA6 /* panel.cell.tr3.h in Resources */,
+				807962C32558BB69005BBFA6 /* panel.cell.camera.tr3.h in Resources */,
+				807962C42558BB69005BBFA6 /* panel.cell.brush.tr3.h in Resources */,
+				807962ED2558C3B3005BBFA6 /* panel.cell.ave.tr3.h in Resources */,
+				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
+				807962D62558C031005BBFA6 /* sky.tr3.h in Resources */,
+				807962C62558BB69005BBFA6 /* panel.cell.midi.tr3.h in Resources */,
+				80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */,
+				807962B22558B68E005BBFA6 /* panel.camera.tr3.h in Resources */,
+				802650DE25574BC9005B4119 /* panel.shader.color.tr3.h in Resources */,
+				807962EA2558C3B3005BBFA6 /* panel.cell.tunl.tr3.h in Resources */,
+				807962D52558C031005BBFA6 /* midi.tr3.h in Resources */,
+				807962A32558B110005BBFA6 /* panel.shader.weave.tr3.h in Resources */,
+				807962C72558BB69005BBFA6 /* panel.cell.speed.tr3.h in Resources */,
+				807962EF2558C3B3005BBFA6 /* panel.cell.melt.tr3.h in Resources */,
+				807962C52558BB69005BBFA6 /* panel.record.tr3.h in Resources */,
+				807962F02558C3B3005BBFA6 /* panel.cell.mod.tr3.h in Resources */,
+				807962EB2558C3B3005BBFA6 /* panel.cell.fade.tr3.h in Resources */,
+				807962EE2558C3B3005BBFA6 /* panel.cell.zha.tr3.h in Resources */,
+				807962E92558C3B3005BBFA6 /* panel.cell.gas.tr3.h in Resources */,
+				807962F12558C3B3005BBFA6 /* panel.cell.slide.tr3.h in Resources */,
+				807962A42558B110005BBFA6 /* panel.shader.tile.tr3.h in Resources */,
+				807962EC2558C3B3005BBFA6 /* panel.cell.drift.tr3.h in Resources */,
+				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,
+				807962F22558C3B3005BBFA6 /* panel.cell.fred.tr3.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		807048FB23378A0B0001617D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8070490623378A0B0001617D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		807048E323378A090001617D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
+				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
+				80F23D3A288CE16F003AC055 /* MuBezel.swift in Sources */,
+				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
+				80704A0023378ADC0001617D /* WorkLink.swift in Sources */,
+				807049FA23378ADC0001617D /* SkyView.swift in Sources */,
+				808E90DE2338B532004EB9C9 /* FileManager+extension.swift in Sources */,
+				80F23D3B288CE16F003AC055 /* MuDrawCircle.swift in Sources */,
+				807049F623378ADC0001617D /* pipe.draw.metal in Sources */,
+				80703D3D23A04F570093C016 /* cell.camix.metal in Sources */,
+				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
+				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
+				807048EB23378A090001617D /* AppDelegate.swift in Sources */,
+				8037637826AB885100F2363C /* MuFile-extras.swift in Sources */,
+				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
+				807049ED23378ADC0001617D /* SkyTr3.swift in Sources */,
+				807048ED23378A090001617D /* SceneDelegate.swift in Sources */,
+				80F23D37288CE16F003AC055 /* MuDrawBox.swift in Sources */,
+				80704A0623378ADC0001617D /* SkyColor.swift in Sources */,
+				80F23D39288CE16F003AC055 /* ColorRGBA.swift in Sources */,
+				807049FE23378ADC0001617D /* SkyDraw.swift in Sources */,
+				807049F523378ADC0001617D /* cell.zha.metal in Sources */,
+				807049F923378ADC0001617D /* cell.slide.metal in Sources */,
+				80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */,
+				80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */,
+				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
+				807049FD23378ADC0001617D /* TouchItem.swift in Sources */,
+				80B9E12525169D0E0074AEEA /* MuMidi.swift in Sources */,
+				807049FB23378ADC0001617D /* TouchFinger.swift in Sources */,
+				807049EE23378ADC0001617D /* cell.fred.metal in Sources */,
+				80704A0223378ADC0001617D /* SkyVC.swift in Sources */,
+				80F23D38288CE16F003AC055 /* MuDrawBubble.swift in Sources */,
+				807049F823378ADC0001617D /* pipe.render.metal in Sources */,
+				807049F023378ADC0001617D /* cell.mod.metal in Sources */,
+				80F846E1234D016A009022F7 /* cell.camera.metal in Sources */,
+				80704A0723378ADC0001617D /* SkyDock.swift in Sources */,
+				80704A0323378ADC0001617D /* SkyMetal.swift in Sources */,
+				8037637626AB7EB600F2363C /* MuArchive.swift in Sources */,
+				808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */,
+				807049F423378ADC0001617D /* cell.erode.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		807048F923378A0B0001617D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8070490223378A0B0001617D /* MuseSkyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8070490423378A0B0001617D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8070490D23378A0B0001617D /* MuseSkyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		807048FF23378A0B0001617D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 807048E623378A090001617D /* MuseSky2 */;
+			targetProxy = 807048FE23378A0B0001617D /* PBXContainerItemProxy */;
+		};
+		8070490A23378A0B0001617D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 807048E623378A090001617D /* MuseSky2 */;
+			targetProxy = 8070490923378A0B0001617D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8070490F23378A0B0001617D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		8070491023378A0B0001617D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		8070491223378A0B0001617D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = MuseSky/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSky2;
+				PRODUCT_NAME = "Muse Sky";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.7;
+			};
+			name = Debug;
+		};
+		8070491323378A0B0001617D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = MuseSky/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSky2;
+				PRODUCT_NAME = "Muse Sky";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.7;
+			};
+			name = Release;
+		};
+		8070491523378A0B0001617D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = MuseSkyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MuseSky2.app/MuseSky2";
+			};
+			name = Debug;
+		};
+		8070491623378A0B0001617D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = MuseSkyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSkyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MuseSky2.app/MuseSky2";
+			};
+			name = Release;
+		};
+		8070491823378A0B0001617D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = MuseSkyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSkyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MuseSky;
+			};
+			name = Debug;
+		};
+		8070491923378A0B0001617D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = MuseSkyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSkyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MuseSky;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		807048E223378A090001617D /* Build configuration list for PBXProject "MuseSky2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8070490F23378A0B0001617D /* Debug */,
+				8070491023378A0B0001617D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8070491223378A0B0001617D /* Debug */,
+				8070491323378A0B0001617D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8070491423378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8070491523378A0B0001617D /* Debug */,
+				8070491623378A0B0001617D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8070491723378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8070491823378A0B0001617D /* Debug */,
+				8070491923378A0B0001617D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/Par.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.11;
+			};
+		};
+		8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		80704B3A23378DB40001617D /* XCRemoteSwiftPackageReference "Tr3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/Tr3.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.11;
+			};
+		};
+		808E90DA2338B4D0004EB9C9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		802C5BCF265AEC6000DBFFEA /* Par */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */;
+			productName = Par;
+		};
+		80704B3B23378DB40001617D /* Tr3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80704B3A23378DB40001617D /* XCRemoteSwiftPackageReference "Tr3" */;
+			productName = Tr3;
+		};
+		808E90DB2338B4D0004EB9C9 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 808E90DA2338B4D0004EB9C9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		80B70CC32576ACDE007BAAA8 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		80F23D4B288CE7B8003AC055 /* MuMetal */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MuMetal;
+		};
+		80F23D4E288CE923003AC055 /* MuCubic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MuCubic;
+		};
+		80F23D51288CE94B003AC055 /* MuUtilities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MuUtilities;
+		};
+		80F23D54288CE97E003AC055 /* Tr3Thumb */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tr3Thumb;
+		};
+		80F23D56288CE9CE003AC055 /* MuColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MuColor;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 807048DF23378A090001617D /* Project object */;
+}
