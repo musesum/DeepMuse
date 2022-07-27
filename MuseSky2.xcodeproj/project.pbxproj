@@ -73,6 +73,7 @@
 		80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */; };
 		80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B70CC32576ACDE007BAAA8 /* AudioKit */; };
 		80B9E12525169D0E0074AEEA /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9E12425169D0E0074AEEA /* MuMidi.swift */; };
+		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */; };
 		80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
@@ -118,6 +119,7 @@
 		8037637526AB7EB600F2363C /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
 		8037637726AB885100F2363C /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* scratch3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch3.h; sourceTree = "<group>"; };
+		80542DF32891AAB1001F2650 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				802C5BD0265AEC6000DBFFEA /* Par in Frameworks */,
+				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
 				80F23D55288CE97E003AC055 /* Tr3Thumb in Frameworks */,
 				80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */,
 				80704B3C23378DB40001617D /* Tr3 in Frameworks */,
@@ -250,6 +253,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				80542DF32891AAB1001F2650 /* MuMenu */,
 				80F23D45288CE45D003AC055 /* Packages */,
 				80F23D31288CE16F003AC055 /* MuDraw */,
 				802C5BD1265B2D3700DBFFEA /* Xplore */,
@@ -531,6 +535,7 @@
 				80F23D51288CE94B003AC055 /* MuUtilities */,
 				80F23D54288CE97E003AC055 /* Tr3Thumb */,
 				80F23D56288CE9CE003AC055 /* MuColor */,
+				80BDD7C928919CF000C6E2BF /* MuMenu */,
 			);
 			productName = MuseSky;
 			productReference = 807048E723378A090001617D /* Muse Sky.app */;
@@ -609,6 +614,7 @@
 				808E90DA2338B4D0004EB9C9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */,
+				80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
 			projectDirPath = "";
@@ -882,7 +888,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = MuseSky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -906,7 +912,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = MuseSky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1084,6 +1090,14 @@
 				minimumVersion = 0.9.9;
 			};
 		};
+		80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuMenu";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1106,6 +1120,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */;
 			productName = AudioKit;
+		};
+		80BDD7C928919CF000C6E2BF /* MuMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */;
+			productName = MuMenu;
 		};
 		80F23D4B288CE7B8003AC055 /* MuMetal */ = {
 			isa = XCSwiftPackageProductDependency;
