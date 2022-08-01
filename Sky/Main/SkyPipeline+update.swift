@@ -3,7 +3,7 @@
 //  MuseSky
 //
 //  Created by warren on 12/11/19.
-//  CCopyright © 2019 DeepMuse All rights reserved.
+//  Copyright © 2019 DeepMuse All rights reserved.
 //
 
 import Foundation
