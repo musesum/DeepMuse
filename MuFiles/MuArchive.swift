@@ -74,7 +74,7 @@ class MuArchive {
         if let entry = archive[filename] {
             var dataRet = Data()
             do {
-                _ = try archive.extract(entry, bufferSize: UInt32(bufSize))  { data in
+                _ = try archive.extract(entry, bufferSize: Int(bufSize))  { data in
                     dataRet.append(data)
                 }
                 callback(dataRet)

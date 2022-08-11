@@ -64,17 +64,17 @@ class SkyDraw: NSObject {
         // if using Apple Pencil and brush tilt is turned on
         if item.force > 0, brushTilt {
             let azi = CGPoint(x: -item.azimuth.dy, y: -item.azimuth.dx)
-            inAzimuth˚?.setVal(azi, [.activate]) // will update local azimuth via Tr3Graph
+            inAzimuth˚?.setAny(azi, [.activate]) // will update local azimuth via Tr3Graph
         }
         
         // if brush press is turned on
         var radiusNow = CGFloat(1)
         if brushPress  {
             if inForce > 0 || item.azimuth.dx != 0.0 {
-                inForce˚?.setVal(item.force, [.activate]) // will update local azimuth via Tr3Graph
+                inForce˚?.setAny(item.force, [.activate]) // will update local azimuth via Tr3Graph
                 radiusNow = brushSize
             } else {
-                inRadius˚?.setVal(item.radius, [.activate])
+                inRadius˚?.setAny(item.radius, [.activate])
                 radiusNow = inRadius
             }
         }
@@ -95,8 +95,8 @@ class SkyDraw: NSObject {
         var radius = radius
         if brushPress {
 
-            inRadius˚?.setVal(radius, [])
-            brushSize˚?.setVal(radius, [.activate]) // will update brushSize via closure
+            inRadius˚?.setAny(radius, [])
+            brushSize˚?.setAny(radius, [.activate]) // will update brushSize via closure
             radius = brushSize
         }
 

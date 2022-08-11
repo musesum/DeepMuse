@@ -62,7 +62,7 @@ class WorkLink: NSObject {
             // tr3Osc?.oscReceiverLoop()
 
             WorkLink.goAppCount += 1
-            mainFrame˚?.setVal(WorkLink.goAppCount, [.activate])
+            mainFrame˚?.setAny(WorkLink.goAppCount, [.activate])
 
             WorkLink.goAppBlock = false
         }

@@ -1,10 +1,6 @@
-//
-//  MuDrawBubble.swift
-//  Tr3Thumb
-//
+
 //  Created by warren on 7/17/19.
 //  Copyright © 2019 DeepMuse All rights reserved.
-//
 
 import UIKit
 import QuartzCore

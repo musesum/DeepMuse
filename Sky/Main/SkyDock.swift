@@ -1,14 +1,8 @@
-//
-//  SkyDock.swift
-//  Tr3Sky
-//
 //  Created by warren on 9/9/19.
-//  CCopyright © 2019 DeepMuse All rights reserved.
-//
+//  Copyright © 2019 DeepMuse All rights reserved.
 
 import Foundation
 import Tr3
-import Tr3Thumb
 
 class SkyDock {
 
@@ -68,7 +62,7 @@ class SkyDock {
 
         let panelName = "panel.cell.\(selectName).controls"
         let controls = tr3Root.findPath(panelName)
-        controls?.findPath("ruleOn.value")?.setVal(1, [.activate])
-        controls?.findPath("bitplane.value")?.setVal(0.30, [.activate])
+        controls?.findPath("ruleOn.value")?.setAny(1, [.activate])
+        controls?.findPath("bitplane.value")?.setAny(0.30, [.activate])
     }
 }

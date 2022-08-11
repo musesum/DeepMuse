@@ -3,7 +3,7 @@
 //  MuseSky
 //
 //  Created by warren on 9/22/19.
-//  CCopyright © 2019 DeepMuse All rights reserved.
+//  Copyright © 2019 DeepMuse All rights reserved.
 //
 import AudioKit
 import UIKit

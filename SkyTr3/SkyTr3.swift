@@ -128,28 +128,29 @@ class SkyTr3: NSObject {
             let _ = Tr3Parse.shared.parseTr3(root, fileName)
         }
 
-        parseFile("sky")
+        parseFile("sky.main")
         parseFile("sky.shader")
-        parseFile("midi")
-        parseFile("panel.cell")
-        parseFile("panel.camera")
-        parseFile("panel.cell.fade")
-        parseFile("panel.cell.ave")
-        parseFile("panel.cell.melt")
-        parseFile("panel.cell.tunl")
-        parseFile("panel.cell.zha")
-        parseFile("panel.cell.slide")
-        parseFile("panel.cell.fred")
-
-        parseFile("panel.cell.brush")
-        parseFile("panel.shader.color")
-        parseFile("panel.cell.scroll")
-        parseFile("panel.shader.tile")
-        parseFile("panel.cell.camera")
-        parseFile("panel.record")
-        parseFile("panel.cell.speed")
-        //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false) //???
-        let script = root.dumpScript(indent: 0) // with values
+//???        parseFile("midi")
+//        parseFile("panel.cell")
+//        parseFile("panel.camera")
+//        parseFile("panel.cell.fade")
+//        parseFile("panel.cell.ave")
+//        parseFile("panel.cell.melt")
+//        parseFile("panel.cell.tunl")
+//        parseFile("panel.cell.zha")
+//        parseFile("panel.cell.slide")
+//        parseFile("panel.cell.fred")
+//
+//        parseFile("panel.cell.brush")
+//        parseFile("panel.shader.color")
+//        parseFile("panel.cell.scroll")
+//        parseFile("panel.shader.tile")
+//        parseFile("panel.cell.camera")
+//        parseFile("panel.record")
+//        parseFile("panel.cell.speed")
+        //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false)
+        //?? let script = root.dumpScript(indent: 0) // with values
+        let script = root.scriptRoot()
         print("\n\n" + script + "\n\n")
     }
 }

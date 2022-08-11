@@ -60,7 +60,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        noteOn˚?.setVal(tuple, setOptions)
+        noteOn˚?.setAny(tuple, setOptions)
     }
 
     func noteOff(_ num: MIDINoteNumber,
@@ -75,7 +75,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        noteOff˚?.setVal(tuple, setOptions)
+        noteOff˚?.setAny(tuple, setOptions)
     }
 
     func controller(_ ctrl: MIDIByte,
@@ -91,7 +91,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        controller˚?.setVal(tuple, setOptions)
+        controller˚?.setAny(tuple, setOptions)
     }
 
     func aftertouch(_ num: MIDINoteNumber,
@@ -107,7 +107,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        afterTouch˚?.setVal(tuple, setOptions)
+        afterTouch˚?.setAny(tuple, setOptions)
     }
 
     func aftertouch(_ val: MIDIByte,
@@ -121,7 +121,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        afterTouch˚?.setVal(tuple, setOptions)
+        afterTouch˚?.setAny(tuple, setOptions)
     }
 
     func pitchWheel(_ val: MIDIWord,
@@ -135,7 +135,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        pitchBend˚?.setVal(tuple, setOptions)
+        pitchBend˚?.setAny(tuple, setOptions)
     }
 
     func programChange(_ num: MIDIByte,
@@ -149,7 +149,7 @@ class MidiTr3 {
             ("port", port ?? 0),
             ("time", time ?? 0)]
 
-        programChange˚?.setVal(tuple, setOptions)
+        programChange˚?.setAny(tuple, setOptions)
     }
 }
 

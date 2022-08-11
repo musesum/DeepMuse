@@ -1,10 +1,5 @@
-//
-//  ColorRGBA.swift
-//  Tr3Thumb
-//
 //  Created by warren on 7/17/19.
-//  CCopyright © 2019 DeepMuse All rights reserved.
-//
+//  Copyright © 2019 DeepMuse All rights reserved.
 
 import Foundation
 import QuartzCore

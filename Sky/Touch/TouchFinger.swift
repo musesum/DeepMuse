@@ -4,7 +4,7 @@
 //  Sky
 //
 //  Created by warren on 2/5/19.
-//  CCopyright © 2019 DeepMuse All rights reserved.
+//  Copyright © 2019 DeepMuse All rights reserved.
 //
 
 import Foundation

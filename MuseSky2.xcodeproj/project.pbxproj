@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		802650DE25574BC9005B4119 /* panel.shader.color.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 802650DD25574BC9005B4119 /* panel.shader.color.tr3.h */; };
-		802650EC25575DBF005B4119 /* panel.cell.scroll.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 802650EB25575DBF005B4119 /* panel.cell.scroll.tr3.h */; };
+		8017909528A219FF0013F48A /* MuMenuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 8017909428A219FF0013F48A /* MuMenuSky */; };
 		802C5BD0265AEC6000DBFFEA /* Par in Frameworks */ = {isa = PBXBuildFile; productRef = 802C5BCF265AEC6000DBFFEA /* Par */; };
 		8037637626AB7EB600F2363C /* MuArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037637526AB7EB600F2363C /* MuArchive.swift */; };
 		8037637826AB885100F2363C /* MuFile-extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037637726AB885100F2363C /* MuFile-extras.swift */; };
@@ -40,37 +39,18 @@
 		80704A0323378ADC0001617D /* SkyMetal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497523378ADB0001617D /* SkyMetal.swift */; };
 		80704A0523378ADC0001617D /* SkyMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497723378ADB0001617D /* SkyMain.swift */; };
 		80704A0623378ADC0001617D /* SkyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497823378ADB0001617D /* SkyColor.swift */; };
-		80704A0723378ADC0001617D /* SkyDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497923378ADB0001617D /* SkyDock.swift */; };
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		80704B3C23378DB40001617D /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 80704B3B23378DB40001617D /* Tr3 */; };
 		807962A22558B110005BBFA6 /* sky.shader.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8079629F2558B110005BBFA6 /* sky.shader.tr3.h */; };
-		807962A32558B110005BBFA6 /* panel.shader.weave.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962A02558B110005BBFA6 /* panel.shader.weave.tr3.h */; };
-		807962A42558B110005BBFA6 /* panel.shader.tile.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962A12558B110005BBFA6 /* panel.shader.tile.tr3.h */; };
-		807962B12558B68E005BBFA6 /* panel.cell.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962AF2558B68E005BBFA6 /* panel.cell.tr3.h */; };
-		807962B22558B68E005BBFA6 /* panel.camera.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962B02558B68E005BBFA6 /* panel.camera.tr3.h */; };
-		807962C32558BB69005BBFA6 /* panel.cell.camera.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962BE2558BB69005BBFA6 /* panel.cell.camera.tr3.h */; };
-		807962C42558BB69005BBFA6 /* panel.cell.brush.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962BF2558BB69005BBFA6 /* panel.cell.brush.tr3.h */; };
-		807962C52558BB69005BBFA6 /* panel.record.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962C02558BB69005BBFA6 /* panel.record.tr3.h */; };
-		807962C62558BB69005BBFA6 /* panel.cell.midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962C12558BB69005BBFA6 /* panel.cell.midi.tr3.h */; };
-		807962C72558BB69005BBFA6 /* panel.cell.speed.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962C22558BB69005BBFA6 /* panel.cell.speed.tr3.h */; };
 		807962D52558C031005BBFA6 /* midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D32558C031005BBFA6 /* midi.tr3.h */; };
-		807962D62558C031005BBFA6 /* sky.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.tr3.h */; };
-		807962E92558C3B3005BBFA6 /* panel.cell.gas.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962DF2558C3B2005BBFA6 /* panel.cell.gas.tr3.h */; };
-		807962EA2558C3B3005BBFA6 /* panel.cell.tunl.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E02558C3B2005BBFA6 /* panel.cell.tunl.tr3.h */; };
-		807962EB2558C3B3005BBFA6 /* panel.cell.fade.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E12558C3B2005BBFA6 /* panel.cell.fade.tr3.h */; };
-		807962EC2558C3B3005BBFA6 /* panel.cell.drift.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E22558C3B2005BBFA6 /* panel.cell.drift.tr3.h */; };
-		807962ED2558C3B3005BBFA6 /* panel.cell.ave.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E32558C3B2005BBFA6 /* panel.cell.ave.tr3.h */; };
-		807962EE2558C3B3005BBFA6 /* panel.cell.zha.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E42558C3B2005BBFA6 /* panel.cell.zha.tr3.h */; };
-		807962EF2558C3B3005BBFA6 /* panel.cell.melt.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E52558C3B3005BBFA6 /* panel.cell.melt.tr3.h */; };
-		807962F02558C3B3005BBFA6 /* panel.cell.mod.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E62558C3B3005BBFA6 /* panel.cell.mod.tr3.h */; };
-		807962F12558C3B3005BBFA6 /* panel.cell.slide.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E72558C3B3005BBFA6 /* panel.cell.slide.tr3.h */; };
-		807962F22558C3B3005BBFA6 /* panel.cell.fred.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962E82558C3B3005BBFA6 /* panel.cell.fred.tr3.h */; };
+		807962D62558C031005BBFA6 /* sky.main.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.main.tr3.h */; };
 		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
 		808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90D823384CCD004EB9C9 /* MuFile.swift */; };
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
 		808E90DE2338B532004EB9C9 /* FileManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90DD2338B532004EB9C9 /* FileManager+extension.swift */; };
 		80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */; };
+		8096E08D28A190AB00EE2967 /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 8096E08C28A190AB00EE2967 /* Tr3 */; };
 		80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B70CC32576ACDE007BAAA8 /* AudioKit */; };
 		80B9E12525169D0E0074AEEA /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B9E12425169D0E0074AEEA /* MuMidi.swift */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
@@ -85,7 +65,6 @@
 		80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D4B288CE7B8003AC055 /* MuMetal */; };
 		80F23D4F288CE923003AC055 /* MuCubic in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D4E288CE923003AC055 /* MuCubic */; };
 		80F23D52288CE94B003AC055 /* MuUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D51288CE94B003AC055 /* MuUtilities */; };
-		80F23D55288CE97E003AC055 /* Tr3Thumb in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D54288CE97E003AC055 /* Tr3Thumb */; };
 		80F23D57288CE9CE003AC055 /* MuColor in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D56288CE9CE003AC055 /* MuColor */; };
 		80F846E1234D016A009022F7 /* cell.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80F846E0234D016A009022F7 /* cell.camera.metal */; };
 /* End PBXBuildFile section */
@@ -108,18 +87,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8020C01428A571AB0059258A /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3/Tr3; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = panel.shader.color.json; sourceTree = "<group>"; };
-		802650DD25574BC9005B4119 /* panel.shader.color.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.shader.color.tr3.h; sourceTree = "<group>"; };
-		802650EB25575DBF005B4119 /* panel.cell.scroll.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.scroll.tr3.h; sourceTree = "<group>"; };
 		802FD54B2649976D00564B19 /* sky.main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.main.py; sourceTree = "<group>"; };
 		802FD54C26499E6F00564B19 /* sky.midi.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.midi.tr3.py; sourceTree = "<group>"; };
-		802FD54D2649A1F700564B19 /* sky.shader.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.shader.tr3.py; sourceTree = "<group>"; };
-		802FD54E2649A2C200564B19 /* panel.shader.tile.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = panel.shader.tile.tr3.py; sourceTree = "<group>"; };
-		802FD54F2649A6B100564B19 /* panel.cell.ave.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = panel.cell.ave.tr3.py; sourceTree = "<group>"; };
 		8037637526AB7EB600F2363C /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
 		8037637726AB885100F2363C /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* scratch3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch3.h; sourceTree = "<group>"; };
-		80542DF32891AAB1001F2650 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
+		8055DD9B289F34090088927E /* menu.tr3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menu.tr3.h; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,27 +136,8 @@
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		8079629E2558A415005BBFA6 /* sketch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sketch.h; sourceTree = "<group>"; };
 		8079629F2558B110005BBFA6 /* sky.shader.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.shader.tr3.h; sourceTree = "<group>"; };
-		807962A02558B110005BBFA6 /* panel.shader.weave.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.shader.weave.tr3.h; sourceTree = "<group>"; };
-		807962A12558B110005BBFA6 /* panel.shader.tile.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.shader.tile.tr3.h; sourceTree = "<group>"; };
-		807962AF2558B68E005BBFA6 /* panel.cell.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.tr3.h; sourceTree = "<group>"; };
-		807962B02558B68E005BBFA6 /* panel.camera.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.camera.tr3.h; sourceTree = "<group>"; };
-		807962BE2558BB69005BBFA6 /* panel.cell.camera.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.camera.tr3.h; sourceTree = "<group>"; };
-		807962BF2558BB69005BBFA6 /* panel.cell.brush.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.brush.tr3.h; sourceTree = "<group>"; };
-		807962C02558BB69005BBFA6 /* panel.record.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.record.tr3.h; sourceTree = "<group>"; };
-		807962C12558BB69005BBFA6 /* panel.cell.midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.midi.tr3.h; sourceTree = "<group>"; };
-		807962C22558BB69005BBFA6 /* panel.cell.speed.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.speed.tr3.h; sourceTree = "<group>"; };
 		807962D32558C031005BBFA6 /* midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = midi.tr3.h; sourceTree = "<group>"; };
-		807962D42558C031005BBFA6 /* sky.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.tr3.h; sourceTree = "<group>"; };
-		807962DF2558C3B2005BBFA6 /* panel.cell.gas.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.gas.tr3.h; sourceTree = "<group>"; };
-		807962E02558C3B2005BBFA6 /* panel.cell.tunl.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.tunl.tr3.h; sourceTree = "<group>"; };
-		807962E12558C3B2005BBFA6 /* panel.cell.fade.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.fade.tr3.h; sourceTree = "<group>"; };
-		807962E22558C3B2005BBFA6 /* panel.cell.drift.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.drift.tr3.h; sourceTree = "<group>"; };
-		807962E32558C3B2005BBFA6 /* panel.cell.ave.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.ave.tr3.h; sourceTree = "<group>"; };
-		807962E42558C3B2005BBFA6 /* panel.cell.zha.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.zha.tr3.h; sourceTree = "<group>"; };
-		807962E52558C3B3005BBFA6 /* panel.cell.melt.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.melt.tr3.h; sourceTree = "<group>"; };
-		807962E62558C3B3005BBFA6 /* panel.cell.mod.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.mod.tr3.h; sourceTree = "<group>"; };
-		807962E72558C3B3005BBFA6 /* panel.cell.slide.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.slide.tr3.h; sourceTree = "<group>"; };
-		807962E82558C3B3005BBFA6 /* panel.cell.fred.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = panel.cell.fred.tr3.h; sourceTree = "<group>"; };
+		807962D42558C031005BBFA6 /* sky.main.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.main.tr3.h; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		808E90D823384CCD004EB9C9 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
@@ -200,7 +156,6 @@
 		80F23D4A288CE7AB003AC055 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = Packages/MuMetal; sourceTree = "<group>"; };
 		80F23D4D288CE8F3003AC055 /* MuCubic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuCubic; path = Packages/MuCubic; sourceTree = "<group>"; };
 		80F23D50288CE93F003AC055 /* MuUtilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuUtilities; path = Packages/MuUtilities; sourceTree = "<group>"; };
-		80F23D53288CE96E003AC055 /* Tr3Thumb */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3Thumb; path = Packages/Tr3Thumb; sourceTree = "<group>"; };
 		80F846E0234D016A009022F7 /* cell.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camera.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,7 +166,6 @@
 			files = (
 				802C5BD0265AEC6000DBFFEA /* Par in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
-				80F23D55288CE97E003AC055 /* Tr3Thumb in Frameworks */,
 				80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */,
 				80704B3C23378DB40001617D /* Tr3 in Frameworks */,
 				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
@@ -220,6 +174,8 @@
 				808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */,
 				80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */,
 				80F23D52288CE94B003AC055 /* MuUtilities in Frameworks */,
+				8017909528A219FF0013F48A /* MuMenuSky in Frameworks */,
+				8096E08D28A190AB00EE2967 /* Tr3 in Frameworks */,
 				80F23D4F288CE923003AC055 /* MuCubic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,7 +209,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				80542DF32891AAB1001F2650 /* MuMenu */,
+				8020C01428A571AB0059258A /* Tr3 */,
 				80F23D45288CE45D003AC055 /* Packages */,
 				80F23D31288CE16F003AC055 /* MuDraw */,
 				802C5BD1265B2D3700DBFFEA /* Xplore */,
@@ -357,10 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				8070495C23378ADB0001617D /* SkyTr3.swift */,
-				807962D42558C031005BBFA6 /* sky.tr3.h */,
-				807962D32558C031005BBFA6 /* midi.tr3.h */,
-				80B8ACA72375E6A100F80DB0 /* shader */,
-				80B8ACA62375E65900F80DB0 /* panel.cell */,
+				8096E09028A1C99700EE2967 /* Tr3 */,
 			);
 			path = SkyTr3;
 			sourceTree = "<group>";
@@ -385,6 +338,17 @@
 			path = MuFiles;
 			sourceTree = "<group>";
 		};
+		8096E09028A1C99700EE2967 /* Tr3 */ = {
+			isa = PBXGroup;
+			children = (
+				8055DD9B289F34090088927E /* menu.tr3.h */,
+				807962D42558C031005BBFA6 /* sky.main.tr3.h */,
+				807962D32558C031005BBFA6 /* midi.tr3.h */,
+				8079629F2558B110005BBFA6 /* sky.shader.tr3.h */,
+			);
+			path = Tr3;
+			sourceTree = "<group>";
+		};
 		8097DC472833E2A300059A59 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,58 +362,6 @@
 				8070497923378ADB0001617D /* SkyDock.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		80B8ACA62375E65900F80DB0 /* panel.cell */ = {
-			isa = PBXGroup;
-			children = (
-				807962B02558B68E005BBFA6 /* panel.camera.tr3.h */,
-				807962AF2558B68E005BBFA6 /* panel.cell.tr3.h */,
-				80B8ACCC23761BF500F80DB0 /* other */,
-				80B8ACA82375E6CD00F80DB0 /* rule */,
-			);
-			path = panel.cell;
-			sourceTree = "<group>";
-		};
-		80B8ACA72375E6A100F80DB0 /* shader */ = {
-			isa = PBXGroup;
-			children = (
-				8079629F2558B110005BBFA6 /* sky.shader.tr3.h */,
-				807962A12558B110005BBFA6 /* panel.shader.tile.tr3.h */,
-				807962A02558B110005BBFA6 /* panel.shader.weave.tr3.h */,
-				802650DD25574BC9005B4119 /* panel.shader.color.tr3.h */,
-			);
-			path = shader;
-			sourceTree = "<group>";
-		};
-		80B8ACA82375E6CD00F80DB0 /* rule */ = {
-			isa = PBXGroup;
-			children = (
-				807962E32558C3B2005BBFA6 /* panel.cell.ave.tr3.h */,
-				807962E22558C3B2005BBFA6 /* panel.cell.drift.tr3.h */,
-				807962E12558C3B2005BBFA6 /* panel.cell.fade.tr3.h */,
-				807962E82558C3B3005BBFA6 /* panel.cell.fred.tr3.h */,
-				807962DF2558C3B2005BBFA6 /* panel.cell.gas.tr3.h */,
-				807962E52558C3B3005BBFA6 /* panel.cell.melt.tr3.h */,
-				807962E62558C3B3005BBFA6 /* panel.cell.mod.tr3.h */,
-				807962E72558C3B3005BBFA6 /* panel.cell.slide.tr3.h */,
-				807962E02558C3B2005BBFA6 /* panel.cell.tunl.tr3.h */,
-				807962E42558C3B2005BBFA6 /* panel.cell.zha.tr3.h */,
-			);
-			path = rule;
-			sourceTree = "<group>";
-		};
-		80B8ACCC23761BF500F80DB0 /* other */ = {
-			isa = PBXGroup;
-			children = (
-				802650EB25575DBF005B4119 /* panel.cell.scroll.tr3.h */,
-				807962BF2558BB69005BBFA6 /* panel.cell.brush.tr3.h */,
-				807962BE2558BB69005BBFA6 /* panel.cell.camera.tr3.h */,
-				807962C12558BB69005BBFA6 /* panel.cell.midi.tr3.h */,
-				807962C02558BB69005BBFA6 /* panel.record.tr3.h */,
-				807962C22558BB69005BBFA6 /* panel.cell.speed.tr3.h */,
-			);
-			path = other;
 			sourceTree = "<group>";
 		};
 		80B9E12325169B6F0074AEEA /* MuAudio */ = {
@@ -477,9 +389,6 @@
 			children = (
 				802FD54B2649976D00564B19 /* sky.main.py */,
 				802FD54C26499E6F00564B19 /* sky.midi.tr3.py */,
-				802FD54D2649A1F700564B19 /* sky.shader.tr3.py */,
-				802FD54E2649A2C200564B19 /* panel.shader.tile.tr3.py */,
-				802FD54F2649A6B100564B19 /* panel.cell.ave.tr3.py */,
 				802650D025574388005B4119 /* panel.shader.color.json */,
 			);
 			path = tr3_maybe;
@@ -504,7 +413,6 @@
 				80F23D4A288CE7AB003AC055 /* MuMetal */,
 				80F23D4D288CE8F3003AC055 /* MuCubic */,
 				80F23D50288CE93F003AC055 /* MuUtilities */,
-				80F23D53288CE96E003AC055 /* Tr3Thumb */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -533,9 +441,10 @@
 				80F23D4B288CE7B8003AC055 /* MuMetal */,
 				80F23D4E288CE923003AC055 /* MuCubic */,
 				80F23D51288CE94B003AC055 /* MuUtilities */,
-				80F23D54288CE97E003AC055 /* Tr3Thumb */,
 				80F23D56288CE9CE003AC055 /* MuColor */,
 				80BDD7C928919CF000C6E2BF /* MuMenu */,
+				8096E08C28A190AB00EE2967 /* Tr3 */,
+				8017909428A219FF0013F48A /* MuMenuSky */,
 			);
 			productName = MuseSky;
 			productReference = 807048E723378A090001617D /* Muse Sky.app */;
@@ -615,6 +524,8 @@
 				8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */,
 				80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */,
+				8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */,
+				8017909328A219FF0013F48A /* XCRemoteSwiftPackageReference "MuMenuSky" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
 			projectDirPath = "";
@@ -633,32 +544,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				807962A22558B110005BBFA6 /* sky.shader.tr3.h in Resources */,
-				802650EC25575DBF005B4119 /* panel.cell.scroll.tr3.h in Resources */,
-				807962B12558B68E005BBFA6 /* panel.cell.tr3.h in Resources */,
-				807962C32558BB69005BBFA6 /* panel.cell.camera.tr3.h in Resources */,
-				807962C42558BB69005BBFA6 /* panel.cell.brush.tr3.h in Resources */,
-				807962ED2558C3B3005BBFA6 /* panel.cell.ave.tr3.h in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
-				807962D62558C031005BBFA6 /* sky.tr3.h in Resources */,
-				807962C62558BB69005BBFA6 /* panel.cell.midi.tr3.h in Resources */,
+				807962D62558C031005BBFA6 /* sky.main.tr3.h in Resources */,
 				80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */,
-				807962B22558B68E005BBFA6 /* panel.camera.tr3.h in Resources */,
-				802650DE25574BC9005B4119 /* panel.shader.color.tr3.h in Resources */,
-				807962EA2558C3B3005BBFA6 /* panel.cell.tunl.tr3.h in Resources */,
 				807962D52558C031005BBFA6 /* midi.tr3.h in Resources */,
-				807962A32558B110005BBFA6 /* panel.shader.weave.tr3.h in Resources */,
-				807962C72558BB69005BBFA6 /* panel.cell.speed.tr3.h in Resources */,
-				807962EF2558C3B3005BBFA6 /* panel.cell.melt.tr3.h in Resources */,
-				807962C52558BB69005BBFA6 /* panel.record.tr3.h in Resources */,
-				807962F02558C3B3005BBFA6 /* panel.cell.mod.tr3.h in Resources */,
-				807962EB2558C3B3005BBFA6 /* panel.cell.fade.tr3.h in Resources */,
-				807962EE2558C3B3005BBFA6 /* panel.cell.zha.tr3.h in Resources */,
-				807962E92558C3B3005BBFA6 /* panel.cell.gas.tr3.h in Resources */,
-				807962F12558C3B3005BBFA6 /* panel.cell.slide.tr3.h in Resources */,
-				807962A42558B110005BBFA6 /* panel.shader.tile.tr3.h in Resources */,
-				807962EC2558C3B3005BBFA6 /* panel.cell.drift.tr3.h in Resources */,
 				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,
-				807962F22558C3B3005BBFA6 /* panel.cell.fred.tr3.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +608,6 @@
 				807049F823378ADC0001617D /* pipe.render.metal in Sources */,
 				807049F023378ADC0001617D /* cell.mod.metal in Sources */,
 				80F846E1234D016A009022F7 /* cell.camera.metal in Sources */,
-				80704A0723378ADC0001617D /* SkyDock.swift in Sources */,
 				80704A0323378ADC0001617D /* SkyMetal.swift in Sources */,
 				8037637626AB7EB600F2363C /* MuArchive.swift in Sources */,
 				808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */,
@@ -1058,6 +947,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8017909328A219FF0013F48A /* XCRemoteSwiftPackageReference "MuMenuSky" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuMenuSky";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/Par.git";
@@ -1090,6 +987,14 @@
 				minimumVersion = 0.9.9;
 			};
 		};
+		8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/Tr3";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.9;
+			};
+		};
 		80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuMenu";
@@ -1101,6 +1006,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8017909428A219FF0013F48A /* MuMenuSky */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8017909328A219FF0013F48A /* XCRemoteSwiftPackageReference "MuMenuSky" */;
+			productName = MuMenuSky;
+		};
 		802C5BCF265AEC6000DBFFEA /* Par */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */;
@@ -1115,6 +1025,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 808E90DA2338B4D0004EB9C9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		8096E08C28A190AB00EE2967 /* Tr3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */;
+			productName = Tr3;
 		};
 		80B70CC32576ACDE007BAAA8 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1137,10 +1052,6 @@
 		80F23D51288CE94B003AC055 /* MuUtilities */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MuUtilities;
-		};
-		80F23D54288CE97E003AC055 /* Tr3Thumb */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Tr3Thumb;
 		};
 		80F23D56288CE9CE003AC055 /* MuColor */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,7 +6,25 @@
         "repositoryURL": "https://github.com/AudioKit/AudioKit",
         "state": {
           "branch": "main",
-          "revision": "232a7688064d89b438901964bdc3fc95ab0f854d",
+          "revision": "29dbb5aa746c28592d0f36d5d32a4f5f2c135144",
+          "version": null
+        }
+      },
+      {
+        "package": "MuMenu",
+        "repositoryURL": "https://github.com/musesum/MuMenu",
+        "state": {
+          "branch": "main",
+          "revision": "f3a3f07600134361171a5f45fdc58e2306acd3cb",
+          "version": null
+        }
+      },
+      {
+        "package": "MuMenuSky",
+        "repositoryURL": "https://github.com/musesum/MuMenuSky",
+        "state": {
+          "branch": "main",
+          "revision": "806291f22f3f244287f64c6b7ce81d03711b1614",
           "version": null
         }
       },
@@ -15,17 +33,17 @@
         "repositoryURL": "https://github.com/musesum/Par.git",
         "state": {
           "branch": null,
-          "revision": "e5fd1785f7fb2ad57c9dc06b7a637a02e2ae826e",
-          "version": "0.2.11"
+          "revision": "71141072e17c33491f854fe98cf4b748f0419bd7",
+          "version": "0.2.31"
         }
       },
       {
-        "package": "Tr3",
-        "repositoryURL": "https://github.com/musesum/Tr3.git",
+        "package": "swift-collections",
+        "repositoryURL": "https://github.com/apple/swift-collections.git",
         "state": {
           "branch": null,
-          "revision": "7b002e69f867053782929da3431882d2d9d94374",
-          "version": "0.2.21"
+          "revision": "48254824bb4248676bf7ce56014ff57b142b77eb",
+          "version": "1.0.2"
         }
       },
       {
