@@ -75,7 +75,7 @@ class SkyTr3: NSObject {
             screenFillOne˚ = sky.findPath("draw.screen.fillOne")
             screenFillOne˚?.addClosure { tr3, _ in fillDraw(tr3.FloatVal()) }
             
-            scrolling˚ = sky.findPath("shader.draws.buffer.scroll")
+            scrolling˚ = root.findPath("shader.model.pipe.draw")
             scrolling˚?.addClosure { tr3, _ in repeatDraw(tr3.CGPointVal()) }
         }
         else {
@@ -84,7 +84,7 @@ class SkyTr3: NSObject {
     }
 
     func initCameraFlip() {
-        let camera = root.findPath("sky.shader.camera")
+        let camera = root.findPath("shader.model.pipe.camera")
         cameraFlip˚ = camera?.findPath("flip") ?? nil
         cameraFlip˚?.addClosure  { tr3, _ in CameraSession.shared.flipCamera() }
     }
@@ -130,24 +130,7 @@ class SkyTr3: NSObject {
 
         parseFile("sky")
         parseFile("shader")
-//???        parseFile("midi")
-//        parseFile("panel.cell")
-//        parseFile("panel.camera")
-//        parseFile("panel.cell.fade")
-//        parseFile("panel.cell.ave")
-//        parseFile("panel.cell.melt")
-//        parseFile("panel.cell.tunl")
-//        parseFile("panel.cell.zha")
-//        parseFile("panel.cell.slide")
-//        parseFile("panel.cell.fred")
-//
-//        parseFile("panel.cell.brush")
-//        parseFile("panel.shader.color")
-//        parseFile("panel.cell.scroll")
-//        parseFile("panel.shader.tile")
-//        parseFile("panel.cell.camera")
-//        parseFile("panel.record")
-//        parseFile("panel.cell.speed")
+
         //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false)
         //?? let script = root.dumpScript(indent: 0) // with values
         let script = root.scriptRoot()

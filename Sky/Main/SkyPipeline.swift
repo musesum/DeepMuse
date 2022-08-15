@@ -159,7 +159,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         }
 
         func addTexture() {
-            if  let drawNode = nodeNamed["draws"] as? MtlKernelDraws,
+            if  let drawNode = nodeNamed["draw"] as? MtlKernelDraw,
                 let drawTex = drawNode.outTex {
 
                 let (bytes, totalSize) = drawTex.bytes()
@@ -194,7 +194,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
     func setupDefaultPipeline() {
 
         // make first pipeline af draw, compute, color, render
-        drawNode   = addNodeName("draws",  after: nil,        type: "draw")
+        drawNode   = addNodeName("draw",   after: nil,        type: "draw")
         cellNode   = addNodeName("fade",   after: drawNode,   type: "compute")
         colorNode  = addNodeName("color",  after: cellNode,   type: "color")
         renderNode = addNodeName("render", after: recordNode, type: "render")
@@ -215,7 +215,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         if node == nil, let device = mtkView.device {
             switch type {
                 case "camera" : node = MtlKernelCamera  (name, device, drawSize, type, uiOrientation)
-                case "draw"   : node = MtlKernelDraws   (name, device, drawSize, type, SkyDraw.shared.drawTexture)
+                case "draw"   : node = MtlKernelDraw   (name, device, drawSize, type, SkyDraw.shared.drawTexture)
                 case "compute": node = MtlKernelCompute (name, device, drawSize, type)
                 case "color"  : node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)
                 case "camix"  : node = MtlKernelCamix   (name, device, drawSize, type, uiOrientation)
@@ -340,7 +340,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         if let command = mtlCommand?.makeCommandBuffer(),
             let firstNode = firstNode {
             command.label = "command"
-            //??? firstNode.goCommand(command) //???
+            firstNode.goCommand(command) //???
         }
         else {
             print("🚫 SkyPipeline could not get either mtlCommand, makeCommandBuffer, or firstNode")

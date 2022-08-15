@@ -28,7 +28,7 @@ dock {
         }
         view {
             bitplane (0..1) >> sky.shader.color.buffer.bitplane
-            scroll   (x 0..1 = 0.5, y 0..1 = 0.5) <> sky.input.azimuth >> sky.shader.draws.buffer.scroll
+            scroll   (x 0..1 = 0.5, y 0..1 = 0.5) <> sky.input.azimuth >> sky.shader.draw.buffer.scroll
             tile {
                 repeat  (x 0..1, y 0..1) >> sky.shader.render.buffer.repeat
                 mirror  (x 0..1, y 0..1) >> sky.shader.render.buffer.mirror

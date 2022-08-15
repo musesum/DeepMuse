@@ -3,7 +3,7 @@
 
 using namespace metal;
 
-kernel void draws(texture2d<half, access::read_write> inTex  [[texture(0)]],
+kernel void draw(texture2d<half, access::read_write> inTex  [[texture(0)]],
                  texture2d<half, access::read_write> outTex [[texture(1)]],
                  constant float2 &scroll [[buffer(0)]],
                  uint2 gid [[thread_position_in_grid]]) {

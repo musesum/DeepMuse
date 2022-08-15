@@ -57,17 +57,17 @@ class SkyMetal {
             }
             func updateChildBuffer(_ child: Tr3) {
 
-                func updateParentFloats(_ tr3: Tr3) {
-                    if  let parent = tr3.parent,
-                        let exprs = parent.val as? Tr3Exprs {
+                func updateParentFloats(_ child: Tr3) {
+                    if  let parent = child.parent,
+                        let exprs = child.val as? Tr3Exprs {
                         let floats = exprs.getValFloats()
-                        node.updateBuffer(parent.name, floats)
+                        node.updateBuffer(child.name, floats)
                     }
                 }
-                tr3.addClosure { tr3, _ in
-                    updateParentFloats(tr3)
+                child.addClosure { child, _ in
+                    updateParentFloats(child)
                 }
-                updateParentFloats(tr3)
+                updateParentFloats(child)
             }
 
             updateBuffer(tr3)
@@ -102,15 +102,15 @@ class SkyMetal {
         guard let fileCell = file.findPath("cell") else { return err(tr3, "file.cell") }
         guard let filePipe = file.findPath("pipe") else { return err(tr3, "file.pipe") }
 
-        for cell in modelCell.children {
-            if let node = pipeline.initNodeName(tr3.name, "cell") {
-                makeNode(node, cell, fileCell)
+        for cellTr3 in modelCell.children {
+            if let node = pipeline.initNodeName(cellTr3.name, "cell") {
+                makeNode(node, cellTr3, fileCell)
             }
         }
 
-        for pipe in modelPipe.children {
-            if let node = pipeline.initNodeName(tr3.name, tr3.name) {
-                makeNode(node, pipe, filePipe)
+        for pipeTr3 in modelPipe.children {
+            if let node = pipeline.initNodeName(pipeTr3.name, pipeTr3.name) {
+                makeNode(node, pipeTr3, filePipe)
             }
         }
     }

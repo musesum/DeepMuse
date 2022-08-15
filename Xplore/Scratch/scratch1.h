@@ -9,9 +9,7 @@ sky { // visual music program
         run (0) // currently running
     }
     pipeline { // default metal pipeline at atartup
-
-
-        draws "draw" // drawing layer
+        draw "draw" // drawing layer
         ave "compute" // compute layer
         color "color" // colorizing layer
         render "render" // render layer al
