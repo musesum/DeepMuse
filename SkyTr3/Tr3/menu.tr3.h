@@ -22,7 +22,7 @@ menu.view {
     brush (symbol "paintbrush.pointed") {
         size  (symbol "circle.circle")
         press (image "icon.pen.press")
-        tilt  (symbol "angle")
+        //tilt  (symbol "angle")
     }
     cell (symbol "circle.grid.3x3") {
         fade  (image "icon.cell.fade" )

@@ -128,8 +128,8 @@ class SkyTr3: NSObject {
             let _ = Tr3Parse.shared.parseTr3(root, fileName)
         }
 
-        parseFile("sky.main")
-        parseFile("sky.shader")
+        parseFile("sky")
+        parseFile("shader")
 //???        parseFile("midi")
 //        parseFile("panel.cell")
 //        parseFile("panel.camera")

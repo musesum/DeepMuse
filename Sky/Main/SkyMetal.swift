@@ -16,41 +16,77 @@ class SkyMetal {
             print("🚫 makeShader couldn't find \(item) in \(tr3.name)")
         }
 
-        func makeCellNode(_ tr3: Tr3, _ fileCellTr3: Tr3) {
-            guard let node = pipeline.initNodeName(tr3.name, "cell") else { return err (tr3, "cell") }
-            guard let comps = tr3.components() else { return err(tr3, "components")}
-            for (name,any) in comps {
-                switch name {
-                    case "val": break
-                    case "seg": break
-                    case "tog": break
-                    case "on": break
-                    case "repeat": break
-                    case "bits": break
-                    default: err(tr3, "name")
-                }
-            }
-            if let fileTr3 = fileCellTr3.findPath(tr3.name),
-               let fileName = fileTr3.StringVal() {
-                node.filename = fileName
-            }
-        }
+        func makeNode(_ node: MtlNode, _ tr3: Tr3, _ fileTr3: Tr3) {
 
-        func makePipeNode(_ tr3: Tr3, _ filePipeTr3: Tr3) {
-            guard let node = pipeline.initNodeName(tr3.name, tr3.name) else { return err (tr3, "cell") }
-            guard let comps = tr3.components() else { return err(tr3, "components")}
-            for (name,any) in comps {
-                switch name {
-                    case "val": break
-                    case "seg": break
-                    case "tog": break
-                    case "on": break
-                    case "repeat": break
-                    case "x", "y", "w", "h": break
+            func anyInt(_ any: Any?) -> Int {
+                if let v = any as? Tr3ValScalar {
+                    return Int(v.num)
+                } else {
+                    print("*** makeCellNode::anyInt: unknown: \(any.debugDescription)")
+                    return 0
+                }
+            }
+            func addOn(_ child: Tr3) {
+                node.isOn = child.BoolVal()
+                child.addClosure { tr3, _ in
+                    let nodeNamed = self.pipeline.nodeNamed
+                    guard let parent = tr3.parent else { return print("🚫 no parent" ) }
+                    guard let node = nodeNamed[parent.name] else { return print("🚫 no node for parent:\(parent.scriptLineage(2))" ) }
+                    let isOn = tr3.BoolVal()
+
+                    node.setOn(isOn) {
+                        if isOn {
+                            self.pipeline.swap(inNode: node)
+                        }
+                    }
+                    //print("   tr3:\(tr3.scriptLineage(3)) isOn:\(isOn)")
+                }
+            }
+            func updateBuffer(_ tr3: Tr3) {
+
+                func updateFloats(_ tr3: Tr3) {
+                    if let exprs = tr3.val as? Tr3Exprs {
+                       let floats = exprs.getValFloats()
+                        node.updateBuffer(tr3.name, floats)
+                    }
+                }
+                tr3.addClosure { tr3, _ in
+                    updateFloats(tr3)
+                }
+                updateFloats(tr3)
+            }
+            func updateChildBuffer(_ child: Tr3) {
+
+                func updateParentFloats(_ tr3: Tr3) {
+                    if  let parent = tr3.parent,
+                        let exprs = parent.val as? Tr3Exprs {
+                        let floats = exprs.getValFloats()
+                        node.updateBuffer(parent.name, floats)
+                    }
+                }
+                tr3.addClosure { tr3, _ in
+                    updateParentFloats(tr3)
+                }
+                updateParentFloats(tr3)
+            }
+
+            updateBuffer(tr3)
+
+            for child in tr3.children {
+                switch child.name {
+                    case "on" : addOn(child)
+                    case "loops": node.loops = child.IntVal() ?? 1
+                    case "bits": break
+                    case "flip":   break // ignore
+
+                    case "frame": updateChildBuffer(child)
+                    case "repeat": updateChildBuffer(child)
+                    case "mirror": updateChildBuffer(child)
+
                     default: err(tr3, "name")
                 }
             }
-            if let fileTr3 = filePipeTr3.findPath(tr3.name),
+            if let fileTr3 = fileTr3.findPath(tr3.name),
                let fileName = fileTr3.StringVal() {
                 node.filename = fileName
             }
@@ -59,19 +95,23 @@ class SkyMetal {
         guard let shader = tr3.findPath("shader")  else { return err(tr3, "shader") }
         
         guard let model = shader.findPath("model") else { return err(tr3, "shader.model") }
-        guard let modelCell = model.findPath("cell")   else { return err(tr3, "model.cell") }
-        guard let modelPipe = model.findPath("pipe")   else { return err(tr3, "model.pipe") }
+        guard let modelCell = model.findPath("cell") else { return err(tr3, "model.cell") }
+        guard let modelPipe = model.findPath("pipe") else { return err(tr3, "model.pipe") }
 
         guard let file = shader.findPath("file") else { return err(tr3, "shader.file") }
-        guard let fileCell = file.findPath("cell")   else { return err(tr3, "file.cell") }
-        guard let filePipe = file.findPath("pipe")   else { return err(tr3, "file.pipe") }
+        guard let fileCell = file.findPath("cell") else { return err(tr3, "file.cell") }
+        guard let filePipe = file.findPath("pipe") else { return err(tr3, "file.pipe") }
 
         for cell in modelCell.children {
-            makeCellNode(cell, fileCell)
+            if let node = pipeline.initNodeName(tr3.name, "cell") {
+                makeNode(node, cell, fileCell)
+            }
         }
 
         for pipe in modelPipe.children {
-            makePipeNode(pipe, filePipe)
+            if let node = pipeline.initNodeName(tr3.name, tr3.name) {
+                makeNode(node, pipe, filePipe)
+            }
         }
     }
 
@@ -134,7 +174,7 @@ class SkyMetal {
                 switch child.name {
                     case "buffer": child.children.forEach { updateBuffer(node, tr3: $0) }
                     case "file":   node.filename = child.StringVal() ?? ""
-                    case "repeat": node.repeats = child.IntVal() ?? 1
+                    case "repeat": node.loops = child.IntVal() ?? 1
                     case "on":     addOn(child)
                     case "flip":   break // ignore
                     case "type":   break // already found, see above

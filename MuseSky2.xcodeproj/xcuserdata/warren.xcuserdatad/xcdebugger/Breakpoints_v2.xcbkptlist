@@ -27,48 +27,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FFD219D9-49AB-45ED-9AB5-162493574DEC"
+            uuid = "D56D6E83-D477-43DC-96DD-05B6BB8819B4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sky/Main/SkyMetal.swift"
+            filePath = "../Tr3/Tr3/Tests/Tr3Tests/Tr3Tests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "makeShader(for:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "testParseShort()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D56D6E83-D477-43DC-96DD-05B6BB8819B4 - 75fe79dd1e99c8e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tr3Tests.Tr3Tests.testParseShort() -&gt; ()"
+                  moduleName = "Tr3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/Tr3/Tr3/Tests/Tr3Tests/Tr3Tests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "D56D6E83-D477-43DC-96DD-05B6BB8819B4 - 75fe79dd1e99c8e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tr3Tests.Tr3Tests.testParseShort() -&gt; ()"
+                  moduleName = "Tr3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/Tr3/Tr3/Tests/Tr3Tests/Tr3Tests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E777EE5D-4281-4CDC-A2D3-FEFEB4FC4CBC"
+            uuid = "33A1D0DC-E120-446B-8C83-C8B9EE3319E0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sky/Main/SkyMetal.swift"
+            filePath = "SkyTr3/Tr3/sky.shader.tr3.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "makePipeNode(_:_:)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F5C4E3E-5477-4805-8EE1-3673ADA66F7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sky/Touch/SkyDraw.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "lost(_:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BCA88B37-C1CA-4C64-B72B-F07A4E4F5601"
+            uuid = "94ACE819-CCD3-4711-B315-50A7373C5287"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sky/Main/SkyMetal.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "makeCellNode(_:_:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "err(_:_:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

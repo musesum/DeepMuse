@@ -1,19 +1,22 @@
-sky.main { // main controls
+sky { // visual music program
+    main { // main controls
         frame (0)        // frame counter
         fps (1…60 = 60) // frames per second
         run (1)          // currently running
     }
     pipeline { // default metal pipeline at atartup
-        draws "draw" // drawing layer
-        ave "compute" // compute layer
-        color "color" // colorizing layer
+        draws "draw"     // drawing layer
+        ave "compute"   // compute layer
+        color "color"   // colorizing layer
         render "render" // render layer al
     }
     dock { // list of panel items to put in dock
-        camera fade ave(1) melt tunl zha slide fred brush color scroll tile speed record
+        fader ave(1) melt tunl
+        zha slide fred brush
+        color scroll tile speed camera record
     }
     color { // false color mapping palette
-        pal0 "roygbik"     // palette 0: (r)ed (o)range (y)ellow ...
+        pal0 "roygbik"     // palette 0: (r)ed (o)range (y)ellow …
         pal1 "wKZ"         // palette 1: (w)hite blac(K) fractali(Z)e
         xfade (0…1 = 0.5) // cross fade between pal0 and pal1
     }
@@ -26,7 +29,7 @@ sky.main { // main controls
                y -0.3 … 0.3,
                z -0.3 … 0.3)  // accelerometer
 
-        accel.on (0…1)         // use accel
+        accel.on (0…1)
         radius (1…92 = 9)      // finger silhouette
         tilt (0…1)             // use tilt
         force (0…0.5)          // pen pressure
@@ -42,14 +45,11 @@ sky.main { // main controls
             size (1…64 = 10)    // range of radius
             press (0…1 = 1)     // pressure changes size
             index (1…255 = 127) // index in 256 color palette
-                                 // <<(osc.tuio.z osc.manos˚z) // redirect from OSC
+                                // <<(osc.tuio.z osc.manos˚z) // redirect from OSC
         }
         line { // place holder for line drawing
             prev (x 0…1, y 0…1) // staring point of segment
             next (x 0…1, y 0…1) // endint point of segment
         }
-        scroll {
-            offset(x 0…1, y 0…1)
-            shift(x -1…1 = 0, y -1…1 = 0)
-        }
     }
+}

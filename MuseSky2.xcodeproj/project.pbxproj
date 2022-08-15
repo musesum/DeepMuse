@@ -42,9 +42,9 @@
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		80704B3C23378DB40001617D /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 80704B3B23378DB40001617D /* Tr3 */; };
-		807962A22558B110005BBFA6 /* sky.shader.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8079629F2558B110005BBFA6 /* sky.shader.tr3.h */; };
+		807962A22558B110005BBFA6 /* shader.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8079629F2558B110005BBFA6 /* shader.tr3.h */; };
 		807962D52558C031005BBFA6 /* midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D32558C031005BBFA6 /* midi.tr3.h */; };
-		807962D62558C031005BBFA6 /* sky.main.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.main.tr3.h */; };
+		807962D62558C031005BBFA6 /* sky.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.tr3.h */; };
 		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
 		808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90D823384CCD004EB9C9 /* MuFile.swift */; };
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
@@ -135,9 +135,9 @@
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		8079629E2558A415005BBFA6 /* sketch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sketch.h; sourceTree = "<group>"; };
-		8079629F2558B110005BBFA6 /* sky.shader.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.shader.tr3.h; sourceTree = "<group>"; };
+		8079629F2558B110005BBFA6 /* shader.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = shader.tr3.h; sourceTree = "<group>"; };
 		807962D32558C031005BBFA6 /* midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = midi.tr3.h; sourceTree = "<group>"; };
-		807962D42558C031005BBFA6 /* sky.main.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.main.tr3.h; sourceTree = "<group>"; };
+		807962D42558C031005BBFA6 /* sky.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.tr3.h; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		808E90D823384CCD004EB9C9 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
@@ -342,9 +342,9 @@
 			isa = PBXGroup;
 			children = (
 				8055DD9B289F34090088927E /* menu.tr3.h */,
-				807962D42558C031005BBFA6 /* sky.main.tr3.h */,
+				807962D42558C031005BBFA6 /* sky.tr3.h */,
 				807962D32558C031005BBFA6 /* midi.tr3.h */,
-				8079629F2558B110005BBFA6 /* sky.shader.tr3.h */,
+				8079629F2558B110005BBFA6 /* shader.tr3.h */,
 			);
 			path = Tr3;
 			sourceTree = "<group>";
@@ -543,9 +543,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				807962A22558B110005BBFA6 /* sky.shader.tr3.h in Resources */,
+				807962A22558B110005BBFA6 /* shader.tr3.h in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
-				807962D62558C031005BBFA6 /* sky.main.tr3.h in Resources */,
+				807962D62558C031005BBFA6 /* sky.tr3.h in Resources */,
 				80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */,
 				807962D52558C031005BBFA6 /* midi.tr3.h in Resources */,
 				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,

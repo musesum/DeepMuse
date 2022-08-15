@@ -20,28 +20,29 @@ sky.shader {
 
 shader.model {
     cell {
-        fade  (val 0…1 = 0.5, on 1)
-        ave   (val 0…1 = 0.5, on 0)
-        melt  (val 0…1 = 0.5, on 0)
-        tunl  (seg 0…5 = 1  , on 0)
-        slide (seg 0…7 = 3  , on 0)
-        fred  (seg 0…4 = 4  , on 0)
-        zha   (seg 0…6 = 2  , on 0) { repeat (11), bits (2…4=3) }
+        fade  (val 0…1 = 0.5)
+        ave   (val 0…1 = 0.5)
+        melt  (val 0…1 = 0.5)
+        tunl  (seg 0…5 = 1  )
+        slide (seg 0…7 = 3  )
+        fred  (seg 0…4 = 4  )
+        zha   (seg 0…6 = 2, bits 2…4 = 3)
+        cell˚.{ on(0…1) >> cell˚.on(0) }
+        zha.loops(11)
     }
     pipe {
-        record (tog 0, on 0…1)
-        camera (tog 0, on 0…1) { flip (tog) }
-        camix  (tog 0, on 0…1)
+        record (tog 0)
+        camera (tog 0) { flip (tog) }
+        camix  (tog 0)
         scroll (x 0…1 = 0.5,
                 y 0…1 = 0.5)
 
         render {
-            offset (x 0, y 0)
-            size (w 1080, h 1920)
+            frame (x 0, y 0, w 1080, h 1920)
             repeat (x, y)
             mirror (x, y)
         }
-        color  (val 0) { bitplane (val) }
+        color(val 0…1 = 0.3) // bitplane
     }
 }
 shader.file {
