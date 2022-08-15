@@ -30,8 +30,6 @@ class SkyVC: UIViewController {
         //??? MuOrientation.shared.uiOrientation = uiOrientation
         view = SkyPipeline.shared.setViewFrame(bounds)
         setNeedsUpdateOfHomeIndicatorAutoHidden()
-        let skyView = SkyView.shared
-        view.addSubview(skyView)
 
         // add menu
         let menuSkyView = UIHostingController(rootView: MenuSkyView())
@@ -41,6 +39,9 @@ class SkyVC: UIViewController {
         menuSkyView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         menuSkyView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         menuSkyView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+        // add touches 
+        menuSkyView.view.addSubview(SkyView.shared)
 
         let tr3Root = SkyTr3.shared.root
         SkyDraw.shared.bindTr3(tr3Root)

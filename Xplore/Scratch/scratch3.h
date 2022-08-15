@@ -1,4 +1,3 @@
-
 sky { // visual music program
 
     main { // main controls
@@ -26,12 +25,8 @@ sky { // visual music program
     }
     input { // phone and tablet pencil input
 
-
         azimuth (x -0.2…0.2, y -0.2…0.2) // pen tilt
-
         accel (x -0.3…0.3, y -0.3…0.3, z -0.3…0.3) { // accelerometer
-
-
             on (0…1)
         }
         radius (1…92 = 9) // finger silhouette
@@ -59,182 +54,40 @@ sky { // visual music program
             next (x 0…1, y 0…1) // endint point of segment
         }
     }
-    shader {
-        _compute {
-            type "compute"
-            file "*.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        melt : _compute {
-            type "compute"
-            file "cell.melt.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        fred : _compute {
-            type "compute"
-            file "cell.fred.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        gas : _compute {
-            type "compute"
-            file "cell.gas.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        ave : _compute {
-            type "compute"
-            file "cell.ave.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        mod : _compute {
-            type "compute"
-            file "cell.mod.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        fade : _compute {
-            type "compute"
-            file "cell.fade.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        slide : _compute {
-            type "compute"
-            file "cell.slide.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        drift : _compute {
-            type "compute"
-            file "cell.drift.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        tunl : _compute {
-            type "compute"
-            file "cell.tunl.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        zha : _compute {
-            type "compute"
-            file "cell.zha.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-                bits (2…4 = 3)
-            }
-            repeat (11)
-        }
-        record {
-            type "record"
-            file "record.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        camera {
-            type "camera"
-            file "cell.camera.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-            flip (0…1)
-        }
-        camix {
-            type "camix"
-            file "cell.camix.metal"
-            on (0…1)
-            buffer {
-                version (0…1)
-            }
-        }
-        draws {
-            type "draw"
-            file "pipe.draws.metal"
-            on (0…1)
-            buffer {
-                scroll (x 0…1 = 0.5, y 0…1 = 0.5)
-            }
-        }
-        color {
-            type "color"
-            file "pipe.color.metal"
-            buffer {
-                bitplane (0…1)
-            }
-        }
-        render {
-            type "render"
-            file "pipe.render.metal"
-            buffer {
-                clip (x 0, y 0, w 1080, h 1920)
-                repeat (x, y)
-                mirror (x, y)
-            }
-        }
-    }
 }
 shader {
     model {
         cell {
             fade (val 0…1 = 0.5) {
-                on (0…1) >> cell.cell˚..on(0)
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
             }
             ave (val 0…1 = 0.5) {
-                on (0…1) >> cell.cell˚..on(0)
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
             }
             melt (val 0…1 = 0.5) {
-                on (0…1) >> cell.cell˚..on(0)
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
             }
             tunl (seg 0…5 = 1) {
-                on (0…1) >> cell.cell˚..on(0)
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
             }
             slide (seg 0…7 = 3) {
-                on (0…1) >> cell.cell˚..on(0)
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
             }
             fred (seg 0…4 = 4) {
-                on (0…1) >> cell.cell˚..on(0)
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
             }
             zha (seg 0…6 = 2, bits 2…4 = 3) {
-                loops (11) {
-                    on (0…1) >> cell.cell˚..on(0)
-                }
+                on (0…1) >> (cell.fade.on(0) , cell.ave.on(0) , cell.melt.on(0) , cell.tunl.on(0) , cell.slide.on(0) , cell.fred.on(0) , cell.zha.on(0) )
+                loops (11)
             }
         }
         pipe {
+            draw (x 0…1 = 0.5, y 0…1 = 0.5)
             record (tog 0)
             camera (tog 0) {
-                flip (tog)
+                flip (tog 0)
             }
             camix (tog 0)
-            draw (x 0…1 = 0.5, y 0…1 = 0.5)
             render {
                 frame (x 0, y 0, w 1080, h 1920)
                 repeat (x, y)

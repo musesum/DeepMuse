@@ -2,7 +2,6 @@
 import UIKit
 import Tr3
 import MuMetal
-import SwiftUI
 
 class SkyMetal {
     
@@ -58,8 +57,7 @@ class SkyMetal {
             func updateChildBuffer(_ child: Tr3) {
 
                 func updateParentFloats(_ child: Tr3) {
-                    if  let parent = child.parent,
-                        let exprs = child.val as? Tr3Exprs {
+                    if  let exprs = child.val as? Tr3Exprs {
                         let floats = exprs.getValFloats()
                         node.updateBuffer(child.name, floats)
                     }
