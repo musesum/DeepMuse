@@ -130,7 +130,6 @@
 		8070497523378ADB0001617D /* SkyMetal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMetal.swift; sourceTree = "<group>"; };
 		8070497723378ADB0001617D /* SkyMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMain.swift; sourceTree = "<group>"; };
 		8070497823378ADB0001617D /* SkyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyColor.swift; sourceTree = "<group>"; };
-		8070497923378ADB0001617D /* SkyDock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyDock.swift; sourceTree = "<group>"; };
 		8070497B23378ADB0001617D /* scratch2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scratch2.h; sourceTree = "<group>"; };
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -359,7 +358,6 @@
 				8070497223378ADB0001617D /* WorkLink.swift */,
 				8070497523378ADB0001617D /* SkyMetal.swift */,
 				8070497823378ADB0001617D /* SkyColor.swift */,
-				8070497923378ADB0001617D /* SkyDock.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";

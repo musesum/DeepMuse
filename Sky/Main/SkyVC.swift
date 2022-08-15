@@ -39,6 +39,7 @@ class SkyVC: UIViewController {
         menuSkyView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         menuSkyView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         menuSkyView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        menuSkyView.view.backgroundColor = .clear
 
         // add touches 
         menuSkyView.view.addSubview(SkyView.shared)

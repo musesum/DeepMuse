@@ -340,7 +340,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         if let command = mtlCommand?.makeCommandBuffer(),
             let firstNode = firstNode {
             command.label = "command"
-            firstNode.goCommand(command) //???
+            firstNode.goCommand(command)
         }
         else {
             print("🚫 SkyPipeline could not get either mtlCommand, makeCommandBuffer, or firstNode")

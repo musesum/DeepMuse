@@ -1,18 +1,18 @@
 shader.model {
     cell {
-        fade  (val 0…1 = 0.5) { on(0…1) >> cell˚on(0) }
-        ave   (val 0…1 = 0.5) { on(0…1) >> cell˚on(0) }
-        melt  (val 0…1 = 0.5) { on(0…1) >> cell˚on(0) }
-        tunl  (seg 0…5 = 1  ) { on(0…1) >> cell˚on(0) }
-        slide (seg 0…7 = 3  ) { on(0…1) >> cell˚on(0) }
-        fred  (seg 0…4 = 4  ) { on(0…1) >> cell˚on(0) }
+        fade  (val 0…1 = 0.5) { on(0…1 = 0) >> cell˚on(0) }
+        ave   (val 0…1 = 0.5) { on(0…1 = 1) >> cell˚on(0) }
+        melt  (val 0…1 = 0.5) { on(0…1 = 0) >> cell˚on(0) }
+        tunl  (seg 0…5 = 1  ) { on(0…1 = 0) >> cell˚on(0) }
+        slide (seg 0…7 = 3  ) { on(0…1 = 0) >> cell˚on(0) }
+        fred  (seg 0…4 = 4  ) { on(0…1 = 0) >> cell˚on(0) }
         zha   (seg 0…6 = 2,
                bits 2…4 = 3 ) { on(0…1) >> cell˚on(0) }
         zha.loops(11)
     }
     pipe {
-        draw   (x 0…1 = 0.5,
-                y 0…1 = 0.5)
+        draw (x 0…1 = 0.5,
+              y 0…1 = 0.5)
 
         record (tog 0)
         camera (tog 0) { flip (tog 0) }
@@ -23,7 +23,7 @@ shader.model {
             repeat (x, y)
             mirror (x, y)
         }
-        color(val 0…1 = 0.3) // bitplane
+        color(val 0…1 = 0.1) // bitplane
     }
 }
 shader.file {

@@ -18,7 +18,7 @@ sky { // visual music program
     color { // false color mapping palette
         pal0 "roygbik"     // palette 0: (r)ed (o)range (y)ellow …
         pal1 "wKZ"         // palette 1: (w)hite blac(K) fractali(Z)e
-        xfade (0…1 = 0.5) // cross fade between pal0 and pal1
+        xfade (0…1 = 0.5)
     }
     input { // phone and tablet pencil input
 

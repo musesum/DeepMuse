@@ -22,7 +22,7 @@ menu.view {
     brush (symbol "paintbrush.pointed") {
         size  (symbol "circle.circle")
         press (image "icon.pen.press")
-        //tilt  (symbol "angle")
+        //?? tilt  (symbol "angle")
     }
     cell (symbol "circle.grid.3x3") {
         fade  (image "icon.cell.fade" )
@@ -58,7 +58,7 @@ menu.model {
         }
         color {
             fade  (val 0…1 = 0) <> sky.color.xfade
-            plane (val 0…1 = 0) >> shader.pipe.color.bitplane
+            plane (val 0…1 = 0) >> shader.model.pipe.color
             zero  (tap 0…1 = 0) >> sky.draw.fill(0)
             one   (tap 0…1 = 0) >> sky.draw.fill(-1)
         }
@@ -73,19 +73,19 @@ menu.model {
         tilt  (tog 0…1 = 1  ) >> sky.input.brush.tilt
     }
     cell {
-        fade  (val 2…3 = 2.2) >> shader.cell.fade
-        ave   (val 0…1 = 0.5) >> shader.cell.ave
-        melt  (val 0…1 = 0.5) >> shader.cell.melt
-        tunl  (seg 0…5 = 1  ) >> shader.cell.tunl
-        zha   (seg 0…6 = 2  ) >> shader.cell.zha
-        slide (seg 0…7 = 3  ) >> shader.cell.slide
-        fred  (seg 0…4 = 4  ) >> shader.cell.fred
+        fade  (val 2…3 = 2.2) >> shader.model.cell.fade
+        ave   (val 0…1 = 0.5) >> shader.model.cell.ave
+        melt  (val 0…1 = 0.5) >> shader.model.cell.melt
+        tunl  (seg 0…5 = 1  ) >> shader.model.cell.tunl
+        zha   (seg 0…6 = 2  ) >> shader.model.cell.zha
+        slide (seg 0…7 = 3  ) >> shader.model.cell.slide
+        fred  (seg 0…4 = 4  ) >> shader.model.cell.fred
     }
     cam {
         snap  (tap 0…1 = 0  )
-        fake  (tog 0…1 = 0  ) >> shader.pipe.camix.on
-        real  (tog 0…1 = 1  ) >> shader.pipe.camera.on
-        face  (tog 0…1 = 1  ) >> shader.pipe.camera.flip
+        fake  (tog 0…1 = 0  ) >> shader.model.pipe.camix.on
+        real  (tog 0…1 = 1  ) >> shader.model.pipe.camera.on
+        face  (tog 0…1 = 1  ) >> shader.model.pipe.camera.flip
         xfade (val 0…1 = 0.5) <> sky.color.xfade
     }
 }
