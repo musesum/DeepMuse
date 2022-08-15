@@ -12,7 +12,9 @@ struct MenuSkyView: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            MenuView(menuVm: MenuSkyVm(corner: [.lower, .left], axis: .vertical))
+            MenuView(menuVm: MenuSkyVm(corner: [.lower, .left],
+                                       axis: .vertical,
+                                      rootTr3: SkyTr3.shared.root))
         }
         .statusBar(hidden: true)
     }

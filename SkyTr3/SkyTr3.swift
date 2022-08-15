@@ -130,6 +130,7 @@ class SkyTr3: NSObject {
 
         parseFile("sky")
         parseFile("shader")
+        parseFile("menu")
 
         //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false)
         //?? let script = root.dumpScript(indent: 0) // with values

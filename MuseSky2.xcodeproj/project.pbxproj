@@ -45,6 +45,7 @@
 		807962A22558B110005BBFA6 /* shader.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8079629F2558B110005BBFA6 /* shader.tr3.h */; };
 		807962D52558C031005BBFA6 /* midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D32558C031005BBFA6 /* midi.tr3.h */; };
 		807962D62558C031005BBFA6 /* sky.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.tr3.h */; };
+		807EF24928AAC9FE00694F35 /* menu.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8055DD9B289F34090088927E /* menu.tr3.h */; };
 		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
 		808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90D823384CCD004EB9C9 /* MuFile.swift */; };
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
@@ -137,6 +138,7 @@
 		8079629F2558B110005BBFA6 /* shader.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = shader.tr3.h; sourceTree = "<group>"; };
 		807962D32558C031005BBFA6 /* midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = midi.tr3.h; sourceTree = "<group>"; };
 		807962D42558C031005BBFA6 /* sky.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.tr3.h; sourceTree = "<group>"; };
+		807EF24828AAC1C700694F35 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../MuMenuSky; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		808E90D823384CCD004EB9C9 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				807EF24828AAC1C700694F35 /* MuMenuSky */,
 				8020C01428A571AB0059258A /* Tr3 */,
 				80F23D45288CE45D003AC055 /* Packages */,
 				80F23D31288CE16F003AC055 /* MuDraw */,
@@ -541,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807EF24928AAC9FE00694F35 /* menu.tr3.h in Resources */,
 				807962A22558B110005BBFA6 /* shader.tr3.h in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
 				807962D62558C031005BBFA6 /* sky.tr3.h in Resources */,
