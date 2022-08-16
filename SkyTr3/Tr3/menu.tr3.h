@@ -22,7 +22,7 @@ menu.view {
     brush (symbol "paintbrush.pointed") {
         size  (symbol "circle.circle")
         press (image "icon.pen.press")
-        tilt  (image "icon.pen.press")
+        tilt  (image "icon.pen.tilt")  //(symbol "angle")
     }
     cell (symbol "circle.grid.3x3") {
         fade  (image "icon.cell.fade" )
@@ -45,22 +45,22 @@ menu.model {
     canvas {
         tile  {
             mirror (x -1…1,
-                    y -1…1) >> shader.pipe.render.mirror
+                    y -1…1) >> shader.model.pipe.render.mirror
 
             repeat (x -1…1,
-                    y -1…1) >> shader.pipe.render.repeat
+                    y -1…1) >> shader.model.pipe.render.repeat
         }
         scroll {
             shift (x 0…1 = 0.5,
-                   y 0…1 = 0.5) >> shader.pipe.scroll
+                   y 0…1 = 0.5) >> shader.model.pipe.draw
 
-            tilt  (tog 0…1 = 0) >> shader.pipe.scroll.tilt
+            tilt  (tog 0…1 = 0) <> sky.input.tilt >> accelTilt.value(0)
         }
         color {
             fade  (val 0…1 = 0) <> sky.color.xfade
             plane (val 0…1 = 0) >> shader.model.pipe.color
-            zero  (tap 0…1 = 0) >> sky.draw.fill(0)
-            one   (tap 0…1 = 0) >> sky.draw.fill(-1)
+            zero  (tap 0…1 = 0) >> sky.draw.screen.fill(0)
+            one   (tap 0…1 = 0) >> sky.draw.screen.fill(1)
         }
         speed {
             fps (seg 0…60 = 60) >> sky.main.fps

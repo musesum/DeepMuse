@@ -10,11 +10,6 @@ sky { // visual music program
         color "color"   // colorizing layer
         render "render" // render layer al
     }
-    dock { // list of panel items to put in dock
-        fader ave(1) melt tunl
-        zha slide fred brush
-        color scroll tile speed camera record
-    }
     color { // false color mapping palette
         pal0 "roygbik"     // palette 0: (r)ed (o)range (y)ellow …
         pal1 "wKZ"         // palette 1: (w)hite blac(K) fractali(Z)e
@@ -30,15 +25,14 @@ sky { // visual music program
                z -0.3 … 0.3)  // accelerometer
 
         accel.on (0…1)
-        radius (1…92 = 9)      // finger silhouette
+        radius (1 … 92 = 9)      // finger silhouette
         tilt (0…1)             // use tilt
-        force (0…0.5)          // pen pressure
+        force (0 … 0.5)          // pen pressure
         >> sky.draw.brush.size
     }
     draw { // draw on metal layer
         screen { // fill 32 bit universe
-            fillZero(0) // all zeros 0x00000000
-            fillOne(-1) // all ones 0xFFFFFFFF
+            fill(0) // all zeros 0x00000000
         }
         brush { // type of brush and range
             type "dot"           // draw a circle

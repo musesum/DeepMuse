@@ -11,8 +11,7 @@ class SkyTr3: NSObject {
     public var skySize = CGSize(width: 1920, height: 1080)
     public var archive: MuArchive?
 
-    private var screenFillZero˚: Tr3?
-    private var screenFillOne˚: Tr3?
+    private var screenFill˚: Tr3?
     private var touchRepeat˚: Tr3?
     private var scrolling˚: Tr3?
     private var cameraFlip˚: Tr3?
@@ -69,12 +68,9 @@ class SkyTr3: NSObject {
         }
         if let sky = root.findPath("sky") {
         
-            screenFillZero˚ = sky.findPath("draw.screen.fillZero")
-            screenFillZero˚?.addClosure { tr3, _ in fillDraw(tr3.FloatVal()) }
+            screenFill˚ = sky.findPath("draw.screen.fill")
+            screenFill˚?.addClosure { tr3, _ in fillDraw(tr3.FloatVal()) }
 
-            screenFillOne˚ = sky.findPath("draw.screen.fillOne")
-            screenFillOne˚?.addClosure { tr3, _ in fillDraw(tr3.FloatVal()) }
-            
             scrolling˚ = root.findPath("shader.model.pipe.draw")
             scrolling˚?.addClosure { tr3, _ in repeatDraw(tr3.CGPointVal()) }
         }
