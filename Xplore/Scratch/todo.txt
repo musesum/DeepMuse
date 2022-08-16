@@ -1,0 +1,42 @@
+MuMenu
+    branch
+        slide branch change node bug
+        light material background
+    node
+        tog without child
+    home
+        drag to expand branches
+        double tap to execute leaf
+        leaf icon in retracted home
+    leaf
+        ipad pencel vxy center
+        double tap to revert back to default
+        hide super branches while editing
+        emboss thumb with icon
+        special title
+
+    sync devices
+
+
+
+Sky
+    bugs
+        camera
+        Autorotate autofit view
+    features
+        sync devices
+        resize view
+        resize texture
+
+Tr3
+    get a(b 1) as find("a.b")
+    Expr quote dump
+    a.*.{ decorate } for sky
+    test connect by name `menu.model :> shader.model`
+    snapshot abstract def with updated state
+
+    later
+        replace Tr3ValScalar, Tr3ValQuote with Tr3Exprs
+        update tr3val min
+
+

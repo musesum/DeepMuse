@@ -94,7 +94,7 @@
 		802FD54C26499E6F00564B19 /* sky.midi.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.midi.tr3.py; sourceTree = "<group>"; };
 		8037637526AB7EB600F2363C /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
 		8037637726AB885100F2363C /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
-		80437B6627D0717800348513 /* scratch3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch3.h; sourceTree = "<group>"; };
+		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		8055DD9B289F34090088927E /* menu.tr3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menu.tr3.h; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,7 +379,7 @@
 			children = (
 				8082FD8624B2589A002F880A /* scratch1.h */,
 				8070497B23378ADB0001617D /* scratch2.h */,
-				80437B6627D0717800348513 /* scratch3.h */,
+				80437B6627D0717800348513 /* todo.txt */,
 				8079629E2558A415005BBFA6 /* sketch.h */,
 			);
 			path = Scratch;

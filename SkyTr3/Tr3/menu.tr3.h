@@ -3,8 +3,6 @@ menu.view {
         tile (image "icon.shader.tile.png") {
             mirror (symbol "arrowtriangle.left.and.line.vertical.and.arrowtriangle.right")
             repeat (symbol "rectangle.grid.2x2" )
-        }
-        scroll (image "icon.cell.scroll.png") {
             shift (image "icon.cell.scroll")
             tilt  (image "icon.pen.tilt")
         }
@@ -44,13 +42,12 @@ menu.view {
 menu.model {
     canvas {
         tile  {
-            mirror (x -1…1,
-                    y -1…1) >> shader.model.pipe.render.mirror
+            mirror (x 0…1 = 0,
+                    y 0…1 = 0) >> shader.model.pipe.render.mirror
 
-            repeat (x -1…1,
-                    y -1…1) >> shader.model.pipe.render.repeat
-        }
-        scroll {
+            repeat (x -1…1 = 0,
+                    y -1…1 = 0) >> shader.model.pipe.render.repeat
+
             shift (x 0…1 = 0.5,
                    y 0…1 = 0.5) >> shader.model.pipe.draw
 
