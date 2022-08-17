@@ -61,6 +61,10 @@ class SkyMetal {
                         let floats = exprs.getValFloats()
                         node.updateBuffer(child.name, floats)
                     }
+                    else if let val = child.val as? Tr3ValScalar {
+                        let float = val.getVal()
+                        node.updateBuffer(child.name, [float])
+                    }
                 }
                 child.addClosure { child, _ in
                     updateParentFloats(child)
@@ -74,12 +78,14 @@ class SkyMetal {
                 switch child.name {
                     case "on" : addOn(child)
                     case "loops": node.loops = child.IntVal() ?? 1
-                    case "bits": break
                     case "flip":   break // ignore
 
                     case "frame": updateChildBuffer(child)
                     case "repeat": updateChildBuffer(child)
                     case "mirror": updateChildBuffer(child)
+                    case "bits":
+
+                        updateChildBuffer(child)
 
                     default: err(tr3, "name")
                 }

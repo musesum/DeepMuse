@@ -132,7 +132,7 @@ kernel void tunl(texture2d<half, access::read_write> inTex  [[texture(0)]],
     /** calculate */
     
     uint parity;
-    switch (uint(version*5)) {
+    switch (uint(version)) {
         case 0: parity = ((nsew0  == 0) ? 0 : (nsew0  == 5) ? 0 : 1); break;
         case 1: parity = ((nsew1  == 0) ? 0 : (nsew1  == 5) ? 0 : 1); break;
         case 2: parity = ((nsew2  == 0) ? 0 : (nsew2  == 9) ? 0 : 1); break;

@@ -134,7 +134,7 @@ kernel void slide(texture2d<float, access::read> inTex  [[texture(0)]],
     
     
     uint r = 0;
-    uint offset = uint(version * 7);
+    uint offset = uint(version); // * 7
     for (int i=0, j=1; i<8; i++, j <<= 1) {
         int k = (i^offset);
         r += cells[k] & j;

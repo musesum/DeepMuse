@@ -17,7 +17,7 @@ kernel void zha(texture2d<half, access::read_write> inTex  [[texture(0)]],
 
     const int thresholds[7] = { 0b0000,  0b0001,  0b0001,  0b0010,  0b0101,  0b0110,  0b0111 };
     const int annealers[7]  = { 0b0010,  0b0001,  0b0011,  0b0010,  0b0111,  0b0110,  0b1001 };
-    const int versioni = int(version*6);
+    const int versioni = int(version);
     const int threshold = thresholds[versioni];
     const int annealing = annealers[versioni];
 

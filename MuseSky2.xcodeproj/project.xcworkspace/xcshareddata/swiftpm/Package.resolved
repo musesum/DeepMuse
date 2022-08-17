@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "mumenusky",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuMenuSky",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d369dfde0265304b65e54efb271b3fb48fc01e4f"
+      }
+    },
+    {
       "identity" : "par",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/musesum/Par.git",
@@ -34,6 +43,15 @@
       "state" : {
         "revision" : "48254824bb4248676bf7ce56014ff57b142b77eb",
         "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "tr3",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/Tr3",
+      "state" : {
+        "revision" : "2fddc37f6e9310cfb0eceb05843695c66a9664a4",
+        "version" : "0.2.36"
       }
     },
     {

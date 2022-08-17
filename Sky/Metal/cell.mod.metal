@@ -115,7 +115,7 @@ kernel void mod(texture2d<half, access::read_write> inTex  [[texture(0)]],
 
     const uint HiC = (uint(C.a * 255.) << 8) + uint(C.r * 255.);
 
-    int versioni = int(version*4);
+    int versioni = int(version); // * 4
 
     /** calculate */
     

@@ -114,7 +114,7 @@ kernel void fred(texture2d<half, access::read_write> inTex  [[texture(0)]],
 
     const uint HiC = (uint(C.a * 256.) << 8) + uint(C.r * 256.);
 
-    int versioni = int(version*4);
+    int versioni = int(version); // * 4
 
     uint r1 = 0;
 #define sum(n) ((c<<1) + ((c>>1) + n ) & 1) & 0xff;
