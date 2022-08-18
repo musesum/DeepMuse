@@ -23,13 +23,10 @@ struct MenuSkyView: View {
 class SkyVC: UIViewController {
 
     static var shared = SkyVC()
-//???    private var uiOrientation: UIInterfaceOrientation { get {
-//        return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .portrait }
-//    }
+
     override func viewDidAppear(_ animated: Bool) {
 
         let bounds = UIScreen.main.bounds
-        //??? MuOrientation.shared.uiOrientation = uiOrientation
         view = SkyPipeline.shared.setViewFrame(bounds)
         setNeedsUpdateOfHomeIndicatorAutoHidden()
 

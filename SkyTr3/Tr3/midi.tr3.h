@@ -6,7 +6,7 @@ midi { // musical instrument device interface
         }
         controller (num 0…127, val 0…127, chan 1…32, port 1…16, time 0)
         afterTouch (num 0…127, val 0…127, chan 1…32, port 1…16, time 0)
-        pitchBend  (val 0…16384 = 8192, chan 1…32, port 1…16, time 0)
+        pitchBend  (val 0…16384=8192, chan 1…32, port 1…16, time 0)
         programChange (num 0…255, chan 1…32, port 1…16, time 0) //1, 632, 255
     }
     output : input

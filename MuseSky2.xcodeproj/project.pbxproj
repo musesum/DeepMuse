@@ -90,12 +90,11 @@
 /* Begin PBXFileReference section */
 		8020C01428A571AB0059258A /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3/Tr3; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = panel.shader.color.json; sourceTree = "<group>"; };
-		802FD54B2649976D00564B19 /* sky.main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.main.py; sourceTree = "<group>"; };
-		802FD54C26499E6F00564B19 /* sky.midi.tr3.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sky.midi.tr3.py; sourceTree = "<group>"; };
 		8037637526AB7EB600F2363C /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
 		8037637726AB885100F2363C /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		8055DD9B289F34090088927E /* menu.tr3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menu.tr3.h; sourceTree = "<group>"; };
+		80639E4C28ADD50200FA05EA /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				80639E4C28ADD50200FA05EA /* MuMenu */,
 				807EF24828AAC1C700694F35 /* MuMenuSky */,
 				8020C01428A571AB0059258A /* Tr3 */,
 				80F23D45288CE45D003AC055 /* Packages */,
@@ -388,8 +388,6 @@
 		80D6AAAA264C829600CBAF99 /* tr3_maybe */ = {
 			isa = PBXGroup;
 			children = (
-				802FD54B2649976D00564B19 /* sky.main.py */,
-				802FD54C26499E6F00564B19 /* sky.midi.tr3.py */,
 				802650D025574388005B4119 /* panel.shader.color.json */,
 			);
 			path = tr3_maybe;

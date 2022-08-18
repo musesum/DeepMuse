@@ -6,25 +6,7 @@
       "location" : "https://github.com/AudioKit/AudioKit",
       "state" : {
         "branch" : "main",
-        "revision" : "29dbb5aa746c28592d0f36d5d32a4f5f2c135144"
-      }
-    },
-    {
-      "identity" : "mumenu",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musesum/MuMenu",
-      "state" : {
-        "branch" : "main",
-        "revision" : "f3a3f07600134361171a5f45fdc58e2306acd3cb"
-      }
-    },
-    {
-      "identity" : "mumenusky",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musesum/MuMenuSky",
-      "state" : {
-        "branch" : "main",
-        "revision" : "d369dfde0265304b65e54efb271b3fb48fc01e4f"
+        "revision" : "4b95fc464e007eccadd6a4dfd291de1e744c41a0"
       }
     },
     {
@@ -43,15 +25,6 @@
       "state" : {
         "revision" : "48254824bb4248676bf7ce56014ff57b142b77eb",
         "version" : "1.0.2"
-      }
-    },
-    {
-      "identity" : "tr3",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musesum/Tr3",
-      "state" : {
-        "revision" : "2fddc37f6e9310cfb0eceb05843695c66a9664a4",
-        "version" : "0.2.36"
       }
     },
     {

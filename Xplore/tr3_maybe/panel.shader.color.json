@@ -1,110 +1,90 @@
-"panel.shader.color": {
-    "base": {
-        "type": "color",
-        "title": "Color",
-        "frame": "(x 0, y 0, w 250, h 130)",
-        "icon": "icon.pal.main.png",
-    },
-    "controls": {
-        "hide": {
-            "type": "panelx",
-            "title": "hide",
-            "frame": "(x 0, y 0, w 40, h 40)",
-            "icon": "icon.thumb.X.png",
-            "value": "(0..1)"
+"shader": {
+    "model": {
+        "cell": {
+            "fade"  : {"val": "0…1 = 0.5)", "_": { "on": "(0…1 = 0)", ">>": "cell˚on(0)", "<<": ".." }},
+            "ave"   : {"val": "0…1 = 0.5)", "_": { "on": "(0…1 = 1)", ">>": "cell˚on(0)", "<<": ".." }},
+            "melt"  : {"val": "0…1 = 0.5)", "_": { "on": "(0…1 = 0)", ">>": "cell˚on(0)", "<<": ".." }},
+            "tunl"  : {"seg": "0…5 = 1  )", "_": { "on": "(0…1 = 0)", ">>": "cell˚on(0)", "<<": ".." }},
+            "slide" : {"seg": "0…7 = 3  )", "_": { "on": "(0…1 = 0)", ">>": "cell˚on(0)", "<<": ".." }},
+            "fred"  : {"seg": "0…4 = 4  )", "_": { "on": "(0…1 = 0)", ">>": "cell˚on(0)", "<<": ".." }},
+            "zha"   : {"seg": "0…6 = 2  )", "_": { "on": "(0…1 = 0)", ">>": "cell˚on(0)", "<<": "..", "bits": "(2…4 = 3)", "loops": "(1)"  }}
         },
-        "palFade": {
-            "type": "slider",
-            "title": "Palette Cross Fade",
-            "frame": "(x 10, y 44, w 192, h 32)",
-            "icon": "icon.pearl.white.png",
-            "value": "(0..1) <> sky.color.xfade",
-            "lag": 0
-        },
-        "bitplane": {
-            "type": "slider",
-            "title": "Bit Plane",
-            "frame": "(x 10, y 84, w 192, h 32)",
-            "icon": "icon.pearl.white.png",
-            "value": "(0..1) >> sky.shader.color.buffer.bitplane"
+        "pipe": {
+            "draw"  : "(x 0…1 = 0.5, y 0…1 = 0.5)",
+            "record": "(tog 0)",
+            "camera": "(tog 0) { flip (tog 0) }",
+            "camix" : "(tog 0)",
+            "color" : "(val 0…1 = 0.1) // bitplane",
+            "render": {
+                "frame" : "(x 0, y 0, w 1080, h 1920)",
+                "repeat": "(x, y)",
+                "mirror": "(x, y)" },
         }
-        "fillOne": {
-            "type": "trigger",
-            "title": "Fill Ones",
-            "frame": "(x 210, y 84, w 32, h 32)",
-            "icon": "icon.drop.gray.png",
-            "value": "(0..1) >> sky.draw.screen.fillOne"
+    },
+    "file": {
+        "cell": {
+            "fade" : "(\"cell.fader.metal\")",
+            "ave"  : "(\"cell.ave.metal\"  )",
+            "melt" : "(\"cell.melt.metal\" )",
+            "tunl" : "(\"cell.tunl.metal\" )",
+            "slide": "(\"cell.slide.metal\")",
+            "fred" : "(\"cell.fred.metal\" )",
+            "zha"  : "(\"cell.zha.metal\"  )"
+        },
+        "pipe": {
+            "record": "(\"\")",
+            "camera": "(\"cell.camera.metal\")",
+            "camix" : "(\"cell.camix.metal\" )",
+            "draw"  : "(\"pipe.draw.metal\"  )",
+            "render": "(\"pipe.render.metal\")",
+            "color" : "(\"pipe.color.metal\" )"
         }
     }
 }
 
-"tr3": { "~": "name (edges | values | branches | comment)*",
-    "edges": { "~": "edgeOp (edgePar| edge) comment*",
-        "edgeOp": { "~": "'^([<][<⋯!@&\=\╌>]+|[⋯!@&\=\╌>]+[>])'"},
-        "edgePar": { "~": "\"(\" edge+ \")\""},
-        "edge": { "~": "exprOp? (name | scalar | ternary) comma?"},
+"tr3": {
+    "~": "name (edges | values | branches | comment)*",
+    "edges": {
+        "~": "edgeOp (edgePar| edge) comment*",
+        "_": {
+            "edgeOp": { "~": "'^([<][<⋯!@&\\=\\╌>]+|[⋯!@&\\=\\╌>]+[>])'"},
+            "edgePar": { "~": "\"(\" edge+ \")\""},
+            "edge": { "~": "exprOp? (name | scalar | ternary) comma?"},
+        },
     },
-    "values": { "~": "exprs | quote | scalar | ternary | embed",
-        "exprs": { "~": "\"(\" expr+ \")\"",
-            "expr": { "~": "exprOp? (name | scalar | ternary) comma?" },
-            "exprOp": { "~": "'^(<=|>=|==|\!=|<|>|\*|\/|\+|\-|\%|in)'" },
+    "values": {
+        "~": "exprs | quote | scalar | ternary | embed",
+        "_": {
+            "exprs": {
+                "~": "\"(\" expr+ \")\"",
+                "_": {
+                    "expr": { "~": "exprOp? (name | scalar | ternary) comma?" },
+                    "exprOp": { "~": "'^(<=|>=|==|\\!=|<|>|\\*|\\/|\\+|\\-|\\%|in)'" },
+                },
+            },
         },
-        "scalar": { "~": "(thru | modu | data | num) comma?",
-            "thru": {"~": "min \"..\" max (\"=\" dflt)?" },
-            "modu": {"~": "\"%\" max (\"=\" dflt)?" },
-            "index": {"~": "\"[\" (name|num) \"]" },
-            "data": {"~": "\"*\"" },
-            "min": {"~": "num" },
-            "max": {"~": "num" },
-            "dflt": {"~": "\"=\" num" },
-            "num": {"~": "'^([+-]*([0-9]+[.][0-9]+|[.][0-9]+|[0-9]+[.](?![.])|[0-9]+)([e][+-][0-9]+)?)'"},
+        "scalar": {
+            "~": "(thru | modu | data | num) comma?",
+            "_": {
+                "thru": {"~": "min \"..\" max (\"=\" dflt)?" },
+                "modu": {"~": "\"%\" max (\"=\" dflt)?" },
+                "index": {"~": "\"[\" (name|num) \"]" },
+                "data": {"~": "\"*\"" },
+                "min": {"~": "num" },
+                "max": {"~": "num" },
+                "dflt": {"~": "\"=\" num" },
+                "num": {"~": "'^([+-]*([0-9]+[.][0-9]+|[.][0-9]+|[0-9]+[.](?![.])|[0-9]+)([e][+-][0-9]+)?)'"},
+            },
         },
-        "ternary": { "~": "ternIf ternThen ternElse? ternRadio?",
-            "ternIf": { "~": "expr" },
-            "ternThen": { "~": "\"?\" expr" },
-            "ternElse": { "~": "\":\" expr" },
-            "ternRadio": { "~": "\"|\" ternary" },
+        "ternary": {
+            "~": "ternIf ternThen ternElse? ternRadio?",
+            "_": {
+                "ternIf": { "~": "expr" },
+                "ternThen": { "~": "\"?\" expr" },
+                "ternElse": { "~": "\":\" expr" },
+                "ternRadio": { "~": "\"|\" ternary" },
+            },
         },
         "embed": { "~": "'^[{][{](?s)(.*?)[}][}]'" },
     },
-    "branches": { "~": "child | many | array | copyat",
-        "child": { "~": "\"{\" comment* tr3+ \"}\"" },
-        "many": { "~": "\".\"" \"{\" tr3+ \"}\"" },
-        "array": { "~": "\"[\" thru \"]\"" },
-        "copyat": { "~": "\"@\" nodes" },
-    },
-    "quote": { "~": "'^\"([^\"]*)\"'" },
-    "name": { "~": "'^([A-Za-z_][A-Za-z0-9_]*)'"
-    "comment": { "~": "'^([,]+|^[/]{2,}[ ]*(.*?)[\n\r\t]+|\/[*]+.*?\*\/)'" },
 }
-
-class Tr3: ParOne {
-    class Node: ParAny {
-        class Name: ParAny {}
-        class Path: ParAny {}
-        var name: [Name]
-    }
-    class Edges: ParAny {
-        class EdgeOp: ParAny {}
-        class Edge: ParAny {
-            class exprOp: ParAny {}
-            class name: ParAny {}
-            scalar: ParAny {}
-            ternary comma?
-        }
-        var edgeOp: EdgeOp
-        var edge: [Edge] // (_ <b>+ _ | <b>) => <b>s+ // edgeParen edge
-        var values: [Values]
-
-    }
-    class values: ParAny {
-         class exprs: ParAny {}
-         class quote: ParAny {}
-         class scalar: ParAny {}
-         class ternary: ParAny {}
-         class embed: ParAny {}
-    }
-    class quote: ParAny {}
-    class comment: ParAny {}
-}
-

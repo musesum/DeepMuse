@@ -14,10 +14,9 @@ MuMenu
         hide super branches while editing
         emboss thumb with icon
         special title
+        touch long press lift no change
 
     sync devices
-
-
 
 Sky
     bugs
@@ -25,7 +24,7 @@ Sky
         Autorotate autofit view
     features
         sync devices
-        resize view
+        resize/rotate canvas
         resize texture
 
 Tr3

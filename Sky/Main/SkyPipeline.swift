@@ -206,8 +206,13 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         // firstNode?.printMetaNodes()
     }
     private var uiOrientation: UIInterfaceOrientation { get {
-        return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .portrait }
-    }
+        
+        UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }?.windowScene?.interfaceOrientation ?? .portrait
+    }}
     /// setup new node during shader startup or via pipeline
     func initNodeName(_ name: String,
                       _ type: String) -> MtlNode? {
