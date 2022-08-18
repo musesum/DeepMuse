@@ -1,18 +1,18 @@
 sky { // visual music program
     main { // main controls
-        frame (0)        // frame counter
+        frame (0)       // frame counter
         fps (1…60 = 60) // frames per second
-        run (1)          // currently running
+        run (1)         // currently running
     }
     pipeline { // default metal pipeline at atartup
-        draw "draw"     // drawing layer
-        ave "compute"   // compute layer
-        color "color"   // colorizing layer
-        render "render" // render layer al
+        draw   ("draw")    // drawing layer
+        ave    ("compute") // compute layer
+        color  ("color")   // colorizing layer
+        render ("render")  // render layer al
     }
     color { // false color mapping palette
-        pal0 "roygbik"     // palette 0: (r)ed (o)range (y)ellow …
-        pal1 "wKZ"         // palette 1: (w)hite blac(K) fractali(Z)e
+        pal0 ("roygbik")    // palette 0: (r)ed (o)range (y)ellow …
+        pal1 ("wKZ")        // palette 1: (w)hite blac(K) fractali(Z)e
         xfade (0…1 = 0.5)
     }
     input { // phone and tablet pencil input
@@ -25,9 +25,9 @@ sky { // visual music program
                z -0.3 … 0.3)  // accelerometer
 
         accel.on (0…1)
-        radius (1 … 92 = 9)      // finger silhouette
-        tilt (0…1)             // use tilt
-        force (0 … 0.5)          // pen pressure
+        radius (1 … 92 = 9) // finger silhouette
+        tilt (0…1)          // use tilt
+        force (0 … 0.5)     // pen pressure
         >> sky.draw.brush.size
     }
     draw { // draw on metal layer
@@ -35,7 +35,7 @@ sky { // visual music program
             fill(0) // all zeros 0x00000000
         }
         brush { // type of brush and range
-            type "dot"           // draw a circle
+            type ("dot")           // draw a circle
             size (1…64 = 10)    // range of radius
             press (0…1 = 1)     // pressure changes size
             index (1…255 = 127) // index in 256 color palette

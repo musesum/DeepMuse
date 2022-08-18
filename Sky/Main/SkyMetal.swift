@@ -76,18 +76,14 @@ class SkyMetal {
 
             for child in tr3.children {
                 switch child.name {
-                    case "on" : addOn(child)
-                    case "loops": node.loops = child.IntVal() ?? 1
-                    case "flip":   break // ignore
-
-                    case "frame": updateChildBuffer(child)
-                    case "repeat": updateChildBuffer(child)
-                    case "mirror": updateChildBuffer(child)
-                    case "bits":
-
-                        updateChildBuffer(child)
-
-                    default: err(tr3, "name")
+                    case "on"     : addOn(child)
+                    case "loops"  : node.loops = child.IntVal() ?? 1
+                    case "flip"   : break // ignore
+                    case "frame"  : updateChildBuffer(child)
+                    case "repeat" : updateChildBuffer(child)
+                    case "mirror" : updateChildBuffer(child)
+                    case "bits"   : updateChildBuffer(child)
+                    default       : err(tr3, "name")
                 }
             }
             if let fileTr3 = fileTr3.findPath(tr3.name),
