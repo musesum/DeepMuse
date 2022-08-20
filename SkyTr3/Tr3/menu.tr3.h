@@ -51,7 +51,7 @@ menu.model {
             shift (x 0…1 = 0.5,
                    y 0…1 = 0.5) >> shader.model.pipe.draw
 
-            tilt  (tog 0…1 = 0) <> sky.input.tilt >> accelTilt.value(0)
+            tilt  (tog 0…1 = 0) <> sky.input.tilt
         }
         color {
             fade  (val 0…1 = 0) <> sky.color.xfade
@@ -65,9 +65,9 @@ menu.model {
         }
     }
     brush {
-        size  (val 0…1 = 0.5) >> sky.draw.brush.size
+        size  (val 0…1 = 0.5) >> (sky.draw.brush.size, press.(tog 0))
         press (tog 0…1 = 1  ) >> sky.draw.brush.press
-        tilt  (tog 0…1 = 1  ) >> sky.input.brush.tilt
+        tilt  (tog 0…1 = 1  ) <> sky.input.tilt
     }
     cell {
         fade  (val 2…3 = 2.2) >> shader.model.cell.fade

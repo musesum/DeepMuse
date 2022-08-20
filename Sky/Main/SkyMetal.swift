@@ -47,6 +47,8 @@ class SkyMetal {
                     if let exprs = tr3.val as? Tr3Exprs {
                        let floats = exprs.getValFloats()
                         node.updateBuffer(tr3.name, floats)
+                    } else if let scalar = tr3.val as? Tr3ValScalar {
+                        node.updateBuffer(tr3.name, [scalar.num])
                     }
                 }
                 tr3.addClosure { tr3, _ in

@@ -27,88 +27,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "06844AEB-D0C8-47DC-B93C-8784F4A603FC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sky/Main/SkyColor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "init(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6E6D5C44-852E-4C04-9269-7250AED45756"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3+runtime.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "setEdgeVal(_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6E6D5C44-852E-4C04-9269-7250AED45756 - e9f2fda11d8e0d9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tr3.Tr3.setEdgeVal(Swift.Optional&lt;Tr3.Tr3Val&gt;, Par.Visitor) -&gt; ()"
-                  moduleName = "Muse Sky"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/warren/Dev/Tr3/Tr3/Sources/Tr3/Tr3+runtime.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "1040">
-               </Location>
-               <Location
-                  uuid = "6E6D5C44-852E-4C04-9269-7250AED45756 - e9f2fda11d8e0d9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tr3.Tr3.setEdgeVal(Swift.Optional&lt;Tr3.Tr3Val&gt;, Par.Visitor) -&gt; ()"
-                  moduleName = "Muse Sky"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/warren/Dev/Tr3/Tr3/Sources/Tr3/Tr3+runtime.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "1140">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "850584F3-6412-4C09-9611-E103AA00B423"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sky/Main/SkyMetal.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "updateParentFloats(_:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "DC2A7515-2759-497C-B7AE-ABAA6812102E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Tr3/Tr3/Sources/Tr3/Tr3ValQuote.swift"
@@ -124,7 +44,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "125DAB72-911E-46B8-BB7A-7DE43EDA7411"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Tr3/Tr3/Sources/Tr3/Tr3ValQuote.swift"
@@ -155,24 +75,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D84DE2FA-AD30-4991-B6DB-738FF1EE7004"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../MuMenu/Sources/MuMenu/Branch/MuBranchVm.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "updateShiftRange()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B3EA3AAB-25F0-41C1-A243-933EAB07DA57"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../MuMenu/Sources/MuMenu/Tree/MuTreeVm.swift"
@@ -181,6 +85,86 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "refreshTree(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D24A7AB-4A45-4F87-B388-1088C6F7118C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../MuMenu/Sources/MuMenu/Leaf/MuLeafVxyVm.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "updateView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5DC538A-E508-4AFD-ABF9-9EFC26F10130"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sky/Main/SkyPipeline.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "initNodeName(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A5DC538A-E508-4AFD-ABF9-9EFC26F10130 - 11111f15a426297d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Muse_Sky.SkyPipeline.initNodeName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;MuMetal.MtlNode&gt;"
+                  moduleName = "Muse Sky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/MuseSky2/Sky/Main/SkyPipeline.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "226"
+                  endingLineNumber = "226"
+                  offsetFromSymbolStart = "1508">
+               </Location>
+               <Location
+                  uuid = "A5DC538A-E508-4AFD-ABF9-9EFC26F10130 - 898749b69a28787b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #4 (Swift.Int) -&gt; Swift.UnsafeMutablePointer&lt;Swift.UInt32&gt; in implicit closure #3 (Muse_Sky.SkyColor) -&gt; (Swift.Int) -&gt; Swift.UnsafeMutablePointer&lt;Swift.UInt32&gt; in Muse_Sky.SkyPipeline.initNodeName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;MuMetal.MtlNode&gt;"
+                  moduleName = "Muse Sky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/MuseSky2/Sky/Main/SkyPipeline.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "226"
+                  endingLineNumber = "226"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FABEF83A-AC45-4D51-AD3B-D0E4B66350B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3+runtime.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "setAny(_:_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

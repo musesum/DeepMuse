@@ -222,7 +222,8 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
                 case "camera" : node = MtlKernelCamera  (name, device, drawSize, type, uiOrientation)
                 case "draw"   : node = MtlKernelDraw   (name, device, drawSize, type, SkyDraw.shared.drawTexture)
                 case "compute": node = MtlKernelCompute (name, device, drawSize, type)
-                case "color"  : node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)
+                case "color"  :
+                    node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)
                 case "camix"  : node = MtlKernelCamix   (name, device, drawSize, type, uiOrientation)
                 case "render" : node = MtlKernelRender  (name, device, drawSize, type, mtkView)
                 case "record" : node = MtlKernelRecord  (name, device, drawSize, type)
@@ -301,7 +302,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
                 recordNode = renderNode?.inNode?.insertNode(node, .below)
 
             default:
-                // replace a compute node with cnew node
+                // replace a compute node with new node
                 cellNode = cellNode?.replace(with: node)
         }
         print("⟹ pipeline: " + scriptPipeline())
