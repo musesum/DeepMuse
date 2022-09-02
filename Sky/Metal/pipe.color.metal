@@ -3,7 +3,7 @@
 
 using namespace metal;
 
-kernel void color(texture2d<half, access::read>     inTex  [[texture(0)]],
+kernel void color(texture2d<half, access::read>       inTex  [[texture(0)]],
                        texture2d<half, access::write>  outTex [[texture(1)]],
                        texture2d<half, access::read>   palTex [[texture(2)]],
                        constant float                  &bitplane [[buffer(0)]],

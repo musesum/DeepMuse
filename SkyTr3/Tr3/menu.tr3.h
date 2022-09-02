@@ -36,7 +36,7 @@ menu.view {
         fake  (symbol "face.dashed")
         real  (symbol "face.smiling")
         face  (symbol "arrow.triangle.2.circlepath.camera")
-        xfade (symbol "slider.horizontal.below.rectangle")
+        mix   (symbol "slider.horizontal.below.rectangle")
     }
 }
 menu.model {
@@ -83,6 +83,6 @@ menu.model {
         fake  (tog 0…1 = 0  ) >> shader.model.pipe.camix.on
         real  (tog 0…1 = 1  ) >> shader.model.pipe.camera.on
         face  (tog 0…1 = 1  ) >> shader.model.pipe.camera.flip
-        xfade (val 0…1 = 0.5) <> sky.color.xfade
+        mix   (val 0…1 = 0.5) >> shader.model.pipe.camix.mix
     }
 }

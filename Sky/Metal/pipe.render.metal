@@ -35,7 +35,6 @@ vertex VertexData vertexShader(uint vertexID [[ vertex_id ]],
     return out;
 }
 
-
 // Fragment
 fragment float4 fragmentShader(VertexData in [[stage_in]],
                                texture2d<half> colorTex [[ texture(0) ]],

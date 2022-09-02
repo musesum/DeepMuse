@@ -93,8 +93,8 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         camixNode = nil
 
         func fixupNodes() {
-            if  let camixNode = camixNode,
-                let renderNode = renderNode {
+            if let camixNode,
+               let renderNode {
 
                 removeNode(camixNode)
                 renderNode.insertNode(camixNode, .above)
