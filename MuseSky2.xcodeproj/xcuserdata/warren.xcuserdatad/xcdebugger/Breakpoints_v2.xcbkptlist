@@ -43,22 +43,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B80E83AE-6F2C-4BCF-909C-45B886B09295"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Packages/MuMetal/Sources/MuMetal/MtlKernelCamix.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "goCommand(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3D778CB1-A476-4694-9C73-834341923A52"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -112,32 +96,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "51E13D75-FAA0-4B92-A80C-492734B563E4"
-            shouldBeEnabled = "Yes"
+            uuid = "0FB4B802-E6B9-4711-B70B-BC20751F85D1"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sky/Main/SkyMetal.swift"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3+runtime.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "updateParentFloats(_:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "setAny(_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4065AC61-7E54-4D25-B7F0-7441F5E90B08"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3ValTern+runtime.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "setTernEdges(_:active:)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "11D63CC0-60CB-4D13-AF50-3E40E9B9025B"
-            shouldBeEnabled = "Yes"
+            uuid = "6E8AA5F4-C7DF-4735-A3B0-7D267623E242"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sky/Main/SkyMetal.swift"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3ValTern+runtime.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "makeNode(_:_:_:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "changeState(_:_:_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C26FE507-9F33-463E-BBB7-B87E67B642A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3EdgeDef+connect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "connectValTern(_:_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C26FE507-9F33-463E-BBB7-B87E67B642A0 - dbc20c4cd12dc63b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tr3.Tr3EdgeDef.connectValTern(Tr3.Tr3ValTern, Tr3.Tr3, Swift.Array&lt;Tr3.Tr3&gt;) -&gt; ()"
+                  moduleName = "Tr3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/Tr3/Tr3/Sources/Tr3/Tr3EdgeDef+connect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "C26FE507-9F33-463E-BBB7-B87E67B642A0 - dbc20c4cd12dc63b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tr3.Tr3EdgeDef.connectValTern(Tr3.Tr3ValTern, Tr3.Tr3, Swift.Array&lt;Tr3.Tr3&gt;) -&gt; ()"
+                  moduleName = "Tr3Tests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/Tr3/Tr3/Sources/Tr3/Tr3EdgeDef+connect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11BCB2BD-0021-42DC-9DCE-677643D08E31"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3Edge.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "makeKey()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85B32F64-0990-4B70-94BE-CE63A6E9ABB6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3EdgeDef+connect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "connectTernCondition(_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8050AF56-FA70-4EAC-A436-B6DC7ED9C738"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3+script.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "script(compact:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F39A71F-9E5F-45EE-90A6-190790492C66"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Tr3/Tr3/Sources/Tr3/Tr3ValScalar+script.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "scriptVal(parens:session:expand:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

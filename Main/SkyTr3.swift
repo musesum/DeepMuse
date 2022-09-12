@@ -2,6 +2,7 @@ import UIKit
 import Tr3
 import Par
 import MuMetal
+import MuMenuSky
 
 class SkyTr3: NSObject {
     
@@ -124,9 +125,9 @@ class SkyTr3: NSObject {
             let _ = Tr3Parse.shared.parseTr3(root, fileName)
         }
 
-        parseFile("sky")
-        parseFile("shader")
-        parseFile("menu")
+        _ = MuMenuSky.parseTr3(root, "sky")
+        _ = MuMenuSky.parseTr3(root, "shader")
+        _ = MuMenuSky.parseTr3(root, "menu")
 
         //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false)
         //?? let script = root.dumpScript(indent: 0) // with values

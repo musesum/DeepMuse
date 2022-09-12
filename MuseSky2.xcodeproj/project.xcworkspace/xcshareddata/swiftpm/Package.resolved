@@ -19,12 +19,12 @@
       }
     },
     {
-      "identity" : "swift-collections",
+      "identity" : "tr3",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-collections.git",
+      "location" : "https://github.com/musesum/Tr3",
       "state" : {
-        "revision" : "48254824bb4248676bf7ce56014ff57b142b77eb",
-        "version" : "1.0.2"
+        "revision" : "99f795bd8ab011c22deeac5413dd5d2d1a9830fa",
+        "version" : "0.3.0"
       }
     },
     {

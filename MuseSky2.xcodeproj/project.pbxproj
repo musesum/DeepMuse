@@ -42,10 +42,6 @@
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		80704B3C23378DB40001617D /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 80704B3B23378DB40001617D /* Tr3 */; };
-		807962A22558B110005BBFA6 /* shader.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8079629F2558B110005BBFA6 /* shader.tr3.h */; };
-		807962D52558C031005BBFA6 /* midi.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D32558C031005BBFA6 /* midi.tr3.h */; };
-		807962D62558C031005BBFA6 /* sky.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 807962D42558C031005BBFA6 /* sky.tr3.h */; };
-		807EF24928AAC9FE00694F35 /* menu.tr3.h in Resources */ = {isa = PBXBuildFile; fileRef = 8055DD9B289F34090088927E /* menu.tr3.h */; };
 		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
 		808E90D923384CCD004EB9C9 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E90D823384CCD004EB9C9 /* MuFile.swift */; };
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
@@ -88,12 +84,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8020C01428A571AB0059258A /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3/Tr3; sourceTree = "<group>"; };
-		802650D025574388005B4119 /* panel.shader.color.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = panel.shader.color.json; sourceTree = "<group>"; };
+		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		8037637526AB7EB600F2363C /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
 		8037637726AB885100F2363C /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
+		8042552F28CFA5390088EE30 /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../MuSkyTr3; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
-		8055DD9B289F34090088927E /* menu.tr3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menu.tr3.h; sourceTree = "<group>"; };
 		80639E4C28ADD50200FA05EA /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,9 +129,6 @@
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		8079629E2558A415005BBFA6 /* sketch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sketch.h; sourceTree = "<group>"; };
-		8079629F2558B110005BBFA6 /* shader.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = shader.tr3.h; sourceTree = "<group>"; };
-		807962D32558C031005BBFA6 /* midi.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = midi.tr3.h; sourceTree = "<group>"; };
-		807962D42558C031005BBFA6 /* sky.tr3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = sky.tr3.h; sourceTree = "<group>"; };
 		807EF24828AAC1C700694F35 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../MuMenuSky; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
@@ -211,19 +203,20 @@
 			children = (
 				80639E4C28ADD50200FA05EA /* MuMenu */,
 				807EF24828AAC1C700694F35 /* MuMenuSky */,
-				8020C01428A571AB0059258A /* Tr3 */,
-				80F23D45288CE45D003AC055 /* Packages */,
-				80F23D31288CE16F003AC055 /* MuDraw */,
-				802C5BD1265B2D3700DBFFEA /* Xplore */,
+				8042552F28CFA5390088EE30 /* MuSkyTr3 */,
 				807048E923378A090001617D /* MuseSky */,
-				8070495B23378ADB0001617D /* Sky */,
-				80704A3023378B000001617D /* SkyTr3 */,
+				8097DC472833E2A300059A59 /* Main */,
+				8070496B23378ADB0001617D /* Touch */,
+				80F23D31288CE16F003AC055 /* MuDraw */,
+				8070495D23378ADB0001617D /* Metal */,
 				80B9E12325169B6F0074AEEA /* MuAudio */,
 				808E90D723384C94004EB9C9 /* MuFiles */,
 				8070490023378A0B0001617D /* MuseSkyTests */,
 				8070490B23378A0B0001617D /* MuseSkyUITests */,
+				80F23D45288CE45D003AC055 /* Packages */,
 				807048E823378A090001617D /* Products */,
 				80704A7623378C1A0001617D /* Frameworks */,
+				802C5BD1265B2D3700DBFFEA /* Xplore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,16 +261,6 @@
 			path = MuseSkyUITests;
 			sourceTree = "<group>";
 		};
-		8070495B23378ADB0001617D /* Sky */ = {
-			isa = PBXGroup;
-			children = (
-				8097DC472833E2A300059A59 /* Main */,
-				8070495D23378ADB0001617D /* Metal */,
-				8070496B23378ADB0001617D /* Touch */,
-			);
-			path = Sky;
-			sourceTree = "<group>";
-		};
 		8070495D23378ADB0001617D /* Metal */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,15 +294,6 @@
 			path = Touch;
 			sourceTree = "<group>";
 		};
-		80704A3023378B000001617D /* SkyTr3 */ = {
-			isa = PBXGroup;
-			children = (
-				8070495C23378ADB0001617D /* SkyTr3.swift */,
-				8096E09028A1C99700EE2967 /* Tr3 */,
-			);
-			path = SkyTr3;
-			sourceTree = "<group>";
-		};
 		80704A7623378C1A0001617D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,21 +314,11 @@
 			path = MuFiles;
 			sourceTree = "<group>";
 		};
-		8096E09028A1C99700EE2967 /* Tr3 */ = {
-			isa = PBXGroup;
-			children = (
-				8055DD9B289F34090088927E /* menu.tr3.h */,
-				807962D42558C031005BBFA6 /* sky.tr3.h */,
-				807962D32558C031005BBFA6 /* midi.tr3.h */,
-				8079629F2558B110005BBFA6 /* shader.tr3.h */,
-			);
-			path = Tr3;
-			sourceTree = "<group>";
-		};
 		8097DC472833E2A300059A59 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				8070497723378ADB0001617D /* SkyMain.swift */,
+				8070495C23378ADB0001617D /* SkyTr3.swift */,
 				8070497423378ADB0001617D /* SkyVC.swift */,
 				8070497323378ADB0001617D /* SkyPipeline.swift */,
 				80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */,
@@ -388,7 +352,7 @@
 		80D6AAAA264C829600CBAF99 /* tr3_maybe */ = {
 			isa = PBXGroup;
 			children = (
-				802650D025574388005B4119 /* panel.shader.color.json */,
+				802650D025574388005B4119 /* panel.shader.color.json.h */,
 			);
 			path = tr3_maybe;
 			sourceTree = "<group>";
@@ -542,12 +506,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				807EF24928AAC9FE00694F35 /* menu.tr3.h in Resources */,
-				807962A22558B110005BBFA6 /* shader.tr3.h in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
-				807962D62558C031005BBFA6 /* sky.tr3.h in Resources */,
 				80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */,
-				807962D52558C031005BBFA6 /* midi.tr3.h in Resources */,
 				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
