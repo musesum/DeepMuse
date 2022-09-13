@@ -12,8 +12,6 @@ import BackgroundTasks
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.deepmuse.snapshot", using: nil)  { task in
             if let task = task as? BGAppRefreshTask {
@@ -57,4 +55,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
+//extension UIApplication {
+//    func addGestureRecognizer() {
+//        guard let window = windows.first else { return }
+//        let gesture = UITapGestureRecognizer(target: window, action: nil)
+//        gesture.requiresExclusiveTouchType = false
+//        gesture.cancelsTouchesInView = false
+//        gesture.delegate = self
+//        window.addGestureRecognizer(gesture)
+//    }
+//}
+//extension UIApplication: UIGestureRecognizerDelegate {
+//    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+//        print("touch detected")
+//        return true
+//    }
+//
+//    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
+//}
+//

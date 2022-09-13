@@ -1,6 +1,18 @@
 
 import UIKit
+import SwiftUI
 
+struct SkyViewUI: UIViewRepresentable {
+    typealias Context = UIViewRepresentableContext<SkyViewUI>
+
+    public func makeUIView(context: Context) -> SkyView {
+       return  SkyView.shared
+    }
+
+    public func updateUIView(_ uiView: SkyView, context: Context) {
+        print("🔶", terminator: " ")
+    }
+}
 class SkyView: UIView, UIGestureRecognizerDelegate {
 
     static let shared = SkyView()

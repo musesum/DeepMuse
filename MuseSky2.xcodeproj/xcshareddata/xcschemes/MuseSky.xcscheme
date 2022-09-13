@@ -5,22 +5,6 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "807048E623378A090001617D"
-               BuildableName = "Muse Sky.app"
-               BlueprintName = "MuseSky"
-               ReferencedContainer = "container:MuseSchromeky.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -28,26 +12,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "807048FC23378A0B0001617D"
-               BuildableName = "MuseSkyTests.xctest"
-               BlueprintName = "MuseSkyTests"
-               ReferencedContainer = "container:MuseSchromeky.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8070490723378A0B0001617D"
-               BuildableName = "MuseSkyUITests.xctest"
-               BlueprintName = "MuseSkyUITests"
-               ReferencedContainer = "container:MuseSchromeky.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -71,15 +35,6 @@
             ReferencedContainer = "container:MuseSky2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "807048E623378A090001617D"
-            BuildableName = "Muse Sky.app"
-            BlueprintName = "MuseSky"
-            ReferencedContainer = "container:MuseSchromeky.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -87,16 +42,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "807048E623378A090001617D"
-            BuildableName = "Muse Sky.app"
-            BlueprintName = "MuseSky"
-            ReferencedContainer = "container:MuseSchromeky.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

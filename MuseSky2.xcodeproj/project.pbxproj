@@ -135,6 +135,8 @@
 		808E90D823384CCD004EB9C9 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
 		808E90DD2338B532004EB9C9 /* FileManager+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extension.swift"; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
+		80B221EA28CFFF150075B6A8 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3; sourceTree = "<group>"; };
+		80B221EB28CFFF1E0075B6A8 /* Par */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Par; path = ../Par; sourceTree = "<group>"; };
 		80B9E12425169D0E0074AEEA /* MuMidi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidi.swift; sourceTree = SOURCE_ROOT; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -201,6 +203,8 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				80B221EB28CFFF1E0075B6A8 /* Par */,
+				80B221EA28CFFF150075B6A8 /* Tr3 */,
 				80639E4C28ADD50200FA05EA /* MuMenu */,
 				807EF24828AAC1C700694F35 /* MuMenuSky */,
 				8042552F28CFA5390088EE30 /* MuSkyTr3 */,

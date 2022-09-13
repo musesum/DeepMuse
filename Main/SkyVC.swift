@@ -12,10 +12,17 @@ struct MenuSkyView: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
+            SkyViewUI()
             MenuView(menuVm: MenuSkyVm(corner: [.lower, .left],
                                        axis: .vertical,
-                                      rootTr3: SkyTr3.shared.root))
+                                       rootTr3: SkyTr3.shared.root))
+
+            MenuView(menuVm: MenuSkyVm(corner: [.lower, .right],
+                                       axis: .vertical,
+                                       rootTr3: SkyTr3.shared.root))
+            //??? .onAppear(perform: UIApplication.shared.addGestureRecognizer)
         }
+        
         .statusBar(hidden: true)
     }
 }
@@ -31,17 +38,17 @@ class SkyVC: UIViewController {
         setNeedsUpdateOfHomeIndicatorAutoHidden()
 
         // add menu
-        let menuSkyView = UIHostingController(rootView: MenuSkyView())
-        view.addSubview(menuSkyView.view)
-        menuSkyView.view.translatesAutoresizingMaskIntoConstraints = false
-        menuSkyView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        menuSkyView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        menuSkyView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        menuSkyView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        menuSkyView.view.backgroundColor = .clear
+        let menuView = UIHostingController(rootView: MenuSkyView())
+        view.addSubview(menuView.view)
+        menuView.view.translatesAutoresizingMaskIntoConstraints = false
+        menuView.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        menuView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        menuView.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        menuView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        menuView.view.backgroundColor = .clear
 
-        // add touches 
-        menuSkyView.view.addSubview(SkyView.shared)
+        // add touches
+        menuView.view.addSubview(SkyView.shared)
 
         let tr3Root = SkyTr3.shared.root
         SkyDraw.shared.bindTr3(tr3Root)
@@ -49,8 +56,8 @@ class SkyVC: UIViewController {
 
         let _ = SkyMain.shared
 
-        // MuAudio.shared.test()
-        // ?? MuMidi.shared.test(root: tr3Root)
+        //?? MuAudio.shared.test()
+        //?? MuMidi.shared.test(root: tr3Root)
     }
 
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
