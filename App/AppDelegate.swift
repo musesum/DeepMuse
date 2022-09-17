@@ -55,24 +55,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-//extension UIApplication {
-//    func addGestureRecognizer() {
-//        guard let window = windows.first else { return }
-//        let gesture = UITapGestureRecognizer(target: window, action: nil)
-//        gesture.requiresExclusiveTouchType = false
-//        gesture.cancelsTouchesInView = false
-//        gesture.delegate = self
-//        window.addGestureRecognizer(gesture)
-//    }
-//}
-//extension UIApplication: UIGestureRecognizerDelegate {
-//    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-//        print("touch detected")
-//        return true
-//    }
-//
-//    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
-//}
-//

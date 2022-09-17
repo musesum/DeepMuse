@@ -29,7 +29,6 @@ class TouchFinger: NSObject {
                 let force = (lastItem.force * filter) + (nextItem.force * (1-filter))
                 //print(String(format: "* %.3f -> %.3f", lastItem.force, force))
                 nextItem.force = force
-
             }
             touchItems[touchNext].append(nextItem)
         }
@@ -41,23 +40,7 @@ class TouchFinger: NSObject {
 
         touchNext = touchNext ^ 1 // switch double buffer
         let touchPrev = touchNext ^ 1 // flush what used to be nextBuffer
-        let skyDraw = SkyDraw.shared
-
-        func flushItem(_ item: TouchItem?) {
-            
-            if let item = item {
-
-                let radius = skyDraw.update(item)
-
-                let p = CGPoint(x: item.next.x, y: item.next.y)
-
-                isDone = item.phase == .ended || item.phase == .cancelled
-
-                quadXYR.addXYR(p, radius, isDone)
-                quadXYR.iterate12(closure)
-            }
-        }
-        // begin -----------------------------
+        let skyDraw = TouchDraw.shared
 
         // there is new movement of finger
         let count = touchItems[touchPrev].count
@@ -70,10 +53,21 @@ class TouchFinger: NSObject {
             }
         }
         // finger is stationary
-        else if SkyView.shared.touchRepeat {
+        else if TouchView.shared.touchRepeat {
             // so maybe repeat last movement
             flushItem(lastItem)
         }
         touchItems[touchPrev].removeAll()
+
+        func flushItem(_ item: TouchItem?) {
+            if let item {
+                let radius = skyDraw.update(item)
+                let p = CGPoint(x: item.next.x, y: item.next.y)
+                isDone = item.phase == .ended || item.phase == .cancelled
+                quadXYR.addXYR(p, radius, isDone)
+                quadXYR.iterate12(closure)
+            }
+        }
     }
+
 }

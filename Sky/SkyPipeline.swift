@@ -92,17 +92,6 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
 
         camixNode = nil
 
-        func fixupNodes() {
-            if let camixNode,
-               let renderNode {
-
-                removeNode(camixNode)
-                renderNode.insertNode(camixNode, .above)
-            }
-            firstNode?.inNode = cellNode // feedback loop
-            firstNode?.inTex = cellNode?.outTex
-        }
-
         let tr3Root = SkyTr3.shared.root
         if  let pipeline = tr3Root.findPath("sky.pipeline"),
             let firstChild = pipeline.children.first {
@@ -137,6 +126,17 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         else {
             setupDefaultPipeline()
         }
+        func fixupNodes() {
+            if let camixNode,
+               let renderNode {
+
+                removeNode(camixNode)
+                renderNode.insertNode(camixNode, .above)
+            }
+            firstNode?.inNode = cellNode // feedback loop
+            firstNode?.inTex = cellNode?.outTex
+        }
+
     }
 
     // snapshot on framebuffer, drawTexture and skyGraph
@@ -220,7 +220,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         if node == nil, let device = mtkView.device {
             switch type {
                 case "camera" : node = MtlKernelCamera  (name, device, drawSize, type, uiOrientation)
-                case "draw"   : node = MtlKernelDraw   (name, device, drawSize, type, SkyDraw.shared.drawTexture)
+                case "draw"   : node = MtlKernelDraw   (name, device, drawSize, type, TouchDraw.shared.drawTexture)
                 case "compute": node = MtlKernelCompute (name, device, drawSize, type)
                 case "color"  :
                     node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)

@@ -9,20 +9,21 @@ import MuMenuSky
 import SwiftUI
 
 struct MenuSkyView: View {
-
+    
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            SkyViewUI()
-            MenuView(menuVm: MenuSkyVm(corner: [.lower, .left],
-                                       axis: .vertical,
-                                       rootTr3: SkyTr3.shared.root))
 
-            MenuView(menuVm: MenuSkyVm(corner: [.lower, .right],
-                                       axis: .vertical,
-                                       rootTr3: SkyTr3.shared.root))
-            //??? .onAppear(perform: UIApplication.shared.addGestureRecognizer)
+        let rootTr3  = SkyTr3.shared.root
+        let leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootTr3)
+        let rightVm = MenuSkyVm([.lower, .right], .vertical, rootTr3)
+
+        ZStack(alignment: .bottomLeading) {
+            
+            // add touch handler
+            TouchRepresentable([leftVm.rootVm.touchVm, rightVm.rootVm.touchVm])
+            // Menus without drag
+            MenuView(menuVm: leftVm)
+            MenuView(menuVm: rightVm)
         }
-        
         .statusBar(hidden: true)
     }
 }
@@ -47,11 +48,8 @@ class SkyVC: UIViewController {
         menuView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         menuView.view.backgroundColor = .clear
 
-        // add touches
-        menuView.view.addSubview(SkyView.shared)
-
         let tr3Root = SkyTr3.shared.root
-        SkyDraw.shared.bindTr3(tr3Root)
+        TouchDraw.shared.bindTr3(tr3Root)
         SkyMetal.shared.makeShader(for: tr3Root)
 
         let _ = SkyMain.shared

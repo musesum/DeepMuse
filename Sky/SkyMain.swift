@@ -1,7 +1,7 @@
 import AVFoundation
 import CoreMedia
 
-class SkyMain: NSObject, WorkLinkDelegate {
+class SkyMain: NSObject, SkyWorkLinkDelegate {
 
     static let shared = SkyMain()
     private var drawBuf: [CVPixelBuffer?] = [nil, nil]
@@ -10,7 +10,7 @@ class SkyMain: NSObject, WorkLinkDelegate {
     override init() {
         super.init()
         initPixelBuffer(SkyTr3.shared.skySize)
-        WorkLink.shared.delegates.append(self)
+        SkyWorkLink.shared.delegates.append(self)
     }
 
     func initDrawBufIndex(_ index: Int, size: CGSize, options: [AnyHashable: Any]) {

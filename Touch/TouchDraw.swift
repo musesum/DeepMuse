@@ -4,9 +4,9 @@ import UIKit
 import Tr3
 import MuUtilities
 
-class SkyDraw: NSObject {
+class TouchDraw: NSObject {
 
-    static var shared = SkyDraw()
+    static var shared = TouchDraw()
 
     private var go˚: Tr3?
     private var brushTilt˚: Tr3?
@@ -194,7 +194,7 @@ class SkyDraw: NSObject {
             }
             func done() {
             }
-            SkyView.shared.flushFingersBuf(draw, done)
+            TouchView.shared.flushFingersBuf(draw, done)
             return false // didn't fill so don't duplicate 2nd texture
         }
     }

@@ -2,13 +2,13 @@ import UIKit
 import QuartzCore
 import Tr3
 
-protocol WorkLinkDelegate: NSObjectProtocol {
+protocol SkyWorkLinkDelegate: NSObjectProtocol {
     func nextFrame()
 }
 
-class WorkLink: NSObject {
+class SkyWorkLink: NSObject {
 
-    static let shared = WorkLink()
+    static let shared = SkyWorkLink()
     static var goAppBlock = false
     static var goAppCount = 0
 
@@ -17,7 +17,7 @@ class WorkLink: NSObject {
     var mainFps˚: Tr3?
     var fps = 0
 
-    var delegates = [WorkLinkDelegate]()
+    var delegates = [SkyWorkLinkDelegate]()
 
     override init() {
 
@@ -56,15 +56,15 @@ class WorkLink: NSObject {
 
     func goApp() {
 
-        if  WorkLink.goAppBlock == false {
-            WorkLink.goAppBlock = true
+        if  SkyWorkLink.goAppBlock == false {
+            SkyWorkLink.goAppBlock = true
 
             // tr3Osc?.oscReceiverLoop()
 
-            WorkLink.goAppCount += 1
-            mainFrame˚?.setAny(WorkLink.goAppCount, [.activate])
+            SkyWorkLink.goAppCount += 1
+            mainFrame˚?.setAny(SkyWorkLink.goAppCount, [.activate])
 
-            WorkLink.goAppBlock = false
+            SkyWorkLink.goAppBlock = false
         }
     }
 }

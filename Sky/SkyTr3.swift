@@ -39,7 +39,7 @@ class SkyTr3: NSObject {
             archive.get("Snapshot.tex", 30_000_000) { data in
                 if let data = data {
                     print("--- archive.get Snapshot.tex \(data.count)")
-                    SkyDraw.shared.textureData = data
+                    TouchDraw.shared.textureData = data
                 }
                 self.initScreenFill()
             }
@@ -57,14 +57,14 @@ class SkyTr3: NSObject {
 
         func fillDraw(_ value: Float?) {
             if let value = value {
-                SkyDraw.shared.fillValue = value
+                TouchDraw.shared.fillValue = value
             }
         }
         func repeatDraw(_ value: CGPoint?) {
             if let p = value {
                 let touchRepeat = (abs(p.x - 0.5) > 0.001 ||
                                    abs(p.y - 0.5) > 0.001)
-                SkyView.shared.touchRepeat = touchRepeat
+                TouchView.shared.touchRepeat = touchRepeat
             }
         }
         if let sky = root.findPath("sky") {
@@ -131,7 +131,8 @@ class SkyTr3: NSObject {
 
         //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false)
         //?? let script = root.dumpScript(indent: 0) // with values
-        let script = root.scriptRoot()
-        print("\n\n" + script + "\n\n")
+
+        //let script = root.scriptRoot()
+        //print("\n\n" + script + "\n\n")
     }
 }
