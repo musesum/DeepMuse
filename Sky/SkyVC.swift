@@ -12,14 +12,14 @@ struct MenuSkyView: View {
     
     var body: some View {
 
-        let rootTr3  = SkyTr3.shared.root
+        let rootTr3 = SkyTr3.shared.root
         let leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootTr3)
         let rightVm = MenuSkyVm([.lower, .right], .vertical, rootTr3)
 
         ZStack(alignment: .bottomLeading) {
             
             // add touch handler
-            TouchRepresentable([leftVm.rootVm.touchVm, rightVm.rootVm.touchVm])
+            TouchViewRepresentable([leftVm.rootVm.touchVm, rightVm.rootVm.touchVm])
             // Menus without drag
             MenuView(menuVm: leftVm)
             MenuView(menuVm: rightVm)

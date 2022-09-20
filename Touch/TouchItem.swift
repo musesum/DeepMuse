@@ -3,15 +3,15 @@ import UIKit
 
 var TouchTimeStart = [String: CFTimeInterval]()
 
-class TouchItem: NSObject {
+class TouchItem {
 
-    internal var time = TimeInterval(0)
-    internal var prev = CGPoint.zero
-    internal var next = CGPoint.zero
-    internal var force = CGFloat(0)
-    internal var radius = CGFloat(0)
-    internal var azimuth = CGVector.zero
-    internal var phase = UITouch.Phase.began
+    internal var time: TimeInterval
+    internal let prev: CGPoint
+    internal let next: CGPoint
+    internal let force: CGFloat
+    internal let radius: CGFloat
+    internal let azimuth: CGVector
+    internal let phase: UITouch.Phase
 
     init(_ key: String,
          _ time: TimeInterval,
@@ -22,21 +22,13 @@ class TouchItem: NSObject {
          _ azimuth: CGVector,
          _ phase: UITouch.Phase) {
 
-        super.init()
-
         self.prev = prev
         self.next = next
         self.radius = radius
         self.force = force
         self.azimuth = azimuth
         self.phase = phase
-        if phase == .began {
-            TouchTimeStart[key] = time; self.time = 0
-        }
-        self.time = time - (TouchTimeStart[key] ?? 0)
-        if [.ended, .cancelled].contains(phase) {
-            TouchTimeStart.removeValue(forKey: key)
-        }
+        self.time = time
     }
 
     func logTouch() {

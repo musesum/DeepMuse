@@ -5,10 +5,10 @@ import MuMetal
 import MuMenuSky
 
 class SkyTr3: NSObject {
-    
-    static let shared = SkyTr3()
 
-    public let root = Tr3("√")
+    static let shared = SkyTr3()
+    let root = Tr3("√")
+
     public var skySize = CGSize(width: 1920, height: 1080)
     public var archive: MuArchive?
 

@@ -4,59 +4,44 @@ import UIKit
 import Tr3
 import MuUtilities
 
-class TouchDraw: NSObject {
+class TouchDraw {
 
     static var shared = TouchDraw()
-
-    private var go˚: Tr3?
     private var brushTilt˚: Tr3?
     private var brushPress˚: Tr3?
     private var brushSize˚: Tr3?
-
     private var linePrev˚: Tr3?            // beginning of line
     private var lineNext˚: Tr3?            // end of line
     private var inForce˚: Tr3?             // pressure
     private var inRadius˚: Tr3?            // finger radius
     private var inAzimuth˚: Tr3?           // apple pencil
-
-    private var scrollOffset˚: Tr3?         // scroll accumulated offset
-    private var scrollShift˚: Tr3?          // scroll shift per frame
-
     private var brushTilt = false          // via brushTilt˚
     private var brushPress = true          // via brushPress˚
     private var brushSize = CGFloat(1)     // via brushSize˚
-
     private var linePrev = CGPoint.zero    // via linePrev˚
     private var lineNext = CGPoint.zero    // via lineNext˚
     private var inForce = CGFloat(0)       // via inForce˚
     private var inRadius = CGFloat(0)      // via inRadius˚
     private var inAzimuth = CGPoint.zero   // var inAzimuth˚
-
     internal var fillValue = Float(-1)
     internal var textureData: Data?
 
-    override init() {
-        super.init()
-        //margin = ShaderView.shared.vertex.margin
-    }
-
+    
     func bindTr3(_ root: Tr3) {
-        func lost(_ name: String) {
-            print("🚫 bindTr3 could not find \'\(name)\'")
-        }
-        guard let sky = root.findPath("sky") else { return lost("sky") }
-        guard let input = sky.findPath("input") else { return lost("input") }
-        guard let brush = sky.findPath("draw.brush") else { return lost("draw.brush") }
-        guard let line = sky.findPath("draw.line") else { return lost("draw.line") }
 
-        brushTilt˚ = input.findPath("tilt"); brushTilt˚?.addClosure { t, _ in self.brushTilt = t.BoolVal() }
-        brushPress˚ = brush.findPath("press"); brushPress˚?.addClosure { t, _ in self.brushPress = t.BoolVal() }
-        brushSize˚ = brush.findPath("size"); brushSize˚?.addClosure { t, _ in self.brushSize = t.CGFloatVal() ?? 1 }
-        linePrev˚ = line.findPath("prev"); linePrev˚?.addClosure { t, _ in self.linePrev = t.CGPointVal() ?? .zero }
-        lineNext˚ = line.findPath("next"); lineNext˚?.addClosure { t, _ in self.lineNext = t.CGPointVal() ?? .zero }
-        inForce˚ = input.findPath("force"); inForce˚?.addClosure { t, _ in self.inForce = t.CGFloatVal() ?? 1 }
-        inRadius˚ = input.findPath("radius"); inRadius˚?.addClosure { t, _ in self.inRadius = t.CGFloatVal() ?? 1 }
-        inAzimuth˚ = input.findPath("azimuth"); inAzimuth˚?.addClosure { t, _ in self.inAzimuth = t.CGPointVal() ?? .zero }
+        let sky = root.bindPath("sky")
+        let input = sky.bindPath("input")
+        let brush = sky.bindPath("draw.brush")
+        let line = sky.bindPath("draw.line")
+
+        brushTilt˚  = input.bindPath("tilt"   ) { t, _ in self.brushTilt  = t.BoolVal() }
+        brushPress˚ = brush.bindPath("press"  ) { t, _ in self.brushPress = t.BoolVal() }
+        brushSize˚  = brush.bindPath("size"   ) { t, _ in self.brushSize  = t.CGFloatVal() ?? 1 }
+        linePrev˚   = line .bindPath("prev"   ) { t, _ in self.linePrev   = t.CGPointVal() ?? .zero }
+        lineNext˚   = line .bindPath("next"   ) { t, _ in self.lineNext   = t.CGPointVal() ?? .zero }
+        inForce˚    = input.bindPath("force"  ) { t, _ in self.inForce    = t.CGFloatVal() ?? 1 }
+        inRadius˚   = input.bindPath("radius" ) { t, _ in self.inRadius   = t.CGFloatVal() ?? 1 }
+        inAzimuth˚  = input.bindPath("azimuth") { t, _ in self.inAzimuth  = t.CGPointVal() ?? .zero }
     }
 
     public func update(_ item: TouchItem) -> CGFloat {
