@@ -30,8 +30,8 @@
 		807049F823378ADC0001617D /* pipe.render.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496923378ADB0001617D /* pipe.render.metal */; };
 		807049F923378ADC0001617D /* cell.slide.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.slide.metal */; };
 		807049FA23378ADC0001617D /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496C23378ADB0001617D /* TouchView.swift */; };
-		807049FB23378ADC0001617D /* TouchFinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496D23378ADB0001617D /* TouchFinger.swift */; };
-		807049FD23378ADC0001617D /* TouchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496F23378ADB0001617D /* TouchItem.swift */; };
+		807049FB23378ADC0001617D /* TouchCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496D23378ADB0001617D /* TouchCanvas.swift */; };
+		807049FD23378ADC0001617D /* TouchDrawItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070496F23378ADB0001617D /* TouchDrawItem.swift */; };
 		807049FE23378ADC0001617D /* TouchDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497023378ADB0001617D /* TouchDraw.swift */; };
 		80704A0023378ADC0001617D /* SkyWorkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497223378ADB0001617D /* SkyWorkLink.swift */; };
 		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
@@ -111,8 +111,8 @@
 		8070496923378ADB0001617D /* pipe.render.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.render.metal; sourceTree = "<group>"; };
 		8070496A23378ADB0001617D /* cell.slide.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.slide.metal; sourceTree = "<group>"; };
 		8070496C23378ADB0001617D /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
-		8070496D23378ADB0001617D /* TouchFinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchFinger.swift; sourceTree = "<group>"; };
-		8070496F23378ADB0001617D /* TouchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchItem.swift; sourceTree = "<group>"; };
+		8070496D23378ADB0001617D /* TouchCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchCanvas.swift; sourceTree = "<group>"; };
+		8070496F23378ADB0001617D /* TouchDrawItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchDrawItem.swift; sourceTree = "<group>"; };
 		8070497023378ADB0001617D /* TouchDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchDraw.swift; sourceTree = "<group>"; };
 		8070497223378ADB0001617D /* SkyWorkLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyWorkLink.swift; sourceTree = "<group>"; };
 		8070497323378ADB0001617D /* SkyPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPipeline.swift; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				8070496C23378ADB0001617D /* TouchView.swift */,
-				8070496D23378ADB0001617D /* TouchFinger.swift */,
-				8070496F23378ADB0001617D /* TouchItem.swift */,
+				8070496D23378ADB0001617D /* TouchCanvas.swift */,
+				8070496F23378ADB0001617D /* TouchDrawItem.swift */,
 				8070497023378ADB0001617D /* TouchDraw.swift */,
 			);
 			path = Touch;
@@ -537,8 +537,8 @@
 				80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */,
 				80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */,
 				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
-				807049FD23378ADC0001617D /* TouchItem.swift in Sources */,
-				807049FB23378ADC0001617D /* TouchFinger.swift in Sources */,
+				807049FD23378ADC0001617D /* TouchDrawItem.swift in Sources */,
+				807049FB23378ADC0001617D /* TouchCanvas.swift in Sources */,
 				807049EE23378ADC0001617D /* cell.fred.metal in Sources */,
 				80704A0223378ADC0001617D /* SkyVC.swift in Sources */,
 				807049F823378ADC0001617D /* pipe.render.metal in Sources */,

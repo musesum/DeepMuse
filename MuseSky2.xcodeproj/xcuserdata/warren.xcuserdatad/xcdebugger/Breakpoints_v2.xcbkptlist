@@ -80,22 +80,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8AEE82C8-48E8-4CA8-A634-DED6D80CFCE3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sky/SkyTr3.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "parseScriptFiles()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A752AD21-3528-4C83-A557-2DD7CE2E4E40"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -112,16 +96,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "33D01D53-4D32-4538-9187-BB36D700F489"
-            shouldBeEnabled = "Yes"
+            uuid = "FF498D79-8F94-4EAB-9191-6E231DFD893F"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Tr3/Sources/Tr3/Tr3+find.swift"
+            filePath = "Packages/MuCubic/Sources/MuCubic/CubicQuad.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "bindPath(_:_:_:)"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "iterate12(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -2,6 +2,7 @@
 import UIKit
 import SwiftUI
 import MuMenu
+import Tr3
 
 struct TouchViewRepresentable: UIViewRepresentable {
     
@@ -22,17 +23,19 @@ struct TouchViewRepresentable: UIViewRepresentable {
 }
 
 class TouchView: UIView, UIGestureRecognizerDelegate {
-
     static let shared = TouchView()
+
+    private var touchRepeat˚: Tr3?
     var touchRepeat = false /// repeat touch, even when not moving finger
-    var fingerKey = [String: TouchFinger]()
-    var touchVmKey = [String: MuTouchVm]()
+                            ///
+    var canvasKey = [String: TouchCanvas]()
+    var menuKey = [String: TouchMenu]()
     var touchVms = [MuTouchVm]()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     init() {
         super.init(frame:.zero)
         let bounds = UIScreen.main.bounds
@@ -40,75 +43,89 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
         let h = bounds.size.height
         frame = CGRect(x: 0, y: 0, width: w, height: h)
         isMultipleTouchEnabled = true
+        
+        touchRepeat˚ = SkyTr3.shared.root.bindPath("shader.model.pipe.draw") { tr3, _ in
+            if let p = tr3.CGPointVal() {
+                self.touchRepeat = (abs(p.x - 0.5) > 0.001 ||
+                                    abs(p.y - 0.5) > 0.001)
+            }
+        }
     }
 
     /// for each finger, iterate intermediate points, with closure
     /// Previous version used to draw directly into buf, but now passes a closure
-    func flushFingersBuf(_ draw: @escaping (CGPoint, CGFloat)->(),
-                         _ done: @escaping ()->()) {
+    func flushTouchCanvas(_ drawPoint: @escaping (CGPoint, CGFloat)->()) {
 
-        for (key, finger) in fingerKey {
-            finger.flushCacheBuf(draw)
+        for (key, finger) in canvasKey {
+            finger.flushTouches(drawPoint)
             if finger.isDone {
-                fingerKey.removeValue(forKey: key)
+                canvasKey.removeValue(forKey: key)
+            }
+        }
+    }
+
+    /// for each finger, iterate intermediate points, with closure
+    /// Previous version used to draw directly into buf, but now passes a closure
+    func flushTouchMenu() {
+
+        for (key, finger) in menuKey {
+            let isDone = finger.flushTouches()
+            if isDone {
+                canvasKey.removeValue(forKey: key)
             }
         }
     }
 
 
-    /// Add new touches to be drawn in the NextFrame, above.
-    ///
-    /// During the lifecycle of a touch, the memory address of
-    /// a specific touch remains the same, so use that as a key
-    /// into a dictionary of fingerNext to retrieve an
-    /// array of events.
-    ///
-    /// If this is the first time for a new finger
-    /// then create a new array and add it dictionary of fingerNext.
-    ///
-    func updateTouches(_ touches: Set<UITouch>,
-                       _ event: UIEvent?) {
+    func beginTouches(_ touches: Set<UITouch>,
+                      _ event: UIEvent?) {
+
         for touch in touches {
+
+            if touch.phase != .began {
+                print("*** beginTouches unexpected non .began")
+                updateTouches(touches, event)
+            }
             let key = String(format: "%p", touch)
-            let isDone = [.ended, .cancelled].contains(touch.phase)
+            let nextXY = touch.preciseLocation(in: nil)
+            if !addTouchVm() {
+                let touchCanvas = TouchCanvas()
+                canvasKey[key] = touchCanvas
+                touchCanvas.addTouchItem(touch, event)
+            }
 
-            if let finger = fingerKey[key] {
-                // continue on canvas
-                finger.cacheTouchItem(touch, event)
-
-            } else if let touchVm = touchVmKey[key] {
-                // continue on menu
-                if isDone {
-                    // update menu with .zero, which is interpreted as done
-                    self.touchVmKey.removeValue(forKey: key)
-                    return touchVm.touchMenuUpdate(.zero)
-
-                } else {
-                    /// update menu with location
-                    let nextXY = touch.preciseLocation(in: nil)
-                    return touchVm.touchMenuUpdate(nextXY)
-                }
-            } else {
-                // beginning on Menu
-                if touch.phase == .began {
-                    let nextXY = touch.preciseLocation(in: nil)
-                    for touchVm in touchVms {
-
-                        if touchVm.hitTest(nextXY) {
-                            touchVmKey[key] = touchVm
-                            let nextXY = touch.preciseLocation(in: nil)
-                            return touchVm.touchMenuUpdate(nextXY)
-                        }
+            func addTouchVm() -> Bool {
+                for touchVm in touchVms {
+                    if touchVm.hitTest(nextXY) {
+                        let touchMenu = TouchMenu(touchVm)
+                        menuKey[key] = touchMenu
+                        touchMenu.addTouchItem(touch, event)
+                        return true
+                        //?? Task.async { touchVm.touchMenuUpdate(nextXy) }z
                     }
                 }
-                // beginning on canvas
-                let finger = TouchFinger()
-                fingerKey[key] = finger
-                finger.cacheTouchItem(touch, event)
+                return false
             }
         }
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { updateTouches(touches, event) }
+    func updateTouches(_ touches: Set<UITouch>,
+                       _ event: UIEvent?) {
+
+        for touch in touches {
+            let key = String(format: "%p", touch)
+
+            if let canvas = canvasKey[key] {
+                // continue on canvas
+                canvas.addTouchItem(touch, event)
+            }  else if let menu = menuKey[key] {
+                // continue on canvas
+                menu.addTouchItem(touch, event)
+            } else {
+                print("*** unknown touch \(key)")
+            }
+        }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { beginTouches(touches, event) }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) { updateTouches(touches, event) }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) { updateTouches(touches, event) }
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) { updateTouches(touches, event) }

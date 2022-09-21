@@ -139,7 +139,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
 
     }
 
-    // snapshot on framebuffer, drawTexture and skyGraph
+    // snapshot on framebuffer, draw Texture and skyGraph
     func saveSkyArchive(_ name: String, _ completion: @escaping CallVoid) {
 
         let time = trunc(Date().timeIntervalSince1970)
@@ -220,7 +220,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         if node == nil, let device = mtkView.device {
             switch type {
                 case "camera" : node = MtlKernelCamera  (name, device, drawSize, type, uiOrientation)
-                case "draw"   : node = MtlKernelDraw   (name, device, drawSize, type, TouchDraw.shared.drawTexture)
+                case "draw"   : node = MtlKernelDraw    (name, device, drawSize, type, SkyVC.shared.touchDraw.drawTexture)
                 case "compute": node = MtlKernelCompute (name, device, drawSize, type)
                 case "color"  :
                     node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)

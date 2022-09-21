@@ -31,6 +31,8 @@ struct MenuSkyView: View {
 class SkyVC: UIViewController {
 
     static var shared = SkyVC()
+    var tr3Root = SkyTr3.shared.root
+    var touchDraw = TouchDraw(SkyTr3.shared.root)
 
     override func viewDidAppear(_ animated: Bool) {
 
@@ -48,8 +50,6 @@ class SkyVC: UIViewController {
         menuView.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         menuView.view.backgroundColor = .clear
 
-        let tr3Root = SkyTr3.shared.root
-        TouchDraw.shared.bindTr3(tr3Root)
         SkyMetal.shared.makeShader(for: tr3Root)
 
         let _ = SkyMain.shared

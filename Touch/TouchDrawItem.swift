@@ -1,9 +1,7 @@
 
 import UIKit
 
-var TouchTimeStart = [String: CFTimeInterval]()
-
-class TouchItem {
+struct TouchDrawItem {
 
     internal var time: TimeInterval
     internal let prev: CGPoint
@@ -13,8 +11,7 @@ class TouchItem {
     internal let azimuth: CGVector
     internal let phase: UITouch.Phase
 
-    init(_ key: String,
-         _ time: TimeInterval,
+    init(_ time: TimeInterval,
          _ prev: CGPoint,
          _ next: CGPoint,
          _ radius: CGFloat,
@@ -38,4 +35,22 @@ class TouchItem {
         print(String(format:"%.3f →(%3.f,%3.f) 𝝙%5.1f f: %.3f r: %.2f",
                      time, next.x, next.y, distance, force, radius))
     }
+
+}
+
+struct TouchMenuItem {
+
+    internal var time: TimeInterval
+    internal let next: CGPoint
+    internal let phase: UITouch.Phase
+
+    init(_ time: TimeInterval,
+         _ next: CGPoint,
+         _ phase: UITouch.Phase) {
+
+        self.time = time
+        self.next = next
+        self.phase = phase
+    }
+
 }
