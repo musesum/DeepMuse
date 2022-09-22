@@ -8,6 +8,7 @@ import MuMenu
 
 
 class TouchMenu {
+
     internal var touch0 = [TouchMenuItem]()
     internal var touch1 = [TouchMenuItem]()
     internal var touchItems: [[TouchMenuItem]]
@@ -18,6 +19,7 @@ class TouchMenu {
         self.touchVm = touchVm
         touchItems = [touch0,touch1]
     }
+
     func addTouchItem(_ touch: UITouch,
                       _ event: UIEvent?) {
 

@@ -46,8 +46,6 @@ class SkyWorkLink: NSObject {
 
     func goApp() {
 
-        TouchView.shared.flushTouchMenu() //??
-
         if  SkyWorkLink.goAppBlock == false {
             SkyWorkLink.goAppBlock = true
 
