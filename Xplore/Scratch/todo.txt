@@ -1,42 +1,71 @@
+Today
+
+    Leaf hide branches while editing
+
+Tomorrow
+    Scrunch branch nodes in landscape
+    touch position on repeat/mirror
+    icon in root
+    long hold leaf lag
+
+File
+    store running state
+    save zip .sky register extension
+
 MuMenu
     Touch
-        fix double tap on separate nodes
+        touch long press lift no change
     branch
-
+        vstack, hstack, combine branches
+        vx, vy, hx, hy, vxy -> xy
     node
         tog without child
     home
         leaf icon in retracted home
     leaf
         ipad pencel vxy center
-
-        hide super branches while editing
         emboss thumb with icon
-        special title
-        touch long press lift no change
-        vx, vy, hx, hy, vxy -> xy
-
     sync devices
+        find old implementation
+        Bonjour connect devices
+        Tr3.path -> Dispatch dictionary
 
 Sky
-    touche
-        multitouch dispatch menu + canvas
-    bugs
-        camera
-        Autorotate autofit view
-    features
-        sync devices
-        resize/rotate canvas
-        resize texture
+    copy/paste bitplane
+    Manually shift screen
+    camera merge real+fake
+    Autorotate resize/rotate canvas
+    sync devices
+    resize texture
 
 Tr3
-    get a(b 1) as find("a.b")
-    a.*.{ decorate } for sky
-    test connect by name `menu.model :> shader.model`
-    snapshot abstract def with updated state
-
-    later
+    bug
+        automerge duplicates
+    featuers
+        get a(b 1) as find("a.b")
+        a.*.{ decorate } for sky
+        test connect by name `menu.model :> shader.model`
+        snapshot abstract def with updated state
         replace Tr3ValScalar with Tr3Exprs
         update tr3val min
+MusicKit
+    Apple, Spotify
+        Synchronize playback
+        Record video result
+        Share to TikTock, YouTube, etc
+AudioKit
+    Test Midi: input, output
+    Audio FFT
+Watch
+    blind navigation
+        relative vs. absolute position
+        status line for
+        synchronize with iPhone
+MacOS + Apple TV
+    sync re-render
+    separate canvas views w/o menu
 
-
+Bitplanes
+	View shift
+	Copy / Cut / Clear
+	Paste: current plane

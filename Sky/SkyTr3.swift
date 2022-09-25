@@ -28,7 +28,6 @@ class SkyTr3: NSObject {
                 if  let data = data,
                     let script = self.dropRoot(String(data: data, encoding: .utf8)),
                     Tr3Parse.shared.parseScript(self.root, script, whitespace: "\n\t ") {
-                    print(script)
                 }
                 else {
                     self.parseScriptFiles()

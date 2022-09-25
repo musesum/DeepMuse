@@ -27,7 +27,6 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
 
     private var touchRepeat˚: Tr3?
     var touchRepeat = false /// repeat touch, even when not moving finger
-                            ///
     var canvasKey = [String: TouchCanvas]()
     var menuKey = [String: TouchMenu]()
     var timerKey = [String: Timer]()

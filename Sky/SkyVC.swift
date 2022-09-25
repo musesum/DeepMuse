@@ -20,9 +20,9 @@ struct MenuSkyView: View {
             
             // add touch handler
             TouchViewRepresentable([leftVm.rootVm.touchVm, rightVm.rootVm.touchVm])
-            // Menus without drag
-            MenuView(menuVm: leftVm)
-            MenuView(menuVm: rightVm)
+            // Menus via UITouch (not SwiftUI's DragGesture)
+            MenuTouchView(menuVm: leftVm)
+            MenuTouchView(menuVm: rightVm)
         }
         .statusBar(hidden: true)
     }
