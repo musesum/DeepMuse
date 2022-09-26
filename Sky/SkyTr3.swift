@@ -85,13 +85,10 @@ class SkyTr3: NSObject {
         func parseFile(_ fileName: String) {
             let _ = Tr3Parse.shared.parseTr3(root, fileName)
         }
-
         _ = MuMenuSky.parseTr3(root, "sky")
         _ = MuMenuSky.parseTr3(root, "shader")
         _ = MuMenuSky.parseTr3(root, "menu")
-
-        //?? let script = root.makeTr3Script(indent: 0, pretty: false, commented: false)
-        //?? let script = root.dumpScript(indent: 0) // with values
+        _ = MuMenuSky.parseTr3(root, "midi")
 
         //let script = root.scriptRoot()
         //print("\n\n" + script + "\n\n")

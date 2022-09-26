@@ -1,12 +1,12 @@
 Today
-
+    iPad double tap
+    long hold leaf lag
     Leaf hide branches while editing
 
 Tomorrow
-    Scrunch branch nodes in landscape
+
     touch position on repeat/mirror
     icon in root
-    long hold leaf lag
 
 File
     store running state
@@ -15,7 +15,10 @@ File
 MuMenu
     Touch
         touch long press lift no change
+        long press mark default menu item
     branch
+
+        Scrunch branch nodes in landscape
         vstack, hstack, combine branches
         vx, vy, hx, hy, vxy -> xy
     node
@@ -61,10 +64,13 @@ Watch
         relative vs. absolute position
         status line for
         synchronize with iPhone
+    voice over
 MacOS + Apple TV
     sync re-render
     separate canvas views w/o menu
-
+Handpose
+Devices
+    Gyro, Accelerometer
 Bitplanes
 	View shift
 	Copy / Cut / Clear

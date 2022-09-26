@@ -4,13 +4,6 @@ import UIKit
 import Tr3
 import MuUtilities
 
-class TextureData {
-    static let shared = TextureData()
-    var data: Data?
-
-    init() {}
-}
-
 class TouchDraw {
 
     private let brushTilt˚  : Tr3
@@ -64,7 +57,7 @@ class TouchDraw {
         screenFill˚.addClosure { t, _ in self.fillValue  = t.FloatVal() ?? -1 }
     }
 
-    public func update(_ item: TouchDrawItem) -> CGFloat {
+    public func update(_ item: TouchCanvasItem) -> CGFloat {
 
         // if using Apple Pencil and brush tilt is turned on
         if item.force > 0, brushTilt {

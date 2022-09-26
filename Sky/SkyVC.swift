@@ -54,8 +54,8 @@ class SkyVC: UIViewController {
 
         let _ = SkyMain.shared
 
-        //?? MuAudio.shared.test()
-        //?? MuMidi.shared.test(root: tr3Root)
+        MuAudio.shared.test()
+        MuMidi.shared.test(root: tr3Root)
     }
 
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
