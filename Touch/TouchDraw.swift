@@ -48,9 +48,13 @@ class TouchDraw {
     func setupClosures() {
         brushTilt˚ .addClosure { t, _ in self.brushTilt  = t.BoolVal() }
         brushPress˚.addClosure { t, _ in self.brushPress = t.BoolVal() }
-        brushSize˚ .addClosure { t, _ in self.brushSize  = t.CGFloatVal() ?? 1 }
+        brushSize˚ .addClosure { t, _ in self.brushSize  = t.CGFloatVal() ?? 1
+            print(String(format: "size: %.2g", self.brushSize), terminator: " ")
+        }
         linePrev˚  .addClosure { t, _ in self.linePrev   = t.CGPointVal() ?? .zero }
-        lineNext˚  .addClosure { t, _ in self.lineNext   = t.CGPointVal() ?? .zero }
+        lineNext˚  .addClosure { t, _ in self.lineNext   = t.CGPointVal() ?? .zero
+            print(String(format: "lineNext: %.3f,%.3f ", self.lineNext.x, self.lineNext.y), terminator: " ")
+        }
         inForce˚   .addClosure { t, _ in self.inForce    = t.CGFloatVal() ?? 1 }
         inRadius˚  .addClosure { t, _ in self.inRadius   = t.CGFloatVal() ?? 1 }
         inAzimuth˚ .addClosure { t, _ in self.inAzimuth  = t.CGPointVal() ?? .zero }

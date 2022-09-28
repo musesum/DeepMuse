@@ -12,8 +12,18 @@ import AVFoundation
 import Tr3
 
 class MuLog {
+    static var lastIcon = ""
+    static func nextIcon(_ icon: String)  -> String {
+        if icon == lastIcon { return "" }
+        lastIcon = icon
+        return icon
+    }
+
     static func print(_ icon: String, _ msg: String) {
         Swift.print(icon + msg, terminator: " ")
+        if !icon.isEmpty {
+            lastIcon = icon
+        }
     }
 }
 
@@ -73,14 +83,14 @@ class MidiTr3 {
         noteOff˚.setAny(exprs, setOptions)
     }
 
-    func controller(_ num: MIDIByte,
+    func controller(_ cc: MIDIByte,
                     _ val: MIDIVelocity,
                     _ chan: MIDIChannel,
                     _ port: MIDIUniqueID?,
                     _ time: MIDITimeStamp?) {
 
         let exprs = Tr3Exprs(nameFloats: [
-            ("num" , Float(num)),
+            ("cc" , Float(cc)),
             ("val" , Float(val)),
             ("chan", Float(chan)),
             ("port", Float(port ?? 0)),
@@ -172,7 +182,7 @@ class MuMidiListener: MIDIListener {
                             portID: MIDIUniqueID?,
                             timeStamp: MIDITimeStamp?) {
 
-        MuLog.print("♪", note(noteNumber, velocity))
+        MuLog.print("\n♪", note(noteNumber, velocity))
         receive.noteOn(noteNumber, velocity, channel, portID, timeStamp)
     }
 
@@ -186,14 +196,16 @@ class MuMidiListener: MIDIListener {
         receive.noteOn(noteNumber, velocity, channel, portID, timeStamp)
     }
 
-    func receivedMIDIController(_ controller: MIDIByte,
+    func receivedMIDIController(_ cc: MIDIByte,
                                 value: MIDIByte,
                                 channel: MIDIChannel,
                                 portID: MIDIUniqueID?,
                                 timeStamp: MIDITimeStamp?) {
 
-        MuLog.print("🎚", "\(controller):\(value)")
-        receive.controller(controller, value, channel, portID, timeStamp)
+
+        let icon = MuLog.nextIcon("🎚\(channel):\(cc) ")
+        MuLog.print(icon, "\(value)")
+        receive.controller(cc, value, channel, portID, timeStamp)
     }
 
     func receivedMIDIAftertouch(noteNumber: MIDINoteNumber,
@@ -210,7 +222,7 @@ class MuMidiListener: MIDIListener {
                                 channel: MIDIChannel,
                                 portID: MIDIUniqueID?,
                                 timeStamp: MIDITimeStamp?) {
-        MuLog.print("👆", "\(channel):\(pressure)")
+        MuLog.print("👇", "\(channel):\(pressure)")
         receive.aftertouch(pressure, channel, portID, timeStamp)
     }
 
@@ -218,7 +230,8 @@ class MuMidiListener: MIDIListener {
                                 channel: MIDIChannel,
                                 portID: MIDIUniqueID?,
                                 timeStamp: MIDITimeStamp?) {
-        MuLog.print("◯⃝", "\(pitchWheelValue)")
+        let icon = MuLog.nextIcon("±⃝")
+        MuLog.print(icon, "\(Int64(pitchWheelValue)-8192)")
         receive.pitchWheel(pitchWheelValue, channel, portID, timeStamp)
     }
 
@@ -250,13 +263,25 @@ class MuMidiListener: MIDIListener {
 }
 
 class MuMidi {
-
+    
     public static let shared = MuMidi()
-
-    public func test(root: Tr3 ) {
+    
+    public func test(root: Tr3) {
         let midi = MIDI.sharedInstance
         let listener = MuMidiListener(root)
+        
         midi.openInput()
         midi.addListener(listener)
+        midi.openOutput()
+        Task {
+            for cc in 0...15 {
+                for value in 0...126 {
+                    midi.sendControllerMessage(MIDIByte(cc),
+                                               value: MIDIByte(value),
+                                               channel: MIDIChannel(0))
+                    try await Task.sleep(nanoseconds: 1_000_000)
+                }
+            }
+        }
     }
 }

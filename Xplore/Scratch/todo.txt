@@ -1,5 +1,5 @@
 Today
-    iPad double tap
+    iPad pencil start / double tap
     long hold leaf lag
     Leaf hide branches while editing
 
@@ -40,6 +40,10 @@ Sky
     Autorotate resize/rotate canvas
     sync devices
     resize texture
+    learn mode
+Metal
+    cube map
+App Store
 
 Tr3
     bug
@@ -57,7 +61,6 @@ MusicKit
         Record video result
         Share to TikTock, YouTube, etc
 AudioKit
-    Test Midi: input, output
     Audio FFT
 Watch
     blind navigation
