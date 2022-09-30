@@ -3,6 +3,7 @@ import QuartzCore
 import UIKit
 import Tr3
 import MuUtilities
+//import MuMenu // log
 
 class TouchDraw {
 
@@ -15,6 +16,7 @@ class TouchDraw {
     private let inRadius˚   : Tr3 // finger radius
     private let inAzimuth˚  : Tr3 // apple pencil angle
     private let screenFill˚ : Tr3
+    private let drawDot˚    : Tr3
 
     private var brushTilt = false          // via brushTilt˚
     private var brushPress = true          // via brushPress˚
@@ -30,9 +32,10 @@ class TouchDraw {
 
         let sky     = root.bindPath("sky")
         let input   = sky.bindPath("input")
-        let brush   = sky.bindPath("draw.brush")
-        let line    = sky.bindPath("draw.line")
-        let screen  = sky.bindPath("draw.screen")
+        let draw    = sky.bindPath("draw")
+        let brush   = draw.bindPath("brush")
+        let line    = draw.bindPath("line")
+        let screen  = draw.bindPath("screen")
 
         brushTilt˚  = input .bindPath("tilt"   )
         brushPress˚ = brush .bindPath("press"  )
@@ -42,23 +45,48 @@ class TouchDraw {
         inForce˚    = input .bindPath("force"  )
         inRadius˚   = input .bindPath("radius" )
         inAzimuth˚  = input .bindPath("azimuth")
-        screenFill˚ = screen.bindPath("fill")
+        screenFill˚ = screen.bindPath("fill"   )
+        drawDot˚    = draw  .bindPath("dot"    )
+
         setupClosures()
     }
     func setupClosures() {
         brushTilt˚ .addClosure { t, _ in self.brushTilt  = t.BoolVal() }
         brushPress˚.addClosure { t, _ in self.brushPress = t.BoolVal() }
-        brushSize˚ .addClosure { t, _ in self.brushSize  = t.CGFloatVal() ?? 1
-            print(String(format: "size: %.2g", self.brushSize), terminator: " ")
-        }
+        brushSize˚ .addClosure { t, _ in self.brushSize  = t.CGFloatVal() ?? 1 }
         linePrev˚  .addClosure { t, _ in self.linePrev   = t.CGPointVal() ?? .zero }
-        lineNext˚  .addClosure { t, _ in self.lineNext   = t.CGPointVal() ?? .zero
-            print(String(format: "lineNext: %.3f,%.3f ", self.lineNext.x, self.lineNext.y), terminator: " ")
-        }
+        lineNext˚  .addClosure { t, _ in self.lineNext   = t.CGPointVal() ?? .zero }
         inForce˚   .addClosure { t, _ in self.inForce    = t.CGFloatVal() ?? 1 }
         inRadius˚  .addClosure { t, _ in self.inRadius   = t.CGFloatVal() ?? 1 }
         inAzimuth˚ .addClosure { t, _ in self.inAzimuth  = t.CGPointVal() ?? .zero }
         screenFill˚.addClosure { t, _ in self.fillValue  = t.FloatVal() ?? -1 }
+
+        drawDot˚   .addClosure { t, _ in
+
+            if let exprs = t.val as? Tr3Exprs,
+               let x = exprs.nameAny["x"] as? Tr3ValScalar,
+               let y = exprs.nameAny["y"] as? Tr3ValScalar,
+               let z = exprs.nameAny["z"] as? Tr3ValScalar {
+                let time = Date().timeIntervalSince1970
+                let margin = CGFloat(48)
+                let xs = CGFloat(2388/2)
+                let ys = CGFloat(1668/2)
+                let xx = CGFloat(x.num) / 12
+                let yy = 1 - CGFloat(y.num / 12)
+                let xxx = CGFloat(xx * xs) + margin
+                let yyy = CGFloat(yy * ys) - margin
+                let point = CGPoint(x: xxx, y: yyy)
+                let radius = CGFloat(z.num/2 + 1)
+
+                let pointStr = String(format: "(%.2f,%.2f)", point.x, point.y)
+                //print("dot x:\(x.num) y:\(y.num) xs:\(xs) ys:\(ys) \(pointStr):\(radius)")
+
+                let item0 = TouchCanvasItem(time, point, point, radius, radius, .zero, .began)
+                TouchView.shared.addMidiCanvasItem(item0)
+//                let item1 = TouchCanvasItem(time, point, point, radius, radius, .zero, .ended)
+//                TouchView.shared.addMidiCanvasItem(item1)
+            }
+        }
     }
 
     public func update(_ item: TouchCanvasItem) -> CGFloat {

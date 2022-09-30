@@ -56,9 +56,9 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
     /// Previous version used to draw directly into buf, but now passes a closure
     func flushTouchCanvas(_ drawPoint: @escaping (CGPoint, CGFloat)->()) {
 
-        for (key, finger) in canvasKey {
-            finger.flushTouches(drawPoint)
-            if finger.isDone {
+        for (key, canvas) in canvasKey {
+            canvas.flushTouches(drawPoint)
+            if canvas.isDone {
                 canvasKey.removeValue(forKey: key)
             }
         }
@@ -124,6 +124,13 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
         }
     }
 
+    func addMidiCanvasItem(_ item: TouchCanvasItem) {
+        let key = "midi"
+        if canvasKey[key] == nil {
+            canvasKey[key] = TouchCanvas()
+        }
+        canvasKey[key]?.addMidiCanvasItem(item)
+    }
     /// Continue dispatching finger to canvas or menu
     ///
     func updateTouches(_ touches: Set<UITouch>,

@@ -46,6 +46,9 @@ class TouchCanvas {
         let item = TouchCanvasItem(time, prevXY, nextXY, radius, force, azim, phase)
         touchItems[indexNow].append(item)
     }
+    func addMidiCanvasItem(_ item: TouchCanvasItem) {
+        touchItems[indexNow].append(item)
+    }
     /// For each finger,b iterate intermediate points, with closure to drawing routine
     ///
     func flushTouches(_ drawPoint: @escaping (CGPoint, CGFloat)->())  {

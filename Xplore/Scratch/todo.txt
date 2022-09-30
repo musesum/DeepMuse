@@ -32,7 +32,6 @@ MuMenu
         find old implementation
         Bonjour connect devices
         Tr3.path -> Dispatch dictionary
-
 Sky
     copy/paste bitplane
     Manually shift screen
@@ -55,6 +54,9 @@ Tr3
         snapshot abstract def with updated state
         replace Tr3ValScalar with Tr3Exprs
         update tr3val min
+Midi
+    Finger assignment
+    ADSR
 MusicKit
     Apple, Spotify
         Synchronize playback

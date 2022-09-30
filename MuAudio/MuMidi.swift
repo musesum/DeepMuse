@@ -19,8 +19,8 @@ class MuLog {
         return icon
     }
 
-    static func print(_ icon: String, _ msg: String) {
-        Swift.print(icon + msg, terminator: " ")
+    static func print(_ icon: String, _ msg: String, terminator: String = " ") {
+        Swift.print(icon + msg, terminator: terminator)
         if !icon.isEmpty {
             lastIcon = icon
         }
@@ -272,16 +272,16 @@ class MuMidi {
         
         midi.openInput()
         midi.addListener(listener)
-        midi.openOutput()
-        Task {
-            for cc in 0...15 {
-                for value in 0...126 {
-                    midi.sendControllerMessage(MIDIByte(cc),
-                                               value: MIDIByte(value),
-                                               channel: MIDIChannel(0))
-                    try await Task.sleep(nanoseconds: 1_000_000)
-                }
-            }
-        }
+//        midi.openOutput()
+//        Task {
+//            for cc in 0...15 {
+//                for value in 0...126 {
+//                    midi.sendControllerMessage(MIDIByte(cc),
+//                                               value: MIDIByte(value),
+//                                               channel: MIDIChannel(0))
+//                    try await Task.sleep(nanoseconds: 1_000_000)
+//                }
+//            }
+//        }
     }
 }
