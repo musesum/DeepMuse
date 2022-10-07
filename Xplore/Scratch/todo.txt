@@ -1,10 +1,12 @@
 Today
+    MuRoot/MuTree hide Branches
+
+Tomorrow
     iPad pencil start / double tap
     long hold leaf lag
     Leaf hide branches while editing
-
-Tomorrow
-
+    
+NextDay
     touch position on repeat/mirror
     icon in root
 

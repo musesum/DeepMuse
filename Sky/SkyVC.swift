@@ -7,22 +7,33 @@ import Tr3
 import MuMenu
 import MuMenuSky
 import SwiftUI
+struct MenuSkyVms {
+
+    static let shared = MenuSkyVms()
+
+    let rootTr3: Tr3
+    let leftVm:  MenuSkyVm
+    let rightVm: MenuSkyVm
+
+    init() {
+        rootTr3 = SkyTr3.shared.root
+        leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootTr3)
+        rightVm = MenuSkyVm([.lower, .right], .vertical, rootTr3)
+    }
+}
 
 struct MenuSkyView: View {
     
     var body: some View {
 
-        let rootTr3 = SkyTr3.shared.root
-        let leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootTr3)
-        let rightVm = MenuSkyVm([.lower, .right], .vertical, rootTr3)
-
         ZStack(alignment: .bottomLeading) {
             
             // add touch handler
-            TouchViewRepresentable([leftVm.rootVm.touchVm, rightVm.rootVm.touchVm])
+            TouchViewRepresentable([MenuSkyVms.shared.leftVm.rootVm.touchVm,
+                                    MenuSkyVms.shared.rightVm.rootVm.touchVm])
             // Menus via UITouch (not SwiftUI's DragGesture)
-            MenuTouchView(menuVm: leftVm)
-            MenuTouchView(menuVm: rightVm)
+            MenuTouchView(menuVm: MenuSkyVms.shared.leftVm)
+            MenuTouchView(menuVm: MenuSkyVms.shared.rightVm)
         }
         .statusBar(hidden: true)
     }
@@ -54,6 +65,11 @@ class SkyVC: UIViewController {
 
         let _ = SkyMain.shared
 
+//???        Task {
+//            try await Task.sleep(nanoseconds: 10_000_000)
+//            MenuSkyVms.shared.leftVm.rootVm.hideBranches() 
+//            MenuSkyVms.shared.rightVm.rootVm.hideBranches()
+//        }
         MuAudio.shared.test()
         MuMidi.shared.test(root: tr3Root)
     }

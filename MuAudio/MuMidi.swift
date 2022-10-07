@@ -35,6 +35,13 @@ class MidiTr3 {
     var afterTouch˚   : Tr3
     var pitchBend˚    : Tr3
     var programChange˚: Tr3
+    var nrpn˚         : Tr3
+
+    var nrpnNumMsb: Float = -1
+    var nrpnNumLsb: Float = -1
+    var nrpnValMsb: Float = -1
+    var nrpnValLsb: Float = -1
+
 
     public var setOptions: Tr3SetOptions = [.activate]
 
@@ -49,6 +56,7 @@ class MidiTr3 {
         afterTouch˚    = input.bindPath("afterTouch")
         pitchBend˚     = input.bindPath("pitchBend")
         programChange˚ = input.bindPath("programChange")
+        nrpn˚          = input.bindPath("nrpn")
     }
 
     func noteOn(_ num: MIDINoteNumber,
@@ -89,14 +97,59 @@ class MidiTr3 {
                     _ port: MIDIUniqueID?,
                     _ time: MIDITimeStamp?) {
 
+        switch cc {
+
+            case 99: nrpnNumMsb = Float(val) ; return
+            case 98: nrpnNumLsb = Float(val) ; return
+            case  6: nrpnValMsb = Float(val) ; return
+            case 38: nrpnValLsb = Float(val) 
+
+                if settingNrpn() {
+
+                    let num = (nrpnNumMsb * 128) + nrpnNumLsb
+                    let val = ((nrpnValMsb * 128) + nrpnValLsb) / 16383
+
+                    let exprs = Tr3Exprs(nameFloats: [
+                        ("num" , num),
+                        ("val" , val),
+                        ("chan", Float(chan)),
+                        ("port", Float(port ?? 0)),
+                        ("time", Float(time ?? 0))])
+
+                    let icon = String(format: "%.0f:%.3f", num, val)
+                    let seq = String(format: "[%.0f_%.0f : %.0f_%.0f]\n",
+                    nrpnNumMsb, nrpnNumLsb, nrpnValMsb, nrpnValLsb)
+                    MuLog.print(icon,seq)
+
+                    nrpn˚.setAny(exprs, setOptions)
+                    return
+                }
+            default: break //clearNrpn()
+        }
+
         let exprs = Tr3Exprs(nameFloats: [
-            ("cc" , Float(cc)),
+            ("cc"  , Float(cc)),
             ("val" , Float(val)),
             ("chan", Float(chan)),
             ("port", Float(port ?? 0)),
             ("time", Float(time ?? 0))])
 
         controller˚.setAny(exprs, setOptions)
+    }
+
+    func settingNrpn() -> Bool {
+        if nrpnNumMsb != -1,
+           nrpnNumLsb != -1,
+           nrpnValMsb != -1 {
+            return true
+        }
+        return false
+    }
+    func clearNrpn() {
+        nrpnNumMsb = -1
+        nrpnNumLsb = -1
+        nrpnValMsb = -1
+        nrpnValLsb = -1
     }
 
     func aftertouch(_ num: MIDINoteNumber,
