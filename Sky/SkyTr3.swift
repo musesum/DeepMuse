@@ -1,9 +1,8 @@
 import UIKit
 import Tr3
 import Par
-import MuMetal
 import MuMenuSky
-import MuFiles
+import MuSkyTr3
 
 class SkyTr3: NSObject {
 
@@ -28,12 +27,16 @@ class SkyTr3: NSObject {
         super.init()
 
         /// get list of script file dates inside `library` directory -- updated by Xcode
-        func getLibraryChanges() {
+        func getTr3BundleChanges() {
+            let tr3Bundle = MuSkyTr3.bundle
+
             for name in tr3Names {
-                let date = MuFile.shared.libraryDate(name + ".tr3.h")
-                if date > 0 {
-                    libraryNameDates[name] = date
-                    print(String(format: "%@ %.2f Δ%.2f", name, date, date - snapDate))
+                if let tr3Path = tr3Bundle.path(forResource: name, ofType: ".tr3.h") {
+                    let date = MuFile.shared.pathDate(tr3Path)
+                    if date > 0 {
+                        libraryNameDates[name] = date
+                        print(String(format: "Bundle/%@ %.2f Δ %.f", name, date, date - snapDate))
+                    }
                 }
             }
         }
@@ -43,7 +46,7 @@ class SkyTr3: NSObject {
                 let date = MuFile.shared.documentDate(name + ".tr3.h")
                 if date > 0 {
                     libraryNameDates[name] = date
-                    print(String(format: "%@ %.2f Δ%.2f", name, date, date - snapDate))
+                    print(String(format: "Documents/%@ %.2f Δ %.f", name, date, date - snapDate))
                 }
             }
         }
@@ -72,8 +75,9 @@ class SkyTr3: NSObject {
         // parse Sky Snapshot Or scripts
         if let archive = MuArchive.readArchive(snapName) {
             snapDate = MuFile.shared.documentDate(snapName)
-            print(String(format: "Snapshot.zip %.2f Δ%.2f", snapDate  , 0))
-            getLibraryChanges()
+            print(String(format: "Documents/Snapshot.zip %.2f Δ 0", snapDate))
+            getTr3BundleChanges()
+            getDocumentChanges()
 
             self.archive = archive
             archive.get("Snapshot.tr3.h", 1000000) { data in

@@ -7,3 +7,9 @@
 [submodule "MuFiles"]
 	path = MuFiles
 	url = https://github.com/musesum/MuFiles
+[submodule "MuFil"]
+	path = MuFil
+	url = https://github.com/musesum/MuFiles
+[submodule "MuArchive"]
+	path = MuArchive
+	url = https://github.com/musesum/MuArchive

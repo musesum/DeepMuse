@@ -2,8 +2,6 @@
 import QuartzCore
 import UIKit
 import Tr3
-import MuUtilities
-//import MuMenu // log
 
 class TouchDraw {
 

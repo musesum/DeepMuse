@@ -4,9 +4,6 @@ import Tr3
 import Compression
 import ZIPFoundation
 
-import MuMetal
-import MuUtilities // MuAspect
-
 /// metal draw/scroll + CA Rule + color + render pipleline
 public class SkyPipeline: NSObject, MTKViewDelegate {
 

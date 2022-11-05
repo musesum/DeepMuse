@@ -49,12 +49,53 @@
 		80D5EA8B2914DDE800C619BE /* MuMidiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */; };
 		80D5EA8D2914DE1F00C619BE /* MidiTr3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */; };
 		80D5EA8F2914DE7500C619BE /* MidiLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8E2914DE7500C619BE /* MidiLog.swift */; };
-		80D7890A2916584F0050065D /* MuFiles in Frameworks */ = {isa = PBXBuildFile; productRef = 80D789092916584F0050065D /* MuFiles */; };
 		80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */; };
 		80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
+		80E95AAA29167B91003F6360 /* ColorSplice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA529167B91003F6360 /* ColorSplice.swift */; };
+		80E95AAB29167B91003F6360 /* ColorRgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA629167B91003F6360 /* ColorRgb.swift */; };
+		80E95AAC29167B91003F6360 /* ColorHsv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA729167B91003F6360 /* ColorHsv.swift */; };
+		80E95AAD29167B91003F6360 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA829167B91003F6360 /* ColorSet.swift */; };
+		80E95AAE29167B91003F6360 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA929167B91003F6360 /* Color.swift */; };
+		80E95AB629167CC7003F6360 /* CubicInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB029167CC7003F6360 /* CubicInterval.swift */; };
+		80E95AB729167CC7003F6360 /* CubicPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB129167CC7003F6360 /* CubicPoints.swift */; };
+		80E95AB829167CC7003F6360 /* CubicPoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB229167CC7003F6360 /* CubicPoly.swift */; };
+		80E95AB929167CC7003F6360 /* CubicQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB329167CC7003F6360 /* CubicQuad.swift */; };
+		80E95ABA29167CC7003F6360 /* CubicXY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB429167CC7003F6360 /* CubicXY.swift */; };
+		80E95ABB29167CC7003F6360 /* CubicXYR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB529167CC7003F6360 /* CubicXYR.swift */; };
+		80E95ACF29167D3D003F6360 /* MtlNode+Insert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ABD29167D3D003F6360 /* MtlNode+Insert.swift */; };
+		80E95AD029167D3D003F6360 /* MtlKernelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ABE29167D3D003F6360 /* MtlKernelRender.swift */; };
+		80E95AD129167D3D003F6360 /* MtlKernelRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ABF29167D3D003F6360 /* MtlKernelRecord.swift */; };
+		80E95AD229167D3D003F6360 /* MtlKernelCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC029167D3D003F6360 /* MtlKernelCamera.swift */; };
+		80E95AD329167D3D003F6360 /* CameraSesssion+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC129167D3D003F6360 /* CameraSesssion+Video.swift */; };
+		80E95AD429167D3D003F6360 /* MtlKernelColorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC229167D3D003F6360 /* MtlKernelColorize.swift */; };
+		80E95AD529167D3D003F6360 /* MtlKernelDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC329167D3D003F6360 /* MtlKernelDraw.swift */; };
+		80E95AD629167D3D003F6360 /* MtlVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC429167D3D003F6360 /* MtlVertex.swift */; };
+		80E95AD729167D3D003F6360 /* MtlSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC529167D3D003F6360 /* MtlSnapshot.swift */; };
+		80E95AD829167D3D003F6360 /* MtlBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC629167D3D003F6360 /* MtlBuffer.swift */; };
+		80E95AD929167D3D003F6360 /* MtKernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC729167D3D003F6360 /* MtKernel.swift */; };
+		80E95ADA29167D3D003F6360 /* CameraTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC829167D3D003F6360 /* CameraTypes.swift */; };
+		80E95ADB29167D3D003F6360 /* MtlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AC929167D3D003F6360 /* MtlNode.swift */; };
+		80E95ADC29167D3D003F6360 /* MtlTexCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ACA29167D3D003F6360 /* MtlTexCache.swift */; };
+		80E95ADD29167D3D003F6360 /* MtlKernelCompute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ACB29167D3D003F6360 /* MtlKernelCompute.swift */; };
+		80E95ADE29167D3D003F6360 /* MtlNode+Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ACC29167D3D003F6360 /* MtlNode+Buffer.swift */; };
+		80E95ADF29167D3D003F6360 /* MtlKernelCamix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ACD29167D3D003F6360 /* MtlKernelCamix.swift */; };
+		80E95AE029167D3D003F6360 /* CameraSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95ACE29167D3D003F6360 /* CameraSession.swift */; };
+		80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE229167D50003F6360 /* UIApplication+extension.swift */; };
+		80E95AEC29167D50003F6360 /* MuOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE329167D50003F6360 /* MuOrientation.swift */; };
+		80E95AED29167D50003F6360 /* MuDrawBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE429167D50003F6360 /* MuDrawBox.swift */; };
+		80E95AEE29167D50003F6360 /* MuDrawBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE529167D50003F6360 /* MuDrawBubble.swift */; };
+		80E95AEF29167D50003F6360 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE629167D50003F6360 /* UIImage+extension.swift */; };
+		80E95AF029167D51003F6360 /* MuAspectFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE729167D50003F6360 /* MuAspectFill.swift */; };
+		80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE829167D50003F6360 /* CFTime+extension.swift */; };
+		80E95AF229167D51003F6360 /* MuBezel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AE929167D50003F6360 /* MuBezel.swift */; };
+		80E95AF329167D51003F6360 /* CG+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AEA29167D50003F6360 /* CG+extension.swift */; };
+		80E95B06291684CE003F6360 /* MuArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B032916837C003F6360 /* MuArchive.swift */; };
+		80E95B072916853C003F6360 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B022916837C003F6360 /* MuFile.swift */; };
+		80E95B082916853C003F6360 /* MuFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B012916837C003F6360 /* MuFiles.swift */; };
+		80E95B092916853C003F6360 /* MuFile-extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B042916837C003F6360 /* MuFile-extras.swift */; };
+		80E95B0A29168540003F6360 /* FileManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B052916837C003F6360 /* FileManager+extension.swift */; };
 		80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1338128D52B560066B7D8 /* MuMidi.swift */; };
-		80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 80F23D4B288CE7B8003AC055 /* MuMetal */; };
 		80F846E1234D016A009022F7 /* cell.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80F846E0234D016A009022F7 /* cell.camera.metal */; };
 		80FEC39328E2003000E07437 /* TouchMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39228E2003000E07437 /* TouchMenu.swift */; };
 		80FEC39528E2009600E07437 /* TouchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39428E2009600E07437 /* TouchMenuItem.swift */; };
@@ -123,7 +164,6 @@
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
-		80A008F7291661EE00885C7F /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = Packages/MuColor; sourceTree = "<group>"; };
 		80D5EA892914A90D00C619BE /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuSkyTr3; sourceTree = "<group>"; };
 		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
 		80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiTr3.swift; sourceTree = "<group>"; };
@@ -131,10 +171,50 @@
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80DC21862337ADB000B99CD9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		80E95AA529167B91003F6360 /* ColorSplice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSplice.swift; sourceTree = "<group>"; };
+		80E95AA629167B91003F6360 /* ColorRgb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRgb.swift; sourceTree = "<group>"; };
+		80E95AA729167B91003F6360 /* ColorHsv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHsv.swift; sourceTree = "<group>"; };
+		80E95AA829167B91003F6360 /* ColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		80E95AA929167B91003F6360 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		80E95AB029167CC7003F6360 /* CubicInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicInterval.swift; sourceTree = "<group>"; };
+		80E95AB129167CC7003F6360 /* CubicPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicPoints.swift; sourceTree = "<group>"; };
+		80E95AB229167CC7003F6360 /* CubicPoly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicPoly.swift; sourceTree = "<group>"; };
+		80E95AB329167CC7003F6360 /* CubicQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicQuad.swift; sourceTree = "<group>"; };
+		80E95AB429167CC7003F6360 /* CubicXY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicXY.swift; sourceTree = "<group>"; };
+		80E95AB529167CC7003F6360 /* CubicXYR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicXYR.swift; sourceTree = "<group>"; };
+		80E95ABD29167D3D003F6360 /* MtlNode+Insert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MtlNode+Insert.swift"; sourceTree = "<group>"; };
+		80E95ABE29167D3D003F6360 /* MtlKernelRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelRender.swift; sourceTree = "<group>"; };
+		80E95ABF29167D3D003F6360 /* MtlKernelRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelRecord.swift; sourceTree = "<group>"; };
+		80E95AC029167D3D003F6360 /* MtlKernelCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelCamera.swift; sourceTree = "<group>"; };
+		80E95AC129167D3D003F6360 /* CameraSesssion+Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CameraSesssion+Video.swift"; sourceTree = "<group>"; };
+		80E95AC229167D3D003F6360 /* MtlKernelColorize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelColorize.swift; sourceTree = "<group>"; };
+		80E95AC329167D3D003F6360 /* MtlKernelDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelDraw.swift; sourceTree = "<group>"; };
+		80E95AC429167D3D003F6360 /* MtlVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlVertex.swift; sourceTree = "<group>"; };
+		80E95AC529167D3D003F6360 /* MtlSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlSnapshot.swift; sourceTree = "<group>"; };
+		80E95AC629167D3D003F6360 /* MtlBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlBuffer.swift; sourceTree = "<group>"; };
+		80E95AC729167D3D003F6360 /* MtKernel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtKernel.swift; sourceTree = "<group>"; };
+		80E95AC829167D3D003F6360 /* CameraTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraTypes.swift; sourceTree = "<group>"; };
+		80E95AC929167D3D003F6360 /* MtlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlNode.swift; sourceTree = "<group>"; };
+		80E95ACA29167D3D003F6360 /* MtlTexCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlTexCache.swift; sourceTree = "<group>"; };
+		80E95ACB29167D3D003F6360 /* MtlKernelCompute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelCompute.swift; sourceTree = "<group>"; };
+		80E95ACC29167D3D003F6360 /* MtlNode+Buffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MtlNode+Buffer.swift"; sourceTree = "<group>"; };
+		80E95ACD29167D3D003F6360 /* MtlKernelCamix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MtlKernelCamix.swift; sourceTree = "<group>"; };
+		80E95ACE29167D3D003F6360 /* CameraSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSession.swift; sourceTree = "<group>"; };
+		80E95AE229167D50003F6360 /* UIApplication+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+extension.swift"; sourceTree = "<group>"; };
+		80E95AE329167D50003F6360 /* MuOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuOrientation.swift; sourceTree = "<group>"; };
+		80E95AE429167D50003F6360 /* MuDrawBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBox.swift; sourceTree = "<group>"; };
+		80E95AE529167D50003F6360 /* MuDrawBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBubble.swift; sourceTree = "<group>"; };
+		80E95AE629167D50003F6360 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		80E95AE729167D50003F6360 /* MuAspectFill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuAspectFill.swift; sourceTree = "<group>"; };
+		80E95AE829167D50003F6360 /* CFTime+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFTime+extension.swift"; sourceTree = "<group>"; };
+		80E95AE929167D50003F6360 /* MuBezel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuBezel.swift; sourceTree = "<group>"; };
+		80E95AEA29167D50003F6360 /* CG+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CG+extension.swift"; sourceTree = "<group>"; };
+		80E95B012916837C003F6360 /* MuFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFiles.swift; sourceTree = "<group>"; };
+		80E95B022916837C003F6360 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
+		80E95B032916837C003F6360 /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
+		80E95B042916837C003F6360 /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
+		80E95B052916837C003F6360 /* FileManager+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extension.swift"; sourceTree = "<group>"; };
 		80F1338128D52B560066B7D8 /* MuMidi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuMidi.swift; sourceTree = "<group>"; };
-		80F23D4A288CE7AB003AC055 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = Packages/MuMetal; sourceTree = "<group>"; };
-		80F23D4D288CE8F3003AC055 /* MuCubic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuCubic; path = Packages/MuCubic; sourceTree = "<group>"; };
-		80F23D50288CE93F003AC055 /* MuUtilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuUtilities; path = Packages/MuUtilities; sourceTree = "<group>"; };
 		80F846E0234D016A009022F7 /* cell.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camera.metal; sourceTree = "<group>"; };
 		80FEC39228E2003000E07437 /* TouchMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenu.swift; sourceTree = "<group>"; };
 		80FEC39428E2009600E07437 /* TouchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenuItem.swift; sourceTree = "<group>"; };
@@ -148,8 +228,6 @@
 			files = (
 				802C5BD0265AEC6000DBFFEA /* Par in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
-				80D7890A2916584F0050065D /* MuFiles in Frameworks */,
-				80F23D4C288CE7B8003AC055 /* MuMetal in Frameworks */,
 				80704B3C23378DB40001617D /* Tr3 in Frameworks */,
 				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
 				80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */,
@@ -191,13 +269,12 @@
 			children = (
 				80D5EA892914A90D00C619BE /* MuSkyTr3 */,
 				807048E923378A090001617D /* App */,
+				80E95AFF29168323003F6360 /* Mu */,
 				8097DC472833E2A300059A59 /* Sky */,
 				8070496B23378ADB0001617D /* Touch */,
 				8070495D23378ADB0001617D /* Metal */,
-				80B9E12325169B6F0074AEEA /* MuAudio */,
 				8070490023378A0B0001617D /* MuseSkyTests */,
 				8070490B23378A0B0001617D /* MuseSkyUITests */,
-				80F23D45288CE45D003AC055 /* Packages */,
 				807048E823378A090001617D /* Products */,
 				80704A7623378C1A0001617D /* Frameworks */,
 				802C5BD1265B2D3700DBFFEA /* Xplore */,
@@ -336,15 +413,95 @@
 			path = tr3_maybe;
 			sourceTree = "<group>";
 		};
-		80F23D45288CE45D003AC055 /* Packages */ = {
+		80E95AA429167B91003F6360 /* MuColor */ = {
 			isa = PBXGroup;
 			children = (
-				80A008F7291661EE00885C7F /* MuColor */,
-				80F23D4A288CE7AB003AC055 /* MuMetal */,
-				80F23D4D288CE8F3003AC055 /* MuCubic */,
-				80F23D50288CE93F003AC055 /* MuUtilities */,
+				80E95AA529167B91003F6360 /* ColorSplice.swift */,
+				80E95AA629167B91003F6360 /* ColorRgb.swift */,
+				80E95AA729167B91003F6360 /* ColorHsv.swift */,
+				80E95AA829167B91003F6360 /* ColorSet.swift */,
+				80E95AA929167B91003F6360 /* Color.swift */,
 			);
-			name = Packages;
+			path = MuColor;
+			sourceTree = "<group>";
+		};
+		80E95AAF29167CC7003F6360 /* MuCubic */ = {
+			isa = PBXGroup;
+			children = (
+				80E95AB029167CC7003F6360 /* CubicInterval.swift */,
+				80E95AB129167CC7003F6360 /* CubicPoints.swift */,
+				80E95AB229167CC7003F6360 /* CubicPoly.swift */,
+				80E95AB329167CC7003F6360 /* CubicQuad.swift */,
+				80E95AB429167CC7003F6360 /* CubicXY.swift */,
+				80E95AB529167CC7003F6360 /* CubicXYR.swift */,
+			);
+			path = MuCubic;
+			sourceTree = "<group>";
+		};
+		80E95ABC29167D3D003F6360 /* MuMetal */ = {
+			isa = PBXGroup;
+			children = (
+				80E95ABD29167D3D003F6360 /* MtlNode+Insert.swift */,
+				80E95ABE29167D3D003F6360 /* MtlKernelRender.swift */,
+				80E95ABF29167D3D003F6360 /* MtlKernelRecord.swift */,
+				80E95AC029167D3D003F6360 /* MtlKernelCamera.swift */,
+				80E95AC129167D3D003F6360 /* CameraSesssion+Video.swift */,
+				80E95AC229167D3D003F6360 /* MtlKernelColorize.swift */,
+				80E95AC329167D3D003F6360 /* MtlKernelDraw.swift */,
+				80E95AC429167D3D003F6360 /* MtlVertex.swift */,
+				80E95AC529167D3D003F6360 /* MtlSnapshot.swift */,
+				80E95AC629167D3D003F6360 /* MtlBuffer.swift */,
+				80E95AC729167D3D003F6360 /* MtKernel.swift */,
+				80E95AC829167D3D003F6360 /* CameraTypes.swift */,
+				80E95AC929167D3D003F6360 /* MtlNode.swift */,
+				80E95ACA29167D3D003F6360 /* MtlTexCache.swift */,
+				80E95ACB29167D3D003F6360 /* MtlKernelCompute.swift */,
+				80E95ACC29167D3D003F6360 /* MtlNode+Buffer.swift */,
+				80E95ACD29167D3D003F6360 /* MtlKernelCamix.swift */,
+				80E95ACE29167D3D003F6360 /* CameraSession.swift */,
+			);
+			path = MuMetal;
+			sourceTree = "<group>";
+		};
+		80E95AE129167D50003F6360 /* MuUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				80E95AE229167D50003F6360 /* UIApplication+extension.swift */,
+				80E95AE329167D50003F6360 /* MuOrientation.swift */,
+				80E95AE429167D50003F6360 /* MuDrawBox.swift */,
+				80E95AE529167D50003F6360 /* MuDrawBubble.swift */,
+				80E95AE629167D50003F6360 /* UIImage+extension.swift */,
+				80E95AE729167D50003F6360 /* MuAspectFill.swift */,
+				80E95AE829167D50003F6360 /* CFTime+extension.swift */,
+				80E95AE929167D50003F6360 /* MuBezel.swift */,
+				80E95AEA29167D50003F6360 /* CG+extension.swift */,
+			);
+			path = MuUtilities;
+			sourceTree = "<group>";
+		};
+		80E95AFF29168323003F6360 /* Mu */ = {
+			isa = PBXGroup;
+			children = (
+				80E95B0029168370003F6360 /* MuArchive */,
+				80E95AE129167D50003F6360 /* MuUtilities */,
+				80E95ABC29167D3D003F6360 /* MuMetal */,
+				80B9E12325169B6F0074AEEA /* MuAudio */,
+				80E95AA429167B91003F6360 /* MuColor */,
+				80E95AAF29167CC7003F6360 /* MuCubic */,
+			);
+			path = Mu;
+			sourceTree = "<group>";
+		};
+		80E95B0029168370003F6360 /* MuArchive */ = {
+			isa = PBXGroup;
+			children = (
+				80E95B052916837C003F6360 /* FileManager+extension.swift */,
+				80E95B032916837C003F6360 /* MuArchive.swift */,
+				80E95B042916837C003F6360 /* MuFile-extras.swift */,
+				80E95B022916837C003F6360 /* MuFile.swift */,
+				80E95B012916837C003F6360 /* MuFiles.swift */,
+			);
+			path = MuArchive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,11 +525,9 @@
 				808E90DB2338B4D0004EB9C9 /* ZIPFoundation */,
 				80B70CC32576ACDE007BAAA8 /* AudioKit */,
 				802C5BCF265AEC6000DBFFEA /* Par */,
-				80F23D4B288CE7B8003AC055 /* MuMetal */,
 				80BDD7C928919CF000C6E2BF /* MuMenu */,
 				8096E08C28A190AB00EE2967 /* Tr3 */,
 				8017909428A219FF0013F48A /* MuMenuSky */,
-				80D789092916584F0050065D /* MuFiles */,
 			);
 			productName = MuseSky;
 			productReference = 807048E723378A090001617D /* Muse Sky.app */;
@@ -454,7 +609,6 @@
 				80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */,
 				8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */,
 				8017909328A219FF0013F48A /* XCRemoteSwiftPackageReference "MuMenuSky" */,
-				80D789082916584F0050065D /* XCRemoteSwiftPackageReference "MuFiles" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
 			projectDirPath = "";
@@ -500,41 +654,84 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D5EA8B2914DDE800C619BE /* MuMidiListener.swift in Sources */,
+				80E95AD629167D3D003F6360 /* MtlVertex.swift in Sources */,
+				80E95AF229167D51003F6360 /* MuBezel.swift in Sources */,
 				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
+				80E95AB829167CC7003F6360 /* CubicPoly.swift in Sources */,
 				80FEC39328E2003000E07437 /* TouchMenu.swift in Sources */,
+				80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */,
+				80E95B082916853C003F6360 /* MuFiles.swift in Sources */,
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
 				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
+				80E95ADC29167D3D003F6360 /* MtlTexCache.swift in Sources */,
+				80E95AAC29167B91003F6360 /* ColorHsv.swift in Sources */,
+				80E95AD329167D3D003F6360 /* CameraSesssion+Video.swift in Sources */,
+				80E95ADA29167D3D003F6360 /* CameraTypes.swift in Sources */,
 				80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */,
+				80E95ADB29167D3D003F6360 /* MtlNode.swift in Sources */,
+				80E95ABA29167CC7003F6360 /* CubicXY.swift in Sources */,
+				80E95AF329167D51003F6360 /* CG+extension.swift in Sources */,
+				80E95B072916853C003F6360 /* MuFile.swift in Sources */,
 				80704A0023378ADC0001617D /* SkyWorkLink.swift in Sources */,
 				807049FA23378ADC0001617D /* TouchView.swift in Sources */,
+				80E95AD129167D3D003F6360 /* MtlKernelRecord.swift in Sources */,
 				807049F623378ADC0001617D /* pipe.draw.metal in Sources */,
+				80E95AEC29167D50003F6360 /* MuOrientation.swift in Sources */,
+				80E95AAB29167B91003F6360 /* ColorRgb.swift in Sources */,
 				80FEC39528E2009600E07437 /* TouchMenuItem.swift in Sources */,
 				80703D3D23A04F570093C016 /* cell.camix.metal in Sources */,
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
+				80E95AAE29167B91003F6360 /* Color.swift in Sources */,
 				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
+				80E95AE029167D3D003F6360 /* CameraSession.swift in Sources */,
+				80E95AD929167D3D003F6360 /* MtKernel.swift in Sources */,
+				80E95B06291684CE003F6360 /* MuArchive.swift in Sources */,
+				80E95AED29167D50003F6360 /* MuDrawBox.swift in Sources */,
 				807048EB23378A090001617D /* AppDelegate.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
 				807049ED23378ADC0001617D /* SkyTr3.swift in Sources */,
 				807048ED23378A090001617D /* SceneDelegate.swift in Sources */,
 				80704A0623378ADC0001617D /* SkyColor.swift in Sources */,
+				80E95AD429167D3D003F6360 /* MtlKernelColorize.swift in Sources */,
 				807049FE23378ADC0001617D /* TouchDraw.swift in Sources */,
+				80E95AF029167D51003F6360 /* MuAspectFill.swift in Sources */,
 				80D5EA8F2914DE7500C619BE /* MidiLog.swift in Sources */,
+				80E95ADE29167D3D003F6360 /* MtlNode+Buffer.swift in Sources */,
 				807049F523378ADC0001617D /* cell.zha.metal in Sources */,
 				80D5EA8D2914DE1F00C619BE /* MidiTr3.swift in Sources */,
 				807049F923378ADC0001617D /* cell.slide.metal in Sources */,
+				80E95ADF29167D3D003F6360 /* MtlKernelCamix.swift in Sources */,
+				80E95AD229167D3D003F6360 /* MtlKernelCamera.swift in Sources */,
+				80E95AEF29167D50003F6360 /* UIImage+extension.swift in Sources */,
+				80E95ACF29167D3D003F6360 /* MtlNode+Insert.swift in Sources */,
+				80E95AAA29167B91003F6360 /* ColorSplice.swift in Sources */,
 				80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */,
+				80E95AD529167D3D003F6360 /* MtlKernelDraw.swift in Sources */,
+				80E95AD829167D3D003F6360 /* MtlBuffer.swift in Sources */,
 				80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */,
 				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
 				807049FD23378ADC0001617D /* TouchCanvasItem.swift in Sources */,
+				80E95AB929167CC7003F6360 /* CubicQuad.swift in Sources */,
+				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,
+				80E95B092916853C003F6360 /* MuFile-extras.swift in Sources */,
+				80E95ADD29167D3D003F6360 /* MtlKernelCompute.swift in Sources */,
+				80E95AD029167D3D003F6360 /* MtlKernelRender.swift in Sources */,
+				80E95AB629167CC7003F6360 /* CubicInterval.swift in Sources */,
 				807049FB23378ADC0001617D /* TouchCanvas.swift in Sources */,
 				807049EE23378ADC0001617D /* cell.fred.metal in Sources */,
 				80704A0223378ADC0001617D /* SkyVC.swift in Sources */,
 				807049F823378ADC0001617D /* pipe.render.metal in Sources */,
 				807049F023378ADC0001617D /* cell.mod.metal in Sources */,
 				80F846E1234D016A009022F7 /* cell.camera.metal in Sources */,
+				80E95AEE29167D50003F6360 /* MuDrawBubble.swift in Sources */,
 				80704A0323378ADC0001617D /* SkyMetal.swift in Sources */,
+				80E95B0A29168540003F6360 /* FileManager+extension.swift in Sources */,
 				80FEC39728E2011B00E07437 /* TextureData.swift in Sources */,
 				807049F423378ADC0001617D /* cell.erode.metal in Sources */,
+				80E95AAD29167B91003F6360 /* ColorSet.swift in Sources */,
+				80E95ABB29167CC7003F6360 /* CubicXYR.swift in Sources */,
+				80E95AB729167CC7003F6360 /* CubicPoints.swift in Sources */,
+				80E95AD729167D3D003F6360 /* MtlSnapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,14 +1123,6 @@
 				kind = branch;
 			};
 		};
-		80D789082916584F0050065D /* XCRemoteSwiftPackageReference "MuFiles" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/musesum/MuFiles";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -971,15 +1160,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */;
 			productName = MuMenu;
-		};
-		80D789092916584F0050065D /* MuFiles */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 80D789082916584F0050065D /* XCRemoteSwiftPackageReference "MuFiles" */;
-			productName = MuFiles;
-		};
-		80F23D4B288CE7B8003AC055 /* MuMetal */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MuMetal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

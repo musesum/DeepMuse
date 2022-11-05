@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "mufiles",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musesum/MuFiles",
-      "state" : {
-        "revision" : "ce7e92c84fe55ec4eee29ed964bb397d34d1cf9b",
-        "version" : "0.3.1"
-      }
-    },
-    {
       "identity" : "mumenu",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/musesum/MuMenu",

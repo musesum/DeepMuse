@@ -8,7 +8,7 @@
 import Foundation
 import ZIPFoundation
 
-class MuArchive {
+public class MuArchive {
 
     private let fileManager = FileManager.default
     private var docURL: URL
@@ -17,7 +17,7 @@ class MuArchive {
 
     public var archive: Archive?
 
-    init(_ archiveName: String, readOnly: Bool = false) {
+    public init(_ archiveName: String, readOnly: Bool = false) {
 
         self.archiveName = archiveName
         docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

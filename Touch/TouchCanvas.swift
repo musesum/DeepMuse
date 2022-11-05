@@ -2,7 +2,6 @@
 //  Copyright © 2019 DeepMuse All rights reserved.
 
 import UIKit
-import MuCubic
 
 class TouchCanvas {
 
