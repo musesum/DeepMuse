@@ -48,7 +48,10 @@ extension SkyPipeline {
 
              if hs > 0 {
                  let region = MTLRegionMake3D(0, y, 0, w, hs, 1)
-                 inTex.replace(region: region, mipmapLevel: 0, withBytes: buf, bytesPerRow: bytesPerRow)
+                 inTex.replace(region: region,
+                               mipmapLevel: 0,
+                               withBytes: buf,
+                               bytesPerRow: bytesPerRow)
                  index += bufSize
              }
 
