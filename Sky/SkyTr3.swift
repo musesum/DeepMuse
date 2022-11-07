@@ -57,7 +57,6 @@ class SkyTr3: NSObject {
         func mergeBundleChanges() {
             for (name, date) in bundleNameDates {
                 if date > snapDate {
-                    //??? test will this merge?
                     _ = MuMenuSky.parseTr3(root, name)
                 }
             }
@@ -67,7 +66,7 @@ class SkyTr3: NSObject {
         func mergeDocumentChanges() {
             for (name, date) in documentNameDates {
                 if date > snapDate {
-                    //??? test will this merge?
+                    //TODO: will this merge?
                     _ = MuMenuSky.parseTr3(root, name)
                 }
             }

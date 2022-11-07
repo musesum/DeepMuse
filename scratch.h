@@ -1,6 +1,3 @@
-controller(cc: 10, val: 127, chan: 1, port: 1, time : 2.30888e+12)
-
-
 sky { // visual music program
     main { // main controls
         fps (1…60 = 60) // frames per second
@@ -19,12 +16,8 @@ sky { // visual music program
     }
     input { // phone and tablet pencil input
         
-        azimuth (x -0.2…0.2,
-                 y -0.2…0.2)  >> shader.model.pipe.draw
-        
-        accel (x -0.3…0.3,
-               y -0.3…0.3,
-               z -0.3…0.3)  // accelerometer
+        azimuth (x -0.2…0.2, y -0.2…0.2)  >> shader.model.pipe.draw
+        accel   (x -0.3…0.3, y -0.3…0.3,  z -0.3…0.3)  // accelerometer
         accel.on (0…1)
         
         radius (1…92 = 9) // finger silhouette
@@ -40,7 +33,7 @@ sky { // visual music program
             size (1…64 = 10)    // range of radius
             press (0…1 = 1)     // pressure changes size
             index (1…255 = 127) // index in 256 color palette
-                                  // <<(osc.tuio.z osc.manos˚z) // redirect from OSC
+                                // <<(osc.tuio.z osc.manos˚z) // redirect from OSC
         }
         line { // place holder for line drawing
             prev (x 0…1, y 0…1) // staring point of segment
@@ -58,7 +51,7 @@ shader{
             tunl  (0…5 = 1  ) { on(0…1 = 0) >> cell˚on(0) << .. }
             slide (0…7 = 3  ) { on(0…1 = 0) >> cell˚on(0) << .. }
             fred  (0…4 = 4  ) { on(0…1 = 0) >> cell˚on(0) << .. }
-            zha   (0…6 = 2  ) { on(0…1 = 0) >> cell˚on(0) << ..  bits (2…4=3) loops(11)  }
+            zha   (0…6 = 2  ) { on(0…1 = 0) >> cell˚on(0) << .. bits (2…4=3) loops(11)  }
         }
         pipe {
             draw (x 0…1 = 0.5, y 0…1 = 0.5) { on(0…1 = 0) }
