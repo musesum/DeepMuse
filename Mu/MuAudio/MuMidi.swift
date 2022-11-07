@@ -21,7 +21,7 @@ class MuMidi {
         
         midi.openInput()
         midi.addListener(listener)
-        //??? midi.openOutput()
+        midi.openOutput()
         // startupMidiFighterTest() // not used
     }
 

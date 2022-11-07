@@ -69,15 +69,15 @@ class TouchDraw {
                 let margin = CGFloat(48)
                 let xs = CGFloat(2388/2)
                 let ys = CGFloat(1668/2)
-                let xx = CGFloat(x.num) / 12
-                let yy = 1 - CGFloat(y.num / 12)
+                let xx = CGFloat(x.now) / 12
+                let yy = 1 - CGFloat(y.now / 12)
                 let xxx = CGFloat(xx * xs) + margin
                 let yyy = CGFloat(yy * ys) - margin
                 let point = CGPoint(x: xxx, y: yyy)
-                let radius = CGFloat(z.num/2 + 1)
+                let radius = CGFloat(z.now/2 + 1)
 
                 let pointStr = String(format: "(%.2f,%.2f)", point.x, point.y)
-                //print("dot x:\(x.num) y:\(y.num) xs:\(xs) ys:\(ys) \(pointStr):\(radius)")
+                //print("dot x:\(x.now) y:\(y.now) xs:\(xs) ys:\(ys) \(pointStr):\(radius)")
 
                 let item0 = TouchCanvasItem(time, point, point, radius, radius, .zero, .began)
                 TouchView.shared.addMidiCanvasItem(item0)

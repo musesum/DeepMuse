@@ -63,13 +63,7 @@ class SkyVC: UIViewController {
         SkyMetal.shared.makeShader(for: tr3Root)
 
         let _ = SkyMain.shared
-
-//???        Task {
-//            try await Task.sleep(nanoseconds: 10_000_000)
-//            MenuSkyVms.shared.leftVm.rootVm.hideBranches() 
-//            MenuSkyVms.shared.rightVm.rootVm.hideBranches()
-//        }
-        MuAudio.shared.test()
+        // MuAudio.shared.test()
         MuMidi.shared.test(root: tr3Root)
     }
 

@@ -63,7 +63,6 @@ public class MtlKernel: MtlNode {
             // execute the compute pipeline threads
             compute.setComputePipelineState(pipeline)
             compute.dispatchThreadgroups(threadgroupCount, threadsPerThreadgroup: threadgroupSize)
-
             compute.endEncoding()
         }
     }

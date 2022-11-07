@@ -19,7 +19,7 @@ class SkyTr3: NSObject {
     private var snapName = "Snapshot.zip"
     private var snapDate = TimeInterval(0)
     private var tr3Names = ["sky", "shader", "menu", "midi"]
-    private var libraryNameDates = [String: TimeInterval]()
+    private var bundleNameDates = [String: TimeInterval]()
     private var documentNameDates = [String: TimeInterval]()
 
     override init() {
@@ -34,7 +34,7 @@ class SkyTr3: NSObject {
                 if let tr3Path = tr3Bundle.path(forResource: name, ofType: ".tr3.h") {
                     let date = MuFile.shared.pathDate(tr3Path)
                     if date > 0 {
-                        libraryNameDates[name] = date
+                        bundleNameDates[name] = date
                         print(String(format: "Bundle/%@ %.2f Δ %.f", name, date, date - snapDate))
                     }
                 }
@@ -45,16 +45,17 @@ class SkyTr3: NSObject {
             for name in tr3Names {
                 let date = MuFile.shared.documentDate(name + ".tr3.h")
                 if date > 0 {
-                    libraryNameDates[name] = date
+                    bundleNameDates[name] = date
                     print(String(format: "Documents/%@ %.2f Δ %.f", name, date, date - snapDate))
                 }
             }
         }
 
         /// Merge changes to tr3 script changes via Xcode
-        /// Only works once, as new snapshot will have a later date
-        func mergeLibraryChanges() {
-            for (name, date) in libraryNameDates {
+        /// Currently, this is not called. Instead, if any bundle dates are new,
+        /// all bundle scripts are parsed, ignoring the snapshot.tr3.h
+        func mergeBundleChanges() {
+            for (name, date) in bundleNameDates {
                 if date > snapDate {
                     //??? test will this merge?
                     _ = MuMenuSky.parseTr3(root, name)
@@ -72,6 +73,15 @@ class SkyTr3: NSObject {
             }
         }
 
+        func bundleHasChanged() -> Bool {
+            for date in bundleNameDates.values {
+                if date > snapDate {
+                    return true
+                }
+            }
+            return false
+        }
+
         // parse Sky Snapshot Or scripts
         if let archive = MuArchive.readArchive(snapName) {
             snapDate = MuFile.shared.documentDate(snapName)
@@ -79,17 +89,23 @@ class SkyTr3: NSObject {
             getTr3BundleChanges()
             getDocumentChanges()
 
-            self.archive = archive
-            archive.get("Snapshot.tr3.h", 1000000) { data in
-                if  let data = data,
-                    let script = self.dropRoot(String(data: data, encoding: .utf8)),
-                    Tr3Parse.shared.parseScript(self.root, script, whitespace: "\n\t ") {
+            if bundleHasChanged() {
 
-                    mergeLibraryChanges()
-                    mergeDocumentChanges()
-                }
-                else {
-                    self.parseScriptFiles()
+                parseScriptFiles()
+            } else {
+
+                self.archive = archive
+
+                archive.get("Snapshot.tr3.h", 1000000) { data in
+                    if  let data = data,
+                        let script = self.dropRoot(String(data: data, encoding: .utf8)),
+                        Tr3Parse.shared.parseScript(self.root, script, whitespace: "\n\t ") {
+
+                        mergeDocumentChanges()
+                    }
+                    else {
+                        self.parseScriptFiles()
+                    }
                 }
             }
             archive.get("Snapshot.tex", 30_000_000) { data in

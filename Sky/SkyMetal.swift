@@ -46,7 +46,7 @@ class SkyMetal {
                 case "repeat" : updateChildBuffer(node, child)
                 case "mirror" : updateChildBuffer(node, child)
                 case "bits"   : updateChildBuffer(node, child)
-                default       : err(tr3, "name")
+                default       : err(tr3, "name:\(child.name)")
             }
         }
         if let fileTr3 = fileTr3.findPath(tr3.name),
@@ -62,7 +62,7 @@ class SkyMetal {
                 let floats = exprs.getValFloats()
                 node.updateBuffer(tr3.name, floats)
             } else if let scalar = tr3.val as? Tr3ValScalar {
-                node.updateBuffer(tr3.name, [scalar.num])
+                node.updateBuffer(tr3.name, [scalar.now])
             }
         }
         tr3.addClosure { tr3, _ in
@@ -73,7 +73,7 @@ class SkyMetal {
 
     func anyInt(_ any: Any?) -> Int {
         if let v = any as? Tr3ValScalar {
-            return Int(v.num)
+            return Int(v.now)
         } else {
             print("*** makeCellNode::anyInt: unknown: \(any.debugDescription)")
             return 0
