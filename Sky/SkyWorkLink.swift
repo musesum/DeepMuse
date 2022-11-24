@@ -26,6 +26,8 @@ class SkyWorkLink: NSObject {
         displayLink?.preferredFramesPerSecond = fps
         displayLink?.add(to: RunLoop.current, forMode: .default)
         //tr3Osc = Tr3Osc(sky)
+        let root = SkyTr3.shared.root
+        mainFps˚ = root.bindPath("sky.main.fps") { t, _ in SkyWorkLink.shared.updateFps(t.IntVal()) }
     }
 
     func updateFps(_ newFps: Int?) {

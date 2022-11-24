@@ -13,19 +13,20 @@ import ZIPFoundation
 class MuFile {
     
     static let shared = MuFile()
-    private let fileManager = FileManager.default
     private let documentURL: URL
     private let libraryURL: URL
     private var fileURLs: [URL]
-
+    
     init() {
-        documentURL = FileManager.default.urls(for: .documentDirectory,
-                                          in: .userDomainMask).first!
-
-        libraryURL = FileManager.default.urls(for: .libraryDirectory,
-                                          in: .userDomainMask).first!
+        documentURL = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask).first!
         
-        fileURLs = fileManager.contentsOf(ext: nil)
+        libraryURL = FileManager.default.urls(
+            for: .libraryDirectory,
+            in: .userDomainMask).first!
+        
+        fileURLs = FileManager.default.contentsOf(ext: nil)
         printFileURLs()
     }
     func printFileURLs() {
@@ -33,52 +34,12 @@ class MuFile {
             print(url)
         }
     }
-    func saveFile(_ name: String, script: String) {
-        let filename = documentURL.appendingPathComponent(name)
-        do {
-            try script.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-        } catch {
-            print("🚫 \(error)")
-        }
-    }
-    func saveFile(_ name: String, image: UIImage) -> Bool {
-
-        let filename = documentURL.appendingPathComponent(name)
-
-        do {
-            if name.hasSuffix("jpg") {
-                if let data = image.jpegData(compressionQuality: 1)  {
-                    try data.write(to: filename)
-                }
-            } else {
-                if let data = image.pngData() {
-                    try data.write(to: filename)
-                }
-            }
-        }
-        catch {
-            print("🚫 \(error)")
-            return false
-        }
-        return true
-    }
-    func saveFile(_ name: String, data: Data) -> Bool {
-
-        let filename = documentURL.appendingPathComponent(name)
-
-        do { try data.write(to: filename) }
-
-        catch {
-            print("🚫 \(error)")
-            return false
-        }
-        return true
-    }
+    
     /**
      Get creation date from file. This is explicitely set and should match between devices.
      */
     func getFileTime(_ filePath: String) -> TimeInterval {
-
+        
         do {
             let fileAttributes = try FileManager.default.attributesOfItem(atPath: filePath)
             let fileDate = (fileAttributes[FileAttributeKey.modificationDate] as? NSDate)!

@@ -6,7 +6,7 @@
       "location" : "https://github.com/AudioKit/AudioKit",
       "state" : {
         "branch" : "main",
-        "revision" : "ba174435d67600b50ddc844cade91a04b8b57f23"
+        "revision" : "af392ad3c01a89d1602e8a74b8876c0b76cd4134"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/musesum/Par.git",
       "state" : {
-        "revision" : "71141072e17c33491f854fe98cf4b748f0419bd7",
-        "version" : "0.2.31"
+        "revision" : "d180d82c125395b0386c91e55eb3ab0153d74f60",
+        "version" : "0.2.32"
       }
     },
     {

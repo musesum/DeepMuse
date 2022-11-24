@@ -167,10 +167,18 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
 
         func addTr3Script() {
             let root = SkyTr3.shared.root
-            let script = root.scriptRoot()
-            let data = Data(script.utf8)
-            // print("\n\n"+script+"\n\n")
-            archive.add(name + ".tr3.h", data: data)
+            let scriptDef = root.scriptRoot([.parens, .def, .expand, .edge, .comment, .copyAt])
+            let scriptNow = root.scriptRoot([.parens, .now, .delta, .compact])
+            let dataDef = Data(scriptDef.utf8)
+            let dataNow = Data(scriptNow.utf8)
+
+            archive.add(name + ".def.tr3.h", data: dataDef)
+            archive.add(name + ".now.tr3.h", data: dataNow)
+
+            print("\n\n" )
+            print("scriptDef ⟹\n" + scriptDef + "\n\n")
+            print("scriptNow ⟹\n" + scriptNow + "\n\n")
+
         }
 
         // begin -------------------------------------------------
@@ -341,7 +349,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         }
 
         if let command = mtlCommand?.makeCommandBuffer(),
-            let firstNode = firstNode {
+            let firstNode {
             command.label = "command"
             firstNode.goCommand(command)
         }

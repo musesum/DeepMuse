@@ -9,21 +9,21 @@ import Foundation
 import ZIPFoundation
 
 public class MuArchive {
-
+    
     private let fileManager = FileManager.default
     private var docURL: URL
     private var archiveName: String
     private var archiveURL: URL
-
+    
     public var archive: Archive?
-
+    
     public init(_ archiveName: String, readOnly: Bool = false) {
-
+        
         self.archiveName = archiveName
         docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         archiveURL = docURL
         archiveURL.appendPathComponent(archiveName)
-
+        
         if readOnly {
             archive = Archive(url: archiveURL, accessMode: .read)
         }
@@ -34,7 +34,7 @@ public class MuArchive {
             }
         }
     }
-
+    
     /// return a preexisting archive, otherwise return nil
     static func readArchive(_ archiveName: String) -> MuArchive? {
         let muArchive = MuArchive(archiveName, readOnly: true)
@@ -44,7 +44,7 @@ public class MuArchive {
             return nil
         }
     }
-
+    
     func add(_ filename: String, data: Data) {
         guard let archive = archive else {
             print("🚫 nil archive available for add(\(filename))")
@@ -55,7 +55,7 @@ public class MuArchive {
                 with: filename, type: .file,
                 uncompressedSize: UInt32(data.count),
                 compressionMethod: .deflate) { (position, size)  in
-
+                    
                     return data.subdata(in: position ..< position+size)
                 }
         }
@@ -63,14 +63,14 @@ public class MuArchive {
             print("🚫 \(error)")
         }
     }
-
+    
     func get(_ filename: String, _ bufSize: Int, _ callback: @escaping  ((Data?)->())) {
         guard let archive = archive else {
             print("🚫 nil archive available for get(\(filename))")
             callback(nil)
             return
         }
-
+        
         if let entry = archive[filename] {
             var dataRet = Data()
             do {
@@ -87,12 +87,12 @@ public class MuArchive {
     func copy(_ at: String,  to: String) {
         let atURL = docURL.appendingPathComponent(at)
         let toURL = docURL.appendingPathComponent(to)
-
+        
         do {
             _ = try FileManager.default.replaceItemAt(toURL, withItemAt: atURL)
         } catch {
             print("🚫 could not copy \(at) to: \(to)")
         }
     }
-
+    
 }

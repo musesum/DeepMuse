@@ -25,7 +25,7 @@ public class MtlKernelDraw: MtlKernel {
 
         setupInOutTextures()
 
-        if let outTex = outTex {
+        if let outTex {
 
             let w = outTex.width
             let h = outTex.height

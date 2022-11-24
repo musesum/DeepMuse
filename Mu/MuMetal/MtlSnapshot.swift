@@ -28,7 +28,8 @@ extension MTLTexture {
 
            let pColorSpace = CGColorSpaceCreateDeviceRGB()
 
-           let rawBitmapInfo = CGImageAlphaInfo.noneSkipFirst.rawValue | CGBitmapInfo.byteOrder32Little.rawValue
+           let rawBitmapInfo = (CGImageAlphaInfo.noneSkipFirst.rawValue |
+                                CGBitmapInfo.byteOrder32Little.rawValue)
            let bitmapInfo: CGBitmapInfo = CGBitmapInfo(rawValue: rawBitmapInfo)
 
            let rowBytes = self.width * pixSize

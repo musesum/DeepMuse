@@ -92,7 +92,6 @@
 		80E95AF329167D51003F6360 /* CG+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AEA29167D50003F6360 /* CG+extension.swift */; };
 		80E95B06291684CE003F6360 /* MuArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B032916837C003F6360 /* MuArchive.swift */; };
 		80E95B072916853C003F6360 /* MuFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B022916837C003F6360 /* MuFile.swift */; };
-		80E95B082916853C003F6360 /* MuFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B012916837C003F6360 /* MuFiles.swift */; };
 		80E95B092916853C003F6360 /* MuFile-extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B042916837C003F6360 /* MuFile-extras.swift */; };
 		80E95B0A29168540003F6360 /* FileManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B052916837C003F6360 /* FileManager+extension.swift */; };
 		80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1338128D52B560066B7D8 /* MuMidi.swift */; };
@@ -212,7 +211,6 @@
 		80E95AE829167D50003F6360 /* CFTime+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFTime+extension.swift"; sourceTree = "<group>"; };
 		80E95AE929167D50003F6360 /* MuBezel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuBezel.swift; sourceTree = "<group>"; };
 		80E95AEA29167D50003F6360 /* CG+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CG+extension.swift"; sourceTree = "<group>"; };
-		80E95B012916837C003F6360 /* MuFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFiles.swift; sourceTree = "<group>"; };
 		80E95B022916837C003F6360 /* MuFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuFile.swift; sourceTree = "<group>"; };
 		80E95B032916837C003F6360 /* MuArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuArchive.swift; sourceTree = "<group>"; };
 		80E95B042916837C003F6360 /* MuFile-extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MuFile-extras.swift"; sourceTree = "<group>"; };
@@ -505,7 +503,6 @@
 				80E95B032916837C003F6360 /* MuArchive.swift */,
 				80E95B042916837C003F6360 /* MuFile-extras.swift */,
 				80E95B022916837C003F6360 /* MuFile.swift */,
-				80E95B012916837C003F6360 /* MuFiles.swift */,
 			);
 			path = MuArchive;
 			sourceTree = "<group>";
@@ -666,7 +663,6 @@
 				80E95AB829167CC7003F6360 /* CubicPoly.swift in Sources */,
 				80FEC39328E2003000E07437 /* TouchMenu.swift in Sources */,
 				80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */,
-				80E95B082916853C003F6360 /* MuFiles.swift in Sources */,
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
 				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
 				80E95ADC29167D3D003F6360 /* MtlTexCache.swift in Sources */,
