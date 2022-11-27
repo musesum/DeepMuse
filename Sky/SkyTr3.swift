@@ -100,7 +100,7 @@ class SkyTr3: NSObject {
         func mergeTr3Data(_ data: Data, finished: CallVoid? = nil) {
             if let script = self.dropRoot(String(data: data, encoding: .utf8)),
                Tr3Parse.shared.parseScript(self.root, script, whitespace: "\n\t ") {
-                mergeUserDocumentChanges()
+
                 finished?()
             } else {
                 finished?()
@@ -111,11 +111,18 @@ class SkyTr3: NSObject {
             archive.get("Snapshot.def.tr3.h", 1000000) { data in
                 if let data {
                     mergeTr3Data(data) {
-                        //???    archive.get("Snapshot.now.tr3.h", 1000000) { data in
-                        //        if let data {
-                        //            mergeTr3Data(data)
-                        //        }
-                        //    }
+                        mergeUserDocumentChanges()
+                        let before = self.root.scriptRoot([.parens, .def, .edge])
+                        archive.get("Snapshot.now.tr3.h", 1000000) { data in
+                            if let data {
+                                mergeTr3Data(data) //???
+                                let after = self.root.scriptRoot([.parens, .def, .edge])
+                                print("\nbefore ⟹\n \(before)")
+                                print("\nafter ⟹\n \(after)")
+                                _ = ParStr.testCompare(before, after)
+
+                            }
+                        }
                     }
                 }
                 else {

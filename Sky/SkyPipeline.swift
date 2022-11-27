@@ -168,7 +168,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         func addTr3Script() {
             let root = SkyTr3.shared.root
             let scriptDef = root.scriptRoot([.parens, .def, .expand, .edge, .comment, .copyAt])
-            let scriptNow = root.scriptRoot([.parens, .now, .delta, .compact])
+            let scriptNow = root.scriptRoot([.parens, .def, .now, .delta, .compact])
             let dataDef = Data(scriptDef.utf8)
             let dataNow = Data(scriptNow.utf8)
 
@@ -227,8 +227,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
                 case "camera" : node = MtlKernelCamera  (name, device, drawSize, type, uiOrientation)
                 case "draw"   : node = MtlKernelDraw    (name, device, drawSize, type, SkyVC.shared.touchDraw.drawTexture)
                 case "compute": node = MtlKernelCompute (name, device, drawSize, type)
-                case "color"  :
-                    node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)
+                case "color"  : node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)
                 case "camix"  : node = MtlKernelCamix   (name, device, drawSize, type, uiOrientation)
                 case "render" : node = MtlKernelRender  (name, device, drawSize, type, mtkView)
                 case "record" : node = MtlKernelRecord  (name, device, drawSize, type)
