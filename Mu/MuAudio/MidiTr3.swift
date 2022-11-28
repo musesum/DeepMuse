@@ -66,12 +66,12 @@ class MidiTr3 {
                   _ port: MIDIUniqueID?,
                   _ time: MIDITimeStamp?) {
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("num" , Float(num)),
-            ("velo", Float(velo)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("num" , Double(num)),
+            ("velo", Double(velo)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
 
         noteOnIn˚.setAny(exprs, setOptions)
     }
@@ -82,12 +82,12 @@ class MidiTr3 {
                    _ port: MIDIUniqueID?,
                    _ time: MIDITimeStamp?) {
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("num" , Float(num)),
-            ("velo", Float(velo)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("num" , Double(num)),
+            ("velo", Double(velo)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
 
         noteOffIn˚.setAny(exprs, setOptions)
     }
@@ -111,12 +111,12 @@ class MidiTr3 {
                     let num = (nrpnNumMsb * 128) + nrpnNumLsb
                     let val = ((nrpnValMsb * 128) + nrpnValLsb) / 16383
 
-                    let exprs = Tr3Exprs(nameFloats: [
-                        ("num" , num),
-                        ("val" , val),
-                        ("chan", Float(chan)),
-                        ("port", Float(port ?? 0)),
-                        ("time", Float(time ?? 0))])
+                    let exprs = Tr3Exprs(nameNums: [
+                        ("num" , Double(num)),
+                        ("val" , Double(val)),
+                        ("chan", Double(chan)),
+                        ("port", Double(port ?? 0)),
+                        ("time", Double(time ?? 0))])
 
                     let icon = String(format: "%.0f:%.3f", num, val)
                     let seq = String(format: "[%.0f_%.0f : %.0f_%.0f]\n",
@@ -129,12 +129,12 @@ class MidiTr3 {
             default: break //clearNrpn()
         }
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("cc"  , Float(cc)),
-            ("val" , Float(val)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("cc"  , Double(cc)),
+            ("val" , Double(val)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
 
         controllerIn˚.setAny(exprs, setOptions)
     }
@@ -160,12 +160,12 @@ class MidiTr3 {
                       _ port: MIDIUniqueID?,
                       _ time: MIDITimeStamp?) {
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("num" , Float(num)),
-            ("val" , Float(val)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("num" , Double(num)),
+            ("val" , Double(val)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
 
         afterTouchIn˚.setAny(exprs, setOptions)
     }
@@ -175,11 +175,11 @@ class MidiTr3 {
                       _ port: MIDIUniqueID?,
                       _ time: MIDITimeStamp?) {
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("val" , Float(val)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("val" , Double(val)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
 
         afterTouchIn˚.setAny(exprs, setOptions)
     }
@@ -189,11 +189,11 @@ class MidiTr3 {
                       _ port: MIDIUniqueID?,
                       _ time: MIDITimeStamp?) {
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("val" , Float(val)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("val" , Double(val)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
 
         pitchBendIn˚.setAny(exprs, setOptions)
     }
@@ -203,11 +203,11 @@ class MidiTr3 {
                          _ port: MIDIUniqueID?,
                          _ time: MIDITimeStamp?) {
 
-        let exprs = Tr3Exprs(nameFloats: [
-            ("num" , Float(num)),
-            ("chan", Float(chan)),
-            ("port", Float(port ?? 0)),
-            ("time", Float(time ?? 0))])
+        let exprs = Tr3Exprs(nameNums: [
+            ("num" , Double(num)),
+            ("chan", Double(chan)),
+            ("port", Double(port ?? 0)),
+            ("time", Double(time ?? 0))])
         programChangeIn˚.setAny(exprs, setOptions)
     }
 }

@@ -119,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		80003F2329345E3800AD149E /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		802E6D6A2930999F00E5ECAC /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../MuSkyTr3; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				80003F2329345E3800AD149E /* MuMenu */,
 				802E6D6A2930999F00E5ECAC /* MuSkyTr3 */,
 				80E306E82917AB2400E22119 /* scratch.h */,
 				8058BDB129189B79000A2406 /* MuMenuSky */,

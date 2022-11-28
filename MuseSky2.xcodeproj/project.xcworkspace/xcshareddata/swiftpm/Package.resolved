@@ -10,21 +10,12 @@
       }
     },
     {
-      "identity" : "mumenu",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musesum/MuMenu",
-      "state" : {
-        "branch" : "main",
-        "revision" : "f07853ad72bad3aee565078b08d91fa0865c14ed"
-      }
-    },
-    {
       "identity" : "par",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/musesum/Par.git",
       "state" : {
-        "revision" : "d180d82c125395b0386c91e55eb3ab0153d74f60",
-        "version" : "0.2.32"
+        "revision" : "18e8bcc41fa2ebec85bbbff1782d244e0f0d59a6",
+        "version" : "0.2.33"
       }
     },
     {

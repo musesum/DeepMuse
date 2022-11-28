@@ -86,6 +86,14 @@ class MtlBuffer: NSObject {
             case let v as CGSize:   updateFloats([Float(v.width), Float(v.height)])
             case let v as CGRect:   updateFloats([Float(v.minX), Float(v.minY),
                                                   Float(v.width), Float(v.height)])
+            case let v as Double: updateFloats([Float(v)])
+            case let v as [Double]:
+                var floats = [Float]()
+                for d in v {
+                    floats.append(Float(d))
+                }
+                updateFloats(floats)
+
             case _ as Tr3Exprs: break
             default: print("🚫 \(#function) unknown val: \(val)")
         }

@@ -59,8 +59,8 @@ class SkyMetal {
 
         func updateFloats(_ tr3: Tr3) {
             if let exprs = tr3.val as? Tr3Exprs {
-                let floats = exprs.getValFloats()
-                node.updateBuffer(tr3.name, floats)
+                let nums = exprs.getValNums()
+                node.updateBuffer(tr3.name, nums)
             } else if let scalar = tr3.val as? Tr3ValScalar {
                 node.updateBuffer(tr3.name, [scalar.now])
             }
@@ -103,12 +103,12 @@ class SkyMetal {
 
         func updateParentFloats(_ child: Tr3) {
             if  let exprs = child.val as? Tr3Exprs {
-                let floats = exprs.getValFloats()
-                node.updateBuffer(child.name, floats)
+                let nums = exprs.getValNums()
+                node.updateBuffer(child.name, nums)
             }
             else if let val = child.val as? Tr3ValScalar {
-                let float = val.getVal()
-                node.updateBuffer(child.name, [float])
+                let val = val.getVal()
+                node.updateBuffer(child.name, [val])
             }
         }
         child.addClosure { child, _ in
