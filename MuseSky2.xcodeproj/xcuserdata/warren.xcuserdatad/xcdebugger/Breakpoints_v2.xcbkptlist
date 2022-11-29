@@ -7,97 +7,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "47920932-1B57-4872-8492-2FE1F8F335D8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Tr3/Sources/Tr3/Tr3+script.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "script(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4F9411D9-27A4-4717-8F2F-27759A463DAC"
+            uuid = "0166B0CC-27D0-4F67-9396-B85835A6AA25"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Tr3/Sources/Tr3/Tr3+script.swift"
+            filePath = "../Tr3/Sources/Tr3/Tr3Edge+runtime.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "scriptCompactChild()"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "assignNameVals()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7D1AA596-6DF7-408A-8221-B0D1E5035C35"
+            uuid = "B0B472A1-4E2D-4F9C-8845-E4E0D9C831FA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Tr3/Sources/Tr3/Tr3Exprs+set.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "exprLiteral()"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "exprName()"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "B0B472A1-4E2D-4F9C-8845-E4E0D9C831FA - 8057ad88c07f50f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "exprName() -&gt; Swift.Bool"
+                  moduleName = "Muse Sky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/DeepMuse/Tr3/Sources/Tr3/Tr3Exprs+set.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "804">
+               </Location>
+               <Location
+                  uuid = "B0B472A1-4E2D-4F9C-8845-E4E0D9C831FA - 8057ad88c07f50f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "exprName() -&gt; Swift.Bool"
+                  moduleName = "Muse Sky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/warren/Dev/DeepMuse/Tr3/Sources/Tr3/Tr3Exprs+set.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "840">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "80F5DBD3-33C8-4E0C-8F40-051C6DF5305A"
-            shouldBeEnabled = "No"
+            uuid = "9DF26B7A-6C43-4FAC-980C-26757D6DEC03"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Tr3/Sources/Tr3/Tr3Exprs+set.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "setFloat(_:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "setSetters(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EE75222A-B741-49F7-A233-0433A7EF0677"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Tr3/Sources/Tr3/Tr3+script.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
-            landmarkName = "countDeltas()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "661708D2-5E2A-45B3-B0A4-875F084D025F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sky/SkyTr3.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "parseSnapshot(_:)"
-            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

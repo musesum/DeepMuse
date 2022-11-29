@@ -120,7 +120,6 @@ class SkyTr3: NSObject {
                                 print("\nbefore ⟹\n \(before)")
                                 print("\nafter ⟹\n \(after)")
                                 _ = ParStr.testCompare(before, after)
-
                             }
                         }
                     }

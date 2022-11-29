@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/musesum/Par.git",
       "state" : {
-        "revision" : "18e8bcc41fa2ebec85bbbff1782d244e0f0d59a6",
-        "version" : "0.2.33"
+        "revision" : "6796fd17fd4814795027666f2e99c3d1722405b9",
+        "version" : "0.3.0"
       }
     },
     {

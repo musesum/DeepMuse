@@ -51,8 +51,8 @@ class MidiTr3 {
         nrpnIn˚          = input.bindPath("nrpn")
 
         let output = midi.bindPath("output")
-        noteOnOut˚        = output.bindPath("note.on") { _ ,_ in print("*** yo") }
-        noteOffOut˚       = output.bindPath("note.off") { _ ,_ in print("*** oy") }
+        noteOnOut˚        = output.bindPath("note.on")
+        noteOffOut˚       = output.bindPath("note.off")
         controllerOut˚    = output.bindPath("controller")
         afterTouchOut˚    = output.bindPath("afterTouch")
         pitchBendOut˚     = output.bindPath("pitchBend")
