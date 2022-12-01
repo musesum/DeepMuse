@@ -66,23 +66,13 @@ class SkyTr3: NSObject {
             }
         }
 
-        /// Merge changes to tr3 script changes via Xcode
-        /// Currently, this is not called. Instead, if any bundle dates are new,
-        /// all bundle scripts are parsed, ignoring the snapshot.tr3.h
-        func mergeXcodeBundleChanges() {
-            for (name, date) in bundleNameDates {
-                if date > snapDate {
-                    _ = MuMenuSky.parseTr3(root, name)
-                }
-            }
-        }
         /// Merge changes to tr3 script that user manually copied to documents directory.
         /// Only works once, as new snapshot will have a later date
         func mergeUserDocumentChanges() {
             for (name, date) in documentNameDates {
                 if date > snapDate {
                     //TODO: will this merge? //???
-                    _ = MuMenuSky.parseTr3(root, name)
+                    _ = MuMenuSky.mergeTr3(root, name)
                 }
             }
         }
@@ -97,46 +87,116 @@ class SkyTr3: NSObject {
             return false
         }
 
-        func mergeTr3Data(_ data: Data, finished: CallVoid? = nil) {
-            if let script = self.dropRoot(String(data: data, encoding: .utf8)),
-               Tr3Parse.shared.parseScript(self.root, script, whitespace: "\n\t ") {
-
-                finished?()
-            } else {
-                finished?()
-            }
-        }
         func parseSnapshot(_ archive: MuArchive) {
             self.archive = archive
             archive.get("Snapshot.def.tr3.h", 1000000) { data in
                 if let data {
-                    mergeTr3Data(data) {
+                    parseTr3Data(data) {
                         mergeUserDocumentChanges()
-                        let before = self.root.scriptRoot([.parens, .def, .edge])
-                        archive.get("Snapshot.now.tr3.h", 1000000) { data in
-                            if let data {
-                                mergeTr3Data(data) //???
-                                let after = self.root.scriptRoot([.parens, .def, .edge])
-                                print("\nbefore ⟹\n \(before)")
-                                print("\nafter ⟹\n \(after)")
-                                _ = ParStr.testCompare(before, after)
-                            }
-                        }
+                        getRuntimeChanges()
+                        getTexture()
                     }
                 }
                 else {
                     self.parseBundleScriptFiles()
+                    getTexture()
                 }
             }
-            archive.get("Snapshot.tex", 30_000_000) { data in
-                if let data {
-                    print("--- archive.get Snapshot.tex \(data.count)")
-                    TextureData.shared.data = data
+
+            func getRuntimeChanges() {
+                archive.get("Snapshot.now.tr3.h", 1000000) { data in
+                    if let data {
+                        let before = self.root.scriptRoot([.parens, .def, .edge])
+                        parseTr3Data(data, merge: true) {
+                            let after = self.root.scriptRoot([.parens, .def, .edge])
+                             _ = ParStr.testCompare(before, after)
+                        }
+
+                    }
+                }
+            }
+            func getTexture () {
+                archive.get("Snapshot.tex", 30_000_000) { data in
+                    if let data {
+                        print("--- archive.get Snapshot.tex \(data.count)")
+                        TextureData.shared.data = data
+                    }
+                }
+            }
+
+            func parseTr3Data(_ data: Data, merge: Bool = false, finished: CallVoid? = nil) {
+                if let script = self.dropRoot(String(data: data, encoding: .utf8)) {
+                    if merge {
+                        _ = Tr3Parse.shared.mergeScript(self.root, script)
+                    } else {
+                        _ =  Tr3Parse.shared.parseScript(self.root, script)
+                    }
+                }
+                finished?()
+            }
+        }
+    }
+    // snapshot on framebuffer, draw Texture and skyGraph
+    public func saveSkyArchive(_ name: String, _ completion: @escaping CallVoid) {
+
+        let time = trunc(Date().timeIntervalSince1970)
+        let snapName = name + ".zip"
+        let snapTime = name + ".\(time).zip"
+        let archive = MuArchive(snapTime)
+        let nodeNamed = SkyPipeline.shared.nodeNamed
+        let mtkView = SkyPipeline.shared.mtkView
+        let frameBufferOnly = mtkView.framebufferOnly
+
+        func addScreenIcon() {
+            if let renderNode = nodeNamed["render"] as? MtlKernelRender,
+               let renderTex = renderNode.renderedTex,
+               let image = renderTex.toImage() {
+                let uiImage = UIImage(cgImage: image).rotatedIcon(128)
+                if let data = uiImage?.pngData() {
+                    archive.add(name + ".png", data: data)
                 }
             }
         }
 
+        func addTexture() {
+            if  let drawNode = nodeNamed["draw"] as? MtlKernelDraw,
+                let drawTex = drawNode.outTex {
+
+                let (bytes, totalSize) = drawTex.bytes()
+                let data = Data.init(bytes: bytes, count: totalSize)
+                archive.add(name + ".tex", data: data)
+            }
+        }
+
+        func addTr3Script() {
+            let root = SkyTr3.shared.root
+            let scriptDef = root.scriptRoot([.parens, .def, .expand, .edge, .comment, .copyAt])
+            let scriptNow = root.scriptRoot([.parens, .def, .now, .delta, .compact])
+            let dataDef = Data(scriptDef.utf8)
+            let dataNow = Data(scriptNow.utf8)
+
+            archive.add(name + ".def.tr3.h", data: dataDef)
+            archive.add(name + ".now.tr3.h", data: dataNow)
+
+            print("\n\n" )
+            print("scriptDef ⟹\n" + scriptDef + "\n\n")
+            print("scriptNow ⟹\n" + scriptNow + "\n\n")
+
+        }
+
+        // begin -------------------------------------------------
+
+        mtkView.framebufferOnly = false //  frameBufferOnly
+
+        addScreenIcon() // make icon from an image snapshot of framebuffer
+        addTexture()    // MtlKernelDraws output texture as `.tex`
+        addTr3Script()  // snapshot of Sky Graph as tr3 script
+        archive.copy(snapTime, to: snapName)
+
+        mtkView.framebufferOnly = frameBufferOnly // restore
+        completion()
     }
+
 
     /// remove ove leading "√ { \n" from script file if it exists
     func dropRoot(_ script: String?) -> String? {
@@ -168,7 +228,7 @@ class SkyTr3: NSObject {
                 let script = self.dropRoot(String(data: data, encoding: .utf8)) {
 
                 print(script)
-                let _ = Tr3Parse.shared.parseScript(self.root, script, whitespace: "\n\t ")
+                let _ = Tr3Parse.shared.parseScript(self.root, script)
             } 
         }
     }
@@ -177,7 +237,6 @@ class SkyTr3: NSObject {
         for tr3ScriptName in tr3ScriptNames {
             _ = MuMenuSky.parseTr3(root, tr3ScriptName)
         }
-
         //let script = root.scriptRoot()
         //print("\n\n" + script + "\n\n")
     }

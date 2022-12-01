@@ -13,7 +13,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
     private var mtlCommand: MTLCommandQueue?  // queue w/ command buffers
 
     public var cellNode: MtlNode?      // 1st CA node, after drawNode / cameraNode
-    private var firstNode: MtlNode?    // 1st node in renderer chain
+    private var firstNode: MtlNode?    // ÔÔ1st node in renderer chain
     private var drawNode: MtlNode?     // drawing node, optional 1st node
     private var colorNode: MtlNode?    // colord palette
     private var recordNode: MtlNode?   // record text to m4v
@@ -136,65 +136,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
 
     }
 
-    // snapshot on framebuffer, draw Texture and skyGraph
-    func saveSkyArchive(_ name: String, _ completion: @escaping CallVoid) {
-
-        let time = trunc(Date().timeIntervalSince1970)
-        let snapName = name + ".zip"
-        let snapTime = name + ".\(time).zip"
-        let archive = MuArchive(snapTime)
-
-        func addScreenIcon() {
-            if let renderNode = nodeNamed["render"] as? MtlKernelRender,
-                let renderTex = renderNode.renderedTex,
-                let image = renderTex.toImage() {
-                let uiImage = UIImage(cgImage: image).rotatedIcon(128)
-                if let data = uiImage?.pngData() {
-                    archive.add(name + ".png", data: data)
-                }
-            }
-        }
-
-        func addTexture() {
-            if  let drawNode = nodeNamed["draw"] as? MtlKernelDraw,
-                let drawTex = drawNode.outTex {
-
-                let (bytes, totalSize) = drawTex.bytes()
-                let data = Data.init(bytes: bytes, count: totalSize)
-                archive.add(name + ".tex", data: data)
-            }
-        }
-
-        func addTr3Script() {
-            let root = SkyTr3.shared.root
-            let scriptDef = root.scriptRoot([.parens, .def, .expand, .edge, .comment, .copyAt])
-            let scriptNow = root.scriptRoot([.parens, .def, .now, .delta, .compact])
-            let dataDef = Data(scriptDef.utf8)
-            let dataNow = Data(scriptNow.utf8)
-
-            archive.add(name + ".def.tr3.h", data: dataDef)
-            archive.add(name + ".now.tr3.h", data: dataNow)
-
-            print("\n\n" )
-            print("scriptDef ⟹\n" + scriptDef + "\n\n")
-            print("scriptNow ⟹\n" + scriptNow + "\n\n")
-
-        }
-
-        // begin -------------------------------------------------
-        let frameBufferOnly = mtkView.framebufferOnly
-        mtkView.framebufferOnly = false //  frameBufferOnly
-
-        addScreenIcon() // make icon from an image snapshot of framebuffer
-        addTexture()    // MtlKernelDraws output texture as `.tex`
-        addTr3Script()  // snapshot of Sky Graph as tr3 script
-        archive.copy(snapTime, to: snapName)
-
-        mtkView.framebufferOnly = frameBufferOnly // restore
-        completion()
-    }
-
-
+ 
     /// Create linked list of MtlNode to render scene
     func setupDefaultPipeline() {
 

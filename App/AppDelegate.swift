@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// take a snapshot of current
     func handleSnapshot(task: BGAppRefreshTask) {
-        SkyPipeline.shared.saveSkyArchive("Snapshot") {
+        SkyTr3.shared.saveSkyArchive("Snapshot") {
             task.setTaskCompleted(success: true)
         }
     }

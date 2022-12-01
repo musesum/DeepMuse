@@ -103,7 +103,6 @@ class MidiTr3 {
             case 99: nrpnNumMsb = Float(val) ; return
             case 98: nrpnNumLsb = Float(val) ; return
             case  6: nrpnValMsb = Float(val) ; return
-
             case 38: nrpnValLsb = Float(val)
 
                 if settingNrpn() {

@@ -8,7 +8,6 @@
 
 import Foundation
 import AudioKit
-import AVFoundation
 import Tr3
 
 class MuMidi {

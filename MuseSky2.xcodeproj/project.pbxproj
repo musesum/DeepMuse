@@ -451,7 +451,6 @@
 				80E95ABE29167D3D003F6360 /* MtlKernelRender.swift */,
 				80E95ABF29167D3D003F6360 /* MtlKernelRecord.swift */,
 				80E95AC029167D3D003F6360 /* MtlKernelCamera.swift */,
-				80E95AC129167D3D003F6360 /* CameraSesssion+Video.swift */,
 				80E95AC229167D3D003F6360 /* MtlKernelColorize.swift */,
 				80E95AC329167D3D003F6360 /* MtlKernelDraw.swift */,
 				80E95AC429167D3D003F6360 /* MtlVertex.swift */,
@@ -465,6 +464,7 @@
 				80E95ACC29167D3D003F6360 /* MtlNode+Buffer.swift */,
 				80E95ACD29167D3D003F6360 /* MtlKernelCamix.swift */,
 				80E95ACE29167D3D003F6360 /* CameraSession.swift */,
+				80E95AC129167D3D003F6360 /* CameraSesssion+Video.swift */,
 			);
 			path = MuMetal;
 			sourceTree = "<group>";

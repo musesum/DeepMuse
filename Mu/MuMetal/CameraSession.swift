@@ -2,14 +2,17 @@
 import AVFoundation
 import Metal
 import UIKit
+import Tr3
 
 public final class CameraSession: NSObject {
     public static var shared = CameraSession()
+    private var cameraFlip˚: Tr3?
 
     public override init() {
 
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(captureSessionRuntimeError), name: NSNotification.Name.AVCaptureSessionRuntimeError, object: nil)
+        initCameraFlip()
     }
     public var uiOrientation = UIInterfaceOrientation.portrait
     var orientation = AVCaptureVideoOrientation.portrait
@@ -18,7 +21,6 @@ public final class CameraSession: NSObject {
     public var cameraPosition = AVCaptureDevice.Position.front
     public enum CameraType: Int {
         case frontPhone=0, frontPad, backPhone, backPad
-
         var desciption: String {
             return ""
         }
@@ -33,6 +35,12 @@ public final class CameraSession: NSObject {
             default:               return .frontPhone
         }
     }
+    func initCameraFlip() {
+        let camera = SkyTr3.shared.root.findPath("shader.model.pipe.camera")
+        cameraFlip˚ = camera?.findPath("flip") ?? nil
+        cameraFlip˚?.addClosure  { tr3, _ in CameraSession.shared.flipCamera() }
+    }
+
 
     /**
      Start capture session.

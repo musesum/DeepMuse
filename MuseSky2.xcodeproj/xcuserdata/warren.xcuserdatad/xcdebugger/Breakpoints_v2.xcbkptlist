@@ -71,16 +71,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9DF26B7A-6C43-4FAC-980C-26757D6DEC03"
+            uuid = "6EC18854-6CA1-446E-992B-BB9F843D1363"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Tr3/Sources/Tr3/Tr3Exprs+set.swift"
+            filePath = "../Tr3/Tests/Tr3Tests/Tr3Tests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "setSetters(_:)"
+            startingLineNumber = "1356"
+            endingLineNumber = "1356"
+            landmarkName = "testMidiFilter()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

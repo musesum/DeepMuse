@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     @available(iOS 13.0, *)
     func sceneWillResignActive(_ scene: UIScene) {
         //?? scheduleSnapshot()
-        SkyPipeline.shared.saveSkyArchive("Snapshot") {
+        SkyTr3.shared.saveSkyArchive("Snapshot") {
             //?? task.setTaskCompleted(success: true)
         }
     }
@@ -64,7 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     @available(iOS 13.0, *)
     func sceneDidEnterBackground(_ scene: UIScene) {
         //?? scheduleSnapshot()
-        SkyPipeline.shared.saveSkyArchive("Snapshot") {
+        SkyTr3.shared.saveSkyArchive("Snapshot") {
             //?? task.setTaskCompleted(success: true)
         }
     }
