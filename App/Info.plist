@@ -9,7 +9,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Muse Sky 2</string>
+	<string>Deep Muse</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -32,8 +32,15 @@
 	<string>$(PRODUCT_NAME) media use</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>$(PRODUCT_NAME) bluetooth use</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_deepmuse._tcp</string>
+		<string>_deepmuse._udp</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Multiple players on multiple devices</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) location use</string>
 	<key>NSMicrophoneUsageDescription</key>

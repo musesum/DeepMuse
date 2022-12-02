@@ -31,8 +31,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "807048E623378A090001617D"
             BuildableName = "Muse Sky.app"
-            BlueprintName = "MuseSky2"
-            ReferencedContainer = "container:MuseSky2.xcodeproj">
+            BlueprintName = "DeepMuse"
+            ReferencedContainer = "container:DeepMuse.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -42,6 +42,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "807048E623378A090001617D"
+            BuildableName = "Muse Sky.app"
+            BlueprintName = "DeepMuse"
+            ReferencedContainer = "container:DeepMuse.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

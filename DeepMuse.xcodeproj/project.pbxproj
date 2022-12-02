@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		8017909528A219FF0013F48A /* MuMenuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 8017909428A219FF0013F48A /* MuMenuSky */; };
 		802C5BD0265AEC6000DBFFEA /* Par in Frameworks */ = {isa = PBXBuildFile; productRef = 802C5BCF265AEC6000DBFFEA /* Par */; };
+		8061DE092938991F0098F309 /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE082938991F0098F309 /* MPCHandler.swift */; };
+		8061DE0B2938A8780098F309 /* MenuSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE0A2938A8780098F309 /* MenuSkyView.swift */; };
+		8061DE0D2938A8A50098F309 /* MenuSkyVms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */; };
 		80703D3D23A04F570093C016 /* cell.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80703D3C23A04F570093C016 /* cell.camix.metal */; };
 		807048EB23378A090001617D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EA23378A090001617D /* AppDelegate.swift */; };
-		807048ED23378A090001617D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EC23378A090001617D /* SceneDelegate.swift */; };
 		8070490223378A0B0001617D /* MuseSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490123378A0B0001617D /* MuseSkyTests.swift */; };
 		8070490D23378A0B0001617D /* MuseSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490C23378A0B0001617D /* MuseSkyUITests.swift */; };
 		807049ED23378ADC0001617D /* SkyTr3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070495C23378ADB0001617D /* SkyTr3.swift */; };
@@ -46,11 +48,12 @@
 		8096E08D28A190AB00EE2967 /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 8096E08C28A190AB00EE2967 /* Tr3 */; };
 		80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B70CC32576ACDE007BAAA8 /* AudioKit */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
+		80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
+		80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EC23378A090001617D /* SceneDelegate.swift */; };
 		80D5EA8B2914DDE800C619BE /* MuMidiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */; };
 		80D5EA8D2914DE1F00C619BE /* MidiTr3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */; };
 		80D5EA8F2914DE7500C619BE /* MidiLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8E2914DE7500C619BE /* MidiLog.swift */; };
 		80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */; };
-		80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
 		80E95AAA29167B91003F6360 /* ColorSplice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA529167B91003F6360 /* ColorSplice.swift */; };
 		80E95AAB29167B91003F6360 /* ColorRgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA629167B91003F6360 /* ColorRgb.swift */; };
@@ -118,22 +121,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8061DE1E293985030098F309 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		80003F2329345E3800AD149E /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
-		802E6D6A2930999F00E5ECAC /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../MuSkyTr3; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
-		8058BDB029189B4A000A2406 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3; sourceTree = "<group>"; };
-		8058BDB129189B79000A2406 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../MuMenuSky; sourceTree = "<group>"; };
+		8061DE082938991F0098F309 /* MPCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
+		8061DE0A2938A8780098F309 /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyView.swift; sourceTree = "<group>"; };
+		8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyVms.swift; sourceTree = "<group>"; };
+		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		8061DE17293985030098F309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
-		807048E723378A090001617D /* Muse Sky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muse Sky.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807048EC23378A090001617D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		807048FD23378A0B0001617D /* MuseSky2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseSky2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		807048FD23378A0B0001617D /* DeepMuseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepMuseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8070490123378A0B0001617D /* MuseSkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseSkyTests.swift; sourceTree = "<group>"; };
 		8070490323378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8070490823378A0B0001617D /* MuseSky2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseSky2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8070490823378A0B0001617D /* DeepMuseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepMuseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8070490C23378A0B0001617D /* MuseSkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseSkyUITests.swift; sourceTree = "<group>"; };
 		8070490E23378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8070495C23378ADB0001617D /* SkyTr3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyTr3.swift; sourceTree = "<group>"; };
@@ -167,13 +184,13 @@
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
+		80BFB8D02939F38D00BDEE1F /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../MuSkyTr3; sourceTree = "<group>"; };
 		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
 		80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiTr3.swift; sourceTree = "<group>"; };
 		80D5EA8E2914DE7500C619BE /* MidiLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiLog.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80DC21862337ADB000B99CD9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		80E306E82917AB2400E22119 /* scratch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch.h; sourceTree = "<group>"; };
 		80E95AA529167B91003F6360 /* ColorSplice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSplice.swift; sourceTree = "<group>"; };
 		80E95AA629167B91003F6360 /* ColorRgb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRgb.swift; sourceTree = "<group>"; };
 		80E95AA729167B91003F6360 /* ColorHsv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHsv.swift; sourceTree = "<group>"; };
@@ -266,14 +283,27 @@
 			path = Xplore;
 			sourceTree = "<group>";
 		};
+		8061DE05293897DC0098F309 /* MuPeer */ = {
+			isa = PBXGroup;
+			children = (
+				8061DE082938991F0098F309 /* MPCHandler.swift */,
+			);
+			path = MuPeer;
+			sourceTree = "<group>";
+		};
+		8061DE14293985030098F309 /* MuseSky */ = {
+			isa = PBXGroup;
+			children = (
+				8061DE15293985030098F309 /* NotificationService.swift */,
+				8061DE17293985030098F309 /* Info.plist */,
+			);
+			path = MuseSky;
+			sourceTree = "<group>";
+		};
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				80003F2329345E3800AD149E /* MuMenu */,
-				802E6D6A2930999F00E5ECAC /* MuSkyTr3 */,
-				80E306E82917AB2400E22119 /* scratch.h */,
-				8058BDB129189B79000A2406 /* MuMenuSky */,
-				8058BDB029189B4A000A2406 /* Tr3 */,
+				80BFB8D02939F38D00BDEE1F /* MuSkyTr3 */,
 				807048E923378A090001617D /* App */,
 				80E95AFF29168323003F6360 /* Mu */,
 				8097DC472833E2A300059A59 /* Sky */,
@@ -281,6 +311,7 @@
 				8070495D23378ADB0001617D /* Metal */,
 				8070490023378A0B0001617D /* MuseSkyTests */,
 				8070490B23378A0B0001617D /* MuseSkyUITests */,
+				8061DE14293985030098F309 /* MuseSky */,
 				807048E823378A090001617D /* Products */,
 				80704A7623378C1A0001617D /* Frameworks */,
 				802C5BD1265B2D3700DBFFEA /* Xplore */,
@@ -290,9 +321,9 @@
 		807048E823378A090001617D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				807048E723378A090001617D /* Muse Sky.app */,
-				807048FD23378A0B0001617D /* MuseSky2Tests.xctest */,
-				8070490823378A0B0001617D /* MuseSky2UITests.xctest */,
+				807048E723378A090001617D /* Deep Muse.app */,
+				807048FD23378A0B0001617D /* DeepMuseTests.xctest */,
+				8070490823378A0B0001617D /* DeepMuseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,6 +410,8 @@
 				8070497723378ADB0001617D /* SkyMain.swift */,
 				8070495C23378ADB0001617D /* SkyTr3.swift */,
 				8070497423378ADB0001617D /* SkyVC.swift */,
+				8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */,
+				8061DE0A2938A8780098F309 /* MenuSkyView.swift */,
 				8070497323378ADB0001617D /* SkyPipeline.swift */,
 				80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */,
 				8070497223378ADB0001617D /* SkyWorkLink.swift */,
@@ -488,6 +521,7 @@
 		80E95AFF29168323003F6360 /* Mu */ = {
 			isa = PBXGroup;
 			children = (
+				8061DE05293897DC0098F309 /* MuPeer */,
 				80E95B0029168370003F6360 /* MuArchive */,
 				80E95AE129167D50003F6360 /* MuUtilities */,
 				80E95ABC29167D3D003F6360 /* MuMetal */,
@@ -512,19 +546,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		807048E623378A090001617D /* MuseSky2 */ = {
+		807048E623378A090001617D /* DeepMuse */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2" */;
+			buildConfigurationList = 8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuse" */;
 			buildPhases = (
 				807048E323378A090001617D /* Sources */,
 				807048E423378A090001617D /* Frameworks */,
 				807048E523378A090001617D /* Resources */,
+				8061DE1E293985030098F309 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MuseSky2;
+			name = DeepMuse;
 			packageProductDependencies = (
 				80704B3B23378DB40001617D /* Tr3 */,
 				808E90DB2338B4D0004EB9C9 /* ZIPFoundation */,
@@ -535,12 +570,12 @@
 				8017909428A219FF0013F48A /* MuMenuSky */,
 			);
 			productName = MuseSky;
-			productReference = 807048E723378A090001617D /* Muse Sky.app */;
+			productReference = 807048E723378A090001617D /* Deep Muse.app */;
 			productType = "com.apple.product-type.application";
 		};
-		807048FC23378A0B0001617D /* MuseSky2Tests */ = {
+		807048FC23378A0B0001617D /* DeepMuseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8070491423378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2Tests" */;
+			buildConfigurationList = 8070491423378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuseTests" */;
 			buildPhases = (
 				807048F923378A0B0001617D /* Sources */,
 				807048FA23378A0B0001617D /* Frameworks */,
@@ -551,14 +586,14 @@
 			dependencies = (
 				807048FF23378A0B0001617D /* PBXTargetDependency */,
 			);
-			name = MuseSky2Tests;
+			name = DeepMuseTests;
 			productName = MuseSkyTests;
-			productReference = 807048FD23378A0B0001617D /* MuseSky2Tests.xctest */;
+			productReference = 807048FD23378A0B0001617D /* DeepMuseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8070490723378A0B0001617D /* MuseSky2UITests */ = {
+		8070490723378A0B0001617D /* DeepMuseUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8070491723378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2UITests" */;
+			buildConfigurationList = 8070491723378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuseUITests" */;
 			buildPhases = (
 				8070490423378A0B0001617D /* Sources */,
 				8070490523378A0B0001617D /* Frameworks */,
@@ -569,9 +604,9 @@
 			dependencies = (
 				8070490A23378A0B0001617D /* PBXTargetDependency */,
 			);
-			name = MuseSky2UITests;
+			name = DeepMuseUITests;
 			productName = MuseSkyUITests;
-			productReference = 8070490823378A0B0001617D /* MuseSky2UITests.xctest */;
+			productReference = 8070490823378A0B0001617D /* DeepMuseUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -580,9 +615,9 @@
 		807048DF23378A090001617D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
-				ORGANIZATIONNAME = Muse;
+				ORGANIZATIONNAME = DeepMuse;
 				TargetAttributes = {
 					807048E623378A090001617D = {
 						CreatedOnToolsVersion = 11.0;
@@ -597,7 +632,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 807048E223378A090001617D /* Build configuration list for PBXProject "MuseSky2" */;
+			buildConfigurationList = 807048E223378A090001617D /* Build configuration list for PBXProject "DeepMuse" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -619,9 +654,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				807048E623378A090001617D /* MuseSky2 */,
-				807048FC23378A0B0001617D /* MuseSky2Tests */,
-				8070490723378A0B0001617D /* MuseSky2UITests */,
+				807048E623378A090001617D /* DeepMuse */,
+				807048FC23378A0B0001617D /* DeepMuseTests */,
+				8070490723378A0B0001617D /* DeepMuseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -631,8 +666,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
-				80DC21882337ADB000B99CD9 /* Main.storyboard in Resources */,
 				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,9 +703,12 @@
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
 				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
 				80E95ADC29167D3D003F6360 /* MtlTexCache.swift in Sources */,
+				8061DE0D2938A8A50098F309 /* MenuSkyVms.swift in Sources */,
+				80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */,
 				80E95AAC29167B91003F6360 /* ColorHsv.swift in Sources */,
 				80E95AD329167D3D003F6360 /* CameraSesssion+Video.swift in Sources */,
 				80E95ADA29167D3D003F6360 /* CameraTypes.swift in Sources */,
+				8061DE0B2938A8780098F309 /* MenuSkyView.swift in Sources */,
 				80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */,
 				80E95ADB29167D3D003F6360 /* MtlNode.swift in Sources */,
 				80E95ABA29167CC7003F6360 /* CubicXY.swift in Sources */,
@@ -694,7 +732,6 @@
 				807048EB23378A090001617D /* AppDelegate.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
 				807049ED23378ADC0001617D /* SkyTr3.swift in Sources */,
-				807048ED23378A090001617D /* SceneDelegate.swift in Sources */,
 				80704A0623378ADC0001617D /* SkyColor.swift in Sources */,
 				80E95AD429167D3D003F6360 /* MtlKernelColorize.swift in Sources */,
 				807049FE23378ADC0001617D /* TouchDraw.swift in Sources */,
@@ -714,6 +751,7 @@
 				80E95AD829167D3D003F6360 /* MtlBuffer.swift in Sources */,
 				80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */,
 				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
+				8061DE092938991F0098F309 /* MPCHandler.swift in Sources */,
 				807049FD23378ADC0001617D /* TouchCanvasItem.swift in Sources */,
 				80E95AB929167CC7003F6360 /* CubicQuad.swift in Sources */,
 				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,
@@ -760,12 +798,12 @@
 /* Begin PBXTargetDependency section */
 		807048FF23378A0B0001617D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 807048E623378A090001617D /* MuseSky2 */;
+			target = 807048E623378A090001617D /* DeepMuse */;
 			targetProxy = 807048FE23378A0B0001617D /* PBXContainerItemProxy */;
 		};
 		8070490A23378A0B0001617D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 807048E623378A090001617D /* MuseSky2 */;
+			target = 807048E623378A090001617D /* DeepMuse */;
 			targetProxy = 8070490923378A0B0001617D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -824,7 +862,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -882,7 +920,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -896,19 +934,21 @@
 		8070491223378A0B0001617D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSky2;
-				PRODUCT_NAME = "Muse Sky";
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepmuse.deepmuse;
+				PRODUCT_NAME = "Deep Muse";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_VERSION = 5.0;
@@ -920,19 +960,21 @@
 		8070491323378A0B0001617D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.muse.MuseSky2;
-				PRODUCT_NAME = "Muse Sky";
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepmuse.deepmuse;
+				PRODUCT_NAME = "Deep Muse";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_VERSION = 5.0;
@@ -960,7 +1002,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MuseSky2.app/MuseSky2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeepMuse.app/DeepMuse";
 			};
 			name = Debug;
 		};
@@ -983,7 +1025,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MuseSky2.app/MuseSky2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeepMuse.app/DeepMuse";
 			};
 			name = Release;
 		};
@@ -1032,7 +1074,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		807048E223378A090001617D /* Build configuration list for PBXProject "MuseSky2" */ = {
+		807048E223378A090001617D /* Build configuration list for PBXProject "DeepMuse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8070490F23378A0B0001617D /* Debug */,
@@ -1041,7 +1083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2" */ = {
+		8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8070491223378A0B0001617D /* Debug */,
@@ -1050,7 +1092,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8070491423378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2Tests" */ = {
+		8070491423378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8070491523378A0B0001617D /* Debug */,
@@ -1059,7 +1101,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8070491723378A0B0001617D /* Build configuration list for PBXNativeTarget "MuseSky2UITests" */ = {
+		8070491723378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuseUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8070491823378A0B0001617D /* Debug */,
