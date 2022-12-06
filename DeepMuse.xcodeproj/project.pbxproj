@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8017909528A219FF0013F48A /* MuMenuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 8017909428A219FF0013F48A /* MuMenuSky */; };
 		802C5BD0265AEC6000DBFFEA /* Par in Frameworks */ = {isa = PBXBuildFile; productRef = 802C5BCF265AEC6000DBFFEA /* Par */; };
-		8061DE092938991F0098F309 /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE082938991F0098F309 /* MPCHandler.swift */; };
 		8061DE0B2938A8780098F309 /* MenuSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE0A2938A8780098F309 /* MenuSkyView.swift */; };
 		8061DE0D2938A8A50098F309 /* MenuSkyVms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */; };
 		80703D3D23A04F570093C016 /* cell.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80703D3C23A04F570093C016 /* cell.camix.metal */; };
@@ -59,7 +58,7 @@
 		80E95AAB29167B91003F6360 /* ColorRgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA629167B91003F6360 /* ColorRgb.swift */; };
 		80E95AAC29167B91003F6360 /* ColorHsv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA729167B91003F6360 /* ColorHsv.swift */; };
 		80E95AAD29167B91003F6360 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA829167B91003F6360 /* ColorSet.swift */; };
-		80E95AAE29167B91003F6360 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA929167B91003F6360 /* Color.swift */; };
+		80E95AAE29167B91003F6360 /* MuColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AA929167B91003F6360 /* MuColor.swift */; };
 		80E95AB629167CC7003F6360 /* CubicInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB029167CC7003F6360 /* CubicInterval.swift */; };
 		80E95AB729167CC7003F6360 /* CubicPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB129167CC7003F6360 /* CubicPoints.swift */; };
 		80E95AB829167CC7003F6360 /* CubicPoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95AB229167CC7003F6360 /* CubicPoly.swift */; };
@@ -137,7 +136,7 @@
 /* Begin PBXFileReference section */
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
-		8061DE082938991F0098F309 /* MPCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
+		805B61D2293DD343001E65C7 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3; sourceTree = "<group>"; };
 		8061DE0A2938A8780098F309 /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyView.swift; sourceTree = "<group>"; };
 		8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyVms.swift; sourceTree = "<group>"; };
 		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -182,6 +181,7 @@
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		8079629E2558A415005BBFA6 /* sketch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sketch.h; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
+		8085C3EA293C7A5400975214 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
 		80BFB8D02939F38D00BDEE1F /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../MuSkyTr3; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		80E95AA629167B91003F6360 /* ColorRgb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRgb.swift; sourceTree = "<group>"; };
 		80E95AA729167B91003F6360 /* ColorHsv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorHsv.swift; sourceTree = "<group>"; };
 		80E95AA829167B91003F6360 /* ColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
-		80E95AA929167B91003F6360 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		80E95AA929167B91003F6360 /* MuColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuColor.swift; sourceTree = "<group>"; };
 		80E95AB029167CC7003F6360 /* CubicInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicInterval.swift; sourceTree = "<group>"; };
 		80E95AB129167CC7003F6360 /* CubicPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicPoints.swift; sourceTree = "<group>"; };
 		80E95AB229167CC7003F6360 /* CubicPoly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicPoly.swift; sourceTree = "<group>"; };
@@ -283,14 +283,6 @@
 			path = Xplore;
 			sourceTree = "<group>";
 		};
-		8061DE05293897DC0098F309 /* MuPeer */ = {
-			isa = PBXGroup;
-			children = (
-				8061DE082938991F0098F309 /* MPCHandler.swift */,
-			);
-			path = MuPeer;
-			sourceTree = "<group>";
-		};
 		8061DE14293985030098F309 /* MuseSky */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +295,8 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				805B61D2293DD343001E65C7 /* Tr3 */,
+				8085C3EA293C7A5400975214 /* MuMenu */,
 				80BFB8D02939F38D00BDEE1F /* MuSkyTr3 */,
 				807048E923378A090001617D /* App */,
 				80E95AFF29168323003F6360 /* Mu */,
@@ -459,7 +453,7 @@
 				80E95AA629167B91003F6360 /* ColorRgb.swift */,
 				80E95AA729167B91003F6360 /* ColorHsv.swift */,
 				80E95AA829167B91003F6360 /* ColorSet.swift */,
-				80E95AA929167B91003F6360 /* Color.swift */,
+				80E95AA929167B91003F6360 /* MuColor.swift */,
 			);
 			path = MuColor;
 			sourceTree = "<group>";
@@ -521,7 +515,6 @@
 		80E95AFF29168323003F6360 /* Mu */ = {
 			isa = PBXGroup;
 			children = (
-				8061DE05293897DC0098F309 /* MuPeer */,
 				80E95B0029168370003F6360 /* MuArchive */,
 				80E95AE129167D50003F6360 /* MuUtilities */,
 				80E95ABC29167D3D003F6360 /* MuMetal */,
@@ -723,7 +716,7 @@
 				80FEC39528E2009600E07437 /* TouchMenuItem.swift in Sources */,
 				80703D3D23A04F570093C016 /* cell.camix.metal in Sources */,
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
-				80E95AAE29167B91003F6360 /* Color.swift in Sources */,
+				80E95AAE29167B91003F6360 /* MuColor.swift in Sources */,
 				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
 				80E95AE029167D3D003F6360 /* CameraSession.swift in Sources */,
 				80E95AD929167D3D003F6360 /* MtKernel.swift in Sources */,
@@ -751,7 +744,6 @@
 				80E95AD829167D3D003F6360 /* MtlBuffer.swift in Sources */,
 				80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */,
 				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
-				8061DE092938991F0098F309 /* MPCHandler.swift in Sources */,
 				807049FD23378ADC0001617D /* TouchCanvasItem.swift in Sources */,
 				80E95AB929167CC7003F6360 /* CubicQuad.swift in Sources */,
 				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,

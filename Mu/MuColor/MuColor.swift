@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Color {
+public struct MuColor {
 
     private var rgbDef = [Rgb]() // definition of Rgb ramps
     private var splice = ColorSplice.gradient // how to join this color set with its neighbors
@@ -45,7 +45,7 @@ public struct Color {
         render(size: 256)
     }
 
-    public static func fade(from: Color, to: Color, _ factor: Float) -> [Rgb] {
+    public static func fade(from: MuColor, to: MuColor, _ factor: Float) -> [Rgb] {
 
         var ret = [Rgb]()
         let count = min(from.rendered.count, to.rendered.count)

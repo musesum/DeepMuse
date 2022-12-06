@@ -3,6 +3,7 @@ import UIKit
 import SwiftUI
 import MuMenu
 import Tr3
+import MultipeerConnectivity
 
 struct TouchViewRepresentable: UIViewRepresentable {
     
@@ -24,6 +25,8 @@ struct TouchViewRepresentable: UIViewRepresentable {
 
 class TouchView: UIView, UIGestureRecognizerDelegate {
     static let shared = TouchView()
+    public var peersController = PeersController.shared
+
 
     private var touchRepeat˚: Tr3?
     var touchRepeat = false /// repeat touch, even when not moving finger
@@ -43,6 +46,7 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
         let h = bounds.size.height
         frame = CGRect(x: 0, y: 0, width: w, height: h)
         isMultipleTouchEnabled = true
+        peersController.peersDelegates.append(self)
         
         touchRepeat˚ = SkyTr3.shared.root.bindPath("shader.model.pipe.draw") { tr3, _ in
             if let p = tr3.CGPointVal() {
@@ -51,9 +55,12 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
             }
         }
     }
+    deinit {
+        peersController.remove(peersDelegate: self)
+    }
+
 
     /// for each finger, iterate intermediate points, with closure
-    /// Previous version used to draw directly into buf, but now passes a closure
     func flushTouchCanvas(_ drawPoint: @escaping (CGPoint, CGFloat)->()) {
 
         for (key, canvas) in canvasKey {
@@ -110,7 +117,7 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
                     }
                 }
             }
-            /// Assign this finger to canvas.
+            /// make a new finger session
             ///
             /// No internal timer loop as canvasTouches are
             /// called by display link to allow update on texture
@@ -119,7 +126,7 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
             func assignFingerCanvas() {
                 let touchCanvas = TouchCanvas()
                 canvasKey[key] = touchCanvas
-                touchCanvas.addTouchItem(touch, event)
+                touchCanvas.addTouchItem(key, touch, event)
             }
         }
     }
@@ -141,7 +148,7 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
 
             if let touchCanvas = canvasKey[key] {
                 // continue on canvas
-                touchCanvas.addTouchItem(touch, event)
+                touchCanvas.addTouchItem(key, touch, event)
 
             }  else if let touchMenu = menuKey[key] {
                 // continue on menu
@@ -157,4 +164,46 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) { updateTouches(touches, event) }
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) { updateTouches(touches, event) }
 
+}
+
+extension TouchView: PeersControllerDelegate {
+
+    public func didChange() {
+    }
+
+    public func received(message: [String: Any],
+                         from peer: MCPeerID) {
+
+        if message["count"] != nil { return }
+
+        if (message["type"] as? String) == "TouchCanvasItem",
+           let _key      = message["key"     ] as? String,
+           let _time     = message["time"    ] as? TimeInterval,
+           let _force    = message["force"   ] as? Float,
+           let _radius   = message["radius"  ] as? Float,
+           let _x        = message["x"       ] as? Float,
+           let _y        = message["y"       ] as? Float,
+           let _phase    = message["phase"   ] as? Int,
+           let _azimuth  = message["azimuth" ] as? Float,
+           let _altitude = message["altitude"] as? Float {
+
+            let time     = CGFloat(_time)
+            let force    = CGFloat(_force)
+            let radius   = CGFloat(_radius)
+            let x        = CGFloat(_x)
+            let y        = CGFloat(_y)
+            let phase    = UITouch.Phase(rawValue: _phase)
+            let azimuth  = CGFloat(_azimuth)
+            let altitude = CGFloat(_altitude)
+            let nextXY = CGPoint(x: x, y: y)
+            
+            if canvasKey[_key] == nil {
+                canvasKey[_key] = TouchCanvas()
+                print("👆 TouchCanvas()")
+            }
+            if let touchCanvas = canvasKey[_key] {
+                touchCanvas.makeTouchItem(_key, time, force, radius, nextXY, phase!, azimuth, altitude)
+            }
+        }
+    }
 }

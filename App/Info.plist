@@ -34,8 +34,8 @@
 	<string>$(PRODUCT_NAME) bluetooth use</string>
 	<key>NSBonjourServices</key>
 	<array>
-		<string>_deepmuse._tcp</string>
-		<string>_deepmuse._udp</string>
+		<string>_deepmuse-peer._tcp</string>
+		<string>_deepmuse-peer._udp</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use</string>

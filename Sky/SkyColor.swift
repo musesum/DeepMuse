@@ -10,7 +10,7 @@ public class SkyColor {
     private var pal1˚: Tr3?
     private var pal1 = "wKZ"       // White with blacK inter pluz zeno fractal
 
-    private var colors = [Color("rgbK"), Color("wKZ")] // dual color palette
+    private var colors = [MuColor("rgbK"), MuColor("wKZ")] // dual color palette
     private var rgbs = [Rgb]()      // rendered color palette
     private var changed = true
     private var mix: UnsafeMutablePointer<UInt32>! = nil
@@ -32,7 +32,7 @@ public class SkyColor {
             pal0˚?.addClosure { tr3, _ in
                 if let pal = tr3.StringVal() {
                     self.pal0 = pal
-                    self.colors[0] = Color(pal)
+                    self.colors[0] = MuColor(pal)
                 }
                 self.changed = true
             }
@@ -42,7 +42,7 @@ public class SkyColor {
             pal1˚?.addClosure { tr3, _ in
                 if let pal = tr3.StringVal() {
                     self.pal1 = pal
-                    self.colors[1] = Color(pal)
+                    self.colors[1] = MuColor(pal)
                 }
                 self.changed = true
             }
@@ -59,7 +59,7 @@ public class SkyColor {
         if changed || palSize != mixSize {
             changed = false
             rgbs.removeAll()
-            rgbs = Color.fade(from: colors[0], to: colors[1], xfade)
+            rgbs = MuColor.fade(from: colors[0], to: colors[1], xfade)
             if mixSize != palSize {
                 mixSize = palSize
                 mix?.deallocate()

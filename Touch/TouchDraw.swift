@@ -59,8 +59,8 @@ class TouchDraw {
         inAzimuth˚ .addClosure { t, _ in self.inAzimuth  = t.CGPointVal() ?? .zero }
         screenFill˚.addClosure { t, _ in self.fillValue  = t.FloatVal() ?? -1 }
 
-        drawDot˚   .addClosure { t, _ in
-
+        // midi.notes.dot >> sky.draw.dot
+        drawDot˚.addClosure { t, _ in
             if let exprs = t.val as? Tr3Exprs,
                let x = exprs.nameAny["x"] as? Tr3ValScalar,
                let y = exprs.nameAny["y"] as? Tr3ValScalar,
@@ -75,14 +75,8 @@ class TouchDraw {
                 let yyy = CGFloat(yy * ys) - margin
                 let point = CGPoint(x: xxx, y: yyy)
                 let radius = CGFloat(z.now/2 + 1)
-
-                let pointStr = String(format: "(%.2f,%.2f)", point.x, point.y)
-                //print("dot x:\(x.now) y:\(y.now) xs:\(xs) ys:\(ys) \(pointStr):\(radius)")
-
-                let item0 = TouchCanvasItem(time, point, point, radius, radius, .zero, .began)
-                TouchView.shared.addMidiCanvasItem(item0)
-//                let item1 = TouchCanvasItem(time, point, point, radius, radius, .zero, .ended)
-//                TouchView.shared.addMidiCanvasItem(item1)
+                let item = TouchCanvasItem("drawDot", time, point, radius, radius, .zero, .began)
+                TouchView.shared.addMidiCanvasItem(item)
             }
         }
     }
@@ -93,7 +87,7 @@ class TouchDraw {
         if item.force > 0, brushTilt {
             let azi = CGPoint(x: -item.azimuth.dy, y: -item.azimuth.dx)
             inAzimuth˚.setAny(azi, [.activate]) // will update local azimuth via Tr3Graph
-            //PrintGesture("azimuth dXY(%.2f,%.2f)", item.azimuth.dx, item.azimuth.dy)
+          //PrintGesture("azimuth dXY(%.2f,%.2f)", item.azimuth.dx, item.azimuth.dy)
         }
         
         // if brush press is turned on
@@ -117,7 +111,7 @@ class TouchDraw {
      Either fill or draw inside texture
      - returns: true if filled, false if drawn
      */
-     func drawTexture(_ texBuf: UnsafeMutablePointer<UInt32>,
+    func drawTexture(_ texBuf: UnsafeMutablePointer<UInt32>,
                      size: CGSize) -> Bool {
 
         if TextureData.shared.data != nil {

@@ -30,7 +30,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "807048E623378A090001617D"
-            BuildableName = "Muse Sky.app"
+            BuildableName = "Deep Muse.app"
             BlueprintName = "DeepMuse"
             ReferencedContainer = "container:DeepMuse.xcodeproj">
          </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "807048E623378A090001617D"
-            BuildableName = "Muse Sky.app"
+            BuildableName = "Deep Muse.app"
             BlueprintName = "DeepMuse"
             ReferencedContainer = "container:DeepMuse.xcodeproj">
          </BuildableReference>

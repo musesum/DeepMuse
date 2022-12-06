@@ -2,6 +2,8 @@
 //  Copyright © 2019 DeepMuse All rights reserved.
 
 import UIKit
+import MuMenu // PeersVm
+import MultipeerConnectivity
 
 class TouchCanvas {
 
@@ -17,20 +19,36 @@ class TouchCanvas {
     init() {
         touchItems = [touch0,touch1]
     }
-
-    func addTouchItem(_ touch: UITouch,
+    func addTouchItem(_ key: String,
+                      _ touch: UITouch,
                       _ event: UIEvent?) {
 
         guard let time = event?.timestamp else { return }
-        var force = touch.force
-        var radius = touch.majorRadius
+        let force = touch.force
+        let radius = touch.majorRadius
         let nextXY = touch.preciseLocation(in: nil)
-        let prevXY = touch.precisePreviousLocation(in: nil)
         let phase = touch.phase
-        let angle = touch.azimuthAngle(in: nil)
-        let alti = (.pi/2 - touch.altitudeAngle) / .pi/2
-        let azim = CGVector(dx: -sin(angle) * alti, dy: cos(angle) * alti)
+        let azimuth = touch.azimuthAngle(in: nil)
+        let altitude = touch.altitudeAngle
 
+        makeTouchItem(key, time, force, radius, nextXY, phase, azimuth, altitude)
+        sendTouchItem(key, time, force, radius, nextXY, phase, azimuth, altitude)
+    }
+    
+    func makeTouchItem(_ key     : String,
+                       _ time    : TimeInterval,
+                       _ force   : CGFloat,
+                       _ radius  : CGFloat,
+                       _ nextXY  : CGPoint,
+                       _ phase   : UITouch.Phase,
+                       _ azimuth : CGFloat,
+                       _ altitude: CGFloat) {
+
+        let alti = (.pi/2 - altitude) / .pi/2
+        let azim = CGVector(dx: -sin(azimuth) * alti, dy: cos(azimuth) * alti)
+        var force = force
+        var radius = radius
+        
         if let lastItem {
 
             let forceFilter = 0.90
@@ -42,13 +60,42 @@ class TouchCanvas {
         } else {
             force = 0 // bug: always begins at 0.5
         }
-        let item = TouchCanvasItem(time, prevXY, nextXY, radius, force, azim, phase)
+        let item = TouchCanvasItem(key, time, nextXY, radius, force, azim, phase)
         touchItems[indexNow].append(item)
+    }
+    
+    func sendTouchItem(_ key     : String,
+                       _ time    : CGFloat,
+                       _ force   : CGFloat,
+                       _ radius  : CGFloat,
+                       _ nextXY  : CGPoint,
+                       _ phase   : UITouch.Phase,
+                       _ azimuth : CGFloat,
+                       _ altitude: CGFloat) {
+
+        let peersVm = PeersVm.shared
+        if peersVm.peersList != "" {
+            
+            let touch: [String: Any] = [
+                "type"      : "TouchCanvasItem",
+                "key"       : key,
+                "time"      : time,
+                "force"     : Float(force),
+                "radius"    : Float(radius),
+                "x"         : Float(nextXY.x),
+                "y"         : Float(nextXY.y),
+                "phase"     : phase.rawValue,
+                "azimuth"   : Float(azimuth),
+                "altitude"  : Float(altitude),
+            ]
+            peersVm.peersController.sendMessage(touch)
+        }
     }
     func addMidiCanvasItem(_ item: TouchCanvasItem) {
         touchItems[indexNow].append(item)
     }
-    /// For each finger,b iterate intermediate points, with closure to drawing routine
+    /// For each finger,b iterate intermediate points,
+    /// with closure to drawing routine
     ///
     func flushTouches(_ drawPoint: @escaping (CGPoint, CGFloat)->())  {
 
@@ -65,8 +112,7 @@ class TouchCanvas {
                 lastItem = touchItems[indexFlush].last
             }
         } else if TouchView.shared.touchRepeat, let lastItem {
-            // finger is stationary
-            // so repeat last movement
+            // finger is stationary repeat last movement
             flushItem(lastItem)
         }
         touchItems[indexFlush].removeAll()
