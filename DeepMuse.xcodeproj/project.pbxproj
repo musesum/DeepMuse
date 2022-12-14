@@ -11,6 +11,8 @@
 		802C5BD0265AEC6000DBFFEA /* Par in Frameworks */ = {isa = PBXBuildFile; productRef = 802C5BCF265AEC6000DBFFEA /* Par */; };
 		8061DE0B2938A8780098F309 /* MenuSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE0A2938A8780098F309 /* MenuSkyView.swift */; };
 		8061DE0D2938A8A50098F309 /* MenuSkyVms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */; };
+		8068B7EA2945C38400D15584 /* TouchViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068B7E92945C38400D15584 /* TouchViewRepresentable.swift */; };
+		8068B7EC2945D1B200D15584 /* TouchView+Peers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068B7EB2945D1B200D15584 /* TouchView+Peers.swift */; };
 		80703D3D23A04F570093C016 /* cell.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80703D3C23A04F570093C016 /* cell.camix.metal */; };
 		807048EB23378A090001617D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EA23378A090001617D /* AppDelegate.swift */; };
 		8070490223378A0B0001617D /* MuseSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490123378A0B0001617D /* MuseSkyTests.swift */; };
@@ -45,6 +47,11 @@
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
 		80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */; };
 		8096E08D28A190AB00EE2967 /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 8096E08C28A190AB00EE2967 /* Tr3 */; };
+		80B41D672949A94A004B02EF /* MuMenuSky in Resources */ = {isa = PBXBuildFile; fileRef = 80B41D622949A94A004B02EF /* MuMenuSky */; };
+		80B41D682949A94A004B02EF /* MuSkyTr3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B41D632949A94A004B02EF /* MuSkyTr3 */; };
+		80B41D692949A94A004B02EF /* Tr3 in Resources */ = {isa = PBXBuildFile; fileRef = 80B41D642949A94A004B02EF /* Tr3 */; };
+		80B41D6A2949A94A004B02EF /* MuMenu in Resources */ = {isa = PBXBuildFile; fileRef = 80B41D652949A94A004B02EF /* MuMenu */; };
+		80B41D6B2949A94A004B02EF /* Par in Resources */ = {isa = PBXBuildFile; fileRef = 80B41D662949A94A004B02EF /* Par */; };
 		80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B70CC32576ACDE007BAAA8 /* AudioKit */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
@@ -99,7 +106,6 @@
 		80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1338128D52B560066B7D8 /* MuMidi.swift */; };
 		80F846E1234D016A009022F7 /* cell.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80F846E0234D016A009022F7 /* cell.camera.metal */; };
 		80FEC39328E2003000E07437 /* TouchMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39228E2003000E07437 /* TouchMenu.swift */; };
-		80FEC39528E2009600E07437 /* TouchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39428E2009600E07437 /* TouchMenuItem.swift */; };
 		80FEC39728E2011B00E07437 /* TextureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39628E2011B00E07437 /* TextureData.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,11 +142,12 @@
 /* Begin PBXFileReference section */
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
-		805B61D2293DD343001E65C7 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Tr3; sourceTree = "<group>"; };
 		8061DE0A2938A8780098F309 /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyView.swift; sourceTree = "<group>"; };
 		8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyVms.swift; sourceTree = "<group>"; };
 		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8061DE17293985030098F309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8068B7E92945C38400D15584 /* TouchViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchViewRepresentable.swift; sourceTree = "<group>"; };
+		8068B7EB2945D1B200D15584 /* TouchView+Peers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TouchView+Peers.swift"; sourceTree = "<group>"; };
 		80703D3C23A04F570093C016 /* cell.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camix.metal; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,10 +188,13 @@
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		8079629E2558A415005BBFA6 /* sketch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sketch.h; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
-		8085C3EA293C7A5400975214 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../MuMenu; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
-		80BFB8D02939F38D00BDEE1F /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../MuSkyTr3; sourceTree = "<group>"; };
+		80B41D622949A94A004B02EF /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuMenuSky; sourceTree = "<group>"; };
+		80B41D632949A94A004B02EF /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuSkyTr3; sourceTree = "<group>"; };
+		80B41D642949A94A004B02EF /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Tr3; sourceTree = "<group>"; };
+		80B41D652949A94A004B02EF /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuMenu; sourceTree = "<group>"; };
+		80B41D662949A94A004B02EF /* Par */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Par; sourceTree = "<group>"; };
 		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
 		80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiTr3.swift; sourceTree = "<group>"; };
 		80D5EA8E2914DE7500C619BE /* MidiLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiLog.swift; sourceTree = "<group>"; };
@@ -236,7 +246,6 @@
 		80F1338128D52B560066B7D8 /* MuMidi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuMidi.swift; sourceTree = "<group>"; };
 		80F846E0234D016A009022F7 /* cell.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camera.metal; sourceTree = "<group>"; };
 		80FEC39228E2003000E07437 /* TouchMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenu.swift; sourceTree = "<group>"; };
-		80FEC39428E2009600E07437 /* TouchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenuItem.swift; sourceTree = "<group>"; };
 		80FEC39628E2011B00E07437 /* TextureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -295,9 +304,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				805B61D2293DD343001E65C7 /* Tr3 */,
-				8085C3EA293C7A5400975214 /* MuMenu */,
-				80BFB8D02939F38D00BDEE1F /* MuSkyTr3 */,
+				80B41D612949A94A004B02EF /* Packages */,
 				807048E923378A090001617D /* App */,
 				80E95AFF29168323003F6360 /* Mu */,
 				8097DC472833E2A300059A59 /* Sky */,
@@ -380,10 +387,11 @@
 			isa = PBXGroup;
 			children = (
 				8070496C23378ADB0001617D /* TouchView.swift */,
+				8068B7EB2945D1B200D15584 /* TouchView+Peers.swift */,
+				8068B7E92945C38400D15584 /* TouchViewRepresentable.swift */,
 				8070496D23378ADB0001617D /* TouchCanvas.swift */,
 				80FEC39228E2003000E07437 /* TouchMenu.swift */,
 				8070496F23378ADB0001617D /* TouchCanvasItem.swift */,
-				80FEC39428E2009600E07437 /* TouchMenuItem.swift */,
 				8070497023378ADB0001617D /* TouchDraw.swift */,
 			);
 			path = Touch;
@@ -413,6 +421,19 @@
 				8070497823378ADB0001617D /* SkyColor.swift */,
 			);
 			path = Sky;
+			sourceTree = "<group>";
+		};
+		80B41D612949A94A004B02EF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				80B41D622949A94A004B02EF /* MuMenuSky */,
+				80B41D632949A94A004B02EF /* MuSkyTr3 */,
+				80B41D642949A94A004B02EF /* Tr3 */,
+				80B41D652949A94A004B02EF /* MuMenu */,
+				80B41D662949A94A004B02EF /* Par */,
+			);
+			name = Packages;
+			path = ../Packages;
 			sourceTree = "<group>";
 		};
 		80B9E12325169B6F0074AEEA /* MuAudio */ = {
@@ -659,9 +680,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B41D692949A94A004B02EF /* Tr3 in Resources */,
+				80B41D6A2949A94A004B02EF /* MuMenu in Resources */,
+				80B41D682949A94A004B02EF /* MuSkyTr3 in Resources */,
 				80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
 				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,
+				80B41D6B2949A94A004B02EF /* Par in Resources */,
+				80B41D672949A94A004B02EF /* MuMenuSky in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +724,7 @@
 				80E95ADC29167D3D003F6360 /* MtlTexCache.swift in Sources */,
 				8061DE0D2938A8A50098F309 /* MenuSkyVms.swift in Sources */,
 				80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */,
+				8068B7EA2945C38400D15584 /* TouchViewRepresentable.swift in Sources */,
 				80E95AAC29167B91003F6360 /* ColorHsv.swift in Sources */,
 				80E95AD329167D3D003F6360 /* CameraSesssion+Video.swift in Sources */,
 				80E95ADA29167D3D003F6360 /* CameraTypes.swift in Sources */,
@@ -713,7 +740,6 @@
 				807049F623378ADC0001617D /* pipe.draw.metal in Sources */,
 				80E95AEC29167D50003F6360 /* MuOrientation.swift in Sources */,
 				80E95AAB29167B91003F6360 /* ColorRgb.swift in Sources */,
-				80FEC39528E2009600E07437 /* TouchMenuItem.swift in Sources */,
 				80703D3D23A04F570093C016 /* cell.camix.metal in Sources */,
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
 				80E95AAE29167B91003F6360 /* MuColor.swift in Sources */,
@@ -759,6 +785,7 @@
 				80F846E1234D016A009022F7 /* cell.camera.metal in Sources */,
 				80E95AEE29167D50003F6360 /* MuDrawBubble.swift in Sources */,
 				80704A0323378ADC0001617D /* SkyMetal.swift in Sources */,
+				8068B7EC2945D1B200D15584 /* TouchView+Peers.swift in Sources */,
 				80E95B0A29168540003F6360 /* FileManager+extension.swift in Sources */,
 				80FEC39728E2011B00E07437 /* TextureData.swift in Sources */,
 				807049F423378ADC0001617D /* cell.erode.metal in Sources */,

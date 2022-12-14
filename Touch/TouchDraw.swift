@@ -65,7 +65,7 @@ class TouchDraw {
                let x = exprs.nameAny["x"] as? Tr3ValScalar,
                let y = exprs.nameAny["y"] as? Tr3ValScalar,
                let z = exprs.nameAny["z"] as? Tr3ValScalar {
-                let time = Date().timeIntervalSince1970
+                
                 let margin = CGFloat(48)
                 let xs = CGFloat(2388/2)
                 let ys = CGFloat(1668/2)
@@ -74,9 +74,10 @@ class TouchDraw {
                 let xxx = CGFloat(xx * xs) + margin
                 let yyy = CGFloat(yy * ys) - margin
                 let point = CGPoint(x: xxx, y: yyy)
-                let radius = CGFloat(z.now/2 + 1)
-                let item = TouchCanvasItem("drawDot", time, point, radius, radius, .zero, .began)
-                TouchView.shared.addMidiCanvasItem(item)
+                let radius = Float(z.now/2 + 1)
+                let key = "drawDot".hash
+                let item = TouchCanvasItem(key, point, radius, radius, .zero, .began)
+                TouchView.shared.addCanvasItem(item, isRemote: false)
             }
         }
     }
@@ -85,7 +86,7 @@ class TouchDraw {
 
         // if using Apple Pencil and brush tilt is turned on
         if item.force > 0, brushTilt {
-            let azi = CGPoint(x: -item.azimuth.dy, y: -item.azimuth.dx)
+            let azi = CGPoint(x: CGFloat(-item.azimY), y: CGFloat(-item.azimX))
             inAzimuth˚.setAny(azi, [.activate]) // will update local azimuth via Tr3Graph
           //PrintGesture("azimuth dXY(%.2f,%.2f)", item.azimuth.dx, item.azimuth.dy)
         }
@@ -93,7 +94,7 @@ class TouchDraw {
         // if brush press is turned on
         var radiusNow = CGFloat(1)
         if brushPress  {
-            if inForce > 0 || item.azimuth.dx != 0.0 {
+            if inForce > 0 || item.azimX != 0.0 {
                 inForce˚.setAny(item.force, [.activate]) // will update local azimuth via Tr3Graph
                 radiusNow = brushSize
             } else {

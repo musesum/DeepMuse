@@ -21,9 +21,6 @@ public class SkyColor {
             xfade˚ = color.findPath("xfade")
             xfade˚?.addClosure { tr3, _ in
                 let fade = tr3.FloatVal() ?? self.xfade
-                if fade == 0 {
-                    print(".", terminator: "")
-                }
                 self.xfade = fade 
                 self.changed = true
             }

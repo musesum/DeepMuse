@@ -5,27 +5,46 @@ import MuMenu
 
 class TouchMenu {
 
-    internal var touch0 = [TouchMenuItem]()
-    internal var touch1 = [TouchMenuItem]()
-    internal var touchItems: [[TouchMenuItem]]
-    internal var indexNow = 0
-    internal let touchVm: MuTouchVm
+    // double buffer
+   private var touch0 = [TouchMenuItem]()
+   private var touch1 = [TouchMenuItem]()
+   private var touchItems: [[TouchMenuItem]]
+   private var indexNow = 0
 
-    init(_ touchVm: MuTouchVm) {
+    private let touchVm: MuTouchVm
+    private let isRemote: Bool
+
+    init(_ touchVm: MuTouchVm,
+         isRemote: Bool) {
+
         self.touchVm = touchVm
+        self.isRemote = isRemote
         touchItems = [touch0,touch1]
     }
 
-    func addTouchItem(_ touch: UITouch,
-                      _ event: UIEvent?) {
+    func addTouchMenuItem(_ menuKey: Int,
+                          _ corner: MuCorner,
+                          _ hashPath: [Int],
+                          _ touch: UITouch) {
 
-        guard let time = event?.timestamp else { return }
         let isDone = touch.phase == .ended || touch.phase == .cancelled
         let nextXY = isDone ? .zero : touch.location(in: nil)
-        let menuItem = TouchMenuItem(time, nextXY, touch.phase)
-        touchItems[indexNow].append(menuItem)
+        let cornerStr = corner.abbreviation()
+        let item = TouchMenuItem(menuKey, cornerStr, hashPath, nextXY, touch.phase)
+        touchItems[indexNow].append(item)
+
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(item)
+            PeersController.shared.sendMessage(data, viaStream: true)
+        } catch {
+            print(error)
+        }
     }
 
+    func addMenuItem(_ item: TouchMenuItem) {
+        touchItems[indexNow].append(item)
+    }
     func flushTouches() -> Bool {
 
         let indexFlush = indexNow // flush what used to be nextBuffer
@@ -35,11 +54,21 @@ class TouchMenu {
         let count = touchItems[indexFlush].count
         if count > 0 {
 
-            for item in touchItems[indexFlush] {
-                isDone = (item.phase == .ended ||
-                          item.phase == .cancelled)
+            for menuItem in touchItems[indexFlush] {
 
-                touchVm.touchMenuUpdate(item.next)
+                isDone = (menuItem.phase == UITouch.Phase.ended.rawValue ||
+                          menuItem.phase == UITouch.Phase.cancelled.rawValue)
+
+                if isRemote {
+
+                    touchVm.gotoMenuItem(menuItem) //???
+
+                } else {
+                    let nextXY = CGPoint(x: CGFloat(menuItem.nextX),
+                                         y: CGFloat(menuItem.nextY))
+
+                    touchVm.touchMenuUpdate(nextXY)
+                }
             }
         }
         touchItems[indexFlush].removeAll()

@@ -2,8 +2,8 @@
 //  Copyright © 2019 DeepMuse All rights reserved.
 
 import UIKit
-import MuMenu // PeersVm
-import MultipeerConnectivity
+import MuMenu // PeersController
+import Tr3 // digits
 
 class TouchCanvas {
 
@@ -16,14 +16,15 @@ class TouchCanvas {
     internal var isDone = false
     internal var filterForce = CGFloat(0) // Apple Pencil begins at 0.333; filter the blotch
 
-    init() {
-        touchItems = [touch0,touch1]
-    }
-    func addTouchItem(_ key: String,
-                      _ touch: UITouch,
-                      _ event: UIEvent?) {
+    private var isRemote: Bool
 
-        guard let time = event?.timestamp else { return }
+    init(isRemote: Bool) {
+        touchItems = [touch0,touch1]
+        self.isRemote = isRemote
+    }
+    func addTouchCanvasItem(_ key: Int,
+                      _ touch: UITouch) {
+
         let force = touch.force
         let radius = touch.majorRadius
         let nextXY = touch.preciseLocation(in: nil)
@@ -31,70 +32,48 @@ class TouchCanvas {
         let azimuth = touch.azimuthAngle(in: nil)
         let altitude = touch.altitudeAngle
 
-        makeTouchItem(key, time, force, radius, nextXY, phase, azimuth, altitude)
-        sendTouchItem(key, time, force, radius, nextXY, phase, azimuth, altitude)
+        let item = makeTouchItem(key, force, radius, nextXY, phase, azimuth, altitude)
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(item)
+            PeersController.shared.sendMessage(data, viaStream: true)
+        } catch {
+            print(error)
+        }
     }
-    
-    func makeTouchItem(_ key     : String,
-                       _ time    : TimeInterval,
+
+    func makeTouchItem(_ key     : Int,
                        _ force   : CGFloat,
                        _ radius  : CGFloat,
                        _ nextXY  : CGPoint,
                        _ phase   : UITouch.Phase,
                        _ azimuth : CGFloat,
-                       _ altitude: CGFloat) {
+                       _ altitude: CGFloat) -> TouchCanvasItem {
 
         let alti = (.pi/2 - altitude) / .pi/2
         let azim = CGVector(dx: -sin(azimuth) * alti, dy: cos(azimuth) * alti)
-        var force = force
-        var radius = radius
+        var force = Float(force)
+        var radius = Float(radius)
         
         if let lastItem {
 
-            let forceFilter = 0.90
+            let forceFilter = Float(0.90)
             force = (lastItem.force * forceFilter) + (force * (1-forceFilter))
 
-            let radiusFilter = CGFloat(0.95)
+            let radiusFilter = Float(0.95)
             radius = (lastItem.radius * radiusFilter) + (radius * (1-radiusFilter))
             //print(String(format: "* %.3f -> %.3f", lastItem.force, force))
         } else {
             force = 0 // bug: always begins at 0.5
         }
-        let item = TouchCanvasItem(key, time, nextXY, radius, force, azim, phase)
+        let item = TouchCanvasItem(key, nextXY, radius, force, azim, phase)
+        touchItems[indexNow].append(item)
+        return item
+    }
+    func addCanvasItem(_ item: TouchCanvasItem) {
         touchItems[indexNow].append(item)
     }
-    
-    func sendTouchItem(_ key     : String,
-                       _ time    : CGFloat,
-                       _ force   : CGFloat,
-                       _ radius  : CGFloat,
-                       _ nextXY  : CGPoint,
-                       _ phase   : UITouch.Phase,
-                       _ azimuth : CGFloat,
-                       _ altitude: CGFloat) {
-
-        let peersVm = PeersVm.shared
-        if peersVm.peersList != "" {
-            
-            let touch: [String: Any] = [
-                "type"      : "TouchCanvasItem",
-                "key"       : key,
-                "time"      : time,
-                "force"     : Float(force),
-                "radius"    : Float(radius),
-                "x"         : Float(nextXY.x),
-                "y"         : Float(nextXY.y),
-                "phase"     : phase.rawValue,
-                "azimuth"   : Float(azimuth),
-                "altitude"  : Float(altitude),
-            ]
-            peersVm.peersController.sendMessage(touch)
-        }
-    }
-    func addMidiCanvasItem(_ item: TouchCanvasItem) {
-        touchItems[indexNow].append(item)
-    }
-    /// For each finger,b iterate intermediate points,
+    /// For each finger, iterate intermediate points,
     /// with closure to drawing routine
     ///
     func flushTouches(_ drawPoint: @escaping (CGPoint, CGFloat)->())  {
@@ -120,8 +99,9 @@ class TouchCanvas {
         func flushItem(_ item: TouchCanvasItem) {
 
             let radius = SkyVC.shared.touchDraw.update(item)
-            let p = CGPoint(x: item.next.x, y: item.next.y)
-            isDone = item.phase == .ended || item.phase == .cancelled
+            let p = CGPoint(x: CGFloat(item.nextX), y: CGFloat(item.nextY))
+            isDone = (item.phase == UITouch.Phase.ended    .rawValue ||
+                      item.phase == UITouch.Phase.cancelled.rawValue )
             quadXYR.addXYR(p, radius, isDone)
             quadXYR.iterate12(drawPoint)
         }
