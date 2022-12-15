@@ -92,7 +92,7 @@ public struct QuadXYR {
         return s
     }
 
-    public func iterate12(_ callback: @escaping (CGPoint, CGFloat)->())  {
+    public func iterate12()  {
 
         // if index<2 { return }
 
@@ -115,7 +115,8 @@ public struct QuadXYR {
             let p = getXY(z1)
             let r = getR(z1)
 
-            callback(p, r)
+            SkyVC.shared.touchDraw.drawPoint(p, r)
+            //??? callback(p, r)
         }
     }
 }

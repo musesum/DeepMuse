@@ -5,6 +5,11 @@ import UIKit
 import MuMenu // PeersController
 import Tr3 // digits
 
+
+protocol FlushCanvasItemDelegate {
+    func flushItem(_ item: TouchCanvasItem)
+}
+
 class TouchCanvas {
 
     internal var touch0 = [TouchCanvasItem]()
@@ -23,7 +28,7 @@ class TouchCanvas {
         self.isRemote = isRemote
     }
     func addTouchCanvasItem(_ key: Int,
-                      _ touch: UITouch) {
+                            _ touch: UITouch) {
 
         let force = touch.force
         let radius = touch.majorRadius
@@ -76,7 +81,7 @@ class TouchCanvas {
     /// For each finger, iterate intermediate points,
     /// with closure to drawing routine
     ///
-    func flushTouches(_ drawPoint: @escaping (CGPoint, CGFloat)->())  {
+    func flushTouches()  {
 
         let indexFlush = indexNow // flush what used to be nextBuffer
         indexNow = indexNow ^ 1 // switch double buffer
@@ -85,7 +90,6 @@ class TouchCanvas {
         let count = touchItems[indexFlush].count
         if count > 0 {
             for item in touchItems[indexFlush] {
-
                 flushItem(item)
                 // last last movement for repeat
                 lastItem = touchItems[indexFlush].last
@@ -96,15 +100,18 @@ class TouchCanvas {
         }
         touchItems[indexFlush].removeAll()
 
-        func flushItem(_ item: TouchCanvasItem) {
-
-            let radius = SkyVC.shared.touchDraw.update(item)
-            let p = CGPoint(x: CGFloat(item.nextX), y: CGFloat(item.nextY))
-            isDone = (item.phase == UITouch.Phase.ended    .rawValue ||
-                      item.phase == UITouch.Phase.cancelled.rawValue )
-            quadXYR.addXYR(p, radius, isDone)
-            quadXYR.iterate12(drawPoint)
-        }
     }
 
+}
+extension TouchCanvas: FlushCanvasItemDelegate {
+
+    func flushItem(_ item: TouchCanvasItem) {
+
+        let radius = SkyVC.shared.touchDraw.update(item)
+        let p = CGPoint(x: CGFloat(item.nextX), y: CGFloat(item.nextY))
+        isDone = (item.phase == UITouch.Phase.ended    .rawValue ||
+                  item.phase == UITouch.Phase.cancelled.rawValue )
+        quadXYR.addXYR(p, radius, isDone)
+        quadXYR.iterate12()
+    }
 }

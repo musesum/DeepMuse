@@ -29,7 +29,6 @@ public class MtlKernelDraw: MtlKernel {
 
             let w = outTex.width
             let h = outTex.height
-            //let size = CGSize(width: CGFloat(outTex.width), height: CGFloat(outTex.height))
             let pixSize = MemoryLayout<UInt32>.size
             let bytesPerRow = w * pixSize // sizeof(MTLPixelFormatBGRA8Unorm);
             let region = MTLRegionMake3D(0, 0, 0, outTex.width, outTex.height, 1)
