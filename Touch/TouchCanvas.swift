@@ -11,32 +11,31 @@ protocol FlushCanvasItemDelegate {
 }
 
 class TouchCanvas {
-
-    internal var touch0 = [TouchCanvasItem]()
-    internal var touch1 = [TouchCanvasItem]()
-    internal var touchItems: [[TouchCanvasItem]] // double buffer index == 0 or 1
-    internal var lastItem: TouchCanvasItem? // allow last touch to repeat until isDone
+    
+    let buffer = DoubleBuffer<TouchCanvasItem>()
+    
+    var lastItem: TouchCanvasItem? // allow last touch to repeat until isDone
     internal var quadXYR = QuadXYR()
     internal var indexNow = 0
     internal var isDone = false
     internal var filterForce = CGFloat(0) // Apple Pencil begins at 0.333; filter the blotch
-
+    
     private var isRemote: Bool
-
+    
     init(isRemote: Bool) {
-        touchItems = [touch0,touch1]
         self.isRemote = isRemote
+        buffer.flusher = self
     }
     func addTouchCanvasItem(_ key: Int,
                             _ touch: UITouch) {
-
+        
         let force = touch.force
         let radius = touch.majorRadius
         let nextXY = touch.preciseLocation(in: nil)
         let phase = touch.phase
         let azimuth = touch.azimuthAngle(in: nil)
         let altitude = touch.altitudeAngle
-
+        
         let item = makeTouchItem(key, force, radius, nextXY, phase, azimuth, altitude)
         let encoder = JSONEncoder()
         do {
@@ -46,7 +45,7 @@ class TouchCanvas {
             print(error)
         }
     }
-
+    
     func makeTouchItem(_ key     : Int,
                        _ force   : CGFloat,
                        _ radius  : CGFloat,
@@ -54,17 +53,17 @@ class TouchCanvas {
                        _ phase   : UITouch.Phase,
                        _ azimuth : CGFloat,
                        _ altitude: CGFloat) -> TouchCanvasItem {
-
+        
         let alti = (.pi/2 - altitude) / .pi/2
         let azim = CGVector(dx: -sin(azimuth) * alti, dy: cos(azimuth) * alti)
         var force = Float(force)
         var radius = Float(radius)
         
         if let lastItem {
-
+            
             let forceFilter = Float(0.90)
             force = (lastItem.force * forceFilter) + (force * (1-forceFilter))
-
+            
             let radiusFilter = Float(0.95)
             radius = (lastItem.radius * radiusFilter) + (radius * (1-radiusFilter))
             //print(String(format: "* %.3f -> %.3f", lastItem.force, force))
@@ -72,40 +71,18 @@ class TouchCanvas {
             force = 0 // bug: always begins at 0.5
         }
         let item = TouchCanvasItem(key, nextXY, radius, force, azim, phase)
-        touchItems[indexNow].append(item)
+        buffer.append(item)
         return item
     }
-    func addCanvasItem(_ item: TouchCanvasItem) {
-        touchItems[indexNow].append(item)
-    }
-    /// For each finger, iterate intermediate points,
-    /// with closure to drawing routine
-    ///
-    func flushTouches()  {
-
-        let indexFlush = indexNow // flush what used to be nextBuffer
-        indexNow = indexNow ^ 1 // switch double buffer
-
-        // there is new movement of finger
-        let count = touchItems[indexFlush].count
-        if count > 0 {
-            for item in touchItems[indexFlush] {
-                flushItem(item)
-                // last last movement for repeat
-                lastItem = touchItems[indexFlush].last
-            }
-        } else if TouchView.shared.touchRepeat, let lastItem {
-            // finger is stationary repeat last movement
-            flushItem(lastItem)
-        }
-        touchItems[indexFlush].removeAll()
-
-    }
-
 }
-extension TouchCanvas: FlushCanvasItemDelegate {
 
-    func flushItem(_ item: TouchCanvasItem) {
+extension TouchCanvas: BufferFlushDelegate {
+
+    typealias Item = TouchCanvasItem
+
+    func flushItem<Item>(_ item: Item) -> Bool {
+        let item = item as! TouchCanvasItem
+        lastItem = item
 
         let radius = SkyVC.shared.touchDraw.update(item)
         let p = CGPoint(x: CGFloat(item.nextX), y: CGFloat(item.nextY))
@@ -113,5 +90,21 @@ extension TouchCanvas: FlushCanvasItemDelegate {
                   item.phase == UITouch.Phase.cancelled.rawValue )
         quadXYR.addXYR(p, radius, isDone)
         quadXYR.iterate12()
+        return isDone
     }
+
+
+    func flushTouches()  {
+
+        if buffer.isEmpty,
+            TouchView.shared.touchRepeat,
+            let lastItem {
+            // finger is stationary repeat last movement
+            _ = flushItem(lastItem)
+        } else {
+            isDone = buffer.flush()
+        }
+
+    }
+
 }

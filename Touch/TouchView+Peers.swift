@@ -18,11 +18,11 @@ extension TouchView: PeersControllerDelegate {
         func getTouchCanvasItem() -> Bool {
             if let item = try? decoder.decode(TouchCanvasItem.self, from: data) {
                 if let canvas = canvasKey[item.key] {
-                    canvas.addCanvasItem(item)
+                    canvas.buffer.append(item)
                 } else {
                     let canvas = TouchCanvas(isRemote: true)
                     canvasKey[item.key] = canvas
-                    canvas.addCanvasItem(item)
+                    canvas.buffer.append(item)
                 }
                 return true
             }
@@ -38,7 +38,7 @@ extension TouchView: PeersControllerDelegate {
                     let menu = TouchMenu(menuVm, isRemote: true)
                     menuKey[item.menuKey] = menu
                     menu.addMenuItem(item)
-                    menu.flushTouches() //???
+                    _ = menu.buffer.flush()
                 }
                 return true
             }

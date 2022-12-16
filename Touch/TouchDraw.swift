@@ -8,7 +8,7 @@ class TouchDraw {
     private let brushTilt˚  : Tr3
     private let brushPress˚ : Tr3
     private let brushSize˚  : Tr3
-    private let brushColor˚ : Tr3
+    private let brushIndex˚ : Tr3
 
     private let linePrev˚   : Tr3 // beginning of line
     private let lineNext˚   : Tr3 // end of line
@@ -21,7 +21,7 @@ class TouchDraw {
     private var brushTilt = false          // via brushTilt˚
     private var brushPress = true          // via brushPress˚
     private var brushSize = CGFloat(1)     // via brushSize˚
-    private var brushColor = UInt32(127)  // via brushColor˚
+    private var brushIndex = UInt32(127)   // via brushIndex˚
 
     private var linePrev = CGPoint.zero    // via linePrev˚
     private var lineNext = CGPoint.zero    // via lineNext˚
@@ -35,17 +35,17 @@ class TouchDraw {
 
     init(_ root: Tr3) {
 
-        let sky     = root.bindPath("sky")
-        let input   = sky.bindPath("input")
-        let draw    = sky.bindPath("draw")
-        let brush   = draw.bindPath("brush")
-        let line    = draw.bindPath("line")
-        let screen  = draw.bindPath("screen")
+        let sky     = root  .bindPath("sky"    )
+        let input   = sky   .bindPath("input"  )
+        let draw    = sky   .bindPath("draw"   )
+        let brush   = draw  .bindPath("brush"  )
+        let line    = draw  .bindPath("line"   )
+        let screen  = draw  .bindPath("screen" )
 
         brushTilt˚  = input .bindPath("tilt"   )
         brushPress˚ = brush .bindPath("press"  )
         brushSize˚  = brush .bindPath("size"   )
-        brushColor˚ = brush .bindPath("color"  )
+        brushIndex˚ = brush .bindPath("index"  )
 
         linePrev˚   = line  .bindPath("prev"   )
         lineNext˚   = line  .bindPath("next"   )
@@ -61,7 +61,7 @@ class TouchDraw {
         brushTilt˚ .addClosure { t,_ in self.brushTilt  = t.BoolVal() }
         brushPress˚.addClosure { t,_ in self.brushPress = t.BoolVal() }
         brushSize˚ .addClosure { t,_ in self.brushSize  = t.CGFloatVal() ?? 1 }
-        brushColor˚.addClosure { t,_ in self.brushColor = UInt32(t.CGFloatVal() ?? 127) }
+        brushIndex˚.addClosure { t,_ in self.brushIndex = UInt32(t.CGFloatVal() ?? 127) }
 
         linePrev˚  .addClosure { t,_ in self.linePrev   = t.CGPointVal() ?? .zero }
         lineNext˚  .addClosure { t,_ in self.lineNext   = t.CGPointVal() ?? .zero }
@@ -180,7 +180,7 @@ class TouchDraw {
         while y1 < y0 { y1 += ys }
 
         if radius == 1 {
-            texBuf[y0 * xs + x0] = brushColor
+            texBuf[y0 * xs + x0] = brushIndex
             return
         }
 
@@ -197,7 +197,7 @@ class TouchDraw {
                     let xx = (x + xs) % xs  // wrapped pixel x index
                     let ii = yy * xs + xx   // final pixel x, y index into buffer
 
-                    texBuf[ii] = brushColor     // set the buffer to value
+                    texBuf[ii] = brushIndex     // set the buffer to value
                 }
             }
         }

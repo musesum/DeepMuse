@@ -3,13 +3,11 @@
 import UIKit
 import MuMenu
 
+
+
 class TouchMenu {
 
-    // double buffer
-   private var touch0 = [TouchMenuItem]()
-   private var touch1 = [TouchMenuItem]()
-   private var touchItems: [[TouchMenuItem]]
-   private var indexNow = 0
+    let buffer = DoubleBuffer<TouchMenuItem>()
 
     private let touchVm: MuTouchVm
     private let isRemote: Bool
@@ -17,9 +15,10 @@ class TouchMenu {
     init(_ touchVm: MuTouchVm,
          isRemote: Bool) {
 
+
         self.touchVm = touchVm
         self.isRemote = isRemote
-        touchItems = [touch0,touch1]
+        buffer.flusher = self
     }
 
     func addTouchMenuItem(_ menuKey: Int,
@@ -31,7 +30,8 @@ class TouchMenu {
         let nextXY = isDone ? .zero : touch.location(in: nil)
         let cornerStr = corner.abbreviation()
         let item = TouchMenuItem(menuKey, cornerStr, hashPath, nextXY, touch.phase)
-        touchItems[indexNow].append(item)
+
+        buffer.append(item)
 
         do {
             let encoder = JSONEncoder()
@@ -43,35 +43,20 @@ class TouchMenu {
     }
 
     func addMenuItem(_ item: TouchMenuItem) {
-        touchItems[indexNow].append(item)
+       buffer.append(item)
     }
-    func flushTouches() -> Bool {
+}
+extension TouchMenu: BufferFlushDelegate {
 
-        let indexFlush = indexNow // flush what used to be nextBuffer
-        indexNow = indexNow ^ 1 // switch double buffer
-                                // there is new movement of finger
-        var isDone = false
-        let count = touchItems[indexFlush].count
-        if count > 0 {
-
-            for menuItem in touchItems[indexFlush] {
-
-                isDone = (menuItem.phase == UITouch.Phase.ended.rawValue ||
-                          menuItem.phase == UITouch.Phase.cancelled.rawValue)
-
-                if isRemote {
-
-                    touchVm.gotoMenuItem(menuItem) //???
-
-                } else {
-                    let nextXY = CGPoint(x: CGFloat(menuItem.nextX),
-                                         y: CGFloat(menuItem.nextY))
-
-                    touchVm.touchMenuUpdate(nextXY)
-                }
-            }
+    typealias Item = TouchMenuItem
+    func flushItem<Item>(_ item: Item) -> Bool {
+        let item = item as! TouchMenuItem
+        let isDone = item.isDone()
+        if isRemote {
+            touchVm.gotoMenuItem(item)
+        } else {
+            touchVm.touchMenuUpdate(item.nextXY)
         }
-        touchItems[indexFlush].removeAll()
         return isDone
     }
 }
