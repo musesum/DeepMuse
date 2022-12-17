@@ -113,7 +113,7 @@ extension TouchCanvas: BufferFlushDelegate {
 
 extension TouchCanvas {
 
-    static func beginTouch(_ touch: UITouch) -> Bool { //??? assignFingerCanvas
+    static func beginTouch(_ touch: UITouch) -> Bool {
         let touchCanvas = TouchCanvas(isRemote: false)
         let key = touch.hash
         canvasKey[key] = touchCanvas
@@ -128,7 +128,7 @@ extension TouchCanvas {
         }
         return false
     }
-    static func updateItem(_ item: TouchCanvasItem) {
+    static func remoteItem(_ item: TouchCanvasItem) {
         if let canvas = canvasKey[item.key] {
             canvas.buffer.append(item)
         } else {
@@ -138,7 +138,7 @@ extension TouchCanvas {
         }
     }
     static func addCanvasItem(_ item: TouchCanvasItem,
-                       isRemote: Bool) {
+                              isRemote: Bool) {
         let key = item.key
         if canvasKey[key] == nil {
             canvasKey[key] = TouchCanvas(isRemote: isRemote)

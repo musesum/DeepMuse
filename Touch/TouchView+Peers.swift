@@ -13,11 +13,11 @@ extension TouchView: PeersControllerDelegate {
 
         let decoder = JSONDecoder()
         if let item = try? decoder.decode(TouchCanvasItem.self, from: data) {
-            TouchCanvas.updateItem(item)
+            TouchCanvas.remoteItem(item)
             return
         }
         if let item = try? decoder.decode(TouchMenuItem.self, from: data) {
-            TouchMenu.updateItem(item)
+            TouchMenu.remoteItem(item)
             return
         }
     }

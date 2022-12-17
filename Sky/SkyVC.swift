@@ -8,8 +8,6 @@ import MuMenu
 class SkyVC: UIViewController {
 
     static var shared = SkyVC()
-    var tr3Root = SkyTr3.shared.root
-    //??? var touchDraw = TouchDraw(SkyTr3.shared.root)
     var peerData˚: Tr3?
 
     override func viewDidAppear(_ animated: Bool) {
@@ -19,6 +17,7 @@ class SkyVC: UIViewController {
         setNeedsUpdateOfHomeIndicatorAutoHidden()
         setupMenuView()
 
+        let tr3Root = SkyTr3.shared.root
         SkyMetal.shared.makeShader(for: tr3Root)
         let _ = SkyMain.shared
         // MuAudio.shared.test()
