@@ -103,20 +103,13 @@ public struct QuadXYR {
         let iterations = max(1, max(abs(p1.x - p2.x), abs(p1.y - p2.y)))
         let increment = 1.0 / iterations
 
-        // let pp0 = getXY(0)
-        // let rr0 = getR(0) * 3
-        // callback(pp0, rr0)
-        // print(String(format:"i:%.3f", increment), terminator: " ")
-        // increment = 0.005 //?
-
         // iterate between 0 and 1
         for z1: CGFloat in stride(from: 0, to: 1, by: increment) {
 
             let p = getXY(z1)
             let r = getR(z1)
 
-            SkyVC.shared.touchDraw.drawPoint(p, r)
-            //??? callback(p, r)
+            TouchDraw.shared.drawPoint(p, r)
         }
     }
 }

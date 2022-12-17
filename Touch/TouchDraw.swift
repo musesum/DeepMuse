@@ -5,6 +5,8 @@ import Tr3
 
 class TouchDraw {
 
+    static let shared = TouchDraw()
+
     private let brushTilt˚  : Tr3
     private let brushPress˚ : Tr3
     private let brushSize˚  : Tr3
@@ -33,8 +35,8 @@ class TouchDraw {
     private var texBuf: UnsafeMutablePointer<UInt32>?
     private var texSize = CGSize.zero
 
-    init(_ root: Tr3) {
-
+    init() {
+        let root = SkyTr3.shared.root
         let sky     = root  .bindPath("sky"    )
         let input   = sky   .bindPath("input"  )
         let draw    = sky   .bindPath("draw"   )
@@ -88,7 +90,7 @@ class TouchDraw {
                 let radius = Float(z.now/2 + 1)
                 let key = "drawDot".hash
                 let item = TouchCanvasItem(key, point, radius, radius, .zero, .began)
-                TouchView.shared.addCanvasItem(item, isRemote: false)
+                TouchCanvas.addCanvasItem(item, isRemote: false)
             }
         }
     }
@@ -149,7 +151,7 @@ class TouchDraw {
             return false
         }
         else {
-            TouchView.shared.flushTouchCanvas()
+            TouchCanvas.flushTouchCanvas()
             return false // didn't fill so don't duplicate 2nd texture
         }
     }

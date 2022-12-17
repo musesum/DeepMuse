@@ -1,6 +1,7 @@
 //  Created by warren on 12/11/22.
-import MuMenu // PeersController
-import MultipeerConnectivity
+
+import Foundation
+import MuMenu // TouchMenuItem
 
 extension TouchView: PeersControllerDelegate {
 
@@ -11,38 +12,13 @@ extension TouchView: PeersControllerDelegate {
                          viaStream: Bool) {
 
         let decoder = JSONDecoder()
-        if getTouchCanvasItem() { return }
-        if getTouchMenuItem() { return }
-
-        /// data is a point drawing on the canvas
-        func getTouchCanvasItem() -> Bool {
-            if let item = try? decoder.decode(TouchCanvasItem.self, from: data) {
-                if let canvas = canvasKey[item.key] {
-                    canvas.buffer.append(item)
-                } else {
-                    let canvas = TouchCanvas(isRemote: true)
-                    canvasKey[item.key] = canvas
-                    canvas.buffer.append(item)
-                }
-                return true
-            }
-            return false
+        if let item = try? decoder.decode(TouchCanvasItem.self, from: data) {
+            TouchCanvas.updateItem(item)
+            return
         }
-        /// data is a menu menu node selection
-        func getTouchMenuItem() -> Bool {
-            if let item = try? decoder.decode(TouchMenuItem.self, from: data) {
-                if let menu = menuKey[item.menuKey] {
-                    menu.addMenuItem(item)
-                } else {
-                    let menuVm = touchVms.first! //????
-                    let menu = TouchMenu(menuVm, isRemote: true)
-                    menuKey[item.menuKey] = menu
-                    menu.addMenuItem(item)
-                    _ = menu.buffer.flush()
-                }
-                return true
-            }
-            return false
+        if let item = try? decoder.decode(TouchMenuItem.self, from: data) {
+            TouchMenu.updateItem(item)
+            return
         }
     }
 

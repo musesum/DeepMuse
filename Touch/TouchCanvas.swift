@@ -19,15 +19,17 @@ class TouchCanvas {
     internal var indexNow = 0
     internal var isDone = false
     internal var filterForce = CGFloat(0) // Apple Pencil begins at 0.333; filter the blotch
-    
+
+    static var canvasKey = [Int: TouchCanvas]()
+
     private var isRemote: Bool
     
     init(isRemote: Bool) {
         self.isRemote = isRemote
         buffer.flusher = self
     }
-    func addTouchCanvasItem(_ key: Int,
-                            _ touch: UITouch) {
+    func addTouchItem(_ key: Int,
+                      _ touch: UITouch) {
         
         let force = touch.force
         let radius = touch.majorRadius
@@ -37,12 +39,15 @@ class TouchCanvas {
         let altitude = touch.altitudeAngle
         
         let item = makeTouchItem(key, force, radius, nextXY, phase, azimuth, altitude)
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(item)
-            PeersController.shared.sendMessage(data, viaStream: true)
-        } catch {
-            print(error)
+
+        if PeersController.shared.hasPeers {
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(item)
+                PeersController.shared.sendMessage(data, viaStream: true)
+            } catch {
+                print(error)
+            }
         }
     }
     
@@ -84,7 +89,7 @@ extension TouchCanvas: BufferFlushDelegate {
         let item = item as! TouchCanvasItem
         lastItem = item
 
-        let radius = SkyVC.shared.touchDraw.update(item)
+        let radius = TouchDraw.shared.update(item)
         let p = CGPoint(x: CGFloat(item.nextX), y: CGFloat(item.nextY))
         isDone = (item.phase == UITouch.Phase.ended    .rawValue ||
                   item.phase == UITouch.Phase.cancelled.rawValue )
@@ -92,7 +97,6 @@ extension TouchCanvas: BufferFlushDelegate {
         quadXYR.iterate12()
         return isDone
     }
-
 
     func flushTouches()  {
 
@@ -104,7 +108,59 @@ extension TouchCanvas: BufferFlushDelegate {
         } else {
             isDone = buffer.flush()
         }
+    }
+}
 
+extension TouchCanvas {
+
+    static func beginTouch(_ touch: UITouch) -> Bool { //??? assignFingerCanvas
+        let touchCanvas = TouchCanvas(isRemote: false)
+        let key = touch.hash
+        canvasKey[key] = touchCanvas
+        touchCanvas.addTouchItem(key, touch)
+        return true
+    }
+    static func updateTouch(_ touch: UITouch) -> Bool {
+        let key = touch.hash
+        if let touchCanvas = canvasKey[key] {
+            touchCanvas.addTouchItem(key, touch)
+            return true
+        }
+        return false
+    }
+    static func updateItem(_ item: TouchCanvasItem) {
+        if let canvas = canvasKey[item.key] {
+            canvas.buffer.append(item)
+        } else {
+            let canvas = TouchCanvas(isRemote: true)
+            canvasKey[item.key] = canvas
+            canvas.buffer.append(item)
+        }
+    }
+    static func addCanvasItem(_ item: TouchCanvasItem,
+                       isRemote: Bool) {
+        let key = item.key
+        if canvasKey[key] == nil {
+            canvasKey[key] = TouchCanvas(isRemote: isRemote)
+        }
+        canvasKey[key]?.buffer.append(item)
+    }
+    static func drawPoint(_ point: CGPoint, _ radius: CGFloat) {
+        for (key, canvas) in canvasKey {
+            canvas.flushTouches()
+            if canvas.isDone {
+                canvasKey.removeValue(forKey: key)
+            }
+        }
+    }
+    static func flushTouchCanvas() {
+
+        for (key, canvas) in canvasKey {
+            canvas.flushTouches()
+            if canvas.isDone {
+                canvasKey.removeValue(forKey: key)
+            }
+        }
     }
 
 }

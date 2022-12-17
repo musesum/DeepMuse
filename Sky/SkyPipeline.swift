@@ -167,7 +167,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
         if node == nil, let device = mtkView.device {
             switch type {
                 case "camera" : node = MtlKernelCamera  (name, device, drawSize, type, uiOrientation)
-                case "draw"   : node = MtlKernelDraw    (name, device, drawSize, type, SkyVC.shared.touchDraw.drawTexture)
+                case "draw"   : node = MtlKernelDraw    (name, device, drawSize, type, TouchDraw.shared.drawTexture)
                 case "compute": node = MtlKernelCompute (name, device, drawSize, type)
                 case "color"  : node = MtlKernelColor   (name, device, drawSize, type, skyColor.getMix)
                 case "camix"  : node = MtlKernelCamix   (name, device, drawSize, type, uiOrientation)

@@ -11,10 +11,10 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
     private var touchRepeat˚: Tr3?
     var touchRepeat = false /// repeat touch, even when not moving finger
 
-    var canvasKey = [Int: TouchCanvas]()
-    public var menuKey = [Int: TouchMenu]()
-    var timerKey = [Int: Timer]()
-    var touchVms = [MuTouchVm]()
+
+
+
+
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,38 +50,26 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
                 print("*** beginTouches unexpected non .began")
                 updateTouches(touches)
             }
-            let key = touch.hash
+            if TouchMenu.beginTouch(touch) {
 
-            if !assignFingerMenu(key, touch) {
-                assignFingerCanvas(key, touch)
+            } else if TouchCanvas.beginTouch(touch) {
+
             }
         }
     }
 
   
     /// Continue dispatching finger to canvas or menu
-    ///
     func updateTouches(_ touches: Set<UITouch>) {
 
         for touch in touches {
 
-            let key = touch.hash
+            if TouchCanvas.updateTouch(touch) {
 
-            if let touchCanvas = canvasKey[key] {
-                // continue on canvas
-                touchCanvas.addTouchCanvasItem(key, touch)
+            } else if TouchMenu.updateTouch(touch) {
 
-            }  else if let touchMenu = menuKey[key] {
-                // continue on menu
-                let nextXY = touch.preciseLocation(in: nil)
-                for touchVm in touchVms {
-                    if let (corner,nodeVm) = touchVm.hitTest(nextXY) {
-
-                        touchMenu.addTouchMenuItem(key, corner, nodeVm.node.hashPath, touch)
-                    }
-                }
             } else {
-                print("*** unknown touch \(key)")
+                print("*** unknown touch \(touch.hash)")
             }
         }
     }
