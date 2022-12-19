@@ -45,32 +45,18 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
     func beginTouches(_ touches: Set<UITouch>) {
 
         for touch in touches {
-
-            if touch.phase != .began {
-                print("*** beginTouches unexpected non .began")
-                updateTouches(touches)
-            }
-            if TouchMenu.beginTouch(touch) {
-
-            } else if TouchCanvas.beginTouch(touch) {
-
-            }
+            if      TouchMenu.beginTouch(touch) { }
+            else if TouchCanvas.beginTouch(touch) { }
         }
     }
 
-  
     /// Continue dispatching finger to canvas or menu
     func updateTouches(_ touches: Set<UITouch>) {
 
         for touch in touches {
-
-            if TouchCanvas.updateTouch(touch) {
-
-            } else if TouchMenu.updateTouch(touch) {
-
-            } else {
-                print("*** unknown touch \(touch.hash)")
-            }
+            if      TouchCanvas.updateTouch(touch) { }
+            else if TouchMenu.updateTouch(touch) { }
+            else { print("*** unknown touch \(touch.hash)") }
         }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { beginTouches(touches) }

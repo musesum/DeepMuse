@@ -1,10 +1,8 @@
 //  Created by warren on 2/5/19.
-//  Copyright © 2019 DeepMuse All rights reserved.
 
 import UIKit
 import MuMenu // PeersController
 import Tr3 // digits
-
 
 protocol FlushCanvasItemDelegate {
     func flushItem(_ item: TouchCanvasItem)
@@ -14,14 +12,13 @@ class TouchCanvas {
     
     let buffer = DoubleBuffer<TouchCanvasItem>()
     
-    var lastItem: TouchCanvasItem? // allow last touch to repeat until isDone
+    internal var lastItem: TouchCanvasItem? // repeat last touch until isDone
     internal var quadXYR = QuadXYR()
     internal var indexNow = 0
     internal var isDone = false
     internal var filterForce = CGFloat(0) // Apple Pencil begins at 0.333; filter the blotch
 
     static var canvasKey = [Int: TouchCanvas]()
-
     private var isRemote: Bool
     
     init(isRemote: Bool) {

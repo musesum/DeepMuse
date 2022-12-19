@@ -21,7 +21,7 @@ class TouchMenu {
         buffer.flusher = self
     }
 
-    public static func beginTouch(_ touch: UITouch) -> Bool {
+    static func beginTouch(_ touch: UITouch) -> Bool {
 
         let nextXY = touch.preciseLocation(in: nil)
 
@@ -30,21 +30,26 @@ class TouchMenu {
 
                 let touchMenu = TouchMenu(touchVm, isRemote: false)
                 touchMenu.addItem(corner, nodeVm, touch)
-
                 let key = touch.hash
                 menuKey[key] = touchMenu
-                timerKey[key] = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
-                    let isDone = touchMenu.buffer.flush()
-                    if isDone {
-                        timer.invalidate()
-                        self.timerKey.removeValue(forKey: key)
-                        self.menuKey.removeValue(forKey: key)
-                    }
-                }
+                bufferLoop(key, touchMenu)
                 return true
             }
         }
         return false
+    }
+
+    static func bufferLoop(_ key: Int,
+                           _ touchMenu: TouchMenu) {
+
+        timerKey[key] = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+            let isDone = touchMenu.buffer.flush()
+            if isDone {
+                timer.invalidate()
+                self.timerKey.removeValue(forKey: key)
+                self.menuKey.removeValue(forKey: key)
+            }
+        }
     }
 
     static func updateTouch(_ touch: UITouch) -> Bool {
@@ -61,27 +66,21 @@ class TouchMenu {
         return false
     }
 
+    // MARK: - instances
     func addItem(_ corner: MuCorner,
                  _ nodeVm: MuNodeVm,
                  _ touch: UITouch) {
 
-        let key = touch.hash
+        let menuKey = touch.hash
         let hashPath = nodeVm.node.hashPath
         let cornerStr = corner.abbreviation()
 
         let isDone = touch.phase == .ended || touch.phase == .cancelled
         let nextXY = isDone ? .zero : touch.location(in: nil)
-        let item = TouchMenuItem(key, cornerStr, hashPath, nextXY, touch.phase)
+        let nodeType = nodeVm.nodeType
+        let item = TouchMenuItem(menuKey, cornerStr, nodeType, hashPath, nextXY, touch.phase)
 
         buffer.append(item)
-
-        do {
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(item)
-            PeersController.shared.sendMessage(data, viaStream: true)
-        } catch {
-            print(error)
-        }
     }
 }
 extension TouchMenu: BufferFlushDelegate {
@@ -94,7 +93,8 @@ extension TouchMenu: BufferFlushDelegate {
         if isRemote {
             touchVm.gotoMenuItem(item)
         } else {
-            touchVm.touchMenuUpdate(item.nextXY)
+            let nextXY = isDone ? .zero : item.nextXY
+            touchVm.updateTouchXY(nextXY)
         }
         return isDone
     }
@@ -102,15 +102,16 @@ extension TouchMenu: BufferFlushDelegate {
 extension TouchMenu {
 
     static func remoteItem(_ item: TouchMenuItem) {
-
         if let menu = menuKey[item.menuKey] {
             menu.buffer.append(item)
-        } else {
-            let touchVm = touchVms.first! //????
-            let menu = TouchMenu(touchVm, isRemote: true)
-            menuKey[item.menuKey] = menu
-            menu.buffer.append(item)
-            _ = menu.buffer.flush()
+
+        } else if let touchVm = touchVms.first {
+            //TODO: test all touchVms matching corner?
+
+            let touchMenu = TouchMenu(touchVm, isRemote: true)
+            menuKey[item.menuKey] = touchMenu
+            touchMenu.buffer.append(item)
+            TouchMenu.bufferLoop(item.menuKey, touchMenu)
         }
     }
 }
