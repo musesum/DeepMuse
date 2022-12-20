@@ -4,12 +4,11 @@ import UIKit
 import MuMenu // PeersController
 import Tr3 // digits
 
-protocol FlushCanvasItemDelegate {
-    func flushItem(_ item: TouchCanvasItem)
-}
-
 class TouchCanvas {
-    
+
+    private var touchRepeat˚: Tr3?
+    var touchRepeat = false /// repeat touch, even when not moving finger
+
     let buffer = DoubleBuffer<TouchCanvasItem>()
     
     internal var lastItem: TouchCanvasItem? // repeat last touch until isDone
@@ -24,6 +23,13 @@ class TouchCanvas {
     init(isRemote: Bool) {
         self.isRemote = isRemote
         buffer.flusher = self
+
+        touchRepeat˚ = SkyTr3.shared.root.bindPath("shader.model.pipe.draw") { tr3, _ in
+            if let p = tr3.CGPointVal() {
+                self.touchRepeat = (abs(p.x - 0.5) > 0.001 ||
+                                    abs(p.y - 0.5) > 0.001)
+            }
+        }
     }
     func addTouchItem(_ key: Int,
                       _ touch: UITouch) {
@@ -98,7 +104,7 @@ extension TouchCanvas: BufferFlushDelegate {
     func flushTouches()  {
 
         if buffer.isEmpty,
-            TouchView.shared.touchRepeat,
+            touchRepeat,
             let lastItem {
             // finger is stationary repeat last movement
             _ = flushItem(lastItem)

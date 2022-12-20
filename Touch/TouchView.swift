@@ -8,14 +8,6 @@ import MultipeerConnectivity
 class TouchView: UIView, UIGestureRecognizerDelegate {
     static let shared = TouchView()
 
-    private var touchRepeat˚: Tr3?
-    var touchRepeat = false /// repeat touch, even when not moving finger
-
-
-
-
-
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -28,13 +20,6 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
         frame = CGRect(x: 0, y: 0, width: w, height: h)
         isMultipleTouchEnabled = true
         PeersController.shared.peersDelegates.append(self)
-        
-        touchRepeat˚ = SkyTr3.shared.root.bindPath("shader.model.pipe.draw") { tr3, _ in
-            if let p = tr3.CGPointVal() {
-                self.touchRepeat = (abs(p.x - 0.5) > 0.001 ||
-                                    abs(p.y - 0.5) > 0.001)
-            }
-        }
     }
     deinit {
         PeersController.shared.remove(peersDelegate: self)
