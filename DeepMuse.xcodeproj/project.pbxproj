@@ -135,7 +135,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8026177B2952E78100714172 /* Par */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Par; path = ../Packages/Par; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
+		80275A7F2952C169002BCD6A /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Packages/Tr3; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		8061DE0A2938A8780098F309 /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyView.swift; sourceTree = "<group>"; };
 		8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyVms.swift; sourceTree = "<group>"; };
@@ -297,6 +299,8 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				8026177B2952E78100714172 /* Par */,
+				80275A7F2952C169002BCD6A /* Tr3 */,
 				80B12F0429502A1700C7E336 /* MuSkyTr3 */,
 				80B12F0329502A1100C7E336 /* MuMenuSky */,
 				80B12EFE294AC89500C7E336 /* MuMenu */,

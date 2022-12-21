@@ -91,7 +91,7 @@ extension TouchMenu: BufferFlushDelegate {
         let item = item as! TouchMenuItem
         let isDone = item.isDone()
         if isRemote {
-            touchVm.gotoMenuItem(item)
+            touchVm.gotoRemoteItem(item)
         } else {
             let nextXY = isDone ? .zero : item.nextXY
             touchVm.updateTouchXY(nextXY)
