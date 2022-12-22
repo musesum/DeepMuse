@@ -2,6 +2,7 @@
 import QuartzCore
 import UIKit
 import Tr3
+import Par // Visitor
 
 class TouchDraw {
 
@@ -100,7 +101,7 @@ class TouchDraw {
         // if using Apple Pencil and brush tilt is turned on
         if item.force > 0, brushTilt {
             let azi = CGPoint(x: CGFloat(-item.azimY), y: CGFloat(-item.azimX))
-            inAzimuth˚.setAny(azi, [.activate]) // will update local azimuth via Tr3Graph
+            inAzimuth˚.setAny(azi, [.activate], Visitor()) // will update local azimuth via Tr3Graph
           //PrintGesture("azimuth dXY(%.2f,%.2f)", item.azimuth.dx, item.azimuth.dy)
         }
         
@@ -108,10 +109,10 @@ class TouchDraw {
         var radiusNow = CGFloat(1)
         if brushPress  {
             if inForce > 0 || item.azimX != 0.0 {
-                inForce˚.setAny(item.force, [.activate]) // will update local azimuth via Tr3Graph
+                inForce˚.setAny(item.force, [.activate], Visitor()) // will update local azimuth via Tr3Graph
                 radiusNow = brushSize
             } else {
-                inRadius˚.setAny(item.radius, [.activate])
+                inRadius˚.setAny(item.radius, [.activate], Visitor())
                 radiusNow = inRadius
             }
         }

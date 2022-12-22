@@ -10,6 +10,7 @@ import Foundation
 import AudioKit
 import AVFoundation
 import Tr3
+import Par
 
 class MidiTr3 {
 
@@ -73,7 +74,7 @@ class MidiTr3 {
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
 
-        noteOnIn˚.setAny(exprs, setOptions)
+        noteOnIn˚.setAny(exprs, setOptions, Visitor())
     }
 
     func noteOffIn(_ num: MIDINoteNumber,
@@ -89,7 +90,7 @@ class MidiTr3 {
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
 
-        noteOffIn˚.setAny(exprs, setOptions)
+        noteOffIn˚.setAny(exprs, setOptions, Visitor())
     }
 
     func controllerIn(_ cc: MIDIByte,
@@ -122,7 +123,7 @@ class MidiTr3 {
                                      nrpnNumMsb, nrpnNumLsb, nrpnValMsb, nrpnValLsb)
                     MidiLog.print(icon,seq)
 
-                    nrpnIn˚.setAny(exprs, setOptions)
+                    nrpnIn˚.setAny(exprs, setOptions, Visitor())
                     return
                 }
             default: break //clearNrpn()
@@ -135,7 +136,7 @@ class MidiTr3 {
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
 
-        controllerIn˚.setAny(exprs, setOptions)
+        controllerIn˚.setAny(exprs, setOptions, Visitor())
     }
 
     func settingNrpn() -> Bool {
@@ -166,7 +167,7 @@ class MidiTr3 {
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
 
-        afterTouchIn˚.setAny(exprs, setOptions)
+        afterTouchIn˚.setAny(exprs, setOptions, Visitor())
     }
 
     func aftertouchIn(_ val: MIDIByte,
@@ -180,7 +181,7 @@ class MidiTr3 {
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
 
-        afterTouchIn˚.setAny(exprs, setOptions)
+        afterTouchIn˚.setAny(exprs, setOptions, Visitor())
     }
 
     func pitchWheelIn(_ val : MIDIWord,
@@ -194,7 +195,7 @@ class MidiTr3 {
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
 
-        pitchBendIn˚.setAny(exprs, setOptions)
+        pitchBendIn˚.setAny(exprs, setOptions, Visitor())
     }
 
     func programChangeIn(_ num : MIDIByte,
@@ -207,6 +208,6 @@ class MidiTr3 {
             ("chan", Double(chan)),
             ("port", Double(port ?? 0)),
             ("time", Double(time ?? 0))])
-        programChangeIn˚.setAny(exprs, setOptions)
+        programChangeIn˚.setAny(exprs, setOptions, Visitor())
     }
 }
