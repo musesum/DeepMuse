@@ -46,7 +46,6 @@
 		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
 		80951DA823A1AA2700FB9DFA /* SkyPipeline+update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */; };
-		8096E08D28A190AB00EE2967 /* Tr3 in Frameworks */ = {isa = PBXBuildFile; productRef = 8096E08C28A190AB00EE2967 /* Tr3 */; };
 		80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80B70CC32576ACDE007BAAA8 /* AudioKit */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
@@ -137,7 +136,6 @@
 /* Begin PBXFileReference section */
 		8026177B2952E78100714172 /* Par */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Par; path = ../Packages/Par; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
-		80275A7F2952C169002BCD6A /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Packages/Tr3; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		8061DE0A2938A8780098F309 /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyView.swift; sourceTree = "<group>"; };
 		8061DE0C2938A8A50098F309 /* MenuSkyVms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyVms.swift; sourceTree = "<group>"; };
@@ -190,6 +188,7 @@
 		80B12EFE294AC89500C7E336 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
 		80B12F0329502A1100C7E336 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
 		80B12F0429502A1700C7E336 /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../Packages/MuSkyTr3; sourceTree = "<group>"; };
+		80B752B9295988A3008CBD08 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Packages/Tr3; sourceTree = "<group>"; };
 		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
 		80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiTr3.swift; sourceTree = "<group>"; };
 		80D5EA8E2914DE7500C619BE /* MidiLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiLog.swift; sourceTree = "<group>"; };
@@ -257,7 +256,6 @@
 				808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */,
 				80B70CC42576ACDE007BAAA8 /* AudioKit in Frameworks */,
 				8017909528A219FF0013F48A /* MuMenuSky in Frameworks */,
-				8096E08D28A190AB00EE2967 /* Tr3 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,10 +298,10 @@
 			isa = PBXGroup;
 			children = (
 				8026177B2952E78100714172 /* Par */,
-				80275A7F2952C169002BCD6A /* Tr3 */,
 				80B12F0429502A1700C7E336 /* MuSkyTr3 */,
 				80B12F0329502A1100C7E336 /* MuMenuSky */,
 				80B12EFE294AC89500C7E336 /* MuMenu */,
+				80B752B9295988A3008CBD08 /* Tr3 */,
 				807048E923378A090001617D /* App */,
 				80E95AFF29168323003F6360 /* Mu */,
 				8097DC472833E2A300059A59 /* Sky */,
@@ -566,7 +564,6 @@
 				80B70CC32576ACDE007BAAA8 /* AudioKit */,
 				802C5BCF265AEC6000DBFFEA /* Par */,
 				80BDD7C928919CF000C6E2BF /* MuMenu */,
-				8096E08C28A190AB00EE2967 /* Tr3 */,
 				8017909428A219FF0013F48A /* MuMenuSky */,
 			);
 			productName = MuseSky;
@@ -647,7 +644,6 @@
 				8062A7C025168FB300E61D38 /* XCRemoteSwiftPackageReference "AudioKit" */,
 				802C5BCE265AEC6000DBFFEA /* XCRemoteSwiftPackageReference "Par" */,
 				80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */,
-				8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */,
 				8017909328A219FF0013F48A /* XCRemoteSwiftPackageReference "MuMenuSky" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -1153,14 +1149,6 @@
 				minimumVersion = 0.9.9;
 			};
 		};
-		8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/musesum/Tr3";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.9;
-			};
-		};
 		80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuMenu";
@@ -1191,11 +1179,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 808E90DA2338B4D0004EB9C9 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
-		};
-		8096E08C28A190AB00EE2967 /* Tr3 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8096E08B28A190AB00EE2967 /* XCRemoteSwiftPackageReference "Tr3" */;
-			productName = Tr3;
 		};
 		80B70CC32576ACDE007BAAA8 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
