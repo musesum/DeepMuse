@@ -49,9 +49,8 @@ class TouchMenu {
             if touchMenu.nodeVm?.nodeType.isLeaf ?? false {
                 touchMenu.addLocalItem(touchMenu.nodeVm, touch)
             } else {
-                if let nodeVm = touchMenu.touchVm.hitTest(nextXY) {
-                    touchMenu.addLocalItem(nodeVm, touch)
-                }
+                 let nodeVm = touchMenu.touchVm.hitTest(nextXY)
+                 touchMenu.addLocalItem(nodeVm, touch)
             }
             return true
         }
@@ -75,8 +74,7 @@ class TouchMenu {
 
         let menuKey = touch.hash
         let cornerStr = touchVm.corner?.abbreviation() ?? "??"
-        let isDone = touch.phase == .ended || touch.phase == .cancelled
-        let nextXY = isDone ? .zero : touch.location(in: nil)
+        let nextXY = touch.location(in: nil)
         let nodeType = nodeVm?.nodeType ?? .none
         let item = TouchMenuItem(menuKey, cornerStr, nodeType, [], 0, nextXY, touch.phase)
 
@@ -94,8 +92,7 @@ extension TouchMenu: BufferFlushDelegate {
         if isRemote {
             touchVm.gotoRemoteItem(item)
         } else {
-            let nextXY = isDone ? .zero : item.nextXY
-            touchVm.updateTouchXY(nextXY)
+            touchVm.updateTouchXY(item.nextXY, item.phase)
         }
         return isDone
     }
