@@ -13,10 +13,10 @@ class TouchMenu {
     private let isRemote: Bool
     private let nodeVm: MuNodeVm?
 
-
     init(_ touchVm: MuTouchVm,
          _ nodeVm: MuNodeVm?,
          isRemote: Bool) {
+
         self.touchVm = touchVm
         self.nodeVm = nodeVm
         self.isRemote = isRemote
@@ -72,11 +72,22 @@ class TouchMenu {
     func addLocalItem(_ nodeVm: MuNodeVm?,
                       _ touch: UITouch) {
 
-        let menuKey = touch.hash
-        let cornerStr = touchVm.corner?.abbreviation() ?? "??"
-        let nextXY = touch.location(in: nil)
-        let nodeType = nodeVm?.nodeType ?? .none
-        let item = TouchMenuItem(menuKey, cornerStr, nodeType, [], 0, nextXY, touch.phase)
+        let nextXY: [Double]
+        if touch.phase.isDone()  {
+            nextXY = [0,0]
+        } else {
+            let xy = touch.location(in: nil)
+            nextXY = [Double(xy.x), Double(xy.y)]
+        }
+
+        let item = TouchMenuItem(
+            menuKey   : touch.hash,
+            cornerStr : touchVm.corner?.str() ?? "??",
+            nodeType  : nodeVm?.nodeType ?? .none,
+            treePath  : [],
+            treeNow   : 0,
+            thumb     : nextXY,
+            phase     : touch.phase)
 
         buffer.append(item)
     }
@@ -103,17 +114,14 @@ extension TouchMenu {
     static func remoteItem(_ item: TouchMenuItem) {
         if let menu = menuKey[item.menuKey] {
             menu.buffer.append(item)
-
+            return
         } else {
             for touchVm in touchVms {
-                if touchVm.corner?.abbreviation() == item.cornerStr {
+                if touchVm.corner?.str() == item.cornerStr {
                     addRemoteTouch(touchVm)
                     return
                 }
             }
-        }
-        if let touchVm = touchVms.first {
-            addRemoteTouch(touchVm)
         }
         func addRemoteTouch(_ touchVm: MuTouchVm) {
             let touchMenu = TouchMenu(touchVm, nil, isRemote: true)

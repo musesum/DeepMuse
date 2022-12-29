@@ -7,6 +7,7 @@
 //
 
 import MuMenuSky
+import MuMenu
 import Tr3
 
 struct MenuSkyVms {
@@ -19,7 +20,8 @@ struct MenuSkyVms {
 
     init() {
         rootTr3 = SkyTr3.shared.root
-        leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootTr3)
-        rightVm = MenuSkyVm([.lower, .right], .vertical, rootTr3)
+        let rootNode = MuTr3Node(rootTr3)
+        leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootNode)
+        rightVm = MenuSkyVm([.lower, .right], .vertical, rootNode)
     }
 }
