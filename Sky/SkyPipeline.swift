@@ -278,14 +278,12 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
     /// Called whenever the view needs to render a frame
     public func draw(in inView: MTKView) {
 
-        // PrintMetalRenderer("-");
-
         if nodeNamed.isEmpty { return } // nothing to draw yet
 
         settingup = false // done setting up
 
         if inView.currentRenderPassDescriptor == nil {
-            print("🚫 SkyPipeline currentRenderPassDescriptor == nil ")
+            print("⁉️ SkyPipeline currentRenderPassDescriptor == nil ")
             return
         }
 
@@ -295,7 +293,7 @@ public class SkyPipeline: NSObject, MTKViewDelegate {
             firstNode.goCommand(command)
         }
         else {
-            print("🚫 SkyPipeline could not get either mtlCommand, makeCommandBuffer, or firstNode")
+            print("⁉️ SkyPipeline could not get either mtlCommand, makeCommandBuffer, or firstNode")
         }
     }
 
