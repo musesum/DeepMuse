@@ -84,8 +84,9 @@ class TouchMenu {
             menuKey   : touch.hash,
             cornerStr : touchVm.corner?.str() ?? "??",
             nodeType  : nodeVm?.nodeType ?? .none,
-            treePath  : [],
-            treeNow   : 0,
+            hashPath  : [],// ignored
+            hashNow   : 0, // ignored
+            startIndex: 0, // ignored
             thumb     : nextXY,
             phase     : touch.phase)
 
