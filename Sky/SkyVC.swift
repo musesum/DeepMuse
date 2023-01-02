@@ -24,7 +24,7 @@ class SkyVC: UIViewController {
         MuMidi.shared.test(root: tr3Root)
 
         setupMultiPeerSession()
-        peerData˚ = SkyTr3.shared.root.bindPath("sky.main.peer.data") { t, _ in
+        peerData˚ = SkyTr3.shared.root.bindPath("sky.network.data") { t, _ in
             #if false
             if PeersVm.shared.peersList != "" {
                 if let val = t.val,
