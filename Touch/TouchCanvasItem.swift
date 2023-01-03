@@ -54,5 +54,9 @@ struct TouchCanvasItem: Codable {
         print(String(format:"%.3f →(%3.f,%3.f) 𝝙%5.1f f: %.3f r: %.2f",
                      time, nextX, nextY, force, radius))
     }
+    func isDone() -> Bool {
+        return (phase == UITouch.Phase.ended    .rawValue ||
+                phase == UITouch.Phase.cancelled.rawValue )
+    }
 }
 

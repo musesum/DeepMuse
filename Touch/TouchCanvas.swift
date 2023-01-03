@@ -9,7 +9,7 @@ class TouchCanvas {
     private var touchRepeat˚: Tr3?
     var touchRepeat = false /// repeat touch, even when not moving finger
 
-    let buffer = DoubleBuffer<TouchCanvasItem>()
+    let buffer = DoubleBuffer<TouchCanvasItem>(internalLoop: false)
     
     internal var lastItem: TouchCanvasItem? // repeat last touch until isDone
     internal var quadXYR = QuadXYR()
@@ -94,8 +94,7 @@ extension TouchCanvas: BufferFlushDelegate {
 
         let radius = TouchDraw.shared.update(item)
         let p = CGPoint(x: CGFloat(item.nextX), y: CGFloat(item.nextY))
-        isDone = (item.phase == UITouch.Phase.ended    .rawValue ||
-                  item.phase == UITouch.Phase.cancelled.rawValue )
+        isDone = item.isDone()
         quadXYR.addXYR(p, radius, isDone)
         quadXYR.iterate12()
         return isDone

@@ -71,7 +71,6 @@ class SkyTr3: NSObject {
         func mergeUserDocumentChanges() {
             for (name, date) in documentNameDates {
                 if date > snapDate {
-                    //TODO: will this merge? //???
                     _ = MuMenuSky.mergeTr3(root, name)
                 }
             }

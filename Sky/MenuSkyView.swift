@@ -1,10 +1,4 @@
-//
-//  MenuSkyView.swift
-//  MuseSky2
-//
 //  Created by warren on 12/1/22.
-//  Copyright © 2022 Muse. All rights reserved.
-//
 
 import SwiftUI
 import MuMenu
