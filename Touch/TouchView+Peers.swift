@@ -16,8 +16,8 @@ extension TouchView: PeersControllerDelegate {
             TouchCanvas.remoteItem(item)
             return
         }
-        if let item = try? decoder.decode(TouchMenuItem.self, from: data) {
-            TouchMenu.remoteItem(item)
+        if let item = try? decoder.decode(MenuRemoteItem.self, from: data) {
+            TouchMenuRemote.remoteItem(item)
             return
         }
     }

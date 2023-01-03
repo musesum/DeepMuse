@@ -50,6 +50,7 @@
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
 		80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EC23378A090001617D /* SceneDelegate.swift */; };
+		80C3D8F82964104A00EBB0A3 /* TouchMenuLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C3D8F72964104A00EBB0A3 /* TouchMenuLocal.swift */; };
 		80D5EA8B2914DDE800C619BE /* MuMidiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */; };
 		80D5EA8D2914DE1F00C619BE /* MidiTr3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */; };
 		80D5EA8F2914DE7500C619BE /* MidiLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8E2914DE7500C619BE /* MidiLog.swift */; };
@@ -99,7 +100,7 @@
 		80E95B0A29168540003F6360 /* FileManager+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E95B052916837C003F6360 /* FileManager+extension.swift */; };
 		80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1338128D52B560066B7D8 /* MuMidi.swift */; };
 		80F846E1234D016A009022F7 /* cell.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80F846E0234D016A009022F7 /* cell.camera.metal */; };
-		80FEC39328E2003000E07437 /* TouchMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39228E2003000E07437 /* TouchMenu.swift */; };
+		80FEC39328E2003000E07437 /* TouchMenuRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39228E2003000E07437 /* TouchMenuRemote.swift */; };
 		80FEC39728E2011B00E07437 /* TextureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FEC39628E2011B00E07437 /* TextureData.swift */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +190,7 @@
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
+		80C3D8F72964104A00EBB0A3 /* TouchMenuLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenuLocal.swift; sourceTree = "<group>"; };
 		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
 		80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiTr3.swift; sourceTree = "<group>"; };
 		80D5EA8E2914DE7500C619BE /* MidiLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiLog.swift; sourceTree = "<group>"; };
@@ -239,7 +241,7 @@
 		80E95B052916837C003F6360 /* FileManager+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+extension.swift"; sourceTree = "<group>"; };
 		80F1338128D52B560066B7D8 /* MuMidi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuMidi.swift; sourceTree = "<group>"; };
 		80F846E0234D016A009022F7 /* cell.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.camera.metal; sourceTree = "<group>"; };
-		80FEC39228E2003000E07437 /* TouchMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenu.swift; sourceTree = "<group>"; };
+		80FEC39228E2003000E07437 /* TouchMenuRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMenuRemote.swift; sourceTree = "<group>"; };
 		80FEC39628E2011B00E07437 /* TextureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -387,7 +389,8 @@
 				8068B7E92945C38400D15584 /* TouchViewRepresentable.swift */,
 				8068B7EB2945D1B200D15584 /* TouchView+Peers.swift */,
 				8070496D23378ADB0001617D /* TouchCanvas.swift */,
-				80FEC39228E2003000E07437 /* TouchMenu.swift */,
+				80FEC39228E2003000E07437 /* TouchMenuRemote.swift */,
+				80C3D8F72964104A00EBB0A3 /* TouchMenuLocal.swift */,
 				8070496F23378ADB0001617D /* TouchCanvasItem.swift */,
 				8070497023378ADB0001617D /* TouchDraw.swift */,
 			);
@@ -694,7 +697,7 @@
 				80E95AF229167D51003F6360 /* MuBezel.swift in Sources */,
 				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
 				80E95AB829167CC7003F6360 /* CubicPoly.swift in Sources */,
-				80FEC39328E2003000E07437 /* TouchMenu.swift in Sources */,
+				80FEC39328E2003000E07437 /* TouchMenuRemote.swift in Sources */,
 				80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */,
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
 				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
@@ -750,6 +753,7 @@
 				807049FD23378ADC0001617D /* TouchCanvasItem.swift in Sources */,
 				80E95AB929167CC7003F6360 /* CubicQuad.swift in Sources */,
 				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,
+				80C3D8F82964104A00EBB0A3 /* TouchMenuLocal.swift in Sources */,
 				80E95B092916853C003F6360 /* MuFile-extras.swift in Sources */,
 				80E95ADD29167D3D003F6360 /* MtlKernelCompute.swift in Sources */,
 				80E95AD029167D3D003F6360 /* MtlKernelRender.swift in Sources */,

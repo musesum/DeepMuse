@@ -30,7 +30,7 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
     func beginTouches(_ touches: Set<UITouch>) {
 
         for touch in touches {
-            if      TouchMenu.beginTouch(touch) { }
+            if      TouchMenuLocal.beginTouch(touch) { }
             else if TouchCanvas.beginTouch(touch) { }
         }
     }
@@ -40,7 +40,7 @@ class TouchView: UIView, UIGestureRecognizerDelegate {
 
         for touch in touches {
             if      TouchCanvas.updateTouch(touch) { }
-            else if TouchMenu.updateTouch(touch) { }
+            else if TouchMenuLocal.updateTouch(touch) { }
             else { print("*** unknown touch \(touch.hash)") }
         }
     }

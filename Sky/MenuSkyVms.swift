@@ -14,14 +14,14 @@ struct MenuSkyVms {
 
     static let shared = MenuSkyVms()
 
-    let rootTr3: Tr3
-    let leftVm:  MenuSkyVm
-    let rightVm: MenuSkyVm
+    let rootTr3 = SkyTr3.shared.root
+    var skyVms = [MenuSkyVm]()
 
     init() {
-        rootTr3 = SkyTr3.shared.root
         let rootNode = MuTr3Node(rootTr3)
-        leftVm  = MenuSkyVm([.lower, .left],  .vertical, rootNode)
-        rightVm = MenuSkyVm([.lower, .right], .vertical, rootNode)
+        let skyVm = MenuSkyVm([.lower, .left],
+                              [(rootNode, .vertical),
+                               (rootNode, .horizontal)])
+        skyVms.append(skyVm)
     }
 }

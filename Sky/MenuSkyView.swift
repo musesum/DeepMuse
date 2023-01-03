@@ -11,16 +11,17 @@ import MuMenu
 
 struct MenuSkyView: View {
 
+    var skyVms = MenuSkyVms.shared.skyVms
+    var touchVms: [MuTouchVm] { skyVms.map { $0.rootVm.touchVm } }
+
     var body: some View {
 
         ZStack(alignment: .bottomLeading) {
 
-            // add touch handler
-            TouchViewRepresentable([MenuSkyVms.shared.leftVm.rootVm.touchVm,
-                                    MenuSkyVms.shared.rightVm.rootVm.touchVm])
-            // Menus via UITouch (not SwiftUI's DragGesture)
-            MenuTouchView(menuVm: MenuSkyVms.shared.leftVm)
-            MenuTouchView(menuVm: MenuSkyVms.shared.rightVm)
+            TouchViewRepresentable(touchVms)
+            ForEach(skyVms, id:  \.self) { skyVm in
+                MenuTouchView(menuVm: skyVm)
+            }
         }
         .statusBar(hidden: true)
     }
