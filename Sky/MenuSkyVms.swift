@@ -14,9 +14,25 @@ struct MenuSkyVms {
 
     init() {
         let rootNode = MuTr3Node(rootTr3)
-        let skyVm = MenuSkyVm([.lower, .left],
-                              [(rootNode, .vertical),
-                               (rootNode, .horizontal)])
-        skyVms.append(skyVm)
+
+        skyVms.append(MenuSkyVm(
+            [.lower, .left],
+            [(rootNode, .vertical),
+             (rootNode, .horizontal)]))
+
+        skyVms.append(MenuSkyVm(
+            [.lower, .right],
+            [(rootNode, .vertical),
+             (rootNode, .horizontal)]))
+
+        skyVms.append(MenuSkyVm(
+            [.upper, .left],
+            [(rootNode, .vertical),
+             (rootNode, .horizontal)]))
+
+        skyVms.append(MenuSkyVm(
+            [.upper, .right],
+            [(rootNode, .vertical),
+             (rootNode, .horizontal)]))
     }
 }

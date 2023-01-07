@@ -32,7 +32,7 @@ class TouchMenuLocal {
 
                 let touchMenu = TouchMenuLocal(touchVm, nodeVm, isRemote: false)
                 let menuLocalItem = MenuLocalItem(touch)
-                touchMenu.buffer.append(menuLocalItem) //??? touchMenu.addLocalItem(nodeVm, touch)
+                touchMenu.buffer.append(menuLocalItem) 
                 let key = touch.hash
                 menuKey[key] = touchMenu
                 bufferLoop(key, touchMenu)

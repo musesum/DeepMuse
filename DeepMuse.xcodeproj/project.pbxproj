@@ -133,11 +133,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		80140EDA295C0323004F8FA0 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Packages/Tr3; sourceTree = "<group>"; };
-		80140EDB295C0323004F8FA0 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
-		80140EDC295C0323004F8FA0 /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../Packages/MuSkyTr3; sourceTree = "<group>"; };
-		80140EDD295C0323004F8FA0 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
-		80140EDE295C0323004F8FA0 /* Par */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Par; path = ../Packages/Par; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		8061DE0A2938A8780098F309 /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSkyView.swift; sourceTree = "<group>"; };
@@ -188,6 +183,11 @@
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
 		80951DA723A1AA2700FB9DFA /* SkyPipeline+update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+update.swift"; sourceTree = "<group>"; };
+		80C643322965026000A7FAF9 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
+		80C643332965026800A7FAF9 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
+		80C643342965026B00A7FAF9 /* MuSkyTr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyTr3; path = ../Packages/MuSkyTr3; sourceTree = "<group>"; };
+		80C643352965026E00A7FAF9 /* Tr3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tr3; path = ../Packages/Tr3; sourceTree = "<group>"; };
+		80C643362965027000A7FAF9 /* Par */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Par; path = ../Packages/Par; sourceTree = "<group>"; };
 		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
 		80D5EA8C2914DE1F00C619BE /* MidiTr3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiTr3.swift; sourceTree = "<group>"; };
 		80D5EA8E2914DE7500C619BE /* MidiLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiLog.swift; sourceTree = "<group>"; };
@@ -295,11 +295,11 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				80140EDB295C0323004F8FA0 /* MuMenu */,
-				80140EDD295C0323004F8FA0 /* MuMenuSky */,
-				80140EDC295C0323004F8FA0 /* MuSkyTr3 */,
-				80140EDE295C0323004F8FA0 /* Par */,
-				80140EDA295C0323004F8FA0 /* Tr3 */,
+				80C643362965027000A7FAF9 /* Par */,
+				80C643352965026E00A7FAF9 /* Tr3 */,
+				80C643342965026B00A7FAF9 /* MuSkyTr3 */,
+				80C643332965026800A7FAF9 /* MuMenuSky */,
+				80C643322965026000A7FAF9 /* MuMenu */,
 				807048E923378A090001617D /* App */,
 				80E95AFF29168323003F6360 /* Mu */,
 				8097DC472833E2A300059A59 /* Sky */,
