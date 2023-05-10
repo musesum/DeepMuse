@@ -1,0 +1,84 @@
+Today
+    MuRoot/MuTree hide Branches
+
+Tomorrow
+    iPad pencil start / double tap
+    long hold leaf lag
+    Leaf hide branches while editing
+    
+NextDay
+    touch position on repeat/mirror
+    icon in root
+
+File
+    store running state
+    save zip .sky register extension
+
+MuMenu
+    Touch
+        touch long press lift no change
+        long press mark default menu item
+    branch
+
+        Scrunch branch nodes in landscape
+        vstack, hstack, combine branches
+        vx, vy, hx, hy, vxy -> xy
+    node
+        tog without child
+    home
+        leaf icon in retracted home
+    leaf
+        ipad pencel vxy center
+        emboss thumb with icon
+    sync devices
+        find old implementation
+        Bonjour connect devices
+        Flo.path -> Dispatch dictionary
+Sky
+    copy/paste bitplane
+    Manually shift screen
+    camera merge real+fake
+    Autorotate resize/rotate canvas
+    sync devices
+    resize texture
+    learn mode
+Metal
+    cube map
+App Store
+
+Flo
+    bug
+        automerge duplicates
+    featuers
+        get a(b 1) as find("a.b")
+        a.*.{ decorate } for sky
+        test connect by name `menu.model :> shaderl`
+        snapshot abstract def with updated state
+        replace FloValScalar with FloExprs
+        update floval min
+Midi
+    Finger assignment
+    ADSR
+MusicKit
+    Apple, Spotify
+        Synchronize playback
+        Record video result
+        Share to TikTock, YouTube, etc
+AudioKit
+    Audio FFT
+Watch
+    blind navigation
+        relative vs. absolute position
+        status line for
+        synchronize with iPhone
+    voice over
+MacOS + Apple TV
+    sync re-render
+    separate canvas views w/o menu
+Handpose
+Devices
+    Gyro, Accelerometer
+Bitplanes
+	View shift
+	Copy / Cut / Clear
+	Paste: current plane
