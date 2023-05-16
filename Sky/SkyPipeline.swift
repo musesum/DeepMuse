@@ -33,7 +33,7 @@ public class SkyPipeline: MetPipeline {
 
         super.init()
         let root = SkyFlo.shared.root˚
-        skyMainRun˚ = root.bind("sky.main.run") { f, _ in
+        skyMainRun˚ = root.bind("sky.main.run") { f,_ in
             self.skyMainRun = f.bool
             self.cellNode?.isOn = self.skyMainRun
         }

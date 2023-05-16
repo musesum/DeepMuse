@@ -58,8 +58,8 @@ class TouchDraw {
            let z = exprs.nameAny["z"] as? FloValScalar {
 
             let margin = CGFloat(48)
-            let xs = CGFloat(2388/2) //???
-            let ys = CGFloat(1668/2) //??
+            let xs = CGFloat(2388/2)
+            let ys = CGFloat(1668/2)
             let xx = CGFloat(x.now) / 12
             let yy = 1 - CGFloat(y.now / 12)
             let xxx = CGFloat(xx * xs) + margin
