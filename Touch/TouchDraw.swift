@@ -29,13 +29,13 @@ class TouchDraw {
 
     init() {
 
-        let sky     =  root.bind("sky"   )
-        let input   =  sky .bind("input" )
+        let sky    = root.bind("sky"   )
+        let input  = sky .bind("input" )
 
-        let draw    =  sky .bind("draw"  )
-        let brush   =  draw.bind("brush" )
-        let line    =  draw.bind("line"  )
-        let screen  =  draw.bind("screen")
+        let draw   = sky .bind("draw"  )
+        let brush  = draw.bind("brush" )
+        let line   = draw.bind("line"  )
+        let screen = draw.bind("screen")
 
         tilt˚    = input .bind("tilt"   ){ f,_ in self.tilt    = f.bool    }
         press˚   = brush .bind("press"  ){ f,_ in self.press   = f.bool    }
