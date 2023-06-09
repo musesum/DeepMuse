@@ -66,7 +66,7 @@ class MidiFlo {
                   _ time: MIDITimeStamp?,
                   _ visit: Visitor) {
 
-        let exprs = FloValExprs(Flo("noteOnIn"), nameNums: [
+        let exprs = FloExprs(Flo("noteOnIn"), [
             ("num" , Double(num)),
             ("velo", Double(velo)),
             ("chan", Double(chan)),
@@ -89,7 +89,7 @@ class MidiFlo {
                    _ time: MIDITimeStamp?,
                    _ visit: Visitor) {
 
-        let exprs = FloValExprs(Flo("noteOffIn"), nameNums: [
+        let exprs = FloExprs(Flo("noteOffIn"), [
             ("num" , Double(num)),
             ("velo", Double(velo)),
             ("chan", Double(chan)),
@@ -123,7 +123,7 @@ class MidiFlo {
                     let num = (nrpnNumMsb * 128) + nrpnNumLsb
                     let velo = ((nrpnValMsb * 128) + nrpnValLsb) / 16383
 
-                    let exprs = FloValExprs(Flo("controllerIn.Nrpn"), nameNums: [
+                    let exprs = FloExprs(Flo("controllerIn.Nrpn"), [
                         ("num" , Double(num)),
                         ("val" , Double(velo)),
                         ("chan", Double(chan)),
@@ -141,7 +141,7 @@ class MidiFlo {
             default: break //clearNrpn()
         }
 
-        let exprs = FloValExprs(Flo("controllerIn"), nameNums: [
+        let exprs = FloExprs(Flo("controllerIn"), [
             ("cc"  , Double(cc)),
             ("val" , Double(velo)),
             ("chan", Double(chan)),
@@ -180,7 +180,7 @@ class MidiFlo {
                       _ time: MIDITimeStamp?,
                       _ visit: Visitor) {
 
-        let exprs = FloValExprs(Flo("afterTouchIn"), nameNums: [
+        let exprs = FloExprs(Flo("afterTouchIn"), [
             ("num" , Double(num)),
             ("val" , Double(val)),
             ("chan", Double(chan)),
@@ -202,7 +202,7 @@ class MidiFlo {
                       _ time: MIDITimeStamp?,
                       _ visit: Visitor) {
 
-        let exprs = FloValExprs(Flo("aftertouchIn"), nameNums: [
+        let exprs = FloExprs(Flo("aftertouchIn"), [
             ("num" , Double(0)),
             ("val" , Double(val)),
             ("chan", Double(chan)),
@@ -224,7 +224,7 @@ class MidiFlo {
                       _ time: MIDITimeStamp?,
                       _ visit: Visitor) {
 
-        let exprs = FloValExprs(Flo("pitchwheelIn"), nameNums: [
+        let exprs = FloExprs(Flo("pitchwheelIn"), [
             ("val" , Double(val)),
             ("chan", Double(chan)),
             ("port", Double(port ?? 0)),
@@ -245,7 +245,7 @@ class MidiFlo {
                          _ time: MIDITimeStamp?,
                          _ visit: Visitor) {
 
-        let exprs = FloValExprs(Flo("programChangeIn"),nameNums: [
+        let exprs = FloExprs(Flo("programChangeIn"),[
             ("num" , Double(num)),
             ("chan", Double(chan)),
             ("port", Double(port ?? 0)),

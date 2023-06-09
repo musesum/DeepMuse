@@ -52,7 +52,7 @@ class TouchDraw {
     }
 
     func addDot(_ flo: Flo,_ phase: UITouch.Phase) {
-        if let exprs = flo.val as? FloValExprs,
+        if let exprs = flo.exprs,
            let x = exprs.nameAny["x"] as? FloValScalar,
            let y = exprs.nameAny["y"] as? FloValScalar,
            let z = exprs.nameAny["z"] as? FloValScalar {

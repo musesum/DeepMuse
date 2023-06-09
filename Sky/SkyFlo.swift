@@ -202,8 +202,8 @@ class SkyFlo: NSObject {
 
         func addFloScript() {
             let root = SkyFlo.shared.root˚
-            let scriptDef = root.scriptRoot([.parens, .def, .expand, .edge, .comment, .copyAt])
-            let scriptNow = root.scriptRoot([.parens, .def, .now, .delta, .compact])
+            let scriptDef = root.scriptRoot(FloScriptOps.Def)
+            let scriptNow = root.scriptRoot(FloScriptOps.Now)
             let dataDef = Data(scriptDef.utf8)
             let dataNow = Data(scriptNow.utf8)
 

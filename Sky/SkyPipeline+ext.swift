@@ -53,11 +53,9 @@ extension SkyPipeline {
                       _ flo: Flo) {
 
         func updateFloats(_ flo: Flo, _: Visitor = Visitor(0)) {
-            if let exprs = flo.val as? FloValExprs {
+            if let exprs = flo.exprs {
                 let nums = exprs.getValNums()
                 node.updateBuffer(flo.name, nums)
-            } else if let scalar = flo.val as? FloValScalar {
-                node.updateBuffer(flo.name, [scalar.now])
             }
         }
         flo.addClosure(updateFloats)
@@ -110,14 +108,9 @@ extension SkyPipeline {
         updateParentFloats(child)
 
         func updateParentFloats(_ child: Flo) {
-            if  let exprs = child.val as? FloValExprs {
+            if  let exprs = child.exprs {
                 let nums = exprs.getValNums()
                 node.updateBuffer(child.name, nums)
-
-            } else if let val = child.val as? FloValScalar {
-                
-                let val = val.getVal()
-                node.updateBuffer(child.name, [val])
             }
         }
     }
