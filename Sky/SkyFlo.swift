@@ -123,9 +123,9 @@ class SkyFlo: NSObject {
 
                         if SkyFlo.logSnapshot {
                             
-                            let before = self.root˚.scriptRoot([.parens, .def, .edge])
+                            let before = self.root˚.scriptFlo([.parens, .def, .edge])
                             parseFloData(data, merge: true) {
-                                let after = self.root˚.scriptRoot([.parens, .def, .edge])
+                                let after = self.root˚.scriptFlo([.parens, .def, .edge])
                                 _ = ParStr.testCompare(before, after)
                             }
                         } else {
@@ -202,8 +202,8 @@ class SkyFlo: NSObject {
 
         func addFloScript() {
             let root = SkyFlo.shared.root˚
-            let scriptDef = root.scriptRoot(FloScriptOps.Def)
-            let scriptNow = root.scriptRoot(FloScriptOps.Now)
+            let scriptDef = root.scriptFlo(FloScriptOps.Def)
+            let scriptNow = root.scriptFlo(FloScriptOps.Now)
             let dataDef = Data(scriptDef.utf8)
             let dataNow = Data(scriptNow.utf8)
 
