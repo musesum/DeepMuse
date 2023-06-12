@@ -76,12 +76,12 @@ extension SkyPipeline {
         node.isOn = flo.bool
         flo.addClosure(nodeOn)
 
-        func nodeOn(_ isOn: Flo, _: Visitor) {
+        func nodeOn(_ flo: Flo, _: Visitor) {
 
             if let name = flo.parent?.name,
                let node = nodeNamed[name] {
 
-                let isOn = isOn.bool
+                let isOn = flo.bool
 
                 setMtlNode(node, isOn)
 
