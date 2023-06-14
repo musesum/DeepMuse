@@ -64,7 +64,7 @@ extension SkyPipeline {
 
     func anyInt(_ any: Any?) -> Int {
         if let v = any as? FloValScalar {
-            return Int(v.now)
+            return Int(v.twe)
         } else {
             print("*** SkyMetal::anyInt: unknown: \(any.debugDescription)")
             return 0

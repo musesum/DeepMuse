@@ -60,12 +60,12 @@ class TouchDraw {
             let margin = CGFloat(48)
             let xs = CGFloat(2388/2)
             let ys = CGFloat(1668/2)
-            let xx = CGFloat(x.now) / 12
-            let yy = 1 - CGFloat(y.now / 12)
+            let xx = CGFloat(x.twe) / 12
+            let yy = 1 - CGFloat(y.twe / 12)
             let xxx = CGFloat(xx * xs) + margin
             let yyy = CGFloat(yy * ys) - margin
             let point = CGPoint(x: xxx, y: yyy)
-            let radius = Float(z.now/2 + 1)
+            let radius = Float(z.twe/2 + 1)
 
             let key = "drawDot".hash
             let item = TouchCanvasItem(key, point, radius, radius, .zero, phase, Visitor(.midi))

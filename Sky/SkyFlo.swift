@@ -103,7 +103,7 @@ class SkyFlo: NSObject {
 
         func parseSnapshot(_ archive: MuArchive) {
             self.archive = archive
-            archive.get("Snapshot.def.flo.h", 1000000) { data in
+            archive.get("Snapshot.full.flo.h", 1000000) { data in
                 if let data {
                     parseFloData(data) {
                         mergeUserDocumentChanges()
@@ -202,16 +202,16 @@ class SkyFlo: NSObject {
 
         func addFloScript() {
             let root = SkyFlo.shared.root˚
-            let scriptDef = root.scriptFlo(FloScriptOps.Def)
+            let scriptFull = root.scriptFull //???
             let scriptNow = root.scriptFlo(FloScriptOps.Now)
-            let dataDef = Data(scriptDef.utf8)
+            let dataFull = Data(scriptFull.utf8)
             let dataNow = Data(scriptNow.utf8)
 
-            archive.add(name + ".def.flo.h", data: dataDef)
+            archive.add(name + ".full.flo.h", data: dataFull)
             archive.add(name + ".now.flo.h", data: dataNow)
 
             print("\n\n" )
-            print("scriptDef ⟹\n" + scriptDef + "\n\n")
+            print("scriptDef ⟹\n" + scriptFull + "\n\n")
             print("scriptNow ⟹\n" + scriptNow + "\n\n")
         }
     }
