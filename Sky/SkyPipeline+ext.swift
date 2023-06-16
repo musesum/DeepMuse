@@ -58,9 +58,7 @@ extension SkyPipeline {
                 node.updateBuffer(flo.name, nums)
             }
         }
-        flo.addClosure { flo, _ in
-
-        }
+        flo.addClosure(updateFloats)
         updateFloats(flo)
     }
 
