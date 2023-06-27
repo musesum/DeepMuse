@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -459,6 +459,7 @@
 		80E95AFF29168323003F6360 /* Mu */ = {
 			isa = PBXGroup;
 			children = (
+				80F5E1692A4A728F00051994 /* MuLog */,
 				80FF2E3429B97B8E00B631E6 /* MuCamera */,
 				800E13C529AF14C2007A480B /* extensions */,
 				800E13C029AF1419007A480B /* Motion */,
@@ -489,6 +490,13 @@
 			);
 			name = CameraSession;
 			path = ../Packages/CameraSession;
+			sourceTree = "<group>";
+		};
+		80F5E1692A4A728F00051994 /* MuLog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MuLog;
 			sourceTree = "<group>";
 		};
 		80FF2E3429B97B8E00B631E6 /* MuCamera */ = {
@@ -891,13 +899,13 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepmuse.deepmuse;
 				PRODUCT_NAME = "Deep Muse";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 14.7;
 			};
 			name = Debug;
@@ -920,13 +928,13 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deepmuse.deepmuse;
 				PRODUCT_NAME = "Deep Muse";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 14.7;
 			};
 			name = Release;

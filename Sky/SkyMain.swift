@@ -11,6 +11,7 @@ class SkyMain {
     private var palBuf: CVPixelBuffer?
     var mainFps˚: Flo?
     
+
     init() {
         initPixelBuffer(SkyFlo.shared.skySize)
         NextFrame.shared.addFrameDelegate("SkyMain".hash, self)
