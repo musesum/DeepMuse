@@ -15,8 +15,8 @@ class SkyMain {
     init() {
         initPixelBuffer(SkyFlo.shared.skySize)
         NextFrame.shared.addFrameDelegate("SkyMain".hash, self)
-        mainFps˚ = SkyFlo.shared.root˚.bind("sky.main.fps") { f,_ in
-            NextFrame.shared.updateFps(f.int) }
+        mainFps˚ = SkyFlo.shared.root˚.bind("sky.main.fps") { flo,_ in
+            NextFrame.shared.updateFps(flo.int) }
     }
 
     func initDrawBufIndex(_ index: Int, size: CGSize, options: [AnyHashable: Any]) {

@@ -32,13 +32,6 @@ class SkyFlo: NSObject {
         
         super.init()
 
-//??        touchRepeat˚ = self.root˚.bind("shader.compute.draw.on") { f,_ in
-//            let p = f.cgPoint 
-//            let touchRepeat: Bool = (abs(p.x - 0.5) > 0.001 ||
-//                                     abs(p.y - 0.5) > 0.001)
-//            TouchCanvas.touchRepeat = touchRepeat
-//
-//        }
         // parse Sky Snapshot scripts
         if let archive = MuArchive.readArchive(snapName) {
 

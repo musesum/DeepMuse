@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,7 +19,7 @@
 		80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3A29EFB75F001F5519 /* compute.camera.metal */; };
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
 		8053A9942980B550001CD483 /* MuTime in Frameworks */ = {isa = PBXBuildFile; productRef = 8053A9932980B550001CD483 /* MuTime */; };
-		8061E16929B85058003E9E1B /* CameraFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061E16829B85058003E9E1B /* CameraFlip.swift */; };
+		8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061E16829B85058003E9E1B /* CameraFacing.swift */; };
 		807048EB23378A090001617D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EA23378A090001617D /* AppDelegate.swift */; };
 		8070490223378A0B0001617D /* MuseSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490123378A0B0001617D /* MuseSkyTests.swift */; };
 		8070490D23378A0B0001617D /* MuseSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490C23378A0B0001617D /* MuseSkyUITests.swift */; };
@@ -136,7 +136,7 @@
 		8045637D296B900600EE6E0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8061DE17293985030098F309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8061E16829B85058003E9E1B /* CameraFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFlip.swift; sourceTree = "<group>"; };
+		8061E16829B85058003E9E1B /* CameraFacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFacing.swift; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807048EC23378A090001617D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -502,7 +502,7 @@
 		80FF2E3429B97B8E00B631E6 /* MuCamera */ = {
 			isa = PBXGroup;
 			children = (
-				8061E16829B85058003E9E1B /* CameraFlip.swift */,
+				8061E16829B85058003E9E1B /* CameraFacing.swift */,
 			);
 			path = MuCamera;
 			sourceTree = "<group>";
@@ -687,7 +687,7 @@
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
 				800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */,
 				800E13CA29AF14C2007A480B /* Image+ext.swift in Sources */,
-				8061E16929B85058003E9E1B /* CameraFlip.swift in Sources */,
+				8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */,
 				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
 				809820B529F1379D00682AD2 /* SkyTouchViewRepresentable.swift in Sources */,
 				8033C0622A3FDD4D000AC8F5 /* ContainerClass.swift in Sources */,
