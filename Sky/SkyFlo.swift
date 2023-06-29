@@ -195,8 +195,8 @@ class SkyFlo: NSObject {
 
         func addFloScript() {
             let root = SkyFlo.shared.root˚
-            let scriptFull = root.scriptFull //???
-            let scriptNow = root.scriptFlo(FloScriptOps.Now)
+            let scriptFull = root.scriptFull
+            let scriptNow = root.scriptNow
             let dataFull = Data(scriptFull.utf8)
             let dataNow = Data(scriptNow.utf8)
 

@@ -65,7 +65,10 @@ public class MuArchive {
         }
     }
     
-    func get(_ filename: String, _ bufSize: Int, _ callback: @escaping  ((Data?)->())) {
+    func get(_ filename: String,
+             _ bufSize: Int,
+             _ callback: @escaping  ((Data?)->())) {
+
         guard let archive = archive else {
             print("🚫 nil archive available for get(\(filename))")
             callback(nil)
