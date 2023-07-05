@@ -108,7 +108,7 @@ public struct MidiAftertouchItem: Codable {
     }
 }
 
-public struct MidiPitchwheelItem: Codable {
+public struct MidiPitchbendItem: Codable {
 
     var val : MIDIWord
     var chan: MIDIChannel
@@ -169,7 +169,7 @@ public struct MidiProgramItem: Codable {
 }
 
 public enum MidiType: String, CodingKey {
-    case noteOn, noteOff, controller, aftertouch, pitchwheel, program }
+    case noteOn, noteOff, controller, aftertouch, pitchbend, program }
 
 public struct MidiItem: Codable {
 
@@ -202,8 +202,8 @@ public struct MidiItem: Codable {
         self.item = aftertouch
         self.from = VisitFrom.midi.rawValue
     }
-    public init(pitchwheel: MidiPitchwheelItem) {
-        self.type = .pitchwheel
+    public init(pitchwheel: MidiPitchbendItem) {
+        self.type = .pitchbend
         self.time = Date().timeIntervalSince1970
         self.item = pitchwheel
         self.from = VisitFrom.midi.rawValue
@@ -224,12 +224,12 @@ public struct MidiItem: Codable {
         try c.encode(time, forKey: .time)
         try c.encode(from, forKey: .from)
         switch type {
-            case .noteOn    : try c.encode(item as? MidiNoteItem      , forKey: .item)
-            case .noteOff   : try c.encode(item as? MidiNoteItem      , forKey: .item)
-            case .controller: try c.encode(item as? MidiControllerItem, forKey: .item)
-            case .aftertouch: try c.encode(item as? MidiAftertouchItem, forKey: .item)
-            case .pitchwheel: try c.encode(item as? MidiPitchwheelItem, forKey: .item)
-            case .program   : try c.encode(item as? MidiProgramItem   , forKey: .item)
+            case .noteOn     : try c.encode(item as? MidiNoteItem      , forKey: .item)
+            case .noteOff    : try c.encode(item as? MidiNoteItem      , forKey: .item)
+            case .controller : try c.encode(item as? MidiControllerItem, forKey: .item)
+            case .aftertouch : try c.encode(item as? MidiAftertouchItem, forKey: .item)
+            case .pitchbend  : try c.encode(item as? MidiPitchbendItem , forKey: .item)
+            case .program    : try c.encode(item as? MidiProgramItem   , forKey: .item)
         }
     }
     public init(from decoder: Decoder) throws {
@@ -239,12 +239,12 @@ public struct MidiItem: Codable {
         from = try c.decode(Int.self, forKey: .from)
 
         switch type {
-            case .noteOn    : try item = c.decode(MidiNoteItem      .self, forKey: .item)
-            case .noteOff   : try item = c.decode(MidiNoteItem      .self, forKey: .item)
-            case .controller: try item = c.decode(MidiControllerItem.self, forKey: .item)
-            case .aftertouch: try item = c.decode(MidiAftertouchItem.self, forKey: .item)
-            case .pitchwheel: try item = c.decode(MidiPitchwheelItem.self, forKey: .item)
-            case .program   : try item = c.decode(MidiProgramItem   .self, forKey: .item)
+            case .noteOn     : try item = c.decode(MidiNoteItem.self        , forKey: .item)
+            case .noteOff    : try item = c.decode(MidiNoteItem.self        , forKey: .item)
+            case .controller : try item = c.decode(MidiControllerItem.self  , forKey: .item)
+            case .aftertouch : try item = c.decode(MidiAftertouchItem.self  , forKey: .item)
+            case .pitchbend  : try item = c.decode(MidiPitchbendItem.self   , forKey: .item)
+            case .program    : try item = c.decode(MidiProgramItem.self     , forKey: .item)
         }
     }
     var visitFrom: VisitFrom {

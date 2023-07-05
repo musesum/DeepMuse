@@ -58,8 +58,8 @@ class MuMidiListener: MIDIListener {
                                 timeStamp: MIDITimeStamp?) {
 
 
-        let icon = MidiLog.nextIcon("🎚\(channel):\(cc) ")
-        MidiLog.print(icon, "\(value)")
+        let icon = MidiLog.nextIcon("🎚\(cc) =")
+        MidiLog.print(icon, " \(value)")
         midiFlo.controllerIn(cc, value, channel, portID, timeStamp, Visitor(.midi))
     }
 
