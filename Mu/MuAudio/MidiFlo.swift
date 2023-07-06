@@ -115,7 +115,7 @@ class MidiFlo {
            let val  = exprs["val" , .twe],
            let chan = exprs["chan", .twe] {
 
-            print ("🎚\(cc.digits(0)) ⫸ \(val.digits(0...2)) \(flo.path(2)): \(flo.exprs?.visitedPaths(visit) ?? "")")
+            print ("🎚\(cc.digits(0)) ⫸ \(val.digits(0...2)) \(flo.path(2)): \(visit.from.log)\(flo.exprs?.visitedPaths(visit) ?? "")")
 
             Task {
                 midi.sendNoteOnMessage(

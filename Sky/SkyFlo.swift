@@ -100,7 +100,7 @@ class SkyFlo: NSObject {
                 if let data {
                     parseFloData(data) {
                         mergeUserDocumentChanges()
-                        getRuntimeChanges()
+                        // getRuntimeChanges()
                         getTexture()
                     }
                 }
@@ -194,18 +194,19 @@ class SkyFlo: NSObject {
         }
 
         func addFloScript() {
+
             let root = SkyFlo.shared.root˚
             let scriptFull = root.scriptFull
-            let scriptNow = root.scriptNow
             let dataFull = Data(scriptFull.utf8)
-            let dataNow = Data(scriptNow.utf8)
-
+            print("\n\nscriptDef ⟹\n" )
+            print(scriptFull + "\n\n")
             archive.add(name + ".full.flo.h", data: dataFull)
-            archive.add(name + ".now.flo.h", data: dataNow)
-
-            print("\n\n" )
-            print("scriptDef ⟹\n" + scriptFull + "\n\n")
+            #if false
+            let scriptNow = root.scriptNow
+            let dataNow = Data(scriptNow.utf8)
             print("scriptNow ⟹\n" + scriptNow + "\n\n")
+            archive.add(name + ".now.flo.h", data: dataNow)
+            #endif
         }
     }
 

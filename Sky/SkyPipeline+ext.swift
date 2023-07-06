@@ -27,7 +27,7 @@ extension SkyPipeline {
                 switch child.name {
                 case "on"     : addMtlNodeOn(node, child)
                 case "loops"  : node.loops = max(1,child.int)
-                case "flip"   : break // ignore
+                case "front"  : break // ignore shader.camera.front
                 case "mix"    : updateChildBuffer(node, child)
                 case "frame"  : updateChildBuffer(node, child)
                 case "repeat" : updateChildBuffer(node, child)
