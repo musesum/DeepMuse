@@ -81,7 +81,7 @@ class TouchDraw {
         // if using Apple Pencil and brush tilt is turned on
         if item.force > 0, tilt {
             let azi = CGPoint(x: CGFloat(-item.azimY), y: CGFloat(-item.azimX))
-            azimuth˚?.setAny(azi, [.activate], visit)
+            azimuth˚?.setAny(azi, .activate, visit)
           //PrintGesture("azimuth dXY(%.2f,%.2f)", item.azimuth.dx, item.azimuth.dy)
         }
         
@@ -89,10 +89,10 @@ class TouchDraw {
         var radiusNow = CGFloat(1)
         if press {
             if force > 0 || item.azimX != 0.0 {
-                force˚?.setAny(item.force, [.activate], visit) // will update local azimuth via FloGraph
+                force˚?.setAny(item.force, .activate, visit) // will update local azimuth via FloGraph
                 radiusNow = size
             } else {
-                radius˚?.setAny(item.radius, [.activate], visit)
+                radius˚?.setAny(item.radius, .activate, visit)
                 radiusNow = radius
             }
         } else {
