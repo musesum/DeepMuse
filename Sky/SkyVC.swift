@@ -7,32 +7,26 @@ class SkyVC: UIViewController {
 
     static var shared = SkyVC()
     var midi: MuMidi?
-    var pipeline: SkyPipeline?
+    var pipeline = SkyPipeline.shared
+    var touchDraw = TouchDraw(SkyFlo.shared.root˚, SkyPipeline.shared.viewSize)
+    let root˚ = SkyFlo.shared.root˚
 
+    override func viewDidLoad() {
+        let _ = SkyMain.shared
+        midi = MuMidi(root: root˚)
+        // MuAudio.shared.test()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-
-        pipeline = SkyPipeline.shared
 
         setNeedsUpdateOfHomeIndicatorAutoHidden()
 
-        let root˚ = SkyFlo.shared.root˚
-        if let pipeline {
             view.addSubview(pipeline.mtkView)
             pipeline.makeShader(for: root˚)
             pipeline.setupPipeline()
             pipeline.settingUp = false
-        }
-        setupMenuView()
-        let _ = SkyMain.shared
-        // MuAudio.shared.test()
-        SkyVC.shared.midi = MuMidi(root: root˚)
-    }
 
-    func setupMenuView() {
-        let touchDraw = TouchDraw.shared
-        let touchView = SkyTouchView(touchDraw.drawPoint,
-                                     touchDraw.drawRadius,
-                                     touchDraw)
+        let touchView = SkyTouchView(touchDraw)
         let menuView = MenuView(SkyFlo.shared.root˚, touchView)
         let hostView = UIHostingController(rootView: menuView).view
         if let hostView {

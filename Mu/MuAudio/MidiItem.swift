@@ -3,7 +3,7 @@
 import SwiftUI
 import AVFoundation
 import AudioKit
-import MuMenu // PeersController
+import MuPeer // PeersController
 import MuPar // Visitor
 
 public struct MidiNoteItem: Codable {

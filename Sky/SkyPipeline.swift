@@ -46,19 +46,18 @@ public class SkyPipeline: MetPipeline {
     func initNodeName(_ name: String) -> MetNode? {
 
         var node = nodeNamed[name]
-        let drawFn = TouchDraw.shared.drawTexture
         if node == nil {
             switch name {
-                case "camera" : node = MetNodeCamera (self)
-                case "camix"  : node = MetNodeCamix  (self)
-                case "draw"   : node = MetNodeDraw   (self, drawFn)
-                case "color"  : node = MetNodeColor  (self, skyColor.getMix)
-                case "record" : node = MetNodeRecord (self)
-                case "tile"   : node = MetNodeTile   (self, name)
-                case "flatmap": node = MetNodeFlatmap(self)
-                case "cubemap": node = MetNodeCubemap(self, true)
-                case "plato"  : node = MetNodePlato  (self, skyColor.getMix)
-                default       : node = MetNodeCell   (self, name)
+            case "camera" : node = MetNodeCamera (self)
+            case "camix"  : node = MetNodeCamix  (self)
+            case "draw"   : node = MetNodeDraw   (self, SkyVC.shared.touchDraw.drawTexture)
+            case "color"  : node = MetNodeColor  (self, skyColor.getMix)
+            case "record" : node = MetNodeRecord (self)
+            case "tile"   : node = MetNodeTile   (self, name)
+            case "flatmap": node = MetNodeFlatmap(self)
+            case "cubemap": node = MetNodeCubemap(self, true)
+            case "plato"  : node = MetNodePlato  (self, skyColor.getMix)
+            default       : node = MetNodeCell   (self, name)
             }
             nodeNamed[name] = node
         }

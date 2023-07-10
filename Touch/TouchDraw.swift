@@ -49,6 +49,7 @@ class TouchDraw {
         fill˚    = screen.bind("fill"   ){ f,_ in self.fill    = f.float   }
         dotOn˚   = draw  .bind("dot.on" ){ f,_ in self.addDot(f, .began)   }
         dotOff˚  = draw  .bind("dot.off"){ f,_ in self.addDot(f, .ended)   }
+        TouchCanvas.setDraw(drawPoint, drawRadius)
     }
 
     func addDot(_ flo: Flo,_ phase: UITouch.Phase) {
