@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */; };
 		8017909528A219FF0013F48A /* MuMenuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 8017909428A219FF0013F48A /* MuMenuSky */; };
 		8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8037433C29DD06C000ACEF2D /* render.cubemap.metal */; };
-		8037AF6A296E903100DC27FD /* TouchMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037AF69296E903100DC27FD /* TouchMidi.swift */; };
 		80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3A29EFB75F001F5519 /* compute.camera.metal */; };
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
 		8053A9942980B550001CD483 /* MuTime in Frameworks */ = {isa = PBXBuildFile; productRef = 8053A9932980B550001CD483 /* MuTime */; };
@@ -41,8 +40,6 @@
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		807D1C1429BC862F0092FBC7 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 807D1C1329BC862F0092FBC7 /* MuMetal */; };
-		808461DB296E31F200F5E42A /* MidiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808461DA296E31F200F5E42A /* MidiItem.swift */; };
-		80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80892A0C26A9D6B300332A15 /* MuAudio.swift */; };
 		808E90DC2338B4D0004EB9C9 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 808E90DB2338B4D0004EB9C9 /* ZIPFoundation */; };
 		8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* compute.tile.metal */; };
 		8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31229DBA9BF003E02CC /* render.flatmap.metal */; };
@@ -54,9 +51,6 @@
 		80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21862337ADB000B99CD9 /* Main.storyboard */; };
 		80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EC23378A090001617D /* SceneDelegate.swift */; };
 		80D283AE29E2881700A22753 /* MuPlato in Frameworks */ = {isa = PBXBuildFile; productRef = 80D283AD29E2881700A22753 /* MuPlato */; };
-		80D5EA8B2914DDE800C619BE /* MuMidiListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */; };
-		80D5EA8D2914DE1F00C619BE /* MidiFlo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8C2914DE1F00C619BE /* MidiFlo.swift */; };
-		80D5EA8F2914DE7500C619BE /* MidiLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5EA8E2914DE7500C619BE /* MidiLog.swift */; };
 		80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */; };
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
 		80E919B029F61CBD00E6B089 /* render.plato.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80E919AF29F61CBD00E6B089 /* render.plato.metal */; };
@@ -81,7 +75,6 @@
 		80EBE71329CABE3000C8039C /* MuMetal in Resources */ = {isa = PBXBuildFile; fileRef = 80EBE70929CABE3000C8039C /* MuMetal */; };
 		80EBE71429CABE3000C8039C /* MuSkyFlo in Resources */ = {isa = PBXBuildFile; fileRef = 80EBE70A29CABE3000C8039C /* MuSkyFlo */; };
 		80EBE71529CABE3000C8039C /* MuFlo in Resources */ = {isa = PBXBuildFile; fileRef = 80EBE70B29CABE3000C8039C /* MuFlo */; };
-		80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1338128D52B560066B7D8 /* MuMidi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +115,6 @@
 		800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+ext.swift"; sourceTree = "<group>"; };
 		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
-		8037AF69296E903100DC27FD /* TouchMidi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchMidi.swift; sourceTree = "<group>"; };
 		803A029729FB69F700C8438E /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
 		80420C3C29EFB769001F5519 /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camix.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camix.metal; sourceTree = "<group>"; };
@@ -161,17 +153,13 @@
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
-		808461DA296E31F200F5E42A /* MidiItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MidiItem.swift; sourceTree = "<group>"; };
-		80892A0C26A9D6B300332A15 /* MuAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuAudio.swift; sourceTree = "<group>"; };
+		808D09A42A5CE25F00814E91 /* MuVisit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVisit; path = ../Packages/MuVisit; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
 		8090E31229DBA9BF003E02CC /* render.flatmap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.flatmap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.flatmap.metal; sourceTree = "<group>"; };
 		809820B229F1350E00682AD2 /* SkyTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTouchView.swift; sourceTree = "<group>"; };
 		80BD62DE2A5B9C3400F51B7A /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
 		80BD62DF2A5B9C5100F51B7A /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
 		80D283AC29E287D900A22753 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
-		80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuMidiListener.swift; sourceTree = "<group>"; };
-		80D5EA8C2914DE1F00C619BE /* MidiFlo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiFlo.swift; sourceTree = "<group>"; };
-		80D5EA8E2914DE7500C619BE /* MidiLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiLog.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80DC21862337ADB000B99CD9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -197,7 +185,6 @@
 		80EBE70929CABE3000C8039C /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
 		80EBE70A29CABE3000C8039C /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
 		80EBE70B29CABE3000C8039C /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
-		80F1338128D52B560066B7D8 /* MuMidi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuMidi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				8045637D296B900600EE6E0E /* README.md */,
+				808D09A42A5CE25F00814E91 /* MuVisit */,
 				80BD62DF2A5B9C5100F51B7A /* MuPeer */,
 				80BD62DE2A5B9C3400F51B7A /* MuAudio */,
 				803A029729FB69F700C8438E /* MuColor */,
@@ -397,20 +385,6 @@
 			path = Sky;
 			sourceTree = "<group>";
 		};
-		80B9E12325169B6F0074AEEA /* MuAudio */ = {
-			isa = PBXGroup;
-			children = (
-				808461DA296E31F200F5E42A /* MidiItem.swift */,
-				8037AF69296E903100DC27FD /* TouchMidi.swift */,
-				80F1338128D52B560066B7D8 /* MuMidi.swift */,
-				80D5EA8E2914DE7500C619BE /* MidiLog.swift */,
-				80D5EA8C2914DE1F00C619BE /* MidiFlo.swift */,
-				80D5EA8A2914DDE800C619BE /* MuMidiListener.swift */,
-				80892A0C26A9D6B300332A15 /* MuAudio.swift */,
-			);
-			path = MuAudio;
-			sourceTree = "<group>";
-		};
 		80D045EF2597A6D3008DBF6B /* Scratch */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,7 +426,6 @@
 				800E13C029AF1419007A480B /* Motion */,
 				80E95B0029168370003F6360 /* MuArchive */,
 				80E95AE129167D50003F6360 /* MuUtilities */,
-				80B9E12325169B6F0074AEEA /* MuAudio */,
 			);
 			path = Mu;
 			sourceTree = "<group>";
@@ -656,8 +629,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808461DB296E31F200F5E42A /* MidiItem.swift in Sources */,
-				80D5EA8B2914DDE800C619BE /* MuMidiListener.swift in Sources */,
 				80EBE70C29CABE3000C8039C /* CameraSesssion+delegate.swift in Sources */,
 				80E95AF229167D51003F6360 /* MuBezel.swift in Sources */,
 				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
@@ -665,13 +636,11 @@
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
 				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
 				80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */,
-				80F1338228D52B560066B7D8 /* MuMidi.swift in Sources */,
 				800E13CB29AF14C2007A480B /* Matrix4x4+ext.swift in Sources */,
 				80E95B072916853C003F6360 /* MuFile.swift in Sources */,
 				800E13CC29AF14C2007A480B /* String+ext.swift in Sources */,
 				809820B329F1350E00682AD2 /* SkyTouchView.swift in Sources */,
 				807049F623378ADC0001617D /* compute.draw.metal in Sources */,
-				8037AF6A296E903100DC27FD /* TouchMidi.swift in Sources */,
 				80E95AEC29167D50003F6360 /* MuOrientation.swift in Sources */,
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
 				800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */,
@@ -687,13 +656,10 @@
 				807049ED23378ADC0001617D /* SkyFlo.swift in Sources */,
 				8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */,
 				8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */,
-				80D5EA8F2914DE7500C619BE /* MidiLog.swift in Sources */,
 				80E919B029F61CBD00E6B089 /* render.plato.metal in Sources */,
 				807049F523378ADC0001617D /* cell.zha.metal in Sources */,
-				80D5EA8D2914DE1F00C619BE /* MidiFlo.swift in Sources */,
 				807049F923378ADC0001617D /* cell.slide.metal in Sources */,
 				80E95AEF29167D50003F6360 /* UIImage+extension.swift in Sources */,
-				80892A0D26A9D6B300332A15 /* MuAudio.swift in Sources */,
 				800E13C229AF1419007A480B /* Motion.swift in Sources */,
 				807049F223378ADC0001617D /* compute.color.metal in Sources */,
 				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,
