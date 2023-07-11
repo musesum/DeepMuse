@@ -15,6 +15,9 @@ class SkyVC: UIViewController {
     override func viewDidLoad() {
         let _ = SkyMain.shared
         midi = MuMidi(root: root˚)
+        if let midi {
+            TouchMidi.touchRemote = midi
+        }
         // MuAudio.shared.test()
     }
     
