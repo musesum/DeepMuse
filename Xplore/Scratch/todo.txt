@@ -49,7 +49,7 @@ App Store
 Flo
     bug
         automerge duplicates
-    featuers
+    features
         get a(b 1) as find("a.b")
         a.*.{ decorate } for sky
         test connect by name `menu.model :> shaderl`
