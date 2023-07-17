@@ -9,7 +9,8 @@ Tomorrow
 NextDay
     touch position on repeat/mirror
     icon in root
-
+Bugs
+    DoubleBuffer overrun crash
 File
     store running state
     save zip .sky register extension
@@ -38,8 +39,9 @@ Sky
     Manually shift screen
     camera merge real+fake
     Autorotate resize/rotate canvas
-    sync devices
+    sync device textures
     resize texture
+Midi
     learn mode
 Metal
     cube map
@@ -56,6 +58,7 @@ Flo
         replace FloValScalar with FloExprs
         update floval min
 Midi
+    learn mode cc=109
     Finger assignment
     ADSR
 MusicKit
