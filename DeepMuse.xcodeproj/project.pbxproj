@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -113,7 +113,6 @@
 		800E13C729AF14C2007A480B /* Matrix4x4+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+ext.swift"; sourceTree = "<group>"; };
 		800E13C829AF14C2007A480B /* String+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
 		800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+ext.swift"; sourceTree = "<group>"; };
-		802650D025574388005B4119 /* panel.shader.color.json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = panel.shader.color.json.h; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
 		803A029729FB69F700C8438E /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
@@ -245,7 +244,6 @@
 		802C5BD1265B2D3700DBFFEA /* Xplore */ = {
 			isa = PBXGroup;
 			children = (
-				80D6AAAA264C829600CBAF99 /* flo_json_explore */,
 				80D045EF2597A6D3008DBF6B /* Scratch */,
 			);
 			path = Xplore;
@@ -281,7 +279,6 @@
 				807048E923378A090001617D /* App */,
 				80E95AFF29168323003F6360 /* Mu */,
 				8097DC472833E2A300059A59 /* Sky */,
-				8070496B23378ADB0001617D /* Touch */,
 				8070490023378A0B0001617D /* MuseSkyTests */,
 				8070490B23378A0B0001617D /* MuseSkyUITests */,
 				8061DE14293985030098F309 /* MuseSky */,
@@ -356,13 +353,6 @@
 			path = Metal;
 			sourceTree = "<group>";
 		};
-		8070496B23378ADB0001617D /* Touch */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Touch;
-			sourceTree = "<group>";
-		};
 		80704A7623378C1A0001617D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,14 +383,6 @@
 				80437B6627D0717800348513 /* todo.txt */,
 			);
 			path = Scratch;
-			sourceTree = "<group>";
-		};
-		80D6AAAA264C829600CBAF99 /* flo_json_explore */ = {
-			isa = PBXGroup;
-			children = (
-				802650D025574388005B4119 /* panel.shader.color.json.h */,
-			);
-			path = flo_json_explore;
 			sourceTree = "<group>";
 		};
 		80E95AE129167D50003F6360 /* MuUtilities */ = {

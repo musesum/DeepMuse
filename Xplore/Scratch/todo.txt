@@ -22,7 +22,6 @@ MuMenu
 
         Scrunch branch nodes in landscape
         vstack, hstack, combine branches
-        vx, vy, hx, hy, vxy -> xy
     node
         tog without child
     home

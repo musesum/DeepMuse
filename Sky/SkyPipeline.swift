@@ -71,16 +71,16 @@ public class SkyPipeline: MetPipeline {
         if let node = nodeNamed[name] ?? initNodeName(name) {
 
             switch name {
-                case "camera" : addCamera(node)
-                case "camix"  : camixNode = node.insert(after: after)
-                case "draw"   : addDraw(node)
-                case "color"  : colorNode = node.insert(after: after)
-                case "record" : recordNode = node.insert(after: after)
-                case "tile"   : tileNode = node.insert(after: after)
-                case "flatmap": flatmapNode = node.insert(after: after)
-                case "cubemap": addCubeNode(node)
-                case "plato"  : platoNode = node.insert(after: after)
-                default       : addCompute(node)
+            case "camera" : addCamera(node)
+            case "camix"  : camixNode = node.insert(after: after)
+            case "draw"   : addDraw(node)
+            case "color"  : colorNode = node.insert(after: after)
+            case "record" : recordNode = node.insert(after: after)
+            case "tile"   : tileNode = node.insert(after: after)
+            case "flatmap": flatmapNode = node.insert(after: after)
+            case "cubemap": addCubeNode(node)
+            case "plato"  : platoNode = node.insert(after: after)
+            default       : addCompute(node)
             }
             return node
         }
@@ -121,61 +121,63 @@ public class SkyPipeline: MetPipeline {
 
         switch node.name {
 
-            case "camera":
-                // insert camera just after draw node to allow rules to apply to image
-                if node.isOn {
-                    cameraNode = drawNode?.insertNode(node, .below)
-                }
+        case "camera":
+            // insert camera just after draw node to allow rules to apply to image
+            if node.isOn {
+                cameraNode = drawNode?.insertNode(node, .below)
+            } else if let cameraNode {
+                //TODO: removeNode(cameraNode), removeNode(camixNode)
 
-            case "camix":
-                if node.isOn {
-                    camixNode = node
-                    fixupCamix()
-                }
+            }
 
-            case "cubemap":
-                if let node = node as? MetNodeCubemap {
-                    cubemapNode = node
-                    if node.isOn {
-                         flatmapNode?.replace(with: node)
-                    } else if let flatmapNode {
-                        node.replace(with: flatmapNode)
-                        flatmapNode.isOn = true
-                    }
-                }
+        case "camix":
+            if node.isOn {
+                camixNode = node
+                fixupCamix()
+            }
 
-            case "flatmap":
-                if let node = node as? MetNodeFlatmap {
-                    flatmapNode = node
-                    if node.isOn {
-                        cubemapNode?.replace(with: node)
-                    } else if let cubemapNode {
-                        node.replace(with: cubemapNode)
-                        cubemapNode.isOn = true
-                    }
-                }
-            case "plato":
-                if let node = node as? MetNodePlato {
-                    platoNode = node
-                    if node.isOn {
-                        node.insert(after: lastNode)
-                        lastNode = node
-                    } else if let prevNode = node.inNode {
-                        prevNode.outNode = nil
-                        lastNode = prevNode
-                    }
-                }
-            case "record":
+        case "cubemap":
+            if let node = node as? MetNodeCubemap {
+                cubemapNode = node
                 if node.isOn {
-                    recordNode = flatmapNode?.inNode?.insertNode(node, .below)
+                    flatmapNode?.replace(with: node)
+                } else if let flatmapNode {
+                    node.replace(with: flatmapNode)
+                    flatmapNode.isOn = true
                 }
+            }
 
-            default:
+        case "flatmap":
+            if let node = node as? MetNodeFlatmap {
+                flatmapNode = node
                 if node.isOn {
-                    cellNode = cellNode?.replace(with: node)
+                    cubemapNode?.replace(with: node)
+                } else if let cubemapNode {
+                    node.replace(with: cubemapNode)
+                    cubemapNode.isOn = true
                 }
+            }
+        case "plato":
+            if let node = node as? MetNodePlato {
+                platoNode = node
+                if node.isOn {
+                    node.insert(after: lastNode)
+                    lastNode = node
+                } else if let prevNode = node.inNode {
+                    prevNode.outNode = nil
+                    lastNode = prevNode
+                }
+            }
+        case "record":
+            if node.isOn {
+                recordNode = flatmapNode?.inNode?.insertNode(node, .below)
+            }
+
+        default:
+            if node.isOn {
+                cellNode = cellNode?.replace(with: node)
+            }
         }
-
         fixupNodes()
     }
 
@@ -202,14 +204,14 @@ public class SkyPipeline: MetPipeline {
                 if let nextNode = addNodeName(name, after: lastNode) {
                     lastNode = nextNode
                     switch type {
-                        case "compute": cellNode = nextNode
-                        case "record" : recordNode = nextNode
-                        case "camera" : cameraNode = nextNode
-                        case "camix"  : camixNode = nextNode
-                        case "tile"   : tileNode = nextNode
-                        case "flatmap": flatmapNode = nextNode
-                        case "cubemap": cubemapNode = nextNode as? MetNodeCubemap
-                        default       : break
+                    case "compute": cellNode = nextNode
+                    case "record" : recordNode = nextNode
+                    case "camera" : cameraNode = nextNode
+                    case "camix"  : camixNode = nextNode
+                    case "tile"   : tileNode = nextNode
+                    case "flatmap": flatmapNode = nextNode
+                    case "cubemap": cubemapNode = nextNode as? MetNodeCubemap
+                    default       : break
                     }
                 }
             }
