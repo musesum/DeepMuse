@@ -51,14 +51,6 @@ extension SkyPipeline {
             updateFloats(flo)
         }
 
-        func anyInt(_ any: Any?) -> Int {
-            if let v = any as? FloValScalar {
-                return Int(v.twe)
-            } else {
-                print("*** SkyMetal::anyInt: unknown: \(any.debugDescription)")
-                return 0
-            }
-        }
         func addMtlNodeOn(_ node: MetNode,
                           _ flo: Flo) {
 
