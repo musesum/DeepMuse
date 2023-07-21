@@ -104,7 +104,7 @@ extension SkyPipeline {
             }
         }
         func err(_ flo: Flo, _ item: String) {
-            print("🚫 makeShader couldn't find \(item) in \(flo.name)")
+            print("⁉️ makeShader couldn't find \(item) in \(flo.name)")
         }
     }
 }

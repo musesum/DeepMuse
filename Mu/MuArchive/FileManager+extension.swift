@@ -26,7 +26,7 @@ extension FileManager {
             }
         }
         catch {
-            print("🚫 \(error)")
+            print("⁉️ \(error)")
             return []
         }
     }
@@ -36,7 +36,7 @@ extension FileManager {
                 try FileManager.default.removeItem(at: url)
             }
         } catch {
-            print("🚫 \(error)")
+            print("⁉️ \(error)")
         }
     }
 }

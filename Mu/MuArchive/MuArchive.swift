@@ -46,7 +46,7 @@ public class MuArchive {
     
     func add(_ filename: String, data: Data) {
         guard let archive = archive else {
-            print("🚫 nil archive available for add(\(filename))")
+            print("⁉️ nil archive available for add(\(filename))")
             return
         }
         do {
@@ -61,7 +61,7 @@ public class MuArchive {
                 }
         }
         catch {
-            print("🚫 \(error)")
+            print("⁉️ \(error)")
         }
     }
     
@@ -70,7 +70,7 @@ public class MuArchive {
              _ callback: @escaping  ((Data?)->())) {
 
         guard let archive = archive else {
-            print("🚫 nil archive available for get(\(filename))")
+            print("⁉️ nil archive available for get(\(filename))")
             callback(nil)
             return
         }
@@ -84,7 +84,7 @@ public class MuArchive {
                 callback(dataRet)
             }
             catch {
-                print("🚫 \(error)")
+                print("⁉️ \(error)")
             }
         }
     }
@@ -95,7 +95,7 @@ public class MuArchive {
         do {
             _ = try FileManager.default.replaceItemAt(toURL, withItemAt: atURL)
         } catch {
-            print("🚫 could not copy \(at) to: \(to)")
+            print("⁉️ could not copy \(at) to: \(to)")
         }
     }
     

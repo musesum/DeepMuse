@@ -23,7 +23,7 @@ class SkyFlo: NSObject {
 
     private var floScriptNames = ["sky", "shader", "model",
                                   "menu", "plato", "cube",
-                                  "menu.corner", "midi"]
+                                  "midi", "corner"]
 
     private var bundleNameDates = [String: TimeInterval]()
     private var documentNameDates = [String: TimeInterval]()
