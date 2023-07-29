@@ -11,7 +11,6 @@ class SkyMain {
     private var palBuf: CVPixelBuffer?
     var mainFps˚: Flo?
     
-
     init() {
         initPixelBuffer(SkyFlo.shared.skySize)
         NextFrame.shared.addFrameDelegate("SkyMain".hash, self)
@@ -49,4 +48,8 @@ extension SkyMain: NextFrameDelegate {
         SkyPipeline.shared.mtkView.draw()
         return true
     }
+    func cancel(_ key: Int) {
+        NextFrame.shared.removeDelegate(key)
+    }
+    
 }
