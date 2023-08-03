@@ -8,6 +8,7 @@
 
 import UIKit
 import BackgroundTasks
+import MuTime
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -28,14 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        NextFrame.shared.pause = false
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        //?? scheduleSnapshot()
+        NextFrame.shared.pause = true
         SkyFlo.shared.saveSkyArchive("Snapshot") {
-            //?? task.setTaskCompleted(success: true)
         }
     }
 
