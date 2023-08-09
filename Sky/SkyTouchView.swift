@@ -36,7 +36,7 @@ open class SkyTouchView: TouchView {
     override open func beginTouches(_ touches: Set<UITouch>) {
 
         for touch in touches {
-            //print("\(touch.phase.rawValue)⃝",terminator: "")
+            //print("\(touch.phase.rawValue)",terminator: "")
             if      TouchMenuLocal.beginTouch(touch) { }
             else if willBeginFromEdge(touch) {}
             else if TouchCanvas.beginTouch(touch) { }
