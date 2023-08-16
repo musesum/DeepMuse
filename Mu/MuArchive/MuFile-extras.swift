@@ -9,36 +9,37 @@
 import Foundation
 import Compression
 
-func testUnzipArchive() {
-
-    let fileManager = FileManager()
-    let currentWorkingPath = fileManager.currentDirectoryPath
-    var sourceURL = URL(fileURLWithPath: currentWorkingPath)
-    sourceURL.appendPathComponent("archive.zip")
-    var destinationURL = URL(fileURLWithPath: currentWorkingPath)
-    destinationURL.appendPathComponent("directory")
-    do {
-        try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
-        try fileManager.unzipItem(at: sourceURL, to: destinationURL)
-    } catch {
-        print("Extraction of ZIP archive failed with error:\(error)")
-    }
-}
-/// see https://github.com/weichsel/ZIPFoundation
-func testZipArchive() {
-
-    let fileManager = FileManager()
-    let currentWorkingPath = fileManager.currentDirectoryPath
-    var sourceURL = URL(fileURLWithPath: currentWorkingPath)
-    sourceURL.appendPathComponent("file.txt")
-    var destinationURL = URL(fileURLWithPath: currentWorkingPath)
-    destinationURL.appendPathComponent("archive.zip")
-    do {
-        try fileManager.zipItem(at: sourceURL, to: destinationURL)
-    } catch {
-        print("Creation of ZIP archive failed with error:\(error)")
-    }
-}
+//???
+//func testUnzipArchive() {
+//
+//    let fileManager = FileManager()
+//    let currentWorkingPath = fileManager.currentDirectoryPath
+//    var sourceURL = URL(fileURLWithPath: currentWorkingPath)
+//    sourceURL.appendPathComponent("archive.zip")
+//    var destinationURL = URL(fileURLWithPath: currentWorkingPath)
+//    destinationURL.appendPathComponent("directory")
+//    do {
+//        try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
+//        try fileManager.unzipItem(at: sourceURL, to: destinationURL)
+//    } catch {
+//        print("Extraction of ZIP archive failed with error:\(error)")
+//    }
+//}
+///// see https://github.com/weichsel/ZIPFoundation
+//func testZipArchive() {
+//
+//    let fileManager = FileManager()
+//    let currentWorkingPath = fileManager.currentDirectoryPath
+//    var sourceURL = URL(fileURLWithPath: currentWorkingPath)
+//    sourceURL.appendPathComponent("file.txt")
+//    var destinationURL = URL(fileURLWithPath: currentWorkingPath)
+//    destinationURL.appendPathComponent("archive.zip")
+//    do {
+//        try fileManager.zipItem(at: sourceURL, to: destinationURL)
+//    } catch {
+//        print("Creation of ZIP archive failed with error:\(error)")
+//    }
+//}
 
 // straight decompress using Apple Compress Lib
 func decompress(_ data: Data) -> String {

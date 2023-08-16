@@ -25,12 +25,13 @@ class SkyVC: UIViewController {
 
         setNeedsUpdateOfHomeIndicatorAutoHidden()
 
-            view.addSubview(pipeline.mtkView)
+            view.layer.addSublayer(pipeline.metalLayer) //???
             pipeline.makeShader(for: root˚)
             pipeline.setupPipeline()
             pipeline.settingUp = false
 
-        let touchView = SkyTouchView(touchDraw)
+        let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080) //??? UIScreen.main.bounds
+        let touchView = SkyTouchView(touchDraw, bounds)
         let menuView = MenuView(SkyFlo.shared.root˚, touchView)
         let hostView = UIHostingController(rootView: menuView).view
         if let hostView {
@@ -40,7 +41,7 @@ class SkyVC: UIViewController {
             hostView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             hostView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             hostView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            hostView.backgroundColor = .clear
+            hostView.backgroundColor = UIColor.clear
         }
     }
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {

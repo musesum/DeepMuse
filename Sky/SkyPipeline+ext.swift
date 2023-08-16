@@ -65,7 +65,8 @@ extension SkyPipeline {
                     let isOn = flo.bool
 
                     setMtlNode(node, isOn)
-
+                    #if os(xrOS)
+                    #else
                     if name == "camera" {
                         MetCamera.shared.setCameraOn(isOn)
                         _ = CameraFacing.shared // setup singleton
@@ -73,6 +74,8 @@ extension SkyPipeline {
                             setMtlNode(mixNode, isOn)
                         }
                     }
+                    #endif
+
                 }
             }
             func setMtlNode(_ node: MetNode,_ isOn: Bool) {

@@ -45,7 +45,7 @@ class SkyMain {
 }
 extension SkyMain: NextFrameDelegate {
     func nextFrame() -> Bool {
-        SkyPipeline.shared.mtkView.draw()
+        SkyPipeline.shared.draw()
         return true
     }
     func cancel(_ key: Int) {

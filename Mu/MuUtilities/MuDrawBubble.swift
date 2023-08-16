@@ -4,6 +4,7 @@
 import UIKit
 import QuartzCore
 
+
 class MuDrawBubble: UIView {
     var fromFrame = CGRect.zero
     var cornerRadius = CGFloat(0)
@@ -34,7 +35,7 @@ class MuDrawBubble: UIView {
 
         let frame = CGRect(x: viewPoint.x - size.width / 2, y: viewPoint.y - size.height - arrowHeight, width: size.width, height: size.height + arrowHeight)
 
-        let boundSize = UIScreen.main.bounds.size //''' UIScreen.mainScreen.fixedCoordinateSpace.bounds.size;
+        let boundSize = UIScreen.main.bounds.size ze;
         var f = frame
 
         if f.origin.x < 0 {

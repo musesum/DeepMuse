@@ -7,10 +7,9 @@ import MuMenu
 import MuFlo
 import MultipeerConnectivity
 
-
 open class SkyTouchView: TouchView {
     
-    let safeBounds = UIScreen.main.bounds.pad(-4)
+    let safeBounds = CGRect(x: 0, y: 0, width: 1920, height: 1080).pad(-4) //??? UIScreen.main.bounds.pad(-4)
     var touchBeganFromEdge = [Int: Bool]()
     
     func willBeginFromEdge(_ touch: UITouch) -> Bool {

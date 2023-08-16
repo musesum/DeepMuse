@@ -9,6 +9,8 @@
 import Foundation
 import MuFlo
 import MuMetal
+#if os(xrOS)
+#else
 class CameraFacing {
     public static var shared = CameraFacing()
 
@@ -23,3 +25,4 @@ class CameraFacing {
         MetCamera.shared.facing(front)
     }
 }
+#endif

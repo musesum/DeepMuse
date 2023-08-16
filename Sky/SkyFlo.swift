@@ -133,7 +133,7 @@ class SkyFlo: NSObject {
                 archive.get("Snapshot.tex", 30_000_000) { data in
                     if let data {
                         print("--- archive.get Snapshot.tex \(data.count)")
-                        TextureData.shared.data = data
+                        TextureData["TouchDraw"] = data
                     }
                 }
             }
@@ -158,17 +158,17 @@ class SkyFlo: NSObject {
         let snapTime = name + ".\(time).zip"
         let archive = MuArchive(snapTime)
         let nodeNamed = SkyPipeline.shared.nodeNamed
-        let mtkView = SkyPipeline.shared.mtkView
-        let frameBufferOnly = mtkView.framebufferOnly
+        let metalLayer = SkyPipeline.shared.metalLayer
+        let frameBufferOnly = metalLayer.framebufferOnly
 
-        mtkView.framebufferOnly = false //  frameBufferOnly
+        metalLayer.framebufferOnly = false //  frameBufferOnly
 
         addScreenIcon() // make icon from an image snapshot of framebuffer
         addTexture()    // MetNodeDraws output texture as `.tex`
         addFloScript()  // snapshot of Sky Graph as flo script
         archive.copy(snapTime, to: snapName)
 
-        mtkView.framebufferOnly = frameBufferOnly // restore
+        metalLayer.framebufferOnly = frameBufferOnly // restore
         completion()
 
 
@@ -237,7 +237,7 @@ class SkyFlo: NSObject {
     func parseArchive(_ archive: MuArchive) {
         // get script and parse
         archive.get("Snapshot.flo", 1000000) { data in
-            if  let data = data,
+            if  let data,
                 let script = self.dropRoot(String(data: data, encoding: .utf8)) {
 
                 print(script)
