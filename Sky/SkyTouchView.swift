@@ -9,7 +9,7 @@ import MultipeerConnectivity
 
 open class SkyTouchView: TouchView {
     
-    let safeBounds = CGRect(x: 0, y: 0, width: 1920, height: 1080).pad(-4) //??? UIScreen.main.bounds.pad(-4)
+    var safeBounds: CGRect { frame.pad(-4) }
     var touchBeganFromEdge = [Int: Bool]()
     
     func willBeginFromEdge(_ touch: UITouch) -> Bool {
@@ -38,7 +38,7 @@ open class SkyTouchView: TouchView {
             //print("\(touch.phase.rawValue)",terminator: "")
             if      TouchMenuLocal.beginTouch(touch) { }
             else if willBeginFromEdge(touch) {}
-            else if TouchCanvas.beginTouch(touch) { }
+            else if TouchCanvas.shared.beginTouch(touch) { }
         }
     }
 
@@ -47,7 +47,7 @@ open class SkyTouchView: TouchView {
         for touch in touches {
             //print("\(touch.phase.rawValue)⃝",terminator: "")
             if      beganFromEdge(touch) {}
-            else if TouchCanvas.updateTouch(touch) { }
+            else if TouchCanvas.shared.updateTouch(touch) { }
             else if TouchMenuLocal.updateTouch(touch) { }
             else { print("*** unknown touch \(touch.hash)") }
         }

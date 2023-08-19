@@ -24,7 +24,13 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       enableGPUFrameCaptureMode = "1"
-      allowLocationSimulation = "YES">
+      enableGPUShaderValidationMode = "2"
+      showGraphicsOverview = "Yes"
+      logGraphicsOverview = "Yes"
+      allowLocationSimulation = "YES"
+      allowDeviceSensorReplayData = "YES"
+      consoleMode = "0"
+      structuredConsoleMode = "1">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference

@@ -133,7 +133,7 @@ class SkyFlo: NSObject {
                 archive.get("Snapshot.tex", 30_000_000) { data in
                     if let data {
                         print("--- archive.get Snapshot.tex \(data.count)")
-                        TextureData["TouchDraw"] = data
+                         TextureData.shared.data = data
                     }
                 }
             }
@@ -157,8 +157,8 @@ class SkyFlo: NSObject {
         let snapName = name + ".zip"
         let snapTime = name + ".\(time).zip"
         let archive = MuArchive(snapTime)
-        let nodeNamed = SkyPipeline.shared.nodeNamed
-        let metalLayer = SkyPipeline.shared.metalLayer
+        let nodeNamed = SkyVC.shared.pipeline.nodeNamed
+        let metalLayer = SkyVC.shared.pipeline.metalLayer
         let frameBufferOnly = metalLayer.framebufferOnly
 
         metalLayer.framebufferOnly = false //  frameBufferOnly

@@ -11,7 +11,7 @@ import MuColor
 /// metal draw/scroll + CA Rule + color + render pipleline
 public class SkyPipeline: MetPipeline {
 
-    static let shared = SkyPipeline()
+    //static let shared = SkyPipeline()
 
     private var cellNode: MetNode?    // CA node, after drawNode & cameraNode
     private var drawNode: MetNode?    // drawing node, optional 1st node
@@ -29,9 +29,9 @@ public class SkyPipeline: MetPipeline {
     private var skyAnimate˚: Flo?
     private var skyAnimate = CGFloat(1)
 
-    override init() {
+    override init(_ bounds: CGRect) {
 
-        super.init()
+        super.init(bounds)
         let root = SkyFlo.shared.root˚
         skyMainRun˚ = root.bind("sky.main.run") { f,_ in
             self.skyMainRun = f.bool
@@ -50,7 +50,7 @@ public class SkyPipeline: MetPipeline {
             switch name {
             case "camera" : node = MetNodeCamera (self)
             case "camix"  : node = MetNodeCamix  (self)
-            case "draw"   : node = MetNodeDraw   (self, SkyVC.shared.touchDraw.drawTexture)
+            case "draw"   : node = MetNodeDraw   (self, TouchCanvas.shared.touchFlo)
             case "color"  : node = MetNodeColor  (self, skyColor.getMix)
             case "record" : node = MetNodeRecord (self)
             case "tile"   : node = MetNodeTile   (self, name)

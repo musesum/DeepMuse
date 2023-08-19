@@ -14,6 +14,19 @@
 		8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8037433C29DD06C000ACEF2D /* render.cubemap.metal */; };
 		80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3A29EFB75F001F5519 /* compute.camera.metal */; };
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
+		804421BC2A8F6AD8005CA045 /* MuMenu in Resources */ = {isa = PBXBuildFile; fileRef = 804421AB2A8F6AD7005CA045 /* MuMenu */; };
+		804421BD2A8F6AD8005CA045 /* MuMenuSky in Resources */ = {isa = PBXBuildFile; fileRef = 804421AC2A8F6AD7005CA045 /* MuMenuSky */; };
+		804421BE2A8F6AD8005CA045 /* MuPar in Resources */ = {isa = PBXBuildFile; fileRef = 804421AD2A8F6AD7005CA045 /* MuPar */; };
+		804421BF2A8F6AD8005CA045 /* MuPlato in Resources */ = {isa = PBXBuildFile; fileRef = 804421AE2A8F6AD7005CA045 /* MuPlato */; };
+		804421C32A8F6AD8005CA045 /* MuColor in Resources */ = {isa = PBXBuildFile; fileRef = 804421B32A8F6AD7005CA045 /* MuColor */; };
+		804421C42A8F6AD8005CA045 /* MuVisit in Resources */ = {isa = PBXBuildFile; fileRef = 804421B42A8F6AD8005CA045 /* MuVisit */; };
+		804421C52A8F6AD8005CA045 /* MuPeer in Resources */ = {isa = PBXBuildFile; fileRef = 804421B52A8F6AD8005CA045 /* MuPeer */; };
+		804421C62A8F6AD8005CA045 /* MuMetal in Resources */ = {isa = PBXBuildFile; fileRef = 804421B62A8F6AD8005CA045 /* MuMetal */; };
+		804421C72A8F6AD8005CA045 /* MuAudio in Resources */ = {isa = PBXBuildFile; fileRef = 804421B72A8F6AD8005CA045 /* MuAudio */; };
+		804421C82A8F6AD8005CA045 /* AudioKit-visionOS in Resources */ = {isa = PBXBuildFile; fileRef = 804421B82A8F6AD8005CA045 /* AudioKit-visionOS */; };
+		804421C92A8F6AD8005CA045 /* MuTime in Resources */ = {isa = PBXBuildFile; fileRef = 804421B92A8F6AD8005CA045 /* MuTime */; };
+		804421CA2A8F6AD8005CA045 /* MuFlo in Resources */ = {isa = PBXBuildFile; fileRef = 804421BA2A8F6AD8005CA045 /* MuFlo */; };
+		804421CB2A8F6AD8005CA045 /* MuSkyFlo in Resources */ = {isa = PBXBuildFile; fileRef = 804421BB2A8F6AD8005CA045 /* MuSkyFlo */; };
 		8053A9942980B550001CD483 /* MuTime in Frameworks */ = {isa = PBXBuildFile; productRef = 8053A9932980B550001CD483 /* MuTime */; };
 		8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061E16829B85058003E9E1B /* CameraFacing.swift */; };
 		807048EB23378A090001617D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EA23378A090001617D /* AppDelegate.swift */; };
@@ -34,7 +47,6 @@
 		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
 		80704A0223378ADC0001617D /* SkyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497423378ADB0001617D /* SkyVC.swift */; };
 		80704A0323378ADC0001617D /* SkyPipeline+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497523378ADB0001617D /* SkyPipeline+ext.swift */; };
-		80704A0523378ADC0001617D /* SkyMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497723378ADB0001617D /* SkyMain.swift */; };
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		807533362A8C892900A1808C /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 807533352A8C892900A1808C /* ZIPFoundation */; };
@@ -104,6 +116,19 @@
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
 		80420C3C29EFB769001F5519 /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camix.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camix.metal; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
+		804421AB2A8F6AD7005CA045 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
+		804421AC2A8F6AD7005CA045 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
+		804421AD2A8F6AD7005CA045 /* MuPar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPar; path = ../Packages/MuPar; sourceTree = "<group>"; };
+		804421AE2A8F6AD7005CA045 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
+		804421B32A8F6AD7005CA045 /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
+		804421B42A8F6AD8005CA045 /* MuVisit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVisit; path = ../Packages/MuVisit; sourceTree = "<group>"; };
+		804421B52A8F6AD8005CA045 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
+		804421B62A8F6AD8005CA045 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
+		804421B72A8F6AD8005CA045 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
+		804421B82A8F6AD8005CA045 /* AudioKit-visionOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "AudioKit-visionOS"; path = "../Packages/AudioKit-visionOS"; sourceTree = "<group>"; };
+		804421B92A8F6AD8005CA045 /* MuTime */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuTime; path = ../Packages/MuTime; sourceTree = "<group>"; };
+		804421BA2A8F6AD8005CA045 /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
+		804421BB2A8F6AD8005CA045 /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
 		8045637D296B900600EE6E0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8061DE17293985030098F309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,23 +159,9 @@
 		8070497323378ADB0001617D /* SkyPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPipeline.swift; sourceTree = "<group>"; };
 		8070497423378ADB0001617D /* SkyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVC.swift; sourceTree = "<group>"; };
 		8070497523378ADB0001617D /* SkyPipeline+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+ext.swift"; sourceTree = "<group>"; };
-		8070497723378ADB0001617D /* SkyMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMain.swift; sourceTree = "<group>"; };
 		8070497B23378ADB0001617D /* scratch2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scratch2.h; sourceTree = "<group>"; };
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		807533392A8C98A900A1808C /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
-		8075333A2A8C98B200A1808C /* AudioKit-visionOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "AudioKit-visionOS"; path = "../Packages/AudioKit-visionOS"; sourceTree = "<group>"; };
-		8075333B2A8C98E800A1808C /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
-		8075333C2A8C98E800A1808C /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
-		8075333D2A8C98E800A1808C /* MuPar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPar; path = ../Packages/MuPar; sourceTree = "<group>"; };
-		8075333E2A8C98E800A1808C /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
-		8075333F2A8C98E800A1808C /* MuVisit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVisit; path = ../Packages/MuVisit; sourceTree = "<group>"; };
-		807533412A8C98E900A1808C /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
-		807533422A8C98E900A1808C /* MuTime */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuTime; path = ../Packages/MuTime; sourceTree = "<group>"; };
-		807533432A8C98E900A1808C /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
-		807533442A8C98E900A1808C /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
-		807533452A8C98E900A1808C /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
-		807533482A8CA0F500A1808C /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
 		8090E31229DBA9BF003E02CC /* render.flatmap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.flatmap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.flatmap.metal; sourceTree = "<group>"; };
@@ -241,19 +252,19 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				807533482A8CA0F500A1808C /* MuPlato */,
-				8075333C2A8C98E800A1808C /* MuColor */,
-				8075333B2A8C98E800A1808C /* MuFlo */,
-				807533442A8C98E900A1808C /* MuMenu */,
-				807533432A8C98E900A1808C /* MuMenuSky */,
-				807533452A8C98E900A1808C /* MuMetal */,
-				8075333D2A8C98E800A1808C /* MuPar */,
-				8075333E2A8C98E800A1808C /* MuPeer */,
-				807533412A8C98E900A1808C /* MuSkyFlo */,
-				807533422A8C98E900A1808C /* MuTime */,
-				8075333F2A8C98E800A1808C /* MuVisit */,
-				8075333A2A8C98B200A1808C /* AudioKit-visionOS */,
-				807533392A8C98A900A1808C /* MuAudio */,
+				804421B82A8F6AD8005CA045 /* AudioKit-visionOS */,
+				804421B72A8F6AD8005CA045 /* MuAudio */,
+				804421B32A8F6AD7005CA045 /* MuColor */,
+				804421BA2A8F6AD8005CA045 /* MuFlo */,
+				804421AB2A8F6AD7005CA045 /* MuMenu */,
+				804421AC2A8F6AD7005CA045 /* MuMenuSky */,
+				804421B62A8F6AD8005CA045 /* MuMetal */,
+				804421AD2A8F6AD7005CA045 /* MuPar */,
+				804421B52A8F6AD8005CA045 /* MuPeer */,
+				804421AE2A8F6AD7005CA045 /* MuPlato */,
+				804421BB2A8F6AD8005CA045 /* MuSkyFlo */,
+				804421B92A8F6AD8005CA045 /* MuTime */,
+				804421B42A8F6AD8005CA045 /* MuVisit */,
 				8045637D296B900600EE6E0E /* README.md */,
 				80EBE70129CABE3000C8039C /* CameraSession */,
 				8070495D23378ADB0001617D /* Metal */,
@@ -346,7 +357,6 @@
 		8097DC472833E2A300059A59 /* Sky */ = {
 			isa = PBXGroup;
 			children = (
-				8070497723378ADB0001617D /* SkyMain.swift */,
 				8070495C23378ADB0001617D /* SkyFlo.swift */,
 				8070497423378ADB0001617D /* SkyVC.swift */,
 				809820B229F1350E00682AD2 /* SkyTouchView.swift */,
@@ -521,7 +531,7 @@
 				};
 			};
 			buildConfigurationList = 807048E223378A090001617D /* Build configuration list for PBXProject "DeepMuse" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -555,9 +565,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804421CA2A8F6AD8005CA045 /* MuFlo in Resources */,
+				804421C52A8F6AD8005CA045 /* MuPeer in Resources */,
+				804421CB2A8F6AD8005CA045 /* MuSkyFlo in Resources */,
+				804421C32A8F6AD8005CA045 /* MuColor in Resources */,
+				804421C82A8F6AD8005CA045 /* AudioKit-visionOS in Resources */,
+				804421BE2A8F6AD8005CA045 /* MuPar in Resources */,
+				804421C72A8F6AD8005CA045 /* MuAudio in Resources */,
+				804421C92A8F6AD8005CA045 /* MuTime in Resources */,
+				804421BF2A8F6AD8005CA045 /* MuPlato in Resources */,
+				804421C42A8F6AD8005CA045 /* MuVisit in Resources */,
 				80BFB8CE2939CDDC00BDEE1F /* Main.storyboard in Resources */,
+				804421BC2A8F6AD8005CA045 /* MuMenu in Resources */,
+				804421BD2A8F6AD8005CA045 /* MuMenuSky in Resources */,
 				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
 				80DC21872337ADB000B99CD9 /* LaunchScreen.storyboard in Resources */,
+				804421C62A8F6AD8005CA045 /* MuMetal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +610,6 @@
 				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
 				80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */,
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
-				80704A0523378ADC0001617D /* SkyMain.swift in Sources */,
 				80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */,
 				80E95B072916853C003F6360 /* MuFile.swift in Sources */,
 				800E13CC29AF14C2007A480B /* String+ext.swift in Sources */,
@@ -791,7 +813,7 @@
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -820,7 +842,7 @@
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
