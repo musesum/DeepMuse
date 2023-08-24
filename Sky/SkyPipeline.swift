@@ -8,10 +8,7 @@ import MuPlato
 import MuMenu
 import MuColor
 
-/// metal draw/scroll + CA Rule + color + render pipleline
 public class SkyPipeline: MetPipeline {
-
-    //static let shared = SkyPipeline()
 
     private var cellNode: MetNode?    // CA node, after drawNode & cameraNode
     private var drawNode: MetNode?    // drawing node, optional 1st node
@@ -23,16 +20,16 @@ public class SkyPipeline: MetPipeline {
     private var tileNode: MetNode?    // deprecated
     private var platoNode: MetNode?   //
 
-    public var skyColor = ColorFlo(SkyFlo.shared.root˚) // instance of subtree of sky.color
+    public var skyColor:  ColorFlo! // instance of subtree of sky.color
     private var skyMainRun˚: Flo?    // run the cellular automata rules
     private var skyMainRun = true
     private var skyAnimate˚: Flo?
     private var skyAnimate = CGFloat(1)
 
-    override init(_ bounds: CGRect) {
+    init(_ bounds: CGRect, _ root: Flo) {
 
         super.init(bounds)
-        let root = SkyFlo.shared.root˚
+        skyColor = ColorFlo(root)
         skyMainRun˚ = root.bind("sky.main.run") { f,_ in
             self.skyMainRun = f.bool
             self.cellNode?.isOn = self.skyMainRun
@@ -40,6 +37,8 @@ public class SkyPipeline: MetPipeline {
         skyAnimate˚ = root.bind("sky.main.anim") { f,_ in
             self.skyAnimate = f.cgFloat
         }
+       makeShader(root)
+       setupPipeline(root)
     }
 
     /// setup new node during shader startup or via pipeline
@@ -182,11 +181,10 @@ public class SkyPipeline: MetPipeline {
     }
 
     /// create pipeline from script or snapshot
-    public override func setupPipeline() {
+    public func setupPipeline(_ root˚: Flo) {
 
         camixNode = nil
 
-        let root˚ = SkyFlo.shared.root˚
         if  let pipeline = root˚.findPath("shader.pipeline"),
             let firstChild = pipeline.children.first {
 

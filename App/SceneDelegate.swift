@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillResignActive(_ scene: UIScene) {
         NextFrame.shared.pause = true
-        SkyFlo.shared.saveSkyArchive("Snapshot") {
+        SkyVm.shared.saveSkyArchive() {
         }
     }
 
@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         //?? scheduleSnapshot()
-        SkyFlo.shared.saveSkyArchive("Snapshot") {
+        SkyVm.shared.saveSkyArchive() {
             //?? task.setTaskCompleted(success: true)
         }
     }

@@ -1,0 +1,29 @@
+# xcode noise
+build/
+DerivedData/
+*.pyc
+*~.nib/
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xcuserstate
+*.xccheckout
+*.xctimeline
+*.o
+*.log
+*.xcframework
+project.xcworkspace/
+xcuserdata/
+xcodebuild
+
+# osx noise
+.DS_Store
+profile
+
+
+# Swift Package Manager
+/.build
+/Packages
+.swiftpm/
+
+Package.resolved

@@ -12,12 +12,12 @@ import MuMetal
 #if os(xrOS)
 #else
 class CameraFacing {
-    public static var shared = CameraFacing()
+    //??? public static var shared = CameraFacing()
 
     private var front˚: Flo?; var front: Bool = true
 
-    init() {
-        let camera = SkyFlo.shared.root˚.bind("shader.compute.camera")
+    init(_ root˚: Flo) {
+        let camera = root˚.bind("shader.compute.camera")
         front˚ = camera.bind("front") { flo,_ in self.updateFacing(flo.bool) }
     }
     func updateFacing(_ front: Bool) {

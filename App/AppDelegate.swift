@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     /// take a snapshot of current
     func handleSnapshot(task: BGAppRefreshTask) {
-        SkyFlo.shared.saveSkyArchive("Snapshot") {
+        SkyVm.shared.saveSkyArchive() {
             task.setTaskCompleted(success: true)
         }
     }

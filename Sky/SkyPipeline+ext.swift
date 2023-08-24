@@ -6,12 +6,12 @@ import MuMetal
 
 extension SkyPipeline {
 
-    func makeShader(for flo: Flo) {
+    func makeShader(_ root˚: Flo) {
 
-        guard let shader  = flo   .findPath("shader" ) else { return err(flo,"shader" )}
-        guard let cell    = shader.findPath("cell"   ) else { return err(flo,"cell"   )}
-        guard let compute = shader.findPath("compute") else { return err(flo,"compute")}
-        guard let render  = shader.findPath("render" ) else { return err(flo,"render" )}
+        guard let shader  = root˚   .findPath("shader" ) else { return err(root˚,"shader" )}
+        guard let cell    = shader.findPath("cell"   ) else { return err(root˚,"cell"   )}
+        guard let compute = shader.findPath("compute") else { return err(root˚,"compute")}
+        guard let render  = shader.findPath("render" ) else { return err(root˚,"render" )}
 
         for child in cell.children    { makeMetNode(child) }
         for child in compute.children { makeMetNode(child) }
@@ -69,7 +69,7 @@ extension SkyPipeline {
                     #else
                     if name == "camera" {
                         MetCamera.shared.setCameraOn(isOn)
-                        _ = CameraFacing.shared // setup singleton
+                        //??? _ = CameraFacing.shared // setup singleton
                         if let mixNode = nodeNamed["camix"] {
                             setMtlNode(mixNode, isOn)
                         }
