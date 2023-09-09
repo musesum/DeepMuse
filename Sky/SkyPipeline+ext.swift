@@ -1,14 +1,13 @@
 
 import UIKit
 import MuFlo
-import MuVisit
 import MuMetal
 
 extension SkyPipeline {
 
     func makeShader(_ root˚: Flo) {
 
-        guard let shader  = root˚   .findPath("shader" ) else { return err(root˚,"shader" )}
+        guard let shader  = root˚ .findPath("shader" ) else { return err(root˚,"shader" )}
         guard let cell    = shader.findPath("cell"   ) else { return err(root˚,"cell"   )}
         guard let compute = shader.findPath("compute") else { return err(root˚,"compute")}
         guard let render  = shader.findPath("render" ) else { return err(root˚,"render" )}
