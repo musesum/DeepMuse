@@ -16,7 +16,6 @@
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
 		8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061E16829B85058003E9E1B /* CameraFacing.swift */; };
 		8064FBB12A9850E200FA654B /* SkyVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064FBB02A9850E200FA654B /* SkyVm.swift */; };
-		807048EB23378A090001617D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807048EA23378A090001617D /* AppDelegate.swift */; };
 		8070490223378A0B0001617D /* MuseSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490123378A0B0001617D /* MuseSkyTests.swift */; };
 		8070490D23378A0B0001617D /* MuseSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070490C23378A0B0001617D /* MuseSkyUITests.swift */; };
 		807049EE23378ADC0001617D /* cell.fred.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070495F23378ADB0001617D /* cell.fred.metal */; };
@@ -31,7 +30,6 @@
 		807049F723378ADC0001617D /* cell.melt.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496823378ADB0001617D /* cell.melt.metal */; };
 		807049F923378ADC0001617D /* cell.slide.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.slide.metal */; };
 		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
-		80704A0223378ADC0001617D /* SkyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497423378ADB0001617D /* SkyVC.swift */; };
 		80704A0323378ADC0001617D /* SkyPipeline+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497523378ADB0001617D /* SkyPipeline+ext.swift */; };
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
@@ -110,7 +108,6 @@
 		8064FBB02A9850E200FA654B /* SkyVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyVm.swift; sourceTree = "<group>"; };
 		806999192A87B16C00338C05 /* Platonix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platonix.h; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		807048EA23378A090001617D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807048EC23378A090001617D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		807048FD23378A0B0001617D /* DeepMuseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepMuseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +128,6 @@
 		8070496823378ADB0001617D /* cell.melt.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.melt.metal; sourceTree = "<group>"; };
 		8070496A23378ADB0001617D /* cell.slide.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.slide.metal; sourceTree = "<group>"; };
 		8070497323378ADB0001617D /* SkyPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPipeline.swift; sourceTree = "<group>"; };
-		8070497423378ADB0001617D /* SkyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVC.swift; sourceTree = "<group>"; };
 		8070497523378ADB0001617D /* SkyPipeline+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+ext.swift"; sourceTree = "<group>"; };
 		8070497B23378ADB0001617D /* scratch2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scratch2.h; sourceTree = "<group>"; };
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
@@ -259,7 +255,6 @@
 				80DC21842337ACFB00B99CD9 /* Assets.xcassets */,
 				80DC21852337ADB000B99CD9 /* LaunchScreen.storyboard */,
 				80DC21862337ADB000B99CD9 /* Main.storyboard */,
-				807048EA23378A090001617D /* AppDelegate.swift */,
 				807048EC23378A090001617D /* SceneDelegate.swift */,
 				807048F823378A0B0001617D /* Info.plist */,
 			);
@@ -335,7 +330,6 @@
 		8097DC472833E2A300059A59 /* Sky */ = {
 			isa = PBXGroup;
 			children = (
-				8070497423378ADB0001617D /* SkyVC.swift */,
 				8064FBB02A9850E200FA654B /* SkyVm.swift */,
 				809820B229F1350E00682AD2 /* SkyTouchView.swift */,
 				8070497323378ADB0001617D /* SkyPipeline.swift */,
@@ -561,7 +555,6 @@
 				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
 				80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */,
 				80E95AED29167D50003F6360 /* MuDrawBox.swift in Sources */,
-				807048EB23378A090001617D /* AppDelegate.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
 				8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */,
 				8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */,
@@ -573,7 +566,6 @@
 				8064FBB12A9850E200FA654B /* SkyVm.swift in Sources */,
 				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,
 				807049EE23378ADC0001617D /* cell.fred.metal in Sources */,
-				80704A0223378ADC0001617D /* SkyVC.swift in Sources */,
 				807049F023378ADC0001617D /* cell.mod.metal in Sources */,
 				80704A0323378ADC0001617D /* SkyPipeline+ext.swift in Sources */,
 				80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */,

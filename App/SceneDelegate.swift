@@ -17,10 +17,12 @@ struct MenuSkyView: View {
 
     public static let shared = MenuSkyView()
     var menuView: MenuView!
+    var hostView: UIView!
     var midi: MuMidi?
-    var pipeline: SkyPipeline?
+    var pipeline: SkyPipeline!
     var touchView: SkyTouchView!
     var settingUp = true
+    var hostingController: HostingController!
 
     let archive = FloArchive(bundle: MuSkyFlo.bundle,
                              archive: "Snapshot",
@@ -41,15 +43,28 @@ struct MenuSkyView: View {
         pipeline = SkyPipeline(bounds, archive.root˚)
         TouchCanvas.shared.touchFlo.parseRoot(archive.root˚, archive)
         touchView = SkyTouchView(bounds)
-       //??? menuView = MenuView(archive.root˚, touchView, self)
-       //        hostView = UIHostingController(rootView: menuView).view
+        menuView = MenuView(archive.root˚, touchView, self)
+        hostView = UIHostingController(rootView: menuView).view
+        hostingController = HostingController(rootView: self)
+
+        let view = hostingController.view!
+        view.backgroundColor = .black
+        view.layer.addSublayer(pipeline!.metalLayer)
+
+        view.addSubview(hostView)
+        hostView.translatesAutoresizingMaskIntoConstraints = false
+        hostView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        hostView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        hostView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        hostView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        hostView.backgroundColor = UIColor.clear
+
         NextFrame.shared.addFrameDelegate("Sky".hash, self)
     }
 
     var body: some View {
         VStack {
-            MenuView(archive.root˚, touchView, self)
-                .background(.secondary)
+           menuView
         }
     }
 }
@@ -91,20 +106,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /// setup `HostingController` here:
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let hostingController = HostingController(rootView: MenuSkyView.shared)
-            window.rootViewController = hostingController
+            window.rootViewController = MenuSkyView.shared.hostingController
             self.window = window
             window.makeKeyAndVisible()
         }
     }
 
-//????    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//
-//        guard let _ = (scene as? UIWindowScene) else { return }
-//    }
-
     func sceneDidDisconnect(_ scene: UIScene) {
-
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -137,7 +145,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //?? task.setTaskCompleted(success: true)
         }
     }
-
 }
 
 /**

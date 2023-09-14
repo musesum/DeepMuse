@@ -12,7 +12,6 @@ import MuMetal
 #if os(xrOS)
 #else
 class CameraFacing {
-    //??? public static var shared = CameraFacing()
 
     private var front˚: Flo?; var front: Bool = true
 
