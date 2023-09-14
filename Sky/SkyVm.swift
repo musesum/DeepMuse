@@ -14,6 +14,31 @@ import MuSkyFlo // bundle
 import MuFlo
 import MuMetal // saveSkyArchive
 
+
+#if os(xrOS)
+import ARKit
+import CompositorServices
+#endif
+
+
+@main
+struct app: App {
+    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
+    let skyVm = SkyVm.shared
+    var body: some Scene {
+        WindowGroup {
+            MenuSkyView.shared
+        }
+#if os(xrOS)
+        ImmersiveSpace(id: "ImmersiveSpace") {
+            CompositorLayer(configuration: MetalLayerConfiguration()) { layerRenderer in
+                let renderer = Renderer(layerRenderer)
+                renderer.startRenderLoop()
+            }
+        }.immersionStyle(selection: .constant(.automatic), in: .full)
+#endif
+    }
+}
 class SkyVm {
     static var shared = SkyVm()
     var midi: MuMidi?
@@ -26,8 +51,8 @@ class SkyVm {
 
     var touchView: SkyTouchView!
     var settingUp = true
-    var hostView: UIView?
-    var menuView: MenuView!
+//???? var hostView: UIView?
+//???? var menuView: MenuView!
 #if os(xrOS)
     let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
 #else
@@ -43,8 +68,8 @@ class SkyVm {
         pipeline = SkyPipeline(bounds, archive.root˚)
         TouchCanvas.shared.touchFlo.parseRoot(archive.root˚, archive)
         touchView = SkyTouchView(bounds)
-        menuView = MenuView(archive.root˚, touchView, self)
-        hostView = UIHostingController(rootView: menuView).view
+//        menuView = MenuView(archive.root˚, touchView, self)
+//        hostView = UIHostingController(rootView: menuView).view
         NextFrame.shared.addFrameDelegate("SkyVm".hash, self)
     }
     // snapshot on framebuffer, draw Texture and skyGraph
@@ -137,3 +162,16 @@ extension SkyVm: NextFrameDelegate {
     }
 
 }
+#if os(xrOS)
+struct MetalLayerConfiguration: CompositorLayerConfiguration {
+    func makeConfiguration(capabilities: LayerRenderer.Capabilities,
+                           configuration: inout LayerRenderer.Configuration)
+    {
+        let supportsFoveation = capabilities.supportsFoveation
+        configuration.layout = .dedicated
+        configuration.isFoveationEnabled = supportsFoveation
+        configuration.colorFormat = .rgba16Float
+    }
+}
+
+#endif

@@ -14,15 +14,15 @@ class SkyVC: UIViewController {
 
         view.layer.addSublayer(pipeline.metalLayer)
 
-        if let hostView = skyVm.hostView {
-            view.addSubview(hostView)
-            hostView.translatesAutoresizingMaskIntoConstraints = false
-            hostView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            hostView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            hostView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            hostView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            hostView.backgroundColor = UIColor.clear
-        }
+//        if let hostView = skyVm.hostView {
+//            view.addSubview(hostView)
+//            hostView.translatesAutoresizingMaskIntoConstraints = false
+//            hostView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//            hostView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//            hostView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+//            hostView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+//            hostView.backgroundColor = UIColor.clear
+//        }
     }
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         get {
