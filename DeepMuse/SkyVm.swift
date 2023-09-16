@@ -6,7 +6,6 @@
 //  Copyright © 2023 DeepMuse. All rights reserved.
 
 import SwiftUI
-import UIKit
 
 import MuMenu
 import MuAudio // MuMidi
@@ -14,28 +13,6 @@ import MuSkyFlo // bundle
 import MuFlo
 import MuMetal // saveSkyArchive
 
-#if os(xrOS)
-import ARKit
-import CompositorServices
-#endif
-
-@main
-struct app: App {
-
-    var body: some Scene {
-        WindowGroup {
-            MenuSkyView.shared
-        }
-#if os(xrOS)
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            CompositorLayer(configuration: MetalLayerConfiguration()) { layerRenderer in
-                let renderer = Renderer(layerRenderer)
-                renderer.startRenderLoop()
-            }
-        }.immersionStyle(selection: .constant(.full), in: .full)
-#endif
-    }
-}
 class SkyVm {
     static var shared = SkyVm()
     var midi: MuMidi?
@@ -155,16 +132,3 @@ extension SkyVm: NextFrameDelegate {
     }
 
 }
-#if os(xrOS)
-struct MetalLayerConfiguration: CompositorLayerConfiguration {
-    func makeConfiguration(capabilities: LayerRenderer.Capabilities,
-                           configuration: inout LayerRenderer.Configuration)
-    {
-        let supportsFoveation = capabilities.supportsFoveation
-        configuration.layout = .dedicated
-        configuration.isFoveationEnabled = supportsFoveation
-        configuration.colorFormat = .rgba16Float
-    }
-}
-
-#endif

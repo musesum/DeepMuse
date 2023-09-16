@@ -26,14 +26,15 @@ extension SkyPipeline {
                 switch child.name {
                 case "on"     : addMtlNodeOn(node, child)
                 case "loops"  : node.loops = max(1,child.int)
-                case "front"  : break // ignore shader.camera.front
                 case "mix"    : updateChildBuffer(node, child)
                 case "frame"  : updateChildBuffer(node, child)
                 case "repeat" : updateChildBuffer(node, child)
                 case "mirror" : updateChildBuffer(node, child)
                 case "bits"   : updateChildBuffer(node, child)
                 case "gravity": updateChildBuffer(node, child)
-                default       : err(flo, "name:\(child.name)")
+                case "front"  : break // ignore shader.camera.front
+                case "rotate" : break // ignore shader.render.cubemap.rotate
+                default       : err(flo, child.name)
                 }
             }
         }
@@ -98,7 +99,7 @@ extension SkyPipeline {
             }
         }
         func err(_ flo: Flo, _ item: String) {
-            print("⁉️ makeShader couldn't find \(item) in \(flo.name)")
+            print("⁉️ makeShader couldn't find \(flo.path(9)).\(item)")
         }
     }
 }

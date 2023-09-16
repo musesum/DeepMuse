@@ -50,7 +50,7 @@ public class SkyPipeline: MetPipeline {
             case "camix"  : node = MetNodeCamix  (self)
             case "draw"   : node = MetNodeDraw   (self, TouchCanvas.shared.touchFlo)
             case "color"  : node = MetNodeColor  (self, skyColor.getMix)
-            case "record" : node = MetNodeRecord (self)
+            case "record" : break //node = MetNodeRecord (self)
             case "tile"   : node = MetNodeTile   (self, name)
             case "flatmap": node = MetNodeFlatmap(self)
             case "cubemap": node = MetNodeCubemap(self, true)
