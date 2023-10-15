@@ -1,10 +1,5 @@
-//
 //  NotificationService.swift
-//  MuseSky
-//
-//  Created by warren on 12/2/22.
-//  Copyright © 2022 Muse. All rights reserved.
-//
+//  created by musesum on 12/2/22.
 
 import UserNotifications
 

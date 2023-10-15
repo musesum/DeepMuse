@@ -24,10 +24,11 @@ public class SkyPipeline: MetPipeline {
     private var skyMainRun = true
     private var skyAnimate˚: Flo?
     private var skyAnimate = CGFloat(1)
-
+    private var root˚: Flo!
     init(_ bounds: CGRect, _ root: Flo) {
 
         super.init(bounds)
+        self.root˚ = root
         skyColor = ColorFlo(root)
         skyMainRun˚ = root.bind("sky.main.run") { f,_ in
             self.skyMainRun = f.bool
@@ -46,8 +47,8 @@ public class SkyPipeline: MetPipeline {
         var node = nodeNamed[name]
         if node == nil {
             switch name {
-            case "camera" : node = MetNodeCamera (self)
-            case "camix"  : node = MetNodeCamix  (self)
+            case "camera" : node = MetNodeCamera (root˚,self)
+            case "camix"  : node = MetNodeCamix  (root˚,self)
             case "draw"   : node = MetNodeDraw   (self, TouchCanvas.shared.touchFlo)
             case "color"  : node = MetNodeColor  (self, skyColor.getMix)
             case "record" : break //node = MetNodeRecord (self)
@@ -96,6 +97,7 @@ public class SkyPipeline: MetPipeline {
 
                 cameraNode.insert(after: drawNode)
                 firstNode = cameraNode
+
             }
         }
         func addDraw(_ node: MetNode) {
@@ -123,8 +125,11 @@ public class SkyPipeline: MetPipeline {
             // insert camera just after draw node to allow rules to apply to image
             if node.isOn {
                 cameraNode = drawNode?.insertNode(node, .below)
-            } else if let cameraNode {
-                //TODO: removeNode(cameraNode), removeNode(camixNode)
+//?          } else if let cameraNode {
+//                removeNode(cameraNode)
+//                if let camixNode {
+//                    removeNode(camixNode)
+//                }
             }
 
         case "camix":

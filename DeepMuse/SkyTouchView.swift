@@ -1,6 +1,4 @@
-//  Created by warren on 4/20/23.
-//  Copyright © 2023 DeepMuse. All rights reserved.
-
+//  created by musesum on 4/20/23.
 
 import SwiftUI
 import MuMenu

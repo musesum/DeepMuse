@@ -1,10 +1,6 @@
-//
 //  MenuSkyView.swift
-//  DeepMuse
-//
-//  Created by warren on 9/14/23.
-//  Copyright © 2023 DeepMuse. All rights reserved.
-//
+//  created by musesum on 9/14/23.
+
 
 import SwiftUI
 import BackgroundTasks

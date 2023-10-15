@@ -1,5 +1,4 @@
-//  Created by warren on 8/7/19.
-//  Copyright © 2019 DeepMuse All rights reserved.
+//  created by musesum on 8/7/19.
 
 import Foundation
 import QuartzCore

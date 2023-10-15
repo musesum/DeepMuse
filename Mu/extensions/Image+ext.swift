@@ -1,9 +1,5 @@
-//
 //  Image+ext.swift
-//  Platonix
-//
-//  Created by warren on 2/18/23.
-//  Copyright © 2023 com.deepmuse. All rights reserved.
+//  created by musesum on 2/18/23.
 
 import Foundation
 import CoreImage

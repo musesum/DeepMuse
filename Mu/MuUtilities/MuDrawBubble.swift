@@ -1,9 +1,7 @@
-//  Created by warren on 7/17/19.
-//  Copyright © 2019 DeepMuse All rights reserved.
+//  created by musesum on 7/17/19.
 
 import UIKit
 import QuartzCore
-
 
 class MuDrawBubble: UIView {
     var fromFrame = CGRect.zero

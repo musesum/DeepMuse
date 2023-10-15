@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  MuseSky
 //
-//  Created by warren on 9/22/19.
-//  Copyright © 2019 DeepMuse All rights reserved.
+//  created by musesum on 9/22/19.
+
 
 import SwiftUI
 import BackgroundTasks

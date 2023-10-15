@@ -1,9 +1,6 @@
-//
 //  SkyVm.swift
-//  DeepMuse
-//
-//  Created by warren on 8/25/23.
-//  Copyright © 2023 DeepMuse. All rights reserved.
+//  created by musesum on 8/25/23.
+
 
 import SwiftUI
 

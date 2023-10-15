@@ -1,10 +1,6 @@
-//
 //  Platonic+defs.swift
-//  HelloCube
-//
-//  Created by warren on 2/16/23.
-//  Copyright © 2023 com.deepmuse. All rights reserved.
-//
+//  created by musesum on 2/16/23.
+
 
 import Foundation
 

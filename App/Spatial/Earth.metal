@@ -1,25 +1,24 @@
-
 #include <metal_stdlib>
-#include <simd/simd.h>
 #include "ShaderTypes.h"
 
 using namespace metal;
 
 vertex VertexOut vertexEarth
 (
- VertexIn             in    [[ stage_in ]],
- ushort               ampId [[ amplification_id ]],
- constant UniformEyes &eyes [[ buffer(uniforms) ]])
+ VertexIn             in       [[ stage_in ]],
+ ushort               ampId    [[ amplification_id ]],
+ constant UniformEyes &uniEyes [[ buffer(uniforms) ]])
 {
     VertexOut out;
 
-    Uniforms uniforms = eyes.eye[ampId];
+    Uniforms uniEye = uniEyes.eye[ampId];
+    float4 position = float4(in.position, 1.0);
 
-    out.position = (uniforms.projection *
-                    uniforms.viewModel *
-                    float4(in.position.xyz, 1.0));
+    out.position = (uniEye.projection *
+                    uniEye.viewModel *
+                    position);
 
-    out.normal = (uniforms.viewModel *
+    out.normal = (uniEye.viewModel *
                   float4(in.normal, 0.0f)).xyz;
 
     out.texCoord = in.texCoord;

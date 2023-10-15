@@ -12,11 +12,12 @@ vertex VertexOut vertexStars
 {
     VertexOut out;
 
-    Uniforms uniforms = eyes.eye[amp_id];
+    Uniforms eye = eyes.eye[amp_id];
+
     float4 position = float4(in.position, 1.0);
 
-    out.position = (uniforms.projection *
-                    uniforms.viewModel *
+    out.position = (eye.projection *
+                    eye.viewModel *
                     position);
 
     out.normal = -in.normal;
@@ -31,7 +32,7 @@ fragment float4 fragmentStars
 {
     constexpr sampler samplr(filter::linear,
                              address::repeat);
-    
+
     float4 color = tex.sample(samplr, out.texCoord);
     return color;
 }

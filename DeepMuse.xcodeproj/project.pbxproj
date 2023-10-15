@@ -23,7 +23,6 @@
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
 		805ACA242AD8613E00FDE5F2 /* Earth.metal in Sources */ = {isa = PBXBuildFile; fileRef = 805ACA222AD8613E00FDE5F2 /* Earth.metal */; };
 		805ACA252AD8613E00FDE5F2 /* Stars.metal in Sources */ = {isa = PBXBuildFile; fileRef = 805ACA232AD8613E00FDE5F2 /* Stars.metal */; };
-		8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061E16829B85058003E9E1B /* CameraFacing.swift */; };
 		806368792AB3D29600800F8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806A97942AB3542900CF04FF /* LaunchScreen.storyboard */; };
 		8064FBB12A9850E200FA654B /* SkyVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064FBB02A9850E200FA654B /* SkyVm.swift */; };
 		8066D1F82AB3FF4D0054981E /* MenuSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066D1F72AB3FF4D0054981E /* MenuSkyView.swift */; };
@@ -108,7 +107,6 @@
 		805ACA232AD8613E00FDE5F2 /* Stars.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Stars.metal; sourceTree = "<group>"; };
 		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8061DE17293985030098F309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8061E16829B85058003E9E1B /* CameraFacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFacing.swift; sourceTree = "<group>"; };
 		8064FBB02A9850E200FA654B /* SkyVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyVm.swift; sourceTree = "<group>"; };
 		8066D1F72AB3FF4D0054981E /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuSkyView.swift; path = DeepMuse/MenuSkyView.swift; sourceTree = SOURCE_ROOT; };
 		806999192A87B16C00338C05 /* Platonix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platonix.h; sourceTree = "<group>"; };
@@ -339,7 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				80F5E1692A4A728F00051994 /* MuLog */,
-				80FF2E3429B97B8E00B631E6 /* MuCamera */,
 				800E13C529AF14C2007A480B /* extensions */,
 				80E95AE129167D50003F6360 /* MuUtilities */,
 			);
@@ -351,14 +348,6 @@
 			children = (
 			);
 			path = MuLog;
-			sourceTree = "<group>";
-		};
-		80FF2E3429B97B8E00B631E6 /* MuCamera */ = {
-			isa = PBXGroup;
-			children = (
-				8061E16829B85058003E9E1B /* CameraFacing.swift */,
-			);
-			path = MuCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,7 +455,6 @@
 				800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */,
 				8000B6FF2AB91B2D002964B3 /* ShaderTypes.swift in Sources */,
 				800E13CA29AF14C2007A480B /* Image+ext.swift in Sources */,
-				8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */,
 				80E95AED29167D50003F6360 /* MuDrawBox.swift in Sources */,
 				807649FE2AD59C3A00399B00 /* RendererProtocol.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
