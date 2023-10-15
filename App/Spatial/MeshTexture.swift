@@ -27,20 +27,19 @@ class MeshTexture {
         stencil = device.makeDepthStencilState(descriptor: sd)
     }
     func addVertexFormat(_ format: MTLVertexFormat,
-                         _ vertexi: Int,
-                         _ layouti: Int ) {
+                         _ index: Int) {
         let stride: Int
         switch format {
         case .float2: stride = MemoryLayout<Float>.size * 2
         case .float3: stride = MemoryLayout<Float>.size * 3
         default: return
         }
-        metalVD.attributes[vertexi].format = format
-        metalVD.attributes[vertexi].offset = 0
-        metalVD.attributes[vertexi].bufferIndex = layouti
-        metalVD.layouts[layouti].stride = stride
-        metalVD.layouts[layouti].stepRate = 1
-        metalVD.layouts[layouti].stepFunction = .perVertex
+        metalVD.attributes[index].format = format
+        metalVD.attributes[index].offset = 0
+        metalVD.attributes[index].bufferIndex = index
+        metalVD.layouts[index].stride = stride
+        metalVD.layouts[index].stepRate = 1
+        metalVD.layouts[index].stepFunction = .perVertex
     }
 
     func draw(_ renderCommand: MTLRenderCommandEncoder,
@@ -133,8 +132,8 @@ class MeshEllipsoid: MeshTexture {
     func makeMetalVD() {
 
         metalVD = MTLVertexDescriptor()
-        addVertexFormat(.float3, Vertexi.position, Bufi.positioni)
-        addVertexFormat(.float2, Vertexi.normal  , Bufi.normali  )
-        addVertexFormat(.float3, Vertexi.texcoord, Bufi.texcoordi)
+        addVertexFormat(.float3, Vertexi.position)
+        addVertexFormat(.float2, Vertexi.normal  )
+        addVertexFormat(.float3, Vertexi.texcoord)
     }
 }

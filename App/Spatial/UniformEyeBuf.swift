@@ -96,7 +96,7 @@ class UniformEyeBuf {
         }
         renderCommand.setVertexBuffer(uniformBuf,
                                       offset: tripleOffset,
-                                      index: Bufi.uniformEyei)
+                                      index: Vertexi.uniforms)
     }
 
 }

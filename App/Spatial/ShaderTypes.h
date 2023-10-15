@@ -13,34 +13,27 @@ typedef NSInteger EnumBackingType;
 
 #include <simd/simd.h>
 
-typedef enum {
-    postitioni  = 0,
-    normali     = 1,
-    texcoordi   = 2,
-    uniformEyei = 3,
-} Bufferi;
-
-typedef enum {
+enum Vertexi {
     position = 0,
     texCoord = 1,
-    normal   = 2
+    normal   = 2,
+    uniforms = 3
+};
 
-} Vertexi;
-
-typedef enum {
+enum Texturei {
     colori = 0,
-} Texturei;
+};
 
 struct VertexIn {
     float3 position [[ attribute(position) ]];
-    float3 normal   [[ attribute(normal)   ]];
     float2 texCoord [[ attribute(texCoord) ]];
+    float3 normal   [[ attribute(normal)   ]];
 };
 
 struct VertexOut {
     float4 position [[ position ]];
-    float3 normal;
     float2 texCoord;
+    float3 normal;
 };
 
 struct Uniforms {

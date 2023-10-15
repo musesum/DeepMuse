@@ -2,17 +2,11 @@
 
 import simd
 
-struct Bufi  {
-    static let positioni   = 0
-    static let texcoordi   = 1
-    static let normali     = 2
-    static let uniformEyei = 3
-}
-
 struct Vertexi {
     static let position = 0
     static let texcoord = 1
     static let normal   = 2
+    static let uniforms = 3
 }
 
 struct Texturei {

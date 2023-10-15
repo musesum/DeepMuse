@@ -9,7 +9,7 @@ vertex VertexOut vertexEarth
 (
  VertexIn             in    [[ stage_in ]],
  ushort               ampId [[ amplification_id ]],
- constant UniformEyes &eyes [[ buffer(uniformEyei) ]])
+ constant UniformEyes &eyes [[ buffer(uniforms) ]])
 {
     VertexOut out;
 

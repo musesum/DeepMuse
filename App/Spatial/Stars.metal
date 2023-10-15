@@ -8,7 +8,7 @@ vertex VertexOut vertexStars
 (
  VertexIn             in     [[ stage_in ]],
  ushort               amp_id [[ amplification_id ]],
- constant UniformEyes &eyes  [[ buffer(uniformEyei) ]])
+ constant UniformEyes &eyes  [[ buffer(uniforms) ]])
 {
     VertexOut out;
 
