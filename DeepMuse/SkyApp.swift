@@ -13,30 +13,37 @@ import MuMenu
 import CompositorServices
 
 @main
-struct app: App {
+struct SkyApp: App {
+    @State private var immersionStyle: ImmersionStyle = .full
     var body: some Scene {
         WindowGroup {
             MenuSkyView.shared
+            ContentView()
         }
         ImmersiveSpace(id: "ImmersiveSpace") {
-            CompositorLayer(configuration: MetalLayerConfiguration()) { layerRenderer in
-                let renderer = RenderSky(layerRenderer)
-                renderer.startRenderLoop()
+            CompositorLayer(configuration: ContentStageConfiguration()) { layerRenderer in
+                _ = SkyRenderer(layerRenderer)
             }
-        }.immersionStyle(selection: .constant(.full), in: .full)
+        }.immersionStyle(selection: $immersionStyle, in: .full)
+    }
+}
+struct ContentStageConfiguration: CompositorLayerConfiguration {
+    func makeConfiguration(capabilities: LayerRenderer.Capabilities,
+                           configuration: inout LayerRenderer.Configuration) {
+
+        configuration.depthFormat = .depth32Float
+        configuration.colorFormat = .bgra8Unorm_srgb
+
+        let foveationEnabled = capabilities.supportsFoveation
+        configuration.isFoveationEnabled = foveationEnabled
+
+        let options: LayerRenderer.Capabilities.SupportedLayoutsOptions = foveationEnabled ? [.foveationEnabled] : []
+        let supportedLayouts = capabilities.supportedLayouts(options: options)
+
+        configuration.layout = supportedLayouts.contains(.layered) ? .layered : .dedicated
     }
 }
 
-struct MetalLayerConfiguration: CompositorLayerConfiguration {
-    func makeConfiguration(capabilities: LayerRenderer.Capabilities,
-                           configuration: inout LayerRenderer.Configuration)
-    {
-        let supportsFoveation = capabilities.supportsFoveation
-        configuration.layout = .dedicated
-        configuration.isFoveationEnabled = supportsFoveation
-        configuration.colorFormat = .rgba16Float
-    }
-}
 #else
 
 @main

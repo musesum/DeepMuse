@@ -111,7 +111,7 @@ extension SkyVm: MenuDelegate {
         let width = bounds.width + insets.leading + insets.trailing
         let height = bounds.height + insets.top + insets.bottom
         #if os(xrOS)
-        let scale = CGFloat(3) //??? scale
+        let scale = CGFloat(3) //?? scale
         #else
         let scale = UIScreen.main.scale
         #endif

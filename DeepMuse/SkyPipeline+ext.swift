@@ -69,7 +69,7 @@ extension SkyPipeline {
                     #else
                     if name == "camera" {
                         MetCamera.shared.setCameraOn(isOn)
-                        //??? _ = CameraFacing.shared // setup singleton
+                        //?? _ = CameraFacing.shared // setup singleton
                         if let mixNode = nodeNamed["camix"] {
                             setMtlNode(mixNode, isOn)
                         }

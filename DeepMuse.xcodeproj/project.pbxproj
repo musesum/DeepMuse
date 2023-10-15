@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8000B6F72AB91AF3002964B3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B6F62AB91AF3002964B3 /* Renderer.swift */; };
+		8000B6F92AB91B05002964B3 /* SkyRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B6F82AB91B05002964B3 /* SkyRenderer.swift */; };
+		8000B6FE2AB91B2D002964B3 /* MeshTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B6FA2AB91B2C002964B3 /* MeshTexture.swift */; };
+		8000B6FF2AB91B2D002964B3 /* ShaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B6FB2AB91B2C002964B3 /* ShaderTypes.swift */; };
+		8000B7002AB91B2D002964B3 /* LayerRenderer+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B6FC2AB91B2C002964B3 /* LayerRenderer+ext.swift */; };
+		8000B7012AB91B2D002964B3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B6FD2AB91B2D002964B3 /* Utils.swift */; };
+		8000B7172AB92628002964B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000B7162AB92628002964B3 /* ContentView.swift */; };
 		800E13CA29AF14C2007A480B /* Image+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C629AF14C2007A480B /* Image+ext.swift */; };
 		800E13CC29AF14C2007A480B /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C829AF14C2007A480B /* String+ext.swift */; };
 		800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */; };
@@ -14,9 +21,9 @@
 		8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8037433C29DD06C000ACEF2D /* render.cubemap.metal */; };
 		80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3A29EFB75F001F5519 /* compute.camera.metal */; };
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
+		805ACA242AD8613E00FDE5F2 /* Earth.metal in Sources */ = {isa = PBXBuildFile; fileRef = 805ACA222AD8613E00FDE5F2 /* Earth.metal */; };
+		805ACA252AD8613E00FDE5F2 /* Stars.metal in Sources */ = {isa = PBXBuildFile; fileRef = 805ACA232AD8613E00FDE5F2 /* Stars.metal */; };
 		8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061E16829B85058003E9E1B /* CameraFacing.swift */; };
-		806368752AB3CA4500800F8A /* dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 806368742AB3CA4500800F8A /* dummy.m */; };
-		806368772AB3CBA000800F8A /* ShaderTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 806368762AB3CBA000800F8A /* ShaderTypes.m */; };
 		806368792AB3D29600800F8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 806A97942AB3542900CF04FF /* LaunchScreen.storyboard */; };
 		8064FBB12A9850E200FA654B /* SkyVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064FBB02A9850E200FA654B /* SkyVm.swift */; };
 		8066D1F82AB3FF4D0054981E /* MenuSkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066D1F72AB3FF4D0054981E /* MenuSkyView.swift */; };
@@ -37,12 +44,13 @@
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		807533472A8CA0C600A1808C /* MuPlato in Frameworks */ = {isa = PBXBuildFile; productRef = 807533462A8CA0C600A1808C /* MuPlato */; };
+		807649FE2AD59C3A00399B00 /* RendererProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807649FD2AD59C3A00399B00 /* RendererProtocol.swift */; };
+		80764A002AD59CF500399B00 /* UniformEyeBuf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807649FF2AD59CF500399B00 /* UniformEyeBuf.swift */; };
 		807D1C1429BC862F0092FBC7 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 807D1C1329BC862F0092FBC7 /* MuMetal */; };
 		8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* compute.tile.metal */; };
 		8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31229DBA9BF003E02CC /* render.flatmap.metal */; };
 		809820B329F1350E00682AD2 /* SkyTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809820B229F1350E00682AD2 /* SkyTouchView.swift */; };
-		809FFD4A2AB3832500720833 /* RenderSky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809FFD492AB3832500720833 /* RenderSky.swift */; };
-		809FFD4C2AB393A800720833 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 809FFD4B2AB393A800720833 /* Shaders.metal */; };
+		80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */; };
 		80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62D82A5B9B6800F51B7A /* MuAudio */; };
 		80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62DB2A5B9C1300F51B7A /* MuPeer */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
@@ -71,10 +79,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8000B6F62AB91AF3002964B3 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		8000B6F82AB91B05002964B3 /* SkyRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyRenderer.swift; sourceTree = "<group>"; };
+		8000B6FA2AB91B2C002964B3 /* MeshTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshTexture.swift; sourceTree = "<group>"; };
+		8000B6FB2AB91B2C002964B3 /* ShaderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderTypes.swift; sourceTree = "<group>"; };
+		8000B6FC2AB91B2C002964B3 /* LayerRenderer+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayerRenderer+ext.swift"; sourceTree = "<group>"; };
+		8000B6FD2AB91B2D002964B3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8000B7162AB92628002964B3 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		800E13C629AF14C2007A480B /* Image+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+ext.swift"; sourceTree = "<group>"; };
 		800E13C829AF14C2007A480B /* String+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ext.swift"; sourceTree = "<group>"; };
 		800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+ext.swift"; sourceTree = "<group>"; };
-		802440152AB3F60800FC41CD /* SkyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVC.swift; sourceTree = "<group>"; };
 		8032954D2A99A95B00D3BFA4 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
 		8032954E2A99A95B00D3BFA4 /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
 		8032954F2A99A95B00D3BFA4 /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
@@ -89,17 +103,17 @@
 		80420C3C29EFB769001F5519 /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camix.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camix.metal; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
 		8045637D296B900600EE6E0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		805ACA212AD8612A00FDE5F2 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		805ACA222AD8613E00FDE5F2 /* Earth.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Earth.metal; sourceTree = "<group>"; };
+		805ACA232AD8613E00FDE5F2 /* Stars.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Stars.metal; sourceTree = "<group>"; };
 		8061DE15293985030098F309 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8061DE17293985030098F309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8061E16829B85058003E9E1B /* CameraFacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFacing.swift; sourceTree = "<group>"; };
-		806368742AB3CA4500800F8A /* dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dummy.m; sourceTree = "<group>"; };
-		806368762AB3CBA000800F8A /* ShaderTypes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderTypes.m; sourceTree = "<group>"; };
 		8064FBB02A9850E200FA654B /* SkyVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyVm.swift; sourceTree = "<group>"; };
 		8066D1F72AB3FF4D0054981E /* MenuSkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuSkyView.swift; path = DeepMuse/MenuSkyView.swift; sourceTree = SOURCE_ROOT; };
 		806999192A87B16C00338C05 /* Platonix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platonix.h; sourceTree = "<group>"; };
 		806A97902AB2F22A00CF04FF /* SkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyApp.swift; sourceTree = "<group>"; };
 		806A97942AB3542900CF04FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		806A97962AB35E2D00CF04FF /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048EC23378A090001617D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,13 +133,14 @@
 		8070497B23378ADB0001617D /* scratch2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scratch2.h; sourceTree = "<group>"; };
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		807649FD2AD59C3A00399B00 /* RendererProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RendererProtocol.swift; sourceTree = "<group>"; };
+		807649FF2AD59CF500399B00 /* UniformEyeBuf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniformEyeBuf.swift; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		8090CF472A948042000699EF /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "../Packages/AudioKit-visionOS/Package.swift"; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
 		8090E31229DBA9BF003E02CC /* render.flatmap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.flatmap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.flatmap.metal; sourceTree = "<group>"; };
 		809820B229F1350E00682AD2 /* SkyTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTouchView.swift; sourceTree = "<group>"; };
-		809FFD492AB3832500720833 /* RenderSky.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RenderSky.swift; path = DeepMuse/RenderSky.swift; sourceTree = SOURCE_ROOT; };
-		809FFD4B2AB393A800720833 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E919AF29F61CBD00E6B089 /* render.plato.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.plato.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.plato.metal; sourceTree = "<group>"; };
 		80E95AE229167D50003F6360 /* UIApplication+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+extension.swift"; sourceTree = "<group>"; };
@@ -156,6 +171,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8000B7072AB91FD9002964B3 /* Spatial */ = {
+			isa = PBXGroup;
+			children = (
+				8000B6FD2AB91B2D002964B3 /* Utils.swift */,
+				8000B7162AB92628002964B3 /* ContentView.swift */,
+				8000B6FC2AB91B2C002964B3 /* LayerRenderer+ext.swift */,
+				8000B6FA2AB91B2C002964B3 /* MeshTexture.swift */,
+				807649FF2AD59CF500399B00 /* UniformEyeBuf.swift */,
+				8000B6F62AB91AF3002964B3 /* Renderer.swift */,
+				807649FD2AD59C3A00399B00 /* RendererProtocol.swift */,
+				8000B6F82AB91B05002964B3 /* SkyRenderer.swift */,
+				8000B6FB2AB91B2C002964B3 /* ShaderTypes.swift */,
+				805ACA212AD8612A00FDE5F2 /* ShaderTypes.h */,
+				805ACA222AD8613E00FDE5F2 /* Earth.metal */,
+				805ACA232AD8613E00FDE5F2 /* Stars.metal */,
+			);
+			name = Spatial;
+			path = App/Spatial;
+			sourceTree = "<group>";
+		};
 		800E13C529AF14C2007A480B /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,12 +222,6 @@
 		8063686F2AB3BE6200800F8A /* DeepMuse */ = {
 			isa = PBXGroup;
 			children = (
-				806A97962AB35E2D00CF04FF /* ShaderTypes.h */,
-				806368762AB3CBA000800F8A /* ShaderTypes.m */,
-				809FFD4B2AB393A800720833 /* Shaders.metal */,
-				806368742AB3CA4500800F8A /* dummy.m */,
-				809FFD492AB3832500720833 /* RenderSky.swift */,
-				802440152AB3F60800FC41CD /* SkyVC.swift */,
 				806A97902AB2F22A00CF04FF /* SkyApp.swift */,
 				8064FBB02A9850E200FA654B /* SkyVm.swift */,
 				809820B229F1350E00682AD2 /* SkyTouchView.swift */,
@@ -205,6 +234,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				8000B7072AB91FD9002964B3 /* Spatial */,
 				807048E923378A090001617D /* App */,
 				8063686F2AB3BE6200800F8A /* DeepMuse */,
 				803295562A99A95B00D3BFA4 /* MuAudio */,
@@ -237,10 +267,11 @@
 		807048E923378A090001617D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				80DC21842337ACFB00B99CD9 /* Assets.xcassets */,
 				806A97942AB3542900CF04FF /* LaunchScreen.storyboard */,
 				807048EC23378A090001617D /* SceneDelegate.swift */,
 				8066D1F72AB3FF4D0054981E /* MenuSkyView.swift */,
+				80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */,
+				80DC21842337ACFB00B99CD9 /* Assets.xcassets */,
 				807048F823378A0B0001617D /* Info.plist */,
 			);
 			path = App;
@@ -421,21 +452,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809FFD4C2AB393A800720833 /* Shaders.metal in Sources */,
-				809FFD4A2AB3832500720833 /* RenderSky.swift in Sources */,
+				80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */,
+				8000B7172AB92628002964B3 /* ContentView.swift in Sources */,
 				80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */,
 				806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */,
 				80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */,
+				8000B6F92AB91B05002964B3 /* SkyRenderer.swift in Sources */,
 				800E13CC29AF14C2007A480B /* String+ext.swift in Sources */,
-				806368752AB3CA4500800F8A /* dummy.m in Sources */,
+				8000B7012AB91B2D002964B3 /* Utils.swift in Sources */,
+				8000B7002AB91B2D002964B3 /* LayerRenderer+ext.swift in Sources */,
 				809820B329F1350E00682AD2 /* SkyTouchView.swift in Sources */,
-				806368772AB3CBA000800F8A /* ShaderTypes.m in Sources */,
 				80E95AEC29167D50003F6360 /* MuOrientation.swift in Sources */,
 				800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */,
+				8000B6FF2AB91B2D002964B3 /* ShaderTypes.swift in Sources */,
 				800E13CA29AF14C2007A480B /* Image+ext.swift in Sources */,
 				8061E16929B85058003E9E1B /* CameraFacing.swift in Sources */,
 				80E95AED29167D50003F6360 /* MuDrawBox.swift in Sources */,
+				807649FE2AD59C3A00399B00 /* RendererProtocol.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
+				8000B6FE2AB91B2D002964B3 /* MeshTexture.swift in Sources */,
 				80E95AEF29167D50003F6360 /* UIImage+extension.swift in Sources */,
 				8064FBB12A9850E200FA654B /* SkyVm.swift in Sources */,
 				80E95AF129167D51003F6360 /* CFTime+extension.swift in Sources */,
@@ -443,6 +478,7 @@
 				80E95AF229167D51003F6360 /* MuBezel.swift in Sources */,
 				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
+				805ACA242AD8613E00FDE5F2 /* Earth.metal in Sources */,
 				807049F623378ADC0001617D /* compute.draw.metal in Sources */,
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
 				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
@@ -452,11 +488,14 @@
 				80E919B029F61CBD00E6B089 /* render.plato.metal in Sources */,
 				8066D1F82AB3FF4D0054981E /* MenuSkyView.swift in Sources */,
 				80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */,
+				8000B6F72AB91AF3002964B3 /* Renderer.swift in Sources */,
 				807049F523378ADC0001617D /* cell.zha.metal in Sources */,
 				807049F923378ADC0001617D /* cell.slide.metal in Sources */,
 				807049F223378ADC0001617D /* compute.color.metal in Sources */,
+				80764A002AD59CF500399B00 /* UniformEyeBuf.swift in Sources */,
 				807049EE23378ADC0001617D /* cell.fred.metal in Sources */,
 				807049F023378ADC0001617D /* cell.mod.metal in Sources */,
+				805ACA252AD8613E00FDE5F2 /* Stars.metal in Sources */,
 				8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */,
 				807049F423378ADC0001617D /* cell.erode.metal in Sources */,
 			);
@@ -525,8 +564,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "$(TARGET_NAME)/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = NO;
 				XROS_DEPLOYMENT_TARGET = 1.0;
@@ -587,7 +626,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = NO;
 				XROS_DEPLOYMENT_TARGET = 1.0;
@@ -599,15 +638,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = DeepMuse/ShaderTypes.h;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,7 +660,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
@@ -635,15 +675,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = DeepMuse/ShaderTypes.h;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9AVP5GX45R;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -656,7 +697,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(TARGET_NAME)/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TVOS_DEPLOYMENT_TARGET = 14.7;
