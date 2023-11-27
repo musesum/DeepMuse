@@ -43,7 +43,7 @@ public class MuOrientation: UIView {
         super.init(frame: .zero)
 
         NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: NSNotification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
-        #if os(xrOS)
+        #if os(visionOS)
         #else
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
         #endif
@@ -64,7 +64,7 @@ public class MuOrientation: UIView {
     }
 
     func updateRadiansFromDevice() {
-        #if os(xrOS)
+        #if os(visionOS)
         radians = .pi * 1.5 //???
         #else
         if  ![.portrait, .landscapeLeft, .portraitUpsideDown, .landscapeRight].contains(UIDevice.current.orientation) { return }

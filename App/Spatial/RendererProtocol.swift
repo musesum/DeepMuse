@@ -1,6 +1,6 @@
 // created by musesum.
 
-#if os(xrOS)
+#if os(visionOS)
 import Metal
 import CompositorServices
 

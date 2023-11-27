@@ -1,9 +1,4 @@
-//
-//  SceneDelegate.swift
-//  MuseSky
-//
 //  created by musesum on 9/22/19.
-
 
 import SwiftUI
 import BackgroundTasks
@@ -11,7 +6,6 @@ import MuFlo
 import MuAudio
 import MuMenu
 import MuSkyFlo
-
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

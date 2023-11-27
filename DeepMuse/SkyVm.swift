@@ -17,12 +17,13 @@ class SkyVm {
 
     let archive = FloArchive(bundle: MuSkyFlo.bundle,
                              archive: "Snapshot",
-                             scripts:  ["sky", "shader", "model", "menu", "plato", "cube", "midi", "corner"],
+                             scripts:  ["sky", "shader", "model", "menu",
+                                        "plato", "cube", "midi", "corner"],
                              textures: ["draw"])
 
     var touchView: SkyTouchView!
     var settingUp = true
-#if os(xrOS)
+#if os(visionOS)
     let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
 #else
     let bounds = UIScreen.main.bounds
@@ -54,7 +55,7 @@ class SkyVm {
         metalLayer.framebufferOnly = false //  frameBufferOnly
 
         addScreenIcon() // make icon from an image snapshot of framebuffer
-        addDrawTexture()   // MetNodeDraws output texture as `.tex`
+        addDrawTexture() // MetNodeDraws output texture as `.tex`
         addFloScript()  // snapshot of Sky Graph as flo script
         snapArchive.copy(snapTime, to: snapName)
 
@@ -107,7 +108,7 @@ extension SkyVm: MenuDelegate {
 
         let width = bounds.width + insets.leading + insets.trailing
         let height = bounds.height + insets.top + insets.bottom
-        #if os(xrOS)
+        #if os(visionOS)
         let scale = CGFloat(3) //?? scale
         #else
         let scale = UIScreen.main.scale

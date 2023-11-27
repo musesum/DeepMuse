@@ -1,7 +1,6 @@
-//
 // created by musesum.
 
-#if os(xrOS)
+#if os(visionOS)
 import Metal
 import MetalKit
 import ARKit
@@ -9,7 +8,6 @@ import Spatial
 import CompositorServices
 
 import MuMetal
-
 
 /// This is the example specific part of rendering metal within VisionOS.
 /// The example uses earth in the foreground and stars in the background.
@@ -41,9 +39,9 @@ extension SkyRenderer: RendererProtocol {
         //??? 
     }
 
-    func drawAndPresent(_ commandBuf: MTLCommandBuffer,
-                        _ frame: LayerRenderer.Frame,
-                        _ drawable: LayerRenderer.Drawable) {
+    func drawAndPresent(_ commandBuf : MTLCommandBuffer,
+                        _ frame      : LayerRenderer.Frame,
+                        _ drawable   : LayerRenderer.Drawable) {
 
         let renderPass = makeRenderPass(drawable: drawable)
 
@@ -58,16 +56,14 @@ extension SkyRenderer: RendererProtocol {
         renderCommand.setViewports(viewports)
 
         if let firstNode = pipeline.firstNode {
-            //SkyCanvas.shared.pipeline.draw() //???
-            firstNode.nextCommand(commandBuf)
+            SkyCanvas.shared.pipeline.draw() //???
+            //??? firstNode.nextCommand(commandBuf)
         }
 
 //        starsEyeBuf.setMappings(drawable, viewports, renderCommand)
 //        starsMesh.draw(renderCommand, starsPipe, .clockwise)
-//
 //        earthEyeBuf.setMappings(drawable, viewports, renderCommand)
 //        earthMesh.draw(renderCommand, earthPipe, .counterClockwise)
-
 
         renderCommand.popDebugGroup()
         renderCommand.endEncoding()

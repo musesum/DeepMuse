@@ -1,5 +1,5 @@
 //  Created by musesum on 8/4/23.
-#if os(xrOS)
+#if os(visionOS)
 import MetalKit
 import ARKit
 import Spatial
@@ -65,9 +65,9 @@ class Renderer {
         // triple buffered commandBuf
         _ = tripleSemaphore.wait(timeout: DispatchTime.distantFuture)
         guard let commandBuf = commandQueue.makeCommandBuffer() else { fatalError("renderFrame::commandBuf") }
-        let semaphore = tripleSemaphore
+    
         commandBuf.addCompletedHandler { (_ commandBuf)-> Swift.Void in
-            semaphore.signal()
+            self.tripleSemaphore.signal()
         }
 
         frame.startSubmission()

@@ -1,5 +1,4 @@
-//  MenuSkyView.swift
-//  created by musesum on 9/14/23.
+// created by musesum on 9/14/23.
 
 
 import SwiftUI

@@ -1,5 +1,5 @@
 // created by musesum.
-#if os(xrOS)
+#if os(visionOS)
 import Spatial
 import CompositorServices
 

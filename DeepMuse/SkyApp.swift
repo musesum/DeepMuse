@@ -5,7 +5,7 @@ import UIKit
 import SwiftUI
 import MuMenu
 
-#if os(xrOS)
+#if os(visionOS)
 import CompositorServices
 
 @main
@@ -13,8 +13,10 @@ struct SkyApp: App {
     @State private var immersionStyle: ImmersionStyle = .full
     var body: some Scene {
         WindowGroup {
-            MenuSkyView.shared
-            ContentView()
+            ZStack(alignment: .bottom) {
+                MenuSkyView.shared
+                ContentView()
+            }
         }
         ImmersiveSpace(id: "ImmersiveSpace") {
             CompositorLayer(configuration: ContentStageConfiguration()) { layerRenderer in
@@ -24,6 +26,7 @@ struct SkyApp: App {
     }
 }
 struct ContentStageConfiguration: CompositorLayerConfiguration {
+
     func makeConfiguration(capabilities: LayerRenderer.Capabilities,
                            configuration: inout LayerRenderer.Configuration) {
 
@@ -50,4 +53,5 @@ struct app: App {
         }
     }
 }
+
 #endif

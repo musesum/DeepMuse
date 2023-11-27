@@ -65,7 +65,7 @@ extension SkyPipeline {
                     let isOn = flo.bool
 
                     setMtlNode(node, isOn)
-                    #if os(xrOS)
+                    #if os(visionOS)
                     #else
                     if name == "camera" {
                         MetCamera.shared.setCameraOn(isOn)

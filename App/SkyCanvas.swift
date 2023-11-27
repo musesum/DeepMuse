@@ -1,10 +1,4 @@
-//
-//  SkyCanvas.swift
-//  DeepMuse
-//
 //  created by musesum on 9/17/23.
-
-
 
 import SwiftUI
 import MuFlo
@@ -29,7 +23,7 @@ struct SkyCanvas {
             TouchMidi.touchRemote = midi
         }
         _ = MuAudio.shared // MuAudio.shared.test()
-#if os(xrOS)
+#if os(visionOS)
         let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
 #else
         let bounds = UIScreen.main.bounds
@@ -46,7 +40,7 @@ extension SkyCanvas: MenuDelegate {
 
         let width = bounds.width + insets.leading + insets.trailing
         let height = bounds.height + insets.top + insets.bottom
-#if os(xrOS)
+#if os(visionOS)
         let scale = CGFloat(3) //?? scale
 #else
         let scale = UIScreen.main.scale
