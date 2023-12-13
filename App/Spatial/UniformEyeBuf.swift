@@ -34,10 +34,10 @@ class UniformEyeBuf {
     }
 
     /// Update projection and rotation
-    func updateUniforms(_ drawable: LayerRenderer.Drawable,
+    func updateUniforms(_ layerDrawable: LayerRenderer.Drawable,
                         _ rotationMat: simd_float4x4) {
 
-        let anchor = drawable.deviceAnchor
+        let anchor = layerDrawable.deviceAnchor
         updateTripleBufferedUniform()
 
         let translateMat = translateQuat(x: 0.0, y: 0.0, z: -8.0)
@@ -45,7 +45,7 @@ class UniformEyeBuf {
         let deviceAnchor = anchor?.originFromAnchorTransform ?? matrix_identity_float4x4
 
         self.uniformEyes[0].eye.0 = uniformForEyeIndex(0)
-        if drawable.views.count > 1 {
+        if layerDrawable.views.count > 1 {
             self.uniformEyes[0].eye.1 = uniformForEyeIndex(1)
         }
         func updateTripleBufferedUniform() {
@@ -59,7 +59,7 @@ class UniformEyeBuf {
 
         func uniformForEyeIndex(_ index: Int) -> Uniforms {
 
-            let view = drawable.views[index]
+            let view = layerDrawable.views[index]
 
             let viewMatrix = (deviceAnchor * view.transform).inverse
             
@@ -68,8 +68,8 @@ class UniformEyeBuf {
                 rightTangent  : Double(view.tangents[1]),
                 topTangent    : Double(view.tangents[2]),
                 bottomTangent : Double(view.tangents[3]),
-                nearZ         : Double(drawable.depthRange.y),
-                farZ          : Double(drawable.depthRange.x),
+                nearZ         : Double(layerDrawable.depthRange.y),
+                farZ          : Double(layerDrawable.depthRange.x),
                 reverseZ      : true)
 
             var viewModel = viewMatrix * modelMatrix
@@ -80,23 +80,23 @@ class UniformEyeBuf {
                             viewModel: viewModel)
         }
     }
-    func setMappings(_ drawable: LayerRenderer.Drawable,
+    func setMappings(_ layerDrawable: LayerRenderer.Drawable,
                      _ viewports: [MTLViewport],
-                     _ renderCommand: MTLRenderCommandEncoder) {
+                     _ renderCmd: MTLRenderCommandEncoder) {
 
-        if drawable.views.count > 1 {
-            var viewMappings = (0 ..< drawable.views.count).map {
+        if layerDrawable.views.count > 1 {
+            var viewMappings = (0 ..< layerDrawable.views.count).map {
                 MTLVertexAmplificationViewMapping(
                     viewportArrayIndexOffset: UInt32($0),
                     renderTargetArrayIndexOffset: UInt32($0))
             }
-            renderCommand.setVertexAmplificationCount(
+            renderCmd.setVertexAmplificationCount(
                 viewports.count,
                 viewMappings: &viewMappings)
         }
-        renderCommand.setVertexBuffer(uniformBuf,
-                                      offset: tripleOffset,
-                                      index: Vertexi.uniforms)
+        renderCmd.setVertexBuffer(uniformBuf,
+                                  offset: tripleOffset,
+                                  index: Vertexi.uniforms)
     }
 
 }

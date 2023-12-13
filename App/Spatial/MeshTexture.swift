@@ -42,30 +42,30 @@ class MeshTexture {
         metalVD.layouts[index].stepFunction = .perVertex
     }
 
-    func draw(_ renderCommand: MTLRenderCommandEncoder,
-              _ pipeline: MTLRenderPipelineState,
-              _ winding: MTLWinding) {
+    func drawMesh(_ renderCmd: MTLRenderCommandEncoder,
+                  _ renderPipe: MTLRenderPipelineState,
+                  _ winding: MTLWinding) {
 
         guard let stencil else { return err("\(texName) stencil") }
         guard let mesh    else { return err("\(texName) mesh") }
 
-        renderCommand.setCullMode(.back)
-        renderCommand.setRenderPipelineState(pipeline)
-        renderCommand.setFrontFacing(winding)
-        renderCommand.setDepthStencilState(stencil)
+        renderCmd.setCullMode(.back)
+        renderCmd.setRenderPipelineState(renderPipe)
+        renderCmd.setFrontFacing(winding)
+        renderCmd.setDepthStencilState(stencil)
 
         for (index, element) in mesh.vertexDescriptor.layouts.enumerated() {
             guard let layout = element as? MDLVertexBufferLayout else { return }
 
             if layout.stride != 0 {
                 let vb = mesh.vertexBuffers[index]
-                renderCommand.setVertexBuffer(vb.buffer, offset: vb.offset, index: index)
+                renderCmd.setVertexBuffer(vb.buffer, offset: vb.offset, index: index)
             }
         }
-        renderCommand.setFragmentTexture(texture, index: Texturei.colori)
+        renderCmd.setFragmentTexture(texture, index: Texturei.colori)
 
         for submesh in mesh.submeshes {
-            renderCommand.drawIndexedPrimitives(
+            renderCmd.drawIndexedPrimitives(
                 type              : submesh.primitiveType,
                 indexCount        : submesh.indexCount,
                 indexType         : submesh.indexType,

@@ -10,10 +10,10 @@ public protocol RendererProtocol {
 
     func makePipeline(_ layoutRenderer: LayerRenderer)
 
-    func updateUniforms(_ drawable: LayerRenderer.Drawable)
+    func updateUniforms(_ layerDrawable: LayerRenderer.Drawable)
 
-    func drawAndPresent(_ commandBuf: MTLCommandBuffer,
-                        _ frame: LayerRenderer.Frame,
-                        _ drawable: LayerRenderer.Drawable)
+    func renderLayer(_ commandBuf: MTLCommandBuffer,
+                   _ layerFrame: LayerRenderer.Frame,
+                   _ layerDrawable: LayerRenderer.Drawable)
 }
 #endif

@@ -29,22 +29,22 @@ class Renderer {
         delegate.makePipeline(layerRenderer)
     }
 
-    func makeRenderPass(drawable: LayerRenderer.Drawable) -> MTLRenderPassDescriptor {
+    func makeRenderPass(layerDrawable: LayerRenderer.Drawable) -> MTLRenderPassDescriptor {
 
         let renderPass = MTLRenderPassDescriptor()
-        renderPass.colorAttachments[0].texture = drawable.colorTextures[0]
+        renderPass.colorAttachments[0].texture = layerDrawable.colorTextures[0]
         renderPass.colorAttachments[0].loadAction = .clear
         renderPass.colorAttachments[0].storeAction = .store
         renderPass.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
 
-        renderPass.depthAttachment.texture = drawable.depthTextures[0]
+        renderPass.depthAttachment.texture = layerDrawable.depthTextures[0]
         renderPass.depthAttachment.loadAction = .clear
         renderPass.depthAttachment.storeAction = .store
         renderPass.depthAttachment.clearDepth = 0.0
 
-        renderPass.rasterizationRateMap = drawable.rasterizationRateMaps.first
+        renderPass.rasterizationRateMap = layerDrawable.rasterizationRateMaps.first
         if layerRenderer.configuration.layout == .layered {
-            renderPass.renderTargetArrayLength = drawable.views.count
+            renderPass.renderTargetArrayLength = layerDrawable.views.count
         }
         return renderPass
     }
@@ -52,34 +52,34 @@ class Renderer {
     func renderFrame() {
 
         guard let delegate else { return }
-        guard let frame = layerRenderer.queryNextFrame() else { return }
+        guard let layerFrame = layerRenderer.queryNextFrame() else { return }
 
-        frame.startUpdate()
+        layerFrame.startUpdate()
         // Perform frame independent work
-        frame.endUpdate()
+        layerFrame.endUpdate()
 
-        guard let timing = frame.predictTiming() else { return }
+        guard let timing = layerFrame.predictTiming() else { return }
         LayerRenderer.Clock().wait(until: timing.optimalInputTime)
-        guard let drawable = frame.queryDrawable() else { return }
+        guard let layerDrawable = layerFrame.queryDrawable() else { return }
 
         // triple buffered commandBuf
         _ = tripleSemaphore.wait(timeout: DispatchTime.distantFuture)
-        guard let commandBuf = commandQueue.makeCommandBuffer() else { fatalError("renderFrame::commandBuf") }
+        guard let commandBuf = commandQueue.makeCommandBuffer() else { fatalError("renderFrame::cmdBuf") }
     
         commandBuf.addCompletedHandler { (_ commandBuf)-> Swift.Void in
             self.tripleSemaphore.signal()
         }
 
-        frame.startSubmission()
+        layerFrame.startSubmission()
 
-        let time = LayerRenderer.Clock.Instant.epoch.duration(to: drawable.frameTiming.presentationTime).timeInterval
+        let time = LayerRenderer.Clock.Instant.epoch.duration(to: layerDrawable.frameTiming.presentationTime).timeInterval
 
-        drawable.deviceAnchor = worldTracking.queryDeviceAnchor(atTimestamp: time)
+        layerDrawable.deviceAnchor = worldTracking.queryDeviceAnchor(atTimestamp: time)
 
-        delegate.updateUniforms(drawable)
-        delegate.drawAndPresent(commandBuf, frame, drawable)
+        delegate.updateUniforms(layerDrawable)
+        delegate.renderLayer(commandBuf, layerFrame, layerDrawable)
 
-        frame.endSubmission()
+        layerFrame.endSubmission()
     }
 
     func startRenderLoop() {

@@ -35,39 +35,39 @@ extension SkyRenderer: RendererProtocol {
     func makePipeline(_ layoutRenderer: LayerRenderer) {
         //???
     }
-    func updateUniforms(_ drawable: LayerRenderer.Drawable) {
-        //??? 
+    func updateUniforms(_ layerDrawable: LayerRenderer.Drawable) {
+        //???
     }
 
-    func drawAndPresent(_ commandBuf : MTLCommandBuffer,
-                        _ frame      : LayerRenderer.Frame,
-                        _ drawable   : LayerRenderer.Drawable) {
+    func renderLayer(_ commandBuf    : MTLCommandBuffer,
+                     _ layerFrame    : LayerRenderer.Frame,
+                     _ layerDrawable : LayerRenderer.Drawable) {
 
-        let renderPass = makeRenderPass(drawable: drawable)
+        let renderPass = makeRenderPass(layerDrawable: layerDrawable)
 
         guard let pipeline,
-              let renderCommand = commandBuf.makeRenderCommandEncoder(
+              let renderNode = commandBuf.makeRenderCommandEncoder(
                 descriptor: renderPass) else { fatalError(#function) }
 
-        renderCommand.label = "Sky"
-        renderCommand.pushDebugGroup("Sky")
+        renderNode.label = "Sky"
+        renderNode.pushDebugGroup("Sky")
 
-        let viewports = drawable.views.map { $0.textureMap.viewport }
-        renderCommand.setViewports(viewports)
+        let viewports = layerDrawable.views.map { $0.textureMap.viewport }
+        renderNode.setViewports(viewports)
 
         if let firstNode = pipeline.firstNode {
-            SkyCanvas.shared.pipeline.draw() //???
-            //??? firstNode.nextCommand(commandBuf)
+            SkyCanvas.shared.pipeline.drawNodes() //???
+            //??? firstNode.nextCommand(cmdBuf)
         }
 
-//        starsEyeBuf.setMappings(drawable, viewports, renderCommand)
-//        starsMesh.draw(renderCommand, starsPipe, .clockwise)
-//        earthEyeBuf.setMappings(drawable, viewports, renderCommand)
-//        earthMesh.draw(renderCommand, earthPipe, .counterClockwise)
+//        starsEyeBuf.setMappings(drawable, viewports, renderCmd)
+//        starsMesh.drawMesh(renderCmd, starsPipe, .clockwise)
+//        earthEyeBuf.setMappings(drawable, viewports, renderCmd)
+//        earthMesh.drawMesh(renderCmd, earthPipe, .counterClockwise)
 
-        renderCommand.popDebugGroup()
-        renderCommand.endEncoding()
-        drawable.encodePresent(commandBuffer: commandBuf)
+        renderNode.popDebugGroup()
+        renderNode.endEncoding()
+        layerDrawable.encodePresent(commandBuffer: commandBuf)
         commandBuf.commit()
     }
 }

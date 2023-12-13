@@ -14,7 +14,7 @@ struct SkyCanvas {
     var settingUp = true
     let archive = FloArchive(bundle: MuSkyFlo.bundle,
                              archive: "Snapshot",
-                             scripts:  ["sky", "shader", "model", "menu", "plato", "cube", "midi", "corner"],
+                             scripts:  ["sky", "shader","model", "menu", "plato", "cube", "midi", "corner"],
                              textures: ["draw"])
 
     init() {
@@ -54,7 +54,7 @@ extension SkyCanvas: MenuDelegate {
 extension SkyCanvas: NextFrameDelegate {
 
     func nextFrame() -> Bool {
-        pipeline?.draw()
+        pipeline?.drawNodes()
         return true
     }
     func cancel(_ key: Int) {
