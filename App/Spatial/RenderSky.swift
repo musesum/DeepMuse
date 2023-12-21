@@ -11,7 +11,7 @@ import MuMetal
 
 /// This is the example specific part of rendering metal within VisionOS.
 /// The example uses earth in the foreground and stars in the background.
-class SkyRenderer: Renderer {
+class RenderSky: RenderLayer {
 
     var pipeline: MetPipeline!
     var sceneTime =  CFTimeInterval(0)
@@ -26,23 +26,24 @@ class SkyRenderer: Renderer {
     }
 }
 
-extension SkyRenderer: RendererProtocol {
+extension RenderSky: RenderLayerProtocol {
 
     func makeResources() {
         //??? 
     }
     
-    func makePipeline(_ layoutRenderer: LayerRenderer) {
+    func makePipeline() {
         //???
     }
     func updateUniforms(_ layerDrawable: LayerRenderer.Drawable) {
-        //???
+        print(".", terminator: "")
     }
 
     func renderLayer(_ commandBuf    : MTLCommandBuffer,
                      _ layerFrame    : LayerRenderer.Frame,
                      _ layerDrawable : LayerRenderer.Drawable) {
 
+        updateUniforms(layerDrawable)
         let renderPass = makeRenderPass(layerDrawable: layerDrawable)
 
         guard let pipeline,
@@ -55,15 +56,8 @@ extension SkyRenderer: RendererProtocol {
         let viewports = layerDrawable.views.map { $0.textureMap.viewport }
         renderNode.setViewports(viewports)
 
-        if let firstNode = pipeline.firstNode {
-            SkyCanvas.shared.pipeline.drawNodes() //???
-            //??? firstNode.nextCommand(cmdBuf)
-        }
-
-//        starsEyeBuf.setMappings(drawable, viewports, renderCmd)
-//        starsMesh.drawMesh(renderCmd, starsPipe, .clockwise)
-//        earthEyeBuf.setMappings(drawable, viewports, renderCmd)
-//        earthMesh.drawMesh(renderCmd, earthPipe, .counterClockwise)
+        pipeline.drawNodes() //???
+        //???? pipeline.drawLayer(layerDrawable, renderCmd, viewports)
 
         renderNode.popDebugGroup()
         renderNode.endEncoding()
