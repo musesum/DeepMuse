@@ -12,14 +12,12 @@ let package = Package(
             targets: ["MuMetal"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/musesum/MuPar.git", from: "0.23.0"),
         .package(url: "https://github.com/musesum/MuFlo.git", from: "0.23.0"),
     ],
     targets: [
         .target(
             name: "MuMetal",
             dependencies: [
-                .product(name: "MuPar", package: "MuPar"),
                 .product(name: "MuFlo", package: "MuFlo"),
             ]),
         .testTarget(

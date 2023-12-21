@@ -6,6 +6,7 @@ import SwiftUI
 import MuMenu
 
 #if os(visionOS)
+import MuVision
 import CompositorServices
 
 @main
@@ -20,7 +21,7 @@ struct SkyApp: App {
         }
         ImmersiveSpace(id: "ImmersiveSpace") {
             CompositorLayer(configuration: ContentStageConfiguration()) { layerRenderer in
-                _ = SkyRenderer(layerRenderer)
+                _ = RenderSky(layerRenderer)
             }
         }.immersionStyle(selection: $immersionStyle, in: .full)
     }

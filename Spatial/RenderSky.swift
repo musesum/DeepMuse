@@ -6,6 +6,7 @@ import MetalKit
 import ARKit
 import Spatial
 import CompositorServices
+import MuVision
 
 import MuMetal
 

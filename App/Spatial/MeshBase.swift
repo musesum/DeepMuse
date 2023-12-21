@@ -27,9 +27,9 @@ class MeshBase {
         makeMetalVD()
     }
     func makeMetalVD() {
-        addVertexFormat(.float3, Vertexi.position)
-        addVertexFormat(.float2, Vertexi.texcoord)
-        addVertexFormat(.float3, Vertexi.normal  )
+        addVertexFormat(.float3, VertexIndex.position)
+        addVertexFormat(.float2, VertexIndex.texcoord)
+        addVertexFormat(.float3, VertexIndex.normal  )
     }
     func addVertexFormat(_ format: MTLVertexFormat,
                          _ index: Int) {

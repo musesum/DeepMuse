@@ -5,20 +5,20 @@ using namespace metal;
 
 vertex VertexOut vertexEarth
 (
- VertexIn             in       [[ stage_in ]],
+ VertexCube           in       [[ stage_in ]],
  ushort               ampId    [[ amplification_id ]],
  constant UniformEyes &uniEyes [[ buffer(uniforms) ]])
 {
     VertexOut out;
 
-    Uniforms uniEye = uniEyes.eye[ampId];
+    UniformEye eye = uniEyes.eye[ampId];
     float4 position = float4(in.position, 1.0);
 
-    out.position = (uniEye.projection *
-                    uniEye.viewModel *
+    out.position = (eye.projection *
+                    eye.viewModel *
                     position);
 
-    out.normal = (uniEye.viewModel *
+    out.normal = (eye.viewModel *
                   float4(in.normal, 0.0f)).xyz;
 
     out.texCoord = in.texCoord;

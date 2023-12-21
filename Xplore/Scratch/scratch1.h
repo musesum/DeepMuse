@@ -1,40 +1,22 @@
-import Accelerate
+import MetalKit
+import ModelIO
 
-func erf(x: Double) -> Double {
-    var result: Double = 0.0
-    vErf(1, [x], &result)
-    return result
-}
-func gaussianVolume(to p: Double) -> Double {
-    let mean = 0.5
-    let sigma = sqrt(1/(2 * Double.pi))  // this sigma ensures the area under curve is 1 for our case
 
-    let erf_p = erf((p - mean) / (sigma * sqrt(2)))
-    let erf_0 = erf((0 - mean) / (sigma * sqrt(2)))
+let allocator = MTKMeshBufferAllocator(device: device)
+let vertexBuffer = allocator.newBuffer(with: vertices, type: .vertex)
 
-    return 0.5 * (erf_p - erf_0)
-}
+let indexData = Data(bytes: indices, count: indices.count * MemoryLayout<UInt32>.stride)
+let indexBuffer = allocator.newBuffer(with: indexData, type: .index)
 
-func gaussianPDF(x: Double) -> Double {
-    let mean = 0.5
-    let sigma = sqrt(1/(2 * Double.pi))
-    let coeff = 1 / (sigma * sqrt(2 * Double.pi))
-    return coeff * exp(-pow(x - mean, 2) / (2 * pow(sigma, 2)))
-}
+let submesh = MDLSubmesh(indexBuffer: indexBuffer,
+                         indexCount: indices.count,
+                         indexType: .uint32,
+                         geometryType: .triangles,
+                         material: nil) // You can create a default MDLMaterial if needed
 
-func gaussianVolumeInverse(volume: Double) -> Double {
-    let epsilon = 1e-6
-    var p = 0.5  // initial guess
+mdlMesh = MDLMesh(vertexBuffers: [vertexBuffer],
+                   vertexCount: vertices.count,
+                   descriptor:  metalVD.modelVD,
+                   submeshes: [submesh])
 
-    // Newton-Raphson method
-    while true {
-        let diff = gaussianVolume(to: p) - volume
-        if abs(diff) < epsilon {
-            break
-        }
-        p -= diff / gaussianPDF(x: p)
-    }
-
-    return p
-}
- 
+// The mesh is now ready with a default submesh

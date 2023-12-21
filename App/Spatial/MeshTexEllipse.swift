@@ -2,6 +2,7 @@
 
 import MetalKit
 import Spatial
+import MuMetal
 
 class MeshTexEllipse: MeshTexture {
 
@@ -27,10 +28,6 @@ class MeshTexEllipse: MeshTexture {
             throw RendererError.badVertex
         }
         mtkMesh = try MTKMesh(mesh: modelMesh, device: device)
-
-        func err(_ msg: String) {
-            print("⁉️ \(texName) Mesh::draw error : \(msg)")
-        }
     }
 
     func modelEllipsoid(_ device: MTLDevice) -> MDLMesh? {
@@ -49,10 +46,9 @@ class MeshTexEllipse: MeshTexture {
         guard let attributes = modelVD.attributes as? [MDLVertexAttribute] else {
             return nil
         }
-        attributes[Vertexi.position].name = MDLVertexAttributePosition
-        attributes[Vertexi.texcoord].name = MDLVertexAttributeTextureCoordinate
-        attributes[Vertexi.normal  ].name = MDLVertexAttributeNormal
-
+        attributes[VertexIndex.position].name = MDLVertexAttributePosition
+        attributes[VertexIndex.texcoord].name = MDLVertexAttributeTextureCoordinate
+        attributes[VertexIndex.normal  ].name = MDLVertexAttributeNormal
 
         modelMesh.vertexDescriptor = modelVD
         return modelMesh

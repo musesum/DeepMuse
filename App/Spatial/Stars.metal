@@ -6,13 +6,13 @@ using namespace metal;
 
 vertex VertexOut vertexStars
 (
- VertexIn             in     [[ stage_in ]],
+ VertexCube             in     [[ stage_in ]],
  ushort               amp_id [[ amplification_id ]],
  constant UniformEyes &eyes  [[ buffer(uniforms) ]])
 {
     VertexOut out;
 
-    Uniforms eye = eyes.eye[amp_id];
+    UniformEye eye = eyes.eye[amp_id];
 
     float4 position = float4(in.position, 1.0);
 

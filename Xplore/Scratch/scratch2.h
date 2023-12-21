@@ -4,7 +4,7 @@ SpatialMetal2 {
         renderFrame() {
             queryAnchor()
             updateUniforms(drawable) {
-                earthEyeBuf?.updateUniforms(drawable, earthModelMat) {
+                earthEyeBuf?.updateUniforms(drawable, earthMatrix) {
                     updateTripleBufferedUniform() {
                         uniformEyes = UnsafeMutableRawPointer(uniformPtr)
                             .bindMemory(to: UniEyes.self, capacity: 1)
@@ -12,7 +12,7 @@ SpatialMetal2 {
                     self.uniformEyes[0].eye.0 = uniformForEyeIndex(0)
                     self.uniformEyes[0].eye.1 = uniformForEyeIndex(1)
                 }
-                starsEyeBuf?.updateUniforms(drawable, starsModelMat) {...}
+                starsEyeBuf?.updateUniforms(drawable, starsMatrix) {...}
             }
 
             drawLayer(commandBuf, frame, drawable) {
@@ -28,7 +28,7 @@ SpatialMetal2 {
                     for in mesh..layouts {
                         renderCmd.setVertexBuffer(vb.buffer, vb.offset, index)
                     }
-                    renderCmd.setFragmentTexture(texture, index: Texturei.colori)
+                    renderCmd.setFragmentTexture(texture, index: TextureIndex.colori)
 
                     for submesh in mesh.submeshes {
                         renderCmd.drawIndexedPrimitives(...)
