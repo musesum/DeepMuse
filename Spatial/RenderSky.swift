@@ -14,7 +14,7 @@ import MuMetal
 /// The example uses earth in the foreground and stars in the background.
 class RenderSky: RenderLayer {
 
-    var pipeline: MetPipeline!
+    var pipeline: Pipeline!
     var sceneTime =  CFTimeInterval(0)
     var lastRenderTime = CFTimeInterval(0)
 

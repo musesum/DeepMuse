@@ -7,16 +7,16 @@ import MuPlato
 import MuMenu
 import MuColor
 
-public class SkyPipeline: MetPipeline {
+public class SkyPipeline: Pipeline {
 
-    private var cellNode: MetNode?    // CA node, after drawNode & cameraNode
-    private var drawNode: MetNode?    // drawing node, optional 1st node
-    private var colorNode: MetNode?   // colord palette
-    private var recordNode: MetNode?  // record text to m4v
+    private var cellNode: MetalNode?    // CA node, after drawNode & cameraNode
+    private var drawNode: MetalNode?    // drawing node, optional 1st node
+    private var colorNode: MetalNode?   // colord palette
+    private var recordNode: MetalNode?  // record text to m4v
 
-    private var cameraNode: MetNode?  // camera input - always first Node
-    private var camixNode: MetNode?   // camera mix node - before flatmapNode
-    private var tileNode: MetNode?    // deprecated
+    private var cameraNode: MetalNode?  // camera input - always first Node
+    private var camixNode: MetalNode?   // camera mix node - before flatmapNode
+    private var tileNode: MetalNode?    // deprecated
     private var platoNode: MetNodePlato?
 
     public var skyColor:  ColorFlo! // instance of subtree of sky.color
@@ -43,21 +43,21 @@ public class SkyPipeline: MetPipeline {
     }
 
     /// setup new node during shader startup or via pipeline
-    func initNodeName(_ name: String) -> MetNode? {
+    func initNodeName(_ name: String) -> MetalNode? {
 
         var node = nodeNamed[name]
         if node == nil {
             switch name {
-            case "camera" : node = MetNodeCamera (root˚,self)
-            case "camix"  : node = MetNodeCamix  (root˚,self)
-            case "draw"   : node = MetNodeDraw   (self, TouchCanvas.shared.touchFlo)
-            case "color"  : node = MetNodeColor  (self, skyColor.getMix)
+            case "camera" : node = CameraNode (root˚,self)
+            case "camix"  : node = CamixNode  (root˚,self)
+            case "draw"   : node = DrawNode   (self, TouchCanvas.shared.touchFlo)
+            case "color"  : node = ColorNode  (self, skyColor.getMix)
             case "record" : break //node = MetNodeRecord (self)
-            case "tile"   : node = MetNodeTile   (self, name)
-            case "flatmap": node = MetNodeFlatmap(self)
-            case "cubemap": node = MetNodeCubemap(self, true)
+            case "tile"   : node = TileNode   (self, name)
+            case "flatmap": node = FlatmapNode(self)
+            case "cubemap": node = CubemapNode(self, true)
             case "plato"  : node = MetNodePlato  (self, skyColor.getMix)
-            default       : node = MetNodeCell   (self, name)
+            default       : node = CellNode   (self, name)
             }
             nodeNamed[name] = node
         }
@@ -66,7 +66,7 @@ public class SkyPipeline: MetPipeline {
 
     /// setup new node during shader startup or via pipeline
     func addNodeName(_ name: String,
-                     after: MetNode?) -> MetNode? {
+                     after: MetalNode?) -> MetalNode? {
 
         if let node = nodeNamed[name] ?? initNodeName(name) {
 
@@ -85,25 +85,25 @@ public class SkyPipeline: MetPipeline {
             return node
         }
         return nil
-        func addFlatNode(_ node: MetNode) {
-            if let node = node as? MetNodeRender {
+        func addFlatNode(_ node: MetalNode) {
+            if let node = node as? RenderNode {
                 flatmapNode = node
                 node.insert(after: after)
             }
         }
-        func addCubeNode(_ node: MetNode) {
-            if let node = node as? MetNodeCubemap {
+        func addCubeNode(_ node: MetalNode) {
+            if let node = node as? CubemapNode {
                 cubemapNode = node
                 node.insert(after: after)
             }
         }
-        func addPlatoNode(_ node: MetNode) {
+        func addPlatoNode(_ node: MetalNode) {
             if let node = node as? MetNodePlato {
                 platoNode = node
                 node.insert(after: after)
             }
         }
-        func addCamera(_ node: MetNode) {
+        func addCamera(_ node: MetalNode) {
             cameraNode = node
             if let cameraNode, firstNode == drawNode {
 
@@ -112,11 +112,11 @@ public class SkyPipeline: MetPipeline {
 
             }
         }
-        func addDraw(_ node: MetNode) {
+        func addDraw(_ node: MetalNode) {
             drawNode = node
             firstNode = firstNode ?? drawNode
         }
-        func addCompute(_ node: MetNode) {
+        func addCompute(_ node: MetalNode) {
             cellNode = node
             if let drawNode {
                 cellNode?.insert(after: after)
@@ -127,7 +127,7 @@ public class SkyPipeline: MetPipeline {
         }
     }
     /// called from SkyMetal:: makeShader.updateBuffer.addOn
-    func swap(inNode node: MetNode) {
+    func swap(inNode node: MetalNode) {
 
         if settingUp { return } // don't swap while Setting up pipeline
 
@@ -151,7 +151,7 @@ public class SkyPipeline: MetPipeline {
             }
 
         case "cubemap":
-            if let node = node as? MetNodeCubemap {
+            if let node = node as? CubemapNode {
                 cubemapNode = node
                 if node.isOn {
                     flatmapNode?.replace(with: node)
@@ -162,7 +162,7 @@ public class SkyPipeline: MetPipeline {
             }
 
         case "flatmap":
-            if let node = node as? MetNodeFlatmap {
+            if let node = node as? FlatmapNode {
                 flatmapNode = node
                 if node.isOn {
                     cubemapNode?.replace(with: node)
@@ -203,7 +203,7 @@ public class SkyPipeline: MetPipeline {
         if  let pipeline = root˚.findPath("shader.pipeline"),
             let firstChild = pipeline.children.first {
 
-            var lastNode: MetNode?
+            var lastNode: MetalNode?
             let type = firstChild.string //?? "draw"
             let name = firstChild.name
             firstNode = addNodeName(name, after: nil)
@@ -222,8 +222,8 @@ public class SkyPipeline: MetPipeline {
                     case "camera" : cameraNode = nextNode
                     case "camix"  : camixNode = nextNode
                     case "tile"   : tileNode = nextNode
-                    case "flatmap": flatmapNode = nextNode as? MetNodeRender
-                    case "cubemap": cubemapNode = nextNode as? MetNodeCubemap
+                    case "flatmap": flatmapNode = nextNode as? RenderNode
+                    case "cubemap": cubemapNode = nextNode as? CubemapNode
                     default       : break
                     }
                 }
@@ -282,7 +282,7 @@ public class SkyPipeline: MetPipeline {
         drawNode    = addNodeName("draw"    , after: nil      )
         cellNode    = addNodeName("fade"    , after: drawNode )
         colorNode   = addNodeName("color"   , after: cellNode )
-        flatmapNode = addNodeName("flatmap" , after: colorNode) as? MetNodeRender
+        flatmapNode = addNodeName("flatmap" , after: colorNode) as? RenderNode
 
         firstNode = drawNode
         firstNode?.inNode = cellNode // feedback cell back into firstNode

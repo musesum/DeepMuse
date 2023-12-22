@@ -63,7 +63,7 @@ class SkyVm {
         completion()
 
         func addScreenIcon() {
-            if let flatmapNode = nodeNamed["flatmap"] as? MetNodeFlatmap,
+            if let flatmapNode = nodeNamed["flatmap"] as? FlatmapNode,
                let image = flatmapNode.cgImage {
 
                 let uiImage = UIImage(cgImage: image).roundIcon(128)
@@ -74,7 +74,7 @@ class SkyVm {
         }
 
         func addDrawTexture() {
-            if  let drawNode = nodeNamed["draw"] as? MetNodeDraw,
+            if  let drawNode = nodeNamed["draw"] as? DrawNode,
                 let drawTex = drawNode.outTex {
 
                 let (bytes, totalSize) = drawTex.mtlBytes()

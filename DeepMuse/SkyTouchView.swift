@@ -5,7 +5,7 @@ import MuMenu
 import MuFlo
 import MultipeerConnectivity
 
-open class SkyTouchView: TouchView {
+open class SkyTouchView: TouchesView {
     
     var safeBounds: CGRect { frame.pad(-4) }
     var touchBeganFromEdge = [Int: Bool]()

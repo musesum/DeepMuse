@@ -38,7 +38,7 @@ extension SkyPipeline {
                 }
             }
         }
-        func updateBuffer(_ node: MetNode,
+        func updateBuffer(_ node: MetalNode,
                           _ flo: Flo) {
 
             func updateFloats(_ flo: Flo, _: Visitor = Visitor(0)) {
@@ -51,7 +51,7 @@ extension SkyPipeline {
             updateFloats(flo)
         }
 
-        func addMtlNodeOn(_ node: MetNode,
+        func addMtlNodeOn(_ node: MetalNode,
                           _ flo: Flo) {
 
             node.isOn = flo.bool
@@ -68,7 +68,7 @@ extension SkyPipeline {
                     #if os(visionOS)
                     #else
                     if name == "camera" {
-                        MetCamera.shared.setCameraOn(isOn)
+                        Camera.shared.setCameraOn(isOn)
 
                         if let mixNode = nodeNamed["camix"] {
                             setMtlNode(mixNode, isOn)
@@ -78,13 +78,13 @@ extension SkyPipeline {
 
                 }
             }
-            func setMtlNode(_ node: MetNode,_ isOn: Bool) {
+            func setMtlNode(_ node: MetalNode,_ isOn: Bool) {
                 node.setMetalNodeOn(isOn) {
                     self.swap(inNode: node)
                 }
             }
         }
-        func updateChildBuffer(_ node: MetNode,
+        func updateChildBuffer(_ node: MetalNode,
                                _ child: Flo) {
             child.addClosure { child,_ in
                 updateParentFloats(child)

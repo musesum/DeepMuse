@@ -102,7 +102,7 @@ DeepMuse {
                     inTex = (inNode as? MetNodeCubemap.cubeTex) ?? inNode?.outTex
                 }
                 renderNode(renderCmd) { ...
-                    renderCmd.setVertexBuffer(platonic.platoTris.vertexBuf, offset: 0, index: 0)
+                    renderCmd.setVertexBuffer(platonic.platoModel.vertexBuf, offset: 0, index: 0)
                     renderCmd.setVertexBuffer(uniformBuf, offset: uniformLen, index: 1)
                     renderCmd.setFragmentBuffer(uniformBuf, offset: uniformLen, index: 1)
 
