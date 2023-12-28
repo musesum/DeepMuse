@@ -18,7 +18,7 @@ class SkyVm {
     let archive = FloArchive(bundle: MuSkyFlo.bundle,
                              archive: "Snapshot",
                              scripts:  ["sky", "shader", "model", "menu",
-                                        "plato", "cube", "midi", "corner"],
+                                        "midi", "corner"],
                              textures: ["draw"])
 
     var touchView: SkyTouchView!

@@ -14,7 +14,7 @@ struct SkyCanvas {
     var settingUp = true
     let archive = FloArchive(bundle: MuSkyFlo.bundle,
                              archive: "Snapshot",
-                             scripts:  ["sky", "shader","model", "menu", "plato", "cube", "midi", "corner"],
+                             scripts:  ["sky", "shader","model", "menu", "midi", "corner"],
                              textures: ["draw"])
 
     init() {

@@ -17,7 +17,7 @@ public class SkyPipeline: Pipeline {
     private var cameraNode: MetalNode?  // camera input - always first Node
     private var camixNode: MetalNode?   // camera mix node - before flatmapNode
     private var tileNode: MetalNode?    // deprecated
-    private var platoNode: MetNodePlato?
+    private var platoNode: PlatoNode?
 
     public var skyColor:  ColorFlo! // instance of subtree of sky.color
     private var skyMainRun˚: Flo?    // run the cellular automata rules
@@ -56,7 +56,7 @@ public class SkyPipeline: Pipeline {
             case "tile"   : node = TileNode   (self, name)
             case "flatmap": node = FlatmapNode(self)
             case "cubemap": node = CubemapNode(self, true)
-            case "plato"  : node = MetNodePlato  (self, skyColor.getMix)
+            case "plato"  : node = PlatoNode  (self, skyColor.getMix)
             default       : node = CellNode   (self, name)
             }
             nodeNamed[name] = node
@@ -98,7 +98,7 @@ public class SkyPipeline: Pipeline {
             }
         }
         func addPlatoNode(_ node: MetalNode) {
-            if let node = node as? MetNodePlato {
+            if let node = node as? PlatoNode {
                 platoNode = node
                 node.insert(after: after)
             }
@@ -172,7 +172,7 @@ public class SkyPipeline: Pipeline {
                 }
             }
         case "plato":
-            if let node = node as? MetNodePlato {
+            if let node = node as? PlatoNode {
                 platoNode = node
                 if node.isOn {
                     node.insert(after: lastNode)
