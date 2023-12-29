@@ -45,7 +45,7 @@ extension RenderSky: RenderLayerProtocol {
                      _ layerFrame    : LayerRenderer.Frame,
                      _ layerDrawable : LayerRenderer.Drawable) {
 
-        updateUniforms(layerDrawable)
+        updateMetal(layerDrawable)
         let renderPass = makeRenderPass(layerDrawable: layerDrawable)
 
         guard let pipeline,

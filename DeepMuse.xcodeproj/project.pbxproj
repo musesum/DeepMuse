@@ -31,13 +31,14 @@
 		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
 		80704A0323378ADC0001617D /* SkyPipeline+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497523378ADB0001617D /* SkyPipeline+ext.swift */; };
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
-		80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7823378C1B0001617D /* MetalKit.framework */; };
 		80735E622B34CD2000C4A53B /* RenderSky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80735E612B34CD1F00C4A53B /* RenderSky.swift */; };
 		807533472A8CA0C600A1808C /* MuPlato in Frameworks */ = {isa = PBXBuildFile; productRef = 807533462A8CA0C600A1808C /* MuPlato */; };
 		807D1C1429BC862F0092FBC7 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 807D1C1329BC862F0092FBC7 /* MuMetal */; };
 		8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* compute.tile.metal */; };
 		8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31229DBA9BF003E02CC /* render.flatmap.metal */; };
 		809820B329F1350E00682AD2 /* SkyTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809820B229F1350E00682AD2 /* SkyTouchView.swift */; };
+		80AC0E912B3F3E3A00CCBE54 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80AC0E902B3F3E3A00CCBE54 /* AudioKit */; };
+		80AC0E992B3F434500CCBE54 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80AC0E982B3F434500CCBE54 /* AudioKit */; };
 		80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */; };
 		80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62D82A5B9B6800F51B7A /* MuAudio */; };
 		80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62DB2A5B9C1300F51B7A /* MuPeer */; };
@@ -118,6 +119,7 @@
 		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
 		8090E31229DBA9BF003E02CC /* render.flatmap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.flatmap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.flatmap.metal; sourceTree = "<group>"; };
 		809820B229F1350E00682AD2 /* SkyTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTouchView.swift; sourceTree = "<group>"; };
+		80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "AudioKit-visionOS"; path = "../Packages/AudioKit-visionOS"; sourceTree = "<group>"; };
 		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
 		80BE475B2B34C23800EB05F4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,7 +140,8 @@
 			files = (
 				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
 				80BE47542B34C08600EB05F4 /* MuVision in Frameworks */,
-				80704A7A23378C1B0001617D /* MetalKit.framework in Frameworks */,
+				80AC0E912B3F3E3A00CCBE54 /* AudioKit in Frameworks */,
+				80AC0E992B3F434500CCBE54 /* AudioKit in Frameworks */,
 				80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
 				807533472A8CA0C600A1808C /* MuPlato in Frameworks */,
@@ -193,9 +196,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				807048E923378A090001617D /* App */,
-				80BE47562B34C23800EB05F4 /* Spatial */,
-				8063686F2AB3BE6200800F8A /* DeepMuse */,
+				80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */,
 				803295562A99A95B00D3BFA4 /* MuAudio */,
 				803295542A99A95B00D3BFA4 /* MuColor */,
 				8032954F2A99A95B00D3BFA4 /* MuFlo */,
@@ -206,6 +207,9 @@
 				8032954D2A99A95B00D3BFA4 /* MuPlato */,
 				8032954E2A99A95B00D3BFA4 /* MuSkyFlo */,
 				8045637D296B900600EE6E0E /* README.md */,
+				807048E923378A090001617D /* App */,
+				80BE47562B34C23800EB05F4 /* Spatial */,
+				8063686F2AB3BE6200800F8A /* DeepMuse */,
 				8070495D23378ADB0001617D /* Metal */,
 				80E95AFF29168323003F6360 /* Mu */,
 				8061DE14293985030098F309 /* MuseSky */,
@@ -344,6 +348,8 @@
 				80BD62DB2A5B9C1300F51B7A /* MuPeer */,
 				807533462A8CA0C600A1808C /* MuPlato */,
 				80BE47532B34C08600EB05F4 /* MuVision */,
+				80AC0E902B3F3E3A00CCBE54 /* AudioKit */,
+				80AC0E982B3F434500CCBE54 /* AudioKit */,
 			);
 			productName = MuseSky;
 			productReference = 807048E723378A090001617D /* Deep Muse.app */;
@@ -749,6 +755,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 807D1C1229BC862F0092FBC7 /* XCRemoteSwiftPackageReference "MuMetal" */;
 			productName = MuMetal;
+		};
+		80AC0E902B3F3E3A00CCBE54 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AudioKit;
+		};
+		80AC0E982B3F434500CCBE54 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AudioKit;
 		};
 		80BD62D82A5B9B6800F51B7A /* MuAudio */ = {
 			isa = XCSwiftPackageProductDependency;
