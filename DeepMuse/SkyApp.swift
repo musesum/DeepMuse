@@ -4,6 +4,7 @@
 import UIKit
 import SwiftUI
 import MuMenu
+import MuMetal
 
 #if os(visionOS)
 import MuVision
@@ -32,7 +33,7 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
                            configuration: inout LayerRenderer.Configuration) {
 
         configuration.depthFormat = .depth32Float
-        configuration.colorFormat = .bgra8Unorm_srgb
+        configuration.colorFormat = MetalRenderPixelFormat
 
         let foveationEnabled = capabilities.supportsFoveation
         configuration.isFoveationEnabled = foveationEnabled

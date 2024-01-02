@@ -30,42 +30,43 @@ class RenderSky: RenderLayer {
 extension RenderSky: RenderLayerProtocol {
 
     func makeResources() {
-        //??? 
+        print("RenderSky:\(#function)")
     }
     
     func makePipeline() {
-        //???
+        print("RenderSky:\(#function)")
     }
 
     func updateUniforms(_ layerDrawable: LayerRenderer.Drawable) {
-        print(".", terminator: "")
+        print("RenderSky:\(#function)")
     }
 
     func renderLayer(_ commandBuf    : MTLCommandBuffer,
-                     _ layerFrame    : LayerRenderer.Frame,
                      _ layerDrawable : LayerRenderer.Drawable) {
 
-        updateMetal(layerDrawable)
-        let renderPass = makeRenderPass(layerDrawable: layerDrawable)
+        // compute
+        var node = pipeline?.computeNodes(commandBuf)
 
-        guard let pipeline,
-              let renderNode = commandBuf.makeRenderCommandEncoder(
-                descriptor: renderPass) else { fatalError(#function) }
+        // render
+        if node?.metType == .rendering,
+           let renderCmd = commandBuf.makeRenderCommandEncoder(descriptor: makeRenderPass(layerDrawable: layerDrawable)) {
 
-        renderNode.label = "Sky"
-        renderNode.pushDebugGroup("Sky")
+            let viewports = layerDrawable.views.map { $0.textureMap.viewport }
+            renderCmd.setViewports(viewports)
+            setViewMappings(renderCmd, layerDrawable, viewports)
 
-        let viewports = layerDrawable.views.map { $0.textureMap.viewport }
-        renderNode.setViewports(viewports)
-
-        pipeline.drawNodes()
-        //???? pipeline.drawLayer(layerDrawable, renderCmd, viewports)
-
-        renderNode.popDebugGroup()
-        renderNode.endEncoding()
+            while let renderNode = node as? RenderNode {
+                renderNode.updateUniforms(layerDrawable)
+                renderNode.updateTextures()
+                renderNode.renderLayer(layerDrawable, renderCmd, viewports)
+                node = renderNode.outNode
+            }
+            renderCmd.endEncoding()
+        }
         layerDrawable.encodePresent(commandBuffer: commandBuf)
         commandBuf.commit()
     }
+    
 }
 
 #endif

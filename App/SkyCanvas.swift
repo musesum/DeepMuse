@@ -54,7 +54,7 @@ extension SkyCanvas: MenuDelegate {
 extension SkyCanvas: NextFrameDelegate {
 
     func nextFrame() -> Bool {
-        pipeline?.drawNodes()
+        pipeline?.renderFrame()
         return true
     }
     func cancel(_ key: Int) {

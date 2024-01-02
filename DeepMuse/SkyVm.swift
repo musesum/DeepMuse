@@ -122,7 +122,7 @@ extension SkyVm: MenuDelegate {
 extension SkyVm: NextFrameDelegate {
 
     func nextFrame() -> Bool {
-        pipeline?.drawNodes()
+        pipeline?.renderFrame()
         return true
     }
     func cancel(_ key: Int) {
