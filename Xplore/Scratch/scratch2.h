@@ -17,7 +17,7 @@ SpatialMetal2 {
                 updateUniforms
 
                 starsNode::drawLayer {
-                    eyebuf.setUniformbBuf
+                    eyebuf.setUniformBuf
                     renderCmd.setRenderPipelineState()
                     mesh.drawMesh {
                         renderCmd.setFragmentTexture()
@@ -50,7 +50,7 @@ DeepMuse {
             commandBuf, drawable = metalLayer.nextDrawable()
 
             renderNodes(commandbuf,drawable) {
-                
+
                 computeNodes()
                 
                 renderCmd.setViewPorts
@@ -68,10 +68,9 @@ DeepMuse {
                         for buf ... {
                             renderCmd.setFragmentBuffer(buf.mtlBuffer, offset: 0, index: buf.bufIndex)
                         }
-                        renderCmd.setDepthStencilState(pipeline.depthStencil(write: ...))
-
                         cubemapMetal.drawMesh {
                             renderCmd.setFrontFacing
+                            renderCmd.setDepthStencilState
                             for (index,layout) in .vertexDescriptor.layouts {
                                 renderCmd.setVertexBuffer(buffer,offset,index)
                             }

@@ -6,8 +6,8 @@ import MetalKit
 import ARKit
 import Spatial
 import CompositorServices
-import MuVision
 
+import MuVision
 import MuMetal
 
 /// This is the example specific part of rendering metal within VisionOS.
@@ -55,16 +55,17 @@ extension RenderSky: RenderLayerProtocol {
             renderCmd.setViewports(viewports)
             setViewMappings(renderCmd, layerDrawable, viewports)
 
-            while let renderNode = node as? RenderNode {
-                renderNode.updateUniforms(layerDrawable)
-                renderNode.updateTextures()
-                renderNode.renderLayer(layerDrawable, renderCmd, viewports)
-                node = renderNode.outNode
+            while let nodeNow = node as? RenderNode {
+                nodeNow.updateUniforms(layerDrawable)
+                nodeNow.updateTextures()
+                nodeNow.renderNode(renderCmd)
+                node = nodeNow.outNode
             }
             renderCmd.endEncoding()
         }
         layerDrawable.encodePresent(commandBuffer: commandBuf)
         commandBuf.commit()
+        commandBuf.waitUntilCompleted()
     }
     
 }
