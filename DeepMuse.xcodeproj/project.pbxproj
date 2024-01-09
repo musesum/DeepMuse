@@ -82,6 +82,7 @@
 		803295572A99A95B00D3BFA4 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
 		803295582A99A95C00D3BFA4 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
+		803B39A52B4B51AB00FD1555 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
 		80420C3C29EFB769001F5519 /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camix.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camix.metal; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		80735E612B34CD1F00C4A53B /* RenderSky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderSky.swift; sourceTree = "<group>"; };
-		80735E632B34CF2B00C4A53B /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
 		8090CF472A948042000699EF /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "../Packages/AudioKit-visionOS/Package.swift"; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
@@ -196,13 +196,13 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				803B39A52B4B51AB00FD1555 /* MuVision */,
 				80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */,
 				803295562A99A95B00D3BFA4 /* MuAudio */,
 				803295542A99A95B00D3BFA4 /* MuColor */,
 				8032954F2A99A95B00D3BFA4 /* MuFlo */,
 				803295532A99A95B00D3BFA4 /* MuMenu */,
 				803295572A99A95B00D3BFA4 /* MuMetal */,
-				80735E632B34CF2B00C4A53B /* MuVision */,
 				803295582A99A95C00D3BFA4 /* MuPeer */,
 				8032954D2A99A95B00D3BFA4 /* MuPlato */,
 				8032954E2A99A95B00D3BFA4 /* MuSkyFlo */,
@@ -310,18 +310,10 @@
 		80E95AFF29168323003F6360 /* Mu */ = {
 			isa = PBXGroup;
 			children = (
-				80F5E1692A4A728F00051994 /* MuLog */,
 				800E13C529AF14C2007A480B /* extensions */,
 				80E95AE129167D50003F6360 /* MuUtilities */,
 			);
 			path = Mu;
-			sourceTree = "<group>";
-		};
-		80F5E1692A4A728F00051994 /* MuLog */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MuLog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +380,6 @@
 				80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */,
 				80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */,
 				8090CF492A948093000699EF /* XCLocalSwiftPackageReference "../Packages/AudioKit-visionOS" */,
-				808E201E2AA6984900D9A479 /* XCLocalSwiftPackageReference "../Packages/RealityKitContent" */,
 				80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -684,10 +675,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		808E201E2AA6984900D9A479 /* XCLocalSwiftPackageReference "../Packages/RealityKitContent" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/RealityKitContent;
-		};
 		8090CF492A948093000699EF /* XCLocalSwiftPackageReference "../Packages/AudioKit-visionOS" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../Packages/AudioKit-visionOS";

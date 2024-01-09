@@ -15,9 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /// setup `HostingController` here:
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = MenuSkyView.shared.hostingController
+            window.rootViewController = MenuSkyView.shared.hostingC
             self.window = window
             window.makeKeyAndVisible()
+            window.backgroundColor = .blue
         }
     }
 

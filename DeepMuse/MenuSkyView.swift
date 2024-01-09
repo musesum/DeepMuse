@@ -9,22 +9,30 @@ import MuMenu
 struct MenuSkyView: View {
 
     public static let shared = MenuSkyView()
-    var menuView: MenuView!
-    var hostingController: HostingController!
-    var skyCanvas: SkyCanvas!
+    var menuView: MenuView
+    var skyCanvas: SkyCanvas
+    var hostingC: HostingController!
     var hostView: UIView!
 
     public init() {
         skyCanvas = SkyCanvas.shared
-        menuView = MenuView(skyCanvas.archive.root˚, skyCanvas.touchView, skyCanvas)
-        hostView = UIHostingController(rootView: menuView).view
-        hostingController = HostingController(rootView: self)
+
+        menuView = MenuView(skyCanvas.archive.root˚,
+                            skyCanvas.touchView, 
+                            skyCanvas)
+
+        hostingC = HostingController(rootView: self)
+        hostView = hostingC.view
+        hostView.isOpaque = false //????
+        hostView.backgroundColor = .clear
+        hostView.layer.backgroundColor = nil
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 
     var body: some View {
         VStack {
             menuView
+                .background(.clear)
 
         }
     }

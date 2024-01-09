@@ -1,22 +1,8 @@
-import MetalKit
-import ModelIO
+visionOS
+projection   : [(1, 0, 0, 0), (0, 1.33, 0, 0), (0, 0, 0, -1), (0, 0, 0.1, 0)]
+projectModel : ((0.97, 0, 0, 0), (0, 1.73, 0, 0), (0, 0, -1, -1), (0, 0, 2.91, 3))
 
-
-let allocator = MTKMeshBufferAllocator(device: device)
-let vertexBuffer = allocator.newBuffer(with: vertices, type: .vertex)
-
-let indexData = Data(bytes: indices, count: indices.count * MemoryLayout<UInt32>.stride)
-let indexBuffer = allocator.newBuffer(with: indexData, type: .index)
-
-let submesh = MDLSubmesh(indexBuffer: indexBuffer,
-                         indexCount: indices.count,
-                         indexType: .uint32,
-                         geometryType: .triangles,
-                         material: nil) // You can create a default MDLMaterial if needed
-
-mdlMesh = MDLMesh(vertexBuffers: [vertexBuffer],
-                   vertexCount: vertices.count,
-                   descriptor:  metalVD.modelVD,
-                   submeshes: [submesh])
-
-// The mesh is now ready with a default submesh
+iOS
+projection: ((-2.03, 0.16, 0.31, 0.31), (-0.03, 0.86, -0.5, -0.5), (0.76, 0.48, 0.81, 0.81), (0, 0, 2.91, 3))
+projection: ((-2.03, 0.16, 0.31, 0.31), (-0.03, 0.86, -0.5, -0.5), (0.76, 0.48, 0.81, 0.81), (0, 0, -0.1, 0))
+projection: ((-1, 0.43, 0.78, 0.78), (-0.04, 0.87, -0.49, -0.49), (1.92, 0.24, 0.4, 0.4), (0, 0, 2.91, 3))

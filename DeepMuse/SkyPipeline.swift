@@ -273,7 +273,7 @@ public class SkyPipeline: Pipeline {
         fixupTile()
         fixupFirst()
         updateLastNode()
-        //?? print("⟹ pipeline fixup after: " + scriptPipeline())
+        print("⟹ pipeline fixup after: " + scriptPipeline())
     }
     /// Create linked list of MtlNode to render scene
     func setupDefaultPipeline() {

@@ -7,21 +7,22 @@ import MuMenu
 import MuSkyFlo
 
 struct SkyCanvas {
-    static let shared = SkyCanvas()
-    var midi: MuMidi?
-    var pipeline: SkyPipeline!
-    var touchView: SkyTouchView!
-    var settingUp = true
-    let archive = FloArchive(bundle: MuSkyFlo.bundle,
-                             archive: "Snapshot",
-                             scripts:  ["sky", "shader","model", "menu", "midi", "corner"],
-                             textures: ["draw"])
 
+    static let shared = SkyCanvas()
+    var midi: MuMidi
+    var pipeline: SkyPipeline
+    var touchView: SkyTouchView
+    var settingUp = true
+    
+    let archive = FloArchive(
+        bundle: MuSkyFlo.bundle,
+        archive: "Snapshot",
+        scripts:  ["sky", "shader","model", "menu", "midi", "corner"],
+        textures: ["draw"])
+    
     init() {
         midi = MuMidi(root: archive.root˚)
-        if let midi {
-            TouchMidi.touchRemote = midi
-        }
+        TouchMidi.touchRemote = midi
         _ = MuAudio.shared // MuAudio.shared.test()
 #if os(visionOS)
         let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
@@ -31,7 +32,7 @@ struct SkyCanvas {
         pipeline = SkyPipeline(bounds, archive.root˚)
         TouchCanvas.shared.touchFlo.parseRoot(archive.root˚, archive)
         touchView = SkyTouchView(bounds)
-        touchView.layer.addSublayer(pipeline!.metalLayer)
+        touchView.layer.addSublayer(pipeline.metalLayer)
     }
 }
 extension SkyCanvas: MenuDelegate {
@@ -47,14 +48,15 @@ extension SkyCanvas: MenuDelegate {
 #endif
         let viewSize = CGSize(width: width * scale, height: height * scale)
         TouchCanvas.shared.touchFlo.viewSize = viewSize
-        touchView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        pipeline?.resize(viewSize, scale)
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        touchView.frame = frame
+        pipeline.resize(viewSize, scale)
     }
 }
 extension SkyCanvas: NextFrameDelegate {
 
     func nextFrame() -> Bool {
-        pipeline?.renderFrame()
+        pipeline.renderFrame()
         return true
     }
     func cancel(_ key: Int) {

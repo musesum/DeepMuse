@@ -30,15 +30,15 @@ class RenderSky: RenderLayer {
 extension RenderSky: RenderLayerProtocol {
 
     func makeResources() {
-        print("RenderSky:\(#function)")
+        //print("RenderSky:\(#function)")
     }
     
     func makePipeline() {
-        print("RenderSky:\(#function)")
+        //print("RenderSky:\(#function)")
     }
 
     func updateUniforms(_ layerDrawable: LayerRenderer.Drawable) {
-        print("RenderSky:\(#function)")
+        //print("RenderSky:\(#function)")
     }
 
     func renderLayer(_ commandBuf    : MTLCommandBuffer,
@@ -51,9 +51,7 @@ extension RenderSky: RenderLayerProtocol {
         if node?.metType == .rendering,
            let renderCmd = commandBuf.makeRenderCommandEncoder(descriptor: makeRenderPass(layerDrawable: layerDrawable)) {
 
-            let viewports = layerDrawable.views.map { $0.textureMap.viewport }
-            renderCmd.setViewports(viewports)
-            setViewMappings(renderCmd, layerDrawable, viewports)
+            setViewMappings(renderCmd, layerDrawable)
 
             while let nodeNow = node as? RenderNode {
                 nodeNow.updateUniforms(layerDrawable)
@@ -65,7 +63,6 @@ extension RenderSky: RenderLayerProtocol {
         }
         layerDrawable.encodePresent(commandBuffer: commandBuf)
         commandBuf.commit()
-        commandBuf.waitUntilCompleted()
     }
     
 }
