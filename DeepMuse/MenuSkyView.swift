@@ -5,6 +5,7 @@ import SwiftUI
 import BackgroundTasks
 import MuFlo
 import MuMenu
+import MuVision
 
 struct MenuSkyView: View {
 
@@ -27,6 +28,11 @@ struct MenuSkyView: View {
         hostView.backgroundColor = .clear
         hostView.layer.backgroundColor = nil
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
+        #if os(visionOS)
+        DepthRender.state = .vision
+        #else
+        DepthRender.state = .metal
+        #endif
     }
 
     var body: some View {
