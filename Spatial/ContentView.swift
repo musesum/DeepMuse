@@ -4,57 +4,71 @@ import MuFlo // NextFrame
 import MuVision
 
 #if os(visionOS)
+
 struct ContentView: View {
 
+    static var shared = ContentView()
+
     @State private var showImmersiveSpace = false
-    @State private var immersiveSpaceIsShown = false
+    @State public var immersiveSpaceIsShown = false
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-
-    var touchesView = MenuSkyView.shared.skyCanvas.touchView
+    @Environment(\.dismissWindow) private var dismissWindow
+    @Environment(\.openWindow) private var openWindow
 
     func immersion(show: Bool) {
+
+        let skyView = MenuSkyView.shared
+
         if show {
             immersiveSpaceIsShown = true
             NextFrame.shared.pause = true
             DepthRender.state = .vision
-            touchesView.isHidden = true
+            //_ = skyView.disabled(true)
+            //dismissWindow(id: "App")
 
         } else {
             immersiveSpaceIsShown = false
             showImmersiveSpace = false
             NextFrame.shared.pause = false
             DepthRender.state = .metal
-            touchesView.isHidden = false
+            //_ = skyView.disabled(false)
+            //openWindow(id: "App")
+
         }
 
     }
 
     var body: some View {
 
-        Toggle(showImmersiveSpace
-               ? "Exit Immersive Space"
-               : "Launch Immersive Space",
-               isOn: $showImmersiveSpace)
-        .toggleStyle(.button)
-        .padding()
-        .glassBackgroundEffect()
+        ZStack(alignment: .bottom) {
+            if !immersiveSpaceIsShown {
+                MenuSkyView.shared
+                    .frame(minWidth: 640, minHeight: 480)
+            }
 
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                    case .opened: immersion(show: true)
-                    default     : immersion(show: false)
+            Toggle(showImmersiveSpace
+                   ? "Exit Immersive Space"
+                   : "Launch Immersive Space",
+                   isOn: $showImmersiveSpace)
+            .toggleStyle(.button)
+            .onChange(of: showImmersiveSpace) { _, newValue in
+                Task {
+                    if newValue {
+                        switch await openImmersiveSpace(id: "ImmersiveSpace") {
+                        case .opened: immersion(show: true)
+                        default     : immersion(show: false)
 
+                        }
+                    } else if immersiveSpaceIsShown {
+                        await dismissImmersiveSpace()
+                        immersion(show: false)
                     }
-                } else if immersiveSpaceIsShown {
-                    await dismissImmersiveSpace()
-                    immersion(show: false)
                 }
             }
         }
+
     }
 }
 #endif

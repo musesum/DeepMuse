@@ -104,7 +104,7 @@ class SkyVm {
 }
 extension SkyVm: MenuDelegate {
 
-    func window(bounds: CGRect, insets: EdgeInsets) {
+    func window(frame: CGRect, insets: EdgeInsets) {
 
         let width = bounds.width + insets.leading + insets.trailing
         let height = bounds.height + insets.top + insets.bottom

@@ -10,6 +10,8 @@ import CompositorServices
 import MuVision
 import MuMetal
 
+import RealityKit
+
 /// This is the example specific part of rendering metal within VisionOS.
 /// The example uses earth in the foreground and stars in the background.
 class RenderSky: RenderLayer {
@@ -51,7 +53,7 @@ extension RenderSky: RenderLayerProtocol {
         if node?.metType == .rendering,
            let renderCmd = commandBuf.makeRenderCommandEncoder(descriptor: makeRenderPass(layerDrawable: layerDrawable)) {
 
-            setViewMappings(renderCmd, layerDrawable)
+            RenderLayer.setViewMappings(renderCmd, layerDrawable)
 
             while let nodeNow = node as? RenderNode {
                 nodeNow.updateUniforms(layerDrawable)

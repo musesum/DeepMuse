@@ -10,6 +10,7 @@
 		800E13CA29AF14C2007A480B /* Image+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C629AF14C2007A480B /* Image+ext.swift */; };
 		800E13CC29AF14C2007A480B /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C829AF14C2007A480B /* String+ext.swift */; };
 		800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */; };
+		8035021F2B4F4FEC00FE1E9A /* CG+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8035021E2B4F4FEC00FE1E9A /* CG+ext.swift */; };
 		8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8037433C29DD06C000ACEF2D /* render.cubemap.metal */; };
 		80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3A29EFB75F001F5519 /* compute.camera.metal */; };
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
@@ -81,6 +82,7 @@
 		803295562A99A95B00D3BFA4 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
 		803295572A99A95B00D3BFA4 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
 		803295582A99A95C00D3BFA4 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
+		8035021E2B4F4FEC00FE1E9A /* CG+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+ext.swift"; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
 		803B39A52B4B51AB00FD1555 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				800E13C629AF14C2007A480B /* Image+ext.swift */,
 				800E13C829AF14C2007A480B /* String+ext.swift */,
 				800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */,
+				8035021E2B4F4FEC00FE1E9A /* CG+ext.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
 				807049F623378ADC0001617D /* compute.draw.metal in Sources */,
 				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
+				8035021F2B4F4FEC00FE1E9A /* CG+ext.swift in Sources */,
 				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
 				80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */,
 				8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */,

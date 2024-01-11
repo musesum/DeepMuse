@@ -24,9 +24,11 @@ struct MenuSkyView: View {
 
         hostingC = HostingController(rootView: self)
         hostView = hostingC.view
+        
         hostView.isOpaque = false //????
         hostView.backgroundColor = .clear
         hostView.layer.backgroundColor = nil
+
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
         #if os(visionOS)
         DepthRender.state = .vision
@@ -36,11 +38,10 @@ struct MenuSkyView: View {
     }
 
     var body: some View {
-        VStack {
-            menuView
-                .background(.clear)
 
-        }
+        menuView
+            .background(.clear)
+
     }
 }
 

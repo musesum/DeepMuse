@@ -5,6 +5,7 @@ import MuFlo
 import MuAudio
 import MuMenu
 import MuSkyFlo
+import MuVision
 
 struct SkyCanvas {
 
@@ -13,13 +14,13 @@ struct SkyCanvas {
     var pipeline: SkyPipeline
     var touchView: SkyTouchView
     var settingUp = true
-    
+
     let archive = FloArchive(
         bundle: MuSkyFlo.bundle,
         archive: "Snapshot",
         scripts:  ["sky", "shader","model", "menu", "midi", "corner"],
         textures: ["draw"])
-    
+
     init() {
         midi = MuMidi(root: archive.root˚)
         TouchMidi.touchRemote = midi
@@ -37,19 +38,44 @@ struct SkyCanvas {
 }
 extension SkyCanvas: MenuDelegate {
 
-    func window(bounds: CGRect, insets: EdgeInsets) {
+    func window(frame: CGRect, insets: EdgeInsets) {
 
-        let width = bounds.width + insets.leading + insets.trailing
-        let height = bounds.height + insets.top + insets.bottom
-#if os(visionOS)
-        let scale = CGFloat(3) //?? scale
-#else
-        let scale = UIScreen.main.scale
-#endif
-        let viewSize = CGSize(width: width * scale, height: height * scale)
+        let scale   : CGFloat
+        let bounds  : CGRect
+        let width   : CGFloat
+        let height  : CGFloat
+        let viewSize: CGSize
+
+        #if os(visionOS)
+
+
+        if DepthRender.state == .vision,
+           let viewports = RenderLayer.viewports,
+           let v = viewports.first {
+            bounds = CGRect(x: v.originX, y: v.originY, width: v.width, height: v.height)
+            scale = 3
+            viewSize = bounds.size * scale
+        } else {
+            bounds = frame
+            scale = 3
+            viewSize = bounds.size * scale
+
+        }
+        width = bounds.width
+        height = bounds.height
+        #else
+        scale = UIScreen.main.scale
+        bounds = frame
+        width = bounds.width + insets.leading + insets.trailing
+        height = bounds.height + insets.top + insets.bottom
+        viewSize = CGSize(width: width, height: height) * scale
+        #endif
+
+
         TouchCanvas.shared.touchFlo.viewSize = viewSize
-        let frame = CGRect(x: 0, y: 0, width: width, height: height)
-        touchView.frame = frame
+        touchView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        print("state: \(DepthRender.state.script.pad(6))   viewSize\(viewSize.script) touchView\(touchView.frame.script)")
+
         pipeline.resize(viewSize, scale)
     }
 }

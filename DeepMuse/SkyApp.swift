@@ -5,6 +5,7 @@ import UIKit
 import SwiftUI
 import MuMenu
 import MuMetal
+import MuFlo // NextFrame
 
 #if os(visionOS)
 import MuVision
@@ -12,19 +13,27 @@ import CompositorServices
 
 @main
 struct SkyApp: App {
+
     @State private var immersionStyle: ImmersionStyle = .full
+
+    var size: CGSize {
+        (ContentView.shared.immersiveSpaceIsShown
+        ? CGSize(width: 400,height: 400)
+         : CGSize(width: 640,height: 480))
+    }
+
     var body: some Scene {
-        WindowGroup {
-            ZStack(alignment: .bottom) {
-                MenuSkyView.shared
-                ContentView()
-            }
-        }
+
+        WindowGroup(id: "App") {
+            ContentView()
+        }.windowResizability(.contentSize)
+
         ImmersiveSpace(id: "ImmersiveSpace") {
-            CompositorLayer(configuration: ContentStageConfiguration()) { layerRenderer in
+            CompositorLayer { layerRenderer in
                 _ = RenderSky(layerRenderer)
             }
-        }.immersionStyle(selection: $immersionStyle, in: .full)
+        }
+        .immersionStyle(selection: $immersionStyle, in: .full)
     }
 }
 struct ContentStageConfiguration: CompositorLayerConfiguration {
