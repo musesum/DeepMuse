@@ -14,30 +14,16 @@ struct ContentView: View {
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    @Environment(\.dismissWindow) private var dismissWindow
-    @Environment(\.openWindow) private var openWindow
 
     func immersion(show: Bool) {
 
-        let skyView = MenuSkyView.shared
+        let menuSkyView = MenuSkyView.shared
+        let metalLayer = menuSkyView.skyCanvas.pipeline.metalLayer
 
-        if show {
-            immersiveSpaceIsShown = true
-            NextFrame.shared.pause = true
-            DepthRender.state = .vision
-            //_ = skyView.disabled(true)
-            //dismissWindow(id: "App")
-
-        } else {
-            immersiveSpaceIsShown = false
-            showImmersiveSpace = false
-            NextFrame.shared.pause = false
-            DepthRender.state = .metal
-            //_ = skyView.disabled(false)
-            //openWindow(id: "App")
-
-        }
-
+        immersiveSpaceIsShown = show
+        NextFrame.shared.pause = show
+        metalLayer.opacity = show ? 0 : 1
+        RenderDepth.state = show ? .immer : .metal
     }
 
     var body: some View {
@@ -46,13 +32,19 @@ struct ContentView: View {
             if !immersiveSpaceIsShown {
                 MenuSkyView.shared
                     .frame(minWidth: 640, minHeight: 480)
+            } else {
+                MenuSkyView.shared
+                .frame(maxWidth: 320, maxHeight: 400)
             }
 
             Toggle(showImmersiveSpace
-                   ? "Exit Immersive Space"
-                   : "Launch Immersive Space",
+                   ? "Real World"
+                   : "Immersive",
                    isOn: $showImmersiveSpace)
             .toggleStyle(.button)
+            .padding(EdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6))
+            .glassBackgroundEffect()
+
             .onChange(of: showImmersiveSpace) { _, newValue in
                 Task {
                     if newValue {
@@ -66,6 +58,7 @@ struct ContentView: View {
                         immersion(show: false)
                     }
                 }
+
             }
         }
 

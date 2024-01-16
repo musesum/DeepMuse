@@ -116,7 +116,7 @@ extension SkyVm: MenuDelegate {
         let viewSize = CGSize(width: width * scale, height: height * scale)
         TouchCanvas.shared.touchFlo.viewSize = viewSize
         touchView?.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        pipeline?.resize(viewSize, scale)
+        pipeline?.resize(frame, viewSize, scale)
     }
 }
 extension SkyVm: NextFrameDelegate {

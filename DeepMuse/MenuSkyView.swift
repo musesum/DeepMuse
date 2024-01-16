@@ -14,8 +14,12 @@ struct MenuSkyView: View {
     var skyCanvas: SkyCanvas
     var hostingC: HostingController!
     var hostView: UIView!
+    var renderState: RenderState = .metal
 
     public init() {
+
+        RenderDepth.state = renderState
+        
         skyCanvas = SkyCanvas.shared
 
         menuView = MenuView(skyCanvas.archive.root˚,
@@ -24,17 +28,7 @@ struct MenuSkyView: View {
 
         hostingC = HostingController(rootView: self)
         hostView = hostingC.view
-        
-        hostView.isOpaque = false //????
-        hostView.backgroundColor = .clear
-        hostView.layer.backgroundColor = nil
-
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
-        #if os(visionOS)
-        DepthRender.state = .vision
-        #else
-        DepthRender.state = .metal
-        #endif
     }
 
     var body: some View {
