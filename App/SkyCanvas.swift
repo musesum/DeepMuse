@@ -22,7 +22,7 @@ class SkyCanvas {
     let archive = FloArchive(
         bundle: MuSkyFlo.bundle,
         archive: "Snapshot",
-        scripts:  ["sky", "shader","model", "menu", "midi", "corner"],
+        scripts:  ["sky", "shader","model", "menu", "midi", "corner", "hands"],
         textures: ["draw"])
 
     init() {
@@ -31,11 +31,13 @@ class SkyCanvas {
         _ = MuAudio.shared // MuAudio.shared.test()
 #if os(visionOS)
         let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
+        HandsModel.shared.handsFlo.parseRoot(archive.root˚, archive)
 #else
         let bounds = UIScreen.main.bounds
 #endif
         pipeline = SkyPipeline(bounds, archive.root˚)
         TouchCanvas.shared.touchFlo.parseRoot(archive.root˚, archive)
+
         touchView = SkyTouchView(bounds)
         touchView.backgroundColor = .clear
         touchView.layer.addSublayer(pipeline.metalLayer)

@@ -9,6 +9,7 @@ import MuAudio // MuMidi
 import MuSkyFlo // bundle
 import MuFlo
 import MuMetal // saveSkyArchive
+import MuVision // RenderDepth
 
 class SkyVm {
     static var shared = SkyVm()
@@ -18,16 +19,16 @@ class SkyVm {
     let archive = FloArchive(bundle: MuSkyFlo.bundle,
                              archive: "Snapshot",
                              scripts:  ["sky", "shader", "model", "menu",
-                                        "midi", "corner"],
+                                        "midi", "corner", "hands"],
                              textures: ["draw"])
 
     var touchView: SkyTouchView!
     var settingUp = true
-#if os(visionOS)
+    #if os(visionOS)
     let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
-#else
+    #else
     let bounds = UIScreen.main.bounds
-#endif
+    #endif
 
     init() {
         midi = MuMidi(root: archive.root˚)
@@ -37,6 +38,9 @@ class SkyVm {
         _ = MuAudio.shared // MuAudio.shared.test()
         pipeline = SkyPipeline(bounds, archive.root˚)
         TouchCanvas.shared.touchFlo.parseRoot(archive.root˚, archive)
+        #if os(visionOS)
+        HandsModel.shared.handsFlo.parseRoot(archive.root˚, archive)
+        #endif
         touchView = SkyTouchView(bounds)
         NextFrame.shared.addFrameDelegate("SkyVm".hash, self)
     }
@@ -122,7 +126,9 @@ extension SkyVm: MenuDelegate {
 extension SkyVm: NextFrameDelegate {
 
     func nextFrame() -> Bool {
-        pipeline?.renderFrame()
+        if RenderDepth.state == .metal {
+            pipeline?.renderFrame()
+        }
         return true
     }
     func cancel(_ key: Int) {

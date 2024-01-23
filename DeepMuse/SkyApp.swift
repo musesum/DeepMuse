@@ -27,6 +27,7 @@ struct SkyApp: App {
                 _ = RenderSky(layerRenderer)
             }
         }
+        .body.upperLimbVisibility(.visible)
         .immersionStyle(selection: $immersionStyle, in: .full)
     }
 }

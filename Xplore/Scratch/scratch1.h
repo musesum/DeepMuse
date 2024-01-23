@@ -1,8 +1,217 @@
-visionOS
-projection   : [(1, 0, 0, 0), (0, 1.33, 0, 0), (0, 0, 0, -1), (0, 0, 0.1, 0)]
-projectModel : ((0.97, 0, 0, 0), (0, 1.73, 0, 0), (0, 0, -1, -1), (0, 0, 2.91, 3))
 
-iOS
-projection: ((-2.03, 0.16, 0.31, 0.31), (-0.03, 0.86, -0.5, -0.5), (0.76, 0.48, 0.81, 0.81), (0, 0, 2.91, 3))
-projection: ((-2.03, 0.16, 0.31, 0.31), (-0.03, 0.86, -0.5, -0.5), (0.76, 0.48, 0.81, 0.81), (0, 0, -0.1, 0))
-projection: ((-1, 0.43, 0.78, 0.78), (-0.04, 0.87, -0.49, -0.49), (1.92, 0.24, 0.4, 0.4), (0, 0, 2.91, 3))
+left {
+    thumb {
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    index {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    middle {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    ring {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    little {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+}
+right {
+    thumb {
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    index {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    middle {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    ring {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+    little {
+        meta {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        knuc {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        base {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        nter {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+        tip {
+            pos(x 0…1, y 0…1, z 0…1)
+            on(0…1)
+        }
+    }
+}

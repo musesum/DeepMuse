@@ -32,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         NextFrame.shared.pause = true
         SkyVm.shared.saveSkyArchive() {
+            //????
         }
     }
 

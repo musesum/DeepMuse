@@ -10,6 +10,7 @@
 		800E13CA29AF14C2007A480B /* Image+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C629AF14C2007A480B /* Image+ext.swift */; };
 		800E13CC29AF14C2007A480B /* String+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C829AF14C2007A480B /* String+ext.swift */; };
 		800E13CD29AF14C2007A480B /* FloatingPoint+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E13C929AF14C2007A480B /* FloatingPoint+ext.swift */; };
+		8034FE792B5A11120074B6A7 /* HandsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8034FE782B5A11120074B6A7 /* HandsModel.swift */; };
 		8037433D29DD06C000ACEF2D /* render.cubemap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8037433C29DD06C000ACEF2D /* render.cubemap.metal */; };
 		80420C3B29EFB75F001F5519 /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3A29EFB75F001F5519 /* compute.camera.metal */; };
 		80420C3D29EFB769001F5519 /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80420C3C29EFB769001F5519 /* compute.camix.metal */; };
@@ -82,6 +83,7 @@
 		803295562A99A95B00D3BFA4 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
 		803295572A99A95B00D3BFA4 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
 		803295582A99A95C00D3BFA4 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
+		8034FE782B5A11120074B6A7 /* HandsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandsModel.swift; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
 		803B39A52B4B51AB00FD1555 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			path = Xplore;
 			sourceTree = "<group>";
 		};
+		8034FE702B598F060074B6A7 /* MuHand */ = {
+			isa = PBXGroup;
+			children = (
+				8034FE782B5A11120074B6A7 /* HandsModel.swift */,
+			);
+			path = MuHand;
+			sourceTree = "<group>";
+		};
 		8061DE14293985030098F309 /* MuseSky */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				8034FE702B598F060074B6A7 /* MuHand */,
 				803B39A52B4B51AB00FD1555 /* MuVision */,
 				80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */,
 				803295562A99A95B00D3BFA4 /* MuAudio */,
@@ -413,6 +424,7 @@
 			files = (
 				80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */,
 				80E95AEB29167D50003F6360 /* UIApplication+extension.swift in Sources */,
+				8034FE792B5A11120074B6A7 /* HandsModel.swift in Sources */,
 				806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */,
 				80BFB8CF2939CEAB00BDEE1F /* SceneDelegate.swift in Sources */,
 				800E13CC29AF14C2007A480B /* String+ext.swift in Sources */,

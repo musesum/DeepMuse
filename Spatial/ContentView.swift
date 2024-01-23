@@ -38,7 +38,7 @@ struct ContentView: View {
             }
 
             Toggle(showImmersiveSpace
-                   ? "Real World"
+                   ? "Passthrough"
                    : "Immersive",
                    isOn: $showImmersiveSpace)
             .toggleStyle(.button)
