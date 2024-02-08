@@ -58,7 +58,15 @@ struct ContentView: View {
                         immersion(show: false)
                     }
                 }
-
+            }
+            .task {
+                await HandsModel.shared.start()
+            }
+            .task {
+                await HandsModel.shared.publishHandTrackingUpdates()
+            }
+            .task {
+                await HandsModel.shared.monitorSessionEvents()
             }
         }
 

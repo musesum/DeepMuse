@@ -14,7 +14,7 @@ import CompositorServices
 @main
 struct SkyApp: App {
 
-    @State private var immersionStyle: ImmersionStyle = .full
+    @State private var immersionStyle: ImmersionStyle = .full 
 
     var body: some Scene {
 
@@ -23,8 +23,8 @@ struct SkyApp: App {
         }.windowResizability(.contentSize)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            CompositorLayer { layerRenderer in
-                _ = RenderSky(layerRenderer)
+            CompositorLayer(configuration: ContentStageConfiguration()) { renderer in
+                _ = RenderSky(renderer)
             }
         }
         .body.upperLimbVisibility(.visible)
@@ -40,10 +40,10 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
         configuration.depthFormat = .depth32Float
         configuration.colorFormat = MetalRenderPixelFormat
 
-        let foveationEnabled = capabilities.supportsFoveation
-        configuration.isFoveationEnabled = foveationEnabled
+        let hasFoveation = capabilities.supportsFoveation
+        configuration.isFoveationEnabled = hasFoveation
 
-        let options: LayerRenderer.Capabilities.SupportedLayoutsOptions = foveationEnabled ? [.foveationEnabled] : []
+        let options: LayerRenderer.Capabilities.SupportedLayoutsOptions = hasFoveation ? [.foveationEnabled] : []
         let supportedLayouts = capabilities.supportedLayouts(options: options)
 
         configuration.layout = supportedLayouts.contains(.layered) ? .layered : .dedicated

@@ -86,7 +86,7 @@ public class SkyPipeline: Pipeline {
         }
         return nil
         func addFlatNode(_ node: MetalNode) {
-            if let node = node as? RenderNode {
+            if let node = node as? FlatmapNode {
                 flatmapNode = node
                 node.insert(after: after)
             }
@@ -222,7 +222,7 @@ public class SkyPipeline: Pipeline {
                     case "camera" : cameraNode = nextNode
                     case "camix"  : camixNode = nextNode
                     case "tile"   : tileNode = nextNode
-                    case "flatmap": flatmapNode = nextNode as? RenderNode
+                    case "flatmap": flatmapNode = nextNode as? FlatmapNode
                     case "cubemap": cubemapNode = nextNode as? CubemapNode
                     default       : break
                     }
@@ -282,7 +282,7 @@ public class SkyPipeline: Pipeline {
         drawNode    = addNodeName("draw"    , after: nil      )
         cellNode    = addNodeName("fade"    , after: drawNode )
         colorNode   = addNodeName("color"   , after: cellNode )
-        flatmapNode = addNodeName("flatmap" , after: colorNode) as? RenderNode
+        flatmapNode = addNodeName("flatmap" , after: colorNode) as? FlatmapNode
 
         firstNode = drawNode
         firstNode?.inNode = cellNode // feedback cell back into firstNode

@@ -3,7 +3,6 @@ import UIKit
 public class MuOrientation: UIView {
     public static let shared = MuOrientation()
 
-    //?? public var uiOrientation = UIInterfaceOrientation.portrait
     private var orientation = UIDeviceOrientation.portrait
 
     public var radians = CGFloat(0)

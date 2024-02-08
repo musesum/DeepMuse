@@ -12,8 +12,6 @@ struct MenuSkyView: View {
     public static let shared = MenuSkyView()
     var menuView: MenuView
     var skyCanvas: SkyCanvas
-    var hostingC: HostingController!
-    var hostView: UIView!
     var renderState: RenderState = .metal
 
     public init() {
@@ -26,8 +24,6 @@ struct MenuSkyView: View {
                             skyCanvas.touchView, 
                             skyCanvas)
 
-        hostingC = HostingController(rootView: self)
-        hostView = hostingC.view
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 
@@ -35,7 +31,7 @@ struct MenuSkyView: View {
 
         menuView
             .background(.clear)
-
+            .persistentSystemOverlays(.hidden)
     }
 }
 

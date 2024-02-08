@@ -20,8 +20,8 @@ class RenderSky: RenderLayer {
     var sceneTime =  CFTimeInterval(0)
     var lastRenderTime = CFTimeInterval(0)
 
-    override init(_ layerRenderer: LayerRenderer) {
-        super.init(layerRenderer)
+    override init(_ renderer: LayerRenderer) {
+        super.init(renderer)
         self.lastRenderTime = CACurrentMediaTime()
         self.pipeline = SkyCanvas.shared.pipeline
         setDelegate(self)
@@ -43,11 +43,15 @@ extension RenderSky: RenderLayerProtocol {
         //print("RenderSky:\(#function)")
     }
 
+    func computeLayer(_ commandBuf: MTLCommandBuffer) {
+        
+        pipeline?.computeNodes(commandBuf)
+    }
+
     func renderLayer(_ commandBuf    : MTLCommandBuffer,
                      _ layerDrawable : LayerRenderer.Drawable) {
 
-        // compute
-        var node = pipeline?.computeNodes(commandBuf)
+       var node = pipeline?.renderNode
 
         // render
         if node?.metType == .rendering,
@@ -65,8 +69,8 @@ extension RenderSky: RenderLayerProtocol {
         }
         layerDrawable.encodePresent(commandBuffer: commandBuf)
         commandBuf.commit()
+        func err(_ msg: String) {  print("\(#function) err: \(msg)") }
     }
-    
 }
 
 #endif

@@ -6,6 +6,7 @@ import MuAudio
 import MuMenu
 import MuSkyFlo
 import MuVision
+import MuExtensions
 
 class SkyCanvas {
 
@@ -45,16 +46,11 @@ class SkyCanvas {
 }
 extension SkyCanvas: MenuDelegate {
 
+    #if os(visionOS)
     func window(frame: CGRect, insets: EdgeInsets) {
 
-        let scale    : CGFloat
-        var bounds   : CGRect
-        var viewSize : CGSize
-
+        // save restore frame
         var frame = frame
-
-        #if os(visionOS)
-        scale = 3
         if renderState != RenderDepth.state {
             renderState = RenderDepth.state
             if let savedFrame = renderFrame[RenderDepth.state],
@@ -64,6 +60,9 @@ extension SkyCanvas: MenuDelegate {
         }
         renderFrame[renderState] = frame
 
+        // resize
+        let scale = CGFloat(3)
+        var bounds: CGRect
         if RenderDepth.state == .immer,
            let viewports = RenderLayer.viewports,
            let v = viewports.first {
@@ -71,23 +70,32 @@ extension SkyCanvas: MenuDelegate {
         } else {
             bounds = frame
         }
-        viewSize = bounds.size * scale
+        let viewSize = bounds.size * scale
         touchView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
 
-        #else
-        scale = UIScreen.main.scale
-        bounds = frame
-        let width = bounds.width + insets.leading + insets.trailing
-        let height = bounds.height + insets.top + insets.bottom
-        viewSize = CGSize(width: width, height: height) * scale
-        touchView.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        #endif
-
         TouchCanvas.shared.touchFlo.viewSize = viewSize
+        pipeline.resize(frame, viewSize, scale)
+        log(viewSize)
+    }
+    #else
+    func window(frame: CGRect, insets: EdgeInsets) {
 
-        print("state: \(RenderDepth.state.rawValue.pad(6))  bounds\(bounds.script) viewSize\(viewSize.script) touchView\(touchView.frame.size.script)", terminator: " ")
+        let scale = UIScreen.main.scale
+        let width = frame.width + insets.leading + insets.trailing
+        let height = frame.height + insets.top + insets.bottom
+        let viewSize = CGSize(width: width, height: height) * scale
+
+        touchView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        TouchCanvas.shared.touchFlo.viewSize = viewSize
         pipeline.resize(frame, viewSize, scale)
 
+        log(viewSize)
+    }
+    
+    #endif
+    func log(_ viewSize: CGSize) {
+
+        //print("state: \(RenderDepth.state.rawValue.pad(6))  frame\(pipeline.metalLayer.frame.script) viewSize\(viewSize.script) touchView\(touchView.frame.size.script)", terminator: " ")
     }
 }
 extension SkyCanvas: NextFrameDelegate {
