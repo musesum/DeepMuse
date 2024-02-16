@@ -4,8 +4,6 @@
 
 import ARKit
 import MuExtensions
-import MuMenu // TouchThumbMiddle //???
-import MuHand
 
 public class HandsUpdate {
     var left: HandAnchor?

@@ -2,18 +2,19 @@ import SwiftUI
 import RealityKit
 import MuFlo // NextFrame
 import MuVision
+import MuHand
 
 #if os(visionOS)
 
 struct ContentView: View {
-
-    static var shared = ContentView()
 
     @State private var showImmersiveSpace = false
     @State public var immersiveSpaceIsShown = false
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+
+    var handsModel: HandsModel
 
     func immersion(show: Bool) {
 
@@ -60,13 +61,13 @@ struct ContentView: View {
                 }
             }
             .task {
-                await HandsModel.shared.start()
+                await handsModel.start()
             }
             .task {
-                await HandsModel.shared.publishHandTrackingUpdates()
+                await handsModel.publishHandTrackingUpdates()
             }
             .task {
-                await HandsModel.shared.monitorSessionEvents()
+                await handsModel.monitorSessionEvents()
             }
         }
 

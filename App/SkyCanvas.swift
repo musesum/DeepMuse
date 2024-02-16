@@ -7,6 +7,7 @@ import MuMenu
 import MuSkyFlo
 import MuVision
 import MuExtensions
+import MuHand
 
 class SkyCanvas {
 
@@ -19,9 +20,12 @@ class SkyCanvas {
     var renderState = RenderDepth.state
     var renderFrame = [RenderState: CGRect]()
     var frameNow = CGRect.zero
+#if os(visionOS)
+    let handsModel: HandsModel
+#endif
 
     let archive = FloArchive(
-        bundle: MuSkyFlo.bundle,
+        bundles: [MuSkyFlo.bundle, MuHand.bundle],
         archive: "Snapshot",
         scripts:  ["sky", "shader","model", "menu", "midi", "corner", "hands"],
         textures: ["draw"])
@@ -32,7 +36,8 @@ class SkyCanvas {
         _ = MuAudio.shared // MuAudio.shared.test()
 #if os(visionOS)
         let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
-        HandsModel.shared.handsFlo.parseRoot(archive.root˚, archive)
+        handsModel = HandsModel(TouchCanvas.shared)
+        handsModel.handsFlo.parseRoot(archive.root˚, archive)
 #else
         let bounds = UIScreen.main.bounds
 #endif
