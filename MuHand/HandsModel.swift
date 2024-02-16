@@ -1,13 +1,11 @@
 // created by musesum on 1/18/24
 
-#if targetEnvironment(simulator)
-import ARKit
-#else
-@preconcurrency import ARKit
-#endif
 #if os(visionOS)
-import MuPlato // SIMD script
-import MuMenu // HandFlo
+
+import ARKit
+import MuExtensions
+import MuMenu // TouchThumbMiddle //???
+import MuHand
 
 public class HandsUpdate {
     var left: HandAnchor?
@@ -32,7 +30,7 @@ open class HandsModel: ObservableObject, @unchecked Sendable {
         do {
             if HandTrackingProvider.isSupported {
                 print("ARKitSession starting.")
-                thumbMiddle = TouchThumbMiddle(handsFlo)
+                thumbMiddle = TouchThumbMiddle(TouchCanvas.shared, handsFlo)
                 try await session.run([handTracking])
             }
         } catch {

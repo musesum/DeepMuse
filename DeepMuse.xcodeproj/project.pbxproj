@@ -117,6 +117,7 @@
 		80E95AE429167D50003F6360 /* MuDrawBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBox.swift; sourceTree = "<group>"; };
 		80E95AE529167D50003F6360 /* MuDrawBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBubble.swift; sourceTree = "<group>"; };
 		80E95AE929167D50003F6360 /* MuBezel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuBezel.swift; sourceTree = "<group>"; };
+		80FDF1962B7EE02E00305963 /* MuHand */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuHand; path = ../Packages/MuHand; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				8034FE702B598F060074B6A7 /* MuHand */,
+				80FDF1962B7EE02E00305963 /* MuHand */,
 				80E7E6922B7431AA00CA8AAF /* MuExtensions */,
 				803B39A52B4B51AB00FD1555 /* MuVision */,
 				80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */,
