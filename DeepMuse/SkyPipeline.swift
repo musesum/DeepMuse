@@ -273,7 +273,7 @@ public class SkyPipeline: Pipeline {
         fixupTile()
         fixupFirst()
         updateLastNode()
-        print("⟹ pipeline fixup after: " + scriptPipeline())
+        print("⟹ pipeline: " + scriptPipeline())
     }
     /// Create linked list of MtlNode to render scene
     func setupDefaultPipeline() {
@@ -282,7 +282,8 @@ public class SkyPipeline: Pipeline {
         drawNode    = addNodeName("draw"    , after: nil      )
         cellNode    = addNodeName("fade"    , after: drawNode )
         colorNode   = addNodeName("color"   , after: cellNode )
-        flatmapNode = addNodeName("flatmap" , after: colorNode) as? FlatmapNode
+        //???? flatmapNode = addNodeName("flatmap" , after: colorNode) as? FlatmapNode
+        cubemapNode = addNodeName("cubemap" , after: colorNode) as? CubemapNode
 
         firstNode = drawNode
         firstNode?.inNode = cellNode // feedback cell back into firstNode
