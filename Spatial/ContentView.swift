@@ -67,7 +67,7 @@ struct ContentView: View {
                 await handsModel.start()
             }
             .task {
-                await handsModel.publishHandTrackingUpdates()
+                await handsModel.updateHands()
             }
             .task {
                 await handsModel.monitorSessionEvents()

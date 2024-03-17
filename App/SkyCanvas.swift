@@ -36,8 +36,7 @@ class SkyCanvas {
         _ = MuAudio.shared // MuAudio.shared.test()
 #if os(visionOS)
         let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
-        handsModel = HandsModel(TouchCanvas.shared)
-        handsModel.handsFlo.parseRoot(archive.root˚, archive)
+        handsModel = HandsModel(TouchCanvas.shared, archive.root˚, archive)
 #else
         let bounds = UIScreen.main.bounds
 #endif
