@@ -19,7 +19,7 @@ struct SkyApp: App {
     var body: some Scene {
 
         WindowGroup(id: "App") {
-            ContentView(handsModel: SkyCanvas.shared.handsModel)
+            ContentView(handsTracker: SkyCanvas.shared.handsTracker)
         }.windowResizability(.contentSize)
 
         ImmersiveSpace(id: "ImmersiveSpace") {

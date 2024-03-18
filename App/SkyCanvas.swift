@@ -22,6 +22,7 @@ class SkyCanvas {
     var frameNow = CGRect.zero
 #if os(visionOS)
     let handsModel: HandsModel
+    let handsTracker: HandsTracker
 #endif
 
     let archive = FloArchive(
@@ -37,6 +38,7 @@ class SkyCanvas {
 #if os(visionOS)
         let bounds = CGRect(x: 0, y: 0, width: 1920, height: 1080)
         handsModel = HandsModel(TouchCanvas.shared, archive.root˚, archive)
+        handsTracker = HandsTracker(handsModel, handsModel.handsFlo)
 #else
         let bounds = UIScreen.main.bounds
 #endif

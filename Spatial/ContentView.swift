@@ -14,7 +14,7 @@ struct ContentView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
 
-    var handsModel: HandsModel
+    var handsTracker: HandsTracker
 
     func immersion(show: Bool) {
 
@@ -64,13 +64,13 @@ struct ContentView: View {
                 }
             }
             .task {
-                await handsModel.start()
+                await handsTracker.startHands()
             }
             .task {
-                await handsModel.updateHands()
+                await handsTracker.updateHands()
             }
             .task {
-                await handsModel.monitorSessionEvents()
+                await handsTracker.monitorSessionEvents()
             }
         }
 
