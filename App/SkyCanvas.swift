@@ -28,7 +28,7 @@ class SkyCanvas {
     let archive = FloArchive(
         bundles: [MuSkyFlo.bundle, MuHand.bundle],
         archive: "Snapshot",
-        scripts:  ["sky", "shader","model", "menu", "midi", "corner"],
+        scripts:  ["sky", "shader","model", "menu", "midi"],
         textures: ["draw"])
 
     init() {
