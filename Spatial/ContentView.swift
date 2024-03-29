@@ -37,8 +37,8 @@ struct ContentView: View {
             } else {
                 
                 MenuSkyView.shared
-                    .frame(minWidth: 320, minHeight: 400)
-                    .frame(maxWidth: 320, maxHeight: 400)
+                    .frame(minWidth: 640, minHeight: 400)
+                    .frame(maxWidth: 640, maxHeight: 400)
             }
 
             Toggle(showImmersiveSpace

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,7 +33,6 @@
 		8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* compute.tile.metal */; };
 		8090E31329DBA9BF003E02CC /* render.flatmap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31229DBA9BF003E02CC /* render.flatmap.metal */; };
 		809820B329F1350E00682AD2 /* SkyTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809820B229F1350E00682AD2 /* SkyTouchView.swift */; };
-		80AC0E912B3F3E3A00CCBE54 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80AC0E902B3F3E3A00CCBE54 /* AudioKit */; };
 		80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */; };
 		80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62D82A5B9B6800F51B7A /* MuAudio */; };
 		80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62DB2A5B9C1300F51B7A /* MuPeer */; };
@@ -61,16 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8032954D2A99A95B00D3BFA4 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
-		8032954E2A99A95B00D3BFA4 /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
-		8032954F2A99A95B00D3BFA4 /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
-		803295532A99A95B00D3BFA4 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
-		803295542A99A95B00D3BFA4 /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
-		803295562A99A95B00D3BFA4 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
-		803295572A99A95B00D3BFA4 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
-		803295582A99A95C00D3BFA4 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
-		803B39A52B4B51AB00FD1555 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
 		80420C3C29EFB769001F5519 /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camix.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camix.metal; sourceTree = "<group>"; };
 		80437B6627D0717800348513 /* todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = todo.txt; sourceTree = "<group>"; };
@@ -81,6 +71,18 @@
 		806999192A87B16C00338C05 /* Platonix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platonix.h; sourceTree = "<group>"; };
 		806A97902AB2F22A00CF04FF /* SkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyApp.swift; sourceTree = "<group>"; };
 		806A97942AB3542900CF04FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		806F10E92BAF647A00F8AD14 /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
+		806F10EA2BAF647A00F8AD14 /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
+		806F10EB2BAF647A00F8AD14 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
+		806F10EC2BAF647A00F8AD14 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
+		806F10ED2BAF647B00F8AD14 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
+		806F10EE2BAF647B00F8AD14 /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
+		806F10EF2BAF647B00F8AD14 /* MuHand */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuHand; path = ../Packages/MuHand; sourceTree = "<group>"; };
+		806F10F02BAF647B00F8AD14 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
+		806F10F12BAF647B00F8AD14 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
+		806F10F22BAF647B00F8AD14 /* MuExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuExtensions; path = ../Packages/MuExtensions; sourceTree = "<group>"; };
+		806F10F32BAF647B00F8AD14 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
+		806F10F42BAF647B00F8AD14 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8070495F23378ADB0001617D /* cell.fred.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.fred.metal; sourceTree = "<group>"; };
@@ -105,17 +107,14 @@
 		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
 		8090E31229DBA9BF003E02CC /* render.flatmap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.flatmap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.flatmap.metal; sourceTree = "<group>"; };
 		809820B229F1350E00682AD2 /* SkyTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTouchView.swift; sourceTree = "<group>"; };
-		80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "AudioKit-visionOS"; path = "../Packages/AudioKit-visionOS"; sourceTree = "<group>"; };
 		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
 		80BE475B2B34C23800EB05F4 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		80E7E6922B7431AA00CA8AAF /* MuExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuExtensions; path = ../Packages/MuExtensions; sourceTree = "<group>"; };
 		80E919AF29F61CBD00E6B089 /* render.plato.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.plato.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.plato.metal; sourceTree = "<group>"; };
 		80E95AE329167D50003F6360 /* MuOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuOrientation.swift; sourceTree = "<group>"; };
 		80E95AE429167D50003F6360 /* MuDrawBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBox.swift; sourceTree = "<group>"; };
 		80E95AE529167D50003F6360 /* MuDrawBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuDrawBubble.swift; sourceTree = "<group>"; };
 		80E95AE929167D50003F6360 /* MuBezel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuBezel.swift; sourceTree = "<group>"; };
-		80FDF1962B7EE02E00305963 /* MuHand */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuHand; path = ../Packages/MuHand; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +124,6 @@
 			files = (
 				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
 				80BE47542B34C08600EB05F4 /* MuVision in Frameworks */,
-				80AC0E912B3F3E3A00CCBE54 /* AudioKit in Frameworks */,
 				80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
 				807533472A8CA0C600A1808C /* MuPlato in Frameworks */,
@@ -176,18 +174,18 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				80FDF1962B7EE02E00305963 /* MuHand */,
-				80E7E6922B7431AA00CA8AAF /* MuExtensions */,
-				803B39A52B4B51AB00FD1555 /* MuVision */,
-				80AC0E972B3F42F400CCBE54 /* AudioKit-visionOS */,
-				803295562A99A95B00D3BFA4 /* MuAudio */,
-				803295542A99A95B00D3BFA4 /* MuColor */,
-				8032954F2A99A95B00D3BFA4 /* MuFlo */,
-				803295532A99A95B00D3BFA4 /* MuMenu */,
-				803295572A99A95B00D3BFA4 /* MuMetal */,
-				803295582A99A95C00D3BFA4 /* MuPeer */,
-				8032954D2A99A95B00D3BFA4 /* MuPlato */,
-				8032954E2A99A95B00D3BFA4 /* MuSkyFlo */,
+				806F10ED2BAF647B00F8AD14 /* MuAudio */,
+				806F10E92BAF647A00F8AD14 /* MuColor */,
+				806F10F22BAF647B00F8AD14 /* MuExtensions */,
+				806F10EA2BAF647A00F8AD14 /* MuFlo */,
+				806F10EF2BAF647B00F8AD14 /* MuHand */,
+				806F10F02BAF647B00F8AD14 /* MuMenu */,
+				806F10EB2BAF647A00F8AD14 /* MuMenuSky */,
+				806F10F12BAF647B00F8AD14 /* MuMetal */,
+				806F10F42BAF647B00F8AD14 /* MuPeer */,
+				806F10EC2BAF647A00F8AD14 /* MuPlato */,
+				806F10EE2BAF647B00F8AD14 /* MuSkyFlo */,
+				806F10F32BAF647B00F8AD14 /* MuVision */,
 				8045637D296B900600EE6E0E /* README.md */,
 				807048E923378A090001617D /* App */,
 				80BE47562B34C23800EB05F4 /* Spatial */,
@@ -318,7 +316,6 @@
 				80BD62DB2A5B9C1300F51B7A /* MuPeer */,
 				807533462A8CA0C600A1808C /* MuPlato */,
 				80BE47532B34C08600EB05F4 /* MuVision */,
-				80AC0E902B3F3E3A00CCBE54 /* AudioKit */,
 			);
 			productName = MuseSky;
 			productReference = 807048E723378A090001617D /* Deep Muse.app */;
@@ -356,7 +353,6 @@
 				80FA4A8B29E25B8E00A77620 /* XCRemoteSwiftPackageReference "MuPlato" */,
 				80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */,
 				80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */,
-				8090CF492A948093000699EF /* XCLocalSwiftPackageReference "../Packages/AudioKit-visionOS" */,
 				80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -645,13 +641,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		8090CF492A948093000699EF /* XCLocalSwiftPackageReference "../Packages/AudioKit-visionOS" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../Packages/AudioKit-visionOS";
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		807D1C1229BC862F0092FBC7 /* XCRemoteSwiftPackageReference "MuMetal" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -713,10 +702,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 807D1C1229BC862F0092FBC7 /* XCRemoteSwiftPackageReference "MuMetal" */;
 			productName = MuMetal;
-		};
-		80AC0E902B3F3E3A00CCBE54 /* AudioKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AudioKit;
 		};
 		80BD62D82A5B9B6800F51B7A /* MuAudio */ = {
 			isa = XCSwiftPackageProductDependency;
