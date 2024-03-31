@@ -249,8 +249,8 @@ model {
     left @_model {
         canvas {
             mirror(x  0… 1~ 0, y  0… 1~ 0)
-            shift(x  0… 1~ 0.5, y  0… 1~ 0.5)
-            repeat(x  -1… 1~ 0, y  -1… 1~ 0)
+            shift(x   0… 1~ 0.5, y  0… 1~ 0.5)
+            repeat(x -1… 1~ 0, y  -1… 1~ 0)
             color {
                 fade(x  0… 1, y  0… 1)
                 fill_0(% 1)
