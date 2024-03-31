@@ -71,18 +71,6 @@
 		806999192A87B16C00338C05 /* Platonix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Platonix.h; sourceTree = "<group>"; };
 		806A97902AB2F22A00CF04FF /* SkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyApp.swift; sourceTree = "<group>"; };
 		806A97942AB3542900CF04FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		806F10E92BAF647A00F8AD14 /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
-		806F10EA2BAF647A00F8AD14 /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
-		806F10EB2BAF647A00F8AD14 /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
-		806F10EC2BAF647A00F8AD14 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
-		806F10ED2BAF647B00F8AD14 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
-		806F10EE2BAF647B00F8AD14 /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
-		806F10EF2BAF647B00F8AD14 /* MuHand */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuHand; path = ../Packages/MuHand; sourceTree = "<group>"; };
-		806F10F02BAF647B00F8AD14 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
-		806F10F12BAF647B00F8AD14 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
-		806F10F22BAF647B00F8AD14 /* MuExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuExtensions; path = ../Packages/MuExtensions; sourceTree = "<group>"; };
-		806F10F32BAF647B00F8AD14 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
-		806F10F42BAF647B00F8AD14 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8070495F23378ADB0001617D /* cell.fred.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.fred.metal; sourceTree = "<group>"; };
@@ -174,18 +162,6 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				806F10ED2BAF647B00F8AD14 /* MuAudio */,
-				806F10E92BAF647A00F8AD14 /* MuColor */,
-				806F10F22BAF647B00F8AD14 /* MuExtensions */,
-				806F10EA2BAF647A00F8AD14 /* MuFlo */,
-				806F10EF2BAF647B00F8AD14 /* MuHand */,
-				806F10F02BAF647B00F8AD14 /* MuMenu */,
-				806F10EB2BAF647A00F8AD14 /* MuMenuSky */,
-				806F10F12BAF647B00F8AD14 /* MuMetal */,
-				806F10F42BAF647B00F8AD14 /* MuPeer */,
-				806F10EC2BAF647A00F8AD14 /* MuPlato */,
-				806F10EE2BAF647B00F8AD14 /* MuSkyFlo */,
-				806F10F32BAF647B00F8AD14 /* MuVision */,
 				8045637D296B900600EE6E0E /* README.md */,
 				807048E923378A090001617D /* App */,
 				80BE47562B34C23800EB05F4 /* Spatial */,
