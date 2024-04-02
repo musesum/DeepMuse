@@ -61,24 +61,59 @@ It has elements of old and new, plus some missing bits.
     Missing bits -- bugs and features
     
         Bugs
-x            
+            
             Phantom controls. In the visionOS version, there is a camera control that doesn't work. VisionOS doesn't allow camera. Not sure of the fix. Could take it out, but that would ruin the static nature of sharing controls.
             
-            Touch mapping to canvas. 
+            Touch mapping to cubemap and spherical meshes.
             
                 In visionOS, touching thumb and index finger tips will draw in Passthrough mode, but not in Immersive mode. Instead, you have to touch thumb and middle finger. 
                 
                 With the cubemap's canvas, drawing by pinching on thumb and finger should paint on where you expect it to. That would be where you see your pinch overlapping the canvas. It doesn't. So, with feels random. It merely requires some math around sight lines and suck. 
                 
-                The 2D canvas doesn't work -- only with cubemap. It used to work on the Pad, which was useful for drawing with the Apple Pencil. In fact it was pretty cool. Instead, started to focus on maintaining consistency between the iPad and the immersive space on the visionPro. This is really important for the social model, which we will get to next. 
+            2D canvas doesn't work -- only with cubemap.
+            
+                It used to work on the Pad, which was useful for drawing with the Apple Pencil. This allows very expressive calligraphy. Now, the focus shifted towards maintaining consistency between sharing an immersive between Vision Pro, iPad, and iPhone. Crucial for social model, mentioned below.
                 
+            Some vertices on Platonic polyhedra are culled by mistake. Culled vertices return when moving camera to inside the polyhedra.  Is this a 3 layer problem? 
+            
+            Platonic phases jump. Should refactor to a single continuous phase and   
+                
+        New Features
+        
+            Hand pose 
+			live view of skeleton joints as with menu icons
+    			learn mode for each joint
+            Platonic shown in visionOS passthrough mode as a "volume"
+            Environment mesh gateways
+            Gaussian Splat support? 
+            
+        Old features, circa 2010 on 32 bit iPad
+        
+            Record and share performance
+            Select and create multiple palettes.
+            
+        Old features, circa 2004 on Wacom tablet and Windows
+            Color pulsing
+            Beat box looping
+            Video scratching
+            Luma and chroma keying
+            Multiple background layers
+            Force directed vertices
+            Parametric feedback, such as Julia Sets, etc
+            Parametric particles 
+            Additive CA Layers 
+            Sliding Window image strips 
+            
+        
 The social model
 
-    DeepMuse is a toy that aspires to be a platform. The basic premise is that all players share a view into a shared space. It doesn't matter whether that view is through an iPhone, iPad, or Vision Pro. Maybe even an Apple TV could get into the act -- given that the rendering pipeline is simple and performant. The result is a collaborative performance, which renders the exact same environment on player's device. Pixel perfect. 
+    DeepMuse is a toy that aspires to be a platform. The basic premise is that all players share the view into an immersive space. It doesn't matter whether that view is through an iPhone, iPad, or Vision Pro. Maybe even an Apple TV could get into the act -- given that the rendering pipeline is simple and performant. The result is a collaborative performance, which renders the exact same environment on player's device. Pixel perfect. 
     
     And not limited to Apple devices. With AudioKit, anyone with a midi instrument can join the fun. 
     
-   As for the VisionPro, the result is unexpected. Instead of being an isolating device, the VisionPro becomes a collaborative hub. Where, the wearer is like a conductor, waving their hands to orchestrate the performance. 
+   As for the VisionPro, the result is unexpected. Instead of being an isolating device, the VisionPro becomes a collaborative hub. Where, the wearer becomes a conductor, waving their hands to orchestrate a live performance. 
             
             
-Future -- TBD
+Future 
+
+	In many ways, it's up to you 
