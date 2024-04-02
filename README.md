@@ -61,8 +61,7 @@ It has elements of old and new, plus some missing bits.
     Missing bits -- bugs and features
     
         Bugs
-            Menus. The iPad and iOS versions of DeepMuse can synchronize menus selections. But the visionOS does not. Why? Because we had to move the root menu from the lower part of the window to the upper part. Otherwise, looking at the lower corners would be interpreted by visionOS as intending to resize the window and would add grab points. It was nearly impossible to select the root menu icon. So, it was moved to the top. The problem is that the identity of a gesture was based on which corner is started from. Need to fix that soon. 
-            
+x            
             Phantom controls. In the visionOS version, there is a camera control that doesn't work. VisionOS doesn't allow camera. Not sure of the fix. Could take it out, but that would ruin the static nature of sharing controls.
             
             Touch mapping to canvas. 
