@@ -60,18 +60,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8036D84E2BBA296000BB35EE /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
-		8036D84F2BBA296000BB35EE /* MuExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuExtensions; path = ../Packages/MuExtensions; sourceTree = "<group>"; };
-		8036D8502BBA296000BB35EE /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
-		8036D8512BBA296000BB35EE /* MuMenuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenuSky; path = ../Packages/MuMenuSky; sourceTree = "<group>"; };
-		8036D8522BBA296000BB35EE /* MuColor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuColor; path = ../Packages/MuColor; sourceTree = "<group>"; };
-		8036D8532BBA296000BB35EE /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
-		8036D8542BBA296000BB35EE /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
-		8036D8552BBA296000BB35EE /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
-		8036D8562BBA296000BB35EE /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
-		8036D8572BBA296000BB35EE /* MuHand */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuHand; path = ../Packages/MuHand; sourceTree = "<group>"; };
-		8036D8582BBA296000BB35EE /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
-		8036D8592BBA296000BB35EE /* MuSkyFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSkyFlo; path = ../Packages/MuSkyFlo; sourceTree = "<group>"; };
 		8037433C29DD06C000ACEF2D /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = render.cubemap.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/render.cubemap.metal; sourceTree = "<group>"; };
 		80420C3A29EFB75F001F5519 /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camera.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camera.metal; sourceTree = "<group>"; };
 		80420C3C29EFB769001F5519 /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = compute.camix.metal; path = ../../Packages/MuMetal/Sources/MuMetal/Resources/compute.camix.metal; sourceTree = "<group>"; };
@@ -174,18 +162,6 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				8036D8552BBA296000BB35EE /* MuAudio */,
-				8036D8522BBA296000BB35EE /* MuColor */,
-				8036D84F2BBA296000BB35EE /* MuExtensions */,
-				8036D8502BBA296000BB35EE /* MuFlo */,
-				8036D8572BBA296000BB35EE /* MuHand */,
-				8036D84E2BBA296000BB35EE /* MuMenu */,
-				8036D8512BBA296000BB35EE /* MuMenuSky */,
-				8036D8532BBA296000BB35EE /* MuMetal */,
-				8036D8582BBA296000BB35EE /* MuPeer */,
-				8036D8542BBA296000BB35EE /* MuPlato */,
-				8036D8592BBA296000BB35EE /* MuSkyFlo */,
-				8036D8562BBA296000BB35EE /* MuVision */,
 				8045637D296B900600EE6E0E /* README.md */,
 				807048E923378A090001617D /* App */,
 				80BE47562B34C23800EB05F4 /* Spatial */,
@@ -354,6 +330,7 @@
 				80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */,
 				80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */,
 				80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */,
+				8036D85B2BBCC00500BB35EE /* XCRemoteSwiftPackageReference "MuMenuSky" */,
 			);
 			productRefGroup = 807048E823378A090001617D /* Products */;
 			projectDirPath = "";
@@ -642,6 +619,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8036D85B2BBCC00500BB35EE /* XCRemoteSwiftPackageReference "MuMenuSky" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuMenuSky";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		807D1C1229BC862F0092FBC7 /* XCRemoteSwiftPackageReference "MuMetal" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuMetal";
