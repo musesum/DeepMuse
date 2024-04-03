@@ -5,7 +5,7 @@
 
 using namespace metal;
 
-struct VertexOut {
+struct PlatoVertexOut {
     float4 position [[ position ]];
     float4 texCoord;
     float faceId;
@@ -35,7 +35,7 @@ struct PlatoVertex {
     float phase;  // pad out 256 boundary
 };
 
-vertex VertexOut vertexPlato
+vertex PlatoVertexOut vertexPlato
 (
  constant PlatoVertex*   in       [[ buffer(0) ]],
  constant PlatoUniforms& uniforms [[ buffer(1) ]],
@@ -43,7 +43,7 @@ vertex VertexOut vertexPlato
  ushort                  ampId    [[ amplification_id]],
  uint32_t                vertId   [[ vertex_id ]])
 {
-    VertexOut out;
+    PlatoVertexOut out;
     UniformEye eye = eyes.eye[ampId];
 
     float3 pos0  = in[vertId].pos0.xyz;
@@ -70,7 +70,7 @@ vertex VertexOut vertexPlato
 
 fragment half4 fragmentPlatoCubeIndex
 (
- VertexOut               out      [[ stage_in   ]],
+ PlatoVertexOut           out      [[ stage_in   ]],
  constant PlatoUniforms& uniforms [[ buffer(1)  ]],
  texturecube<half>       cubeTex  [[ texture(0) ]],
  texture2d  <half>       inTex    [[ texture(1) ]],
@@ -106,7 +106,7 @@ fragment half4 fragmentPlatoCubeIndex
 /// vert.color is used for creating a shadow mixed with cube's color
 fragment half4 fragmentPlatoCubeColor
 (
- VertexOut         vertOut [[ stage_in   ]],
+ PlatoVertexOut    vertOut [[ stage_in   ]],
  texturecube<half> cubeTex [[ texture(0) ]])
 {
     float3 texCoord = float3(vertOut.texCoord.x, vertOut.texCoord.y, -vertOut.texCoord.z);
@@ -120,10 +120,10 @@ fragment half4 fragmentPlatoCubeColor
 /// no cubemap, untested
 fragment half4 fragmentPlatoColor
 (
- VertexOut        vertOut [[ stage_in   ]],
- texture2d <half> inTex   [[ texture(1) ]])
+ PlatoVertexOut   out [[ stage_in   ]],
+ texture2d <half> tex [[ texture(1) ]])
 {
     constexpr sampler samplr(filter::linear, address::repeat);
-    return inTex.sample(samplr, vertOut.texCoord.xy);
+    return tex.sample(samplr, out.texCoord.xy);
 }
 

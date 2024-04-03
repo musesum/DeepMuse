@@ -5,7 +5,7 @@
 
 using namespace metal;
 
-struct VertexOut {
+struct CubemapVertexOut {
     float4 position [[ position ]];
     float4 texCoord;
 };
@@ -17,14 +17,14 @@ struct VertexIn {
 
 // MARK: - Vertex
 
-vertex VertexOut vertexCubemap
+vertex CubemapVertexOut vertexCubemap
 (
  constant VertexIn*        in       [[ buffer(0) ]],
  constant UniformEyes&     eyes     [[ buffer(3) ]],
  ushort                    ampId    [[ amplification_id]],
  uint32_t                  vertId   [[ vertex_id ]])
 {
-    VertexOut out;
+    CubemapVertexOut out;
     UniformEye eye = eyes.eye[ampId]; // works with eye[1], eye[0]
 
     float4 position = in[vertId].position;
@@ -42,7 +42,7 @@ vertex VertexOut vertexCubemap
 
 fragment half4 fragmentCubeIndex
 (
- VertexOut          vertOut [[ stage_in   ]],
+ CubemapVertexOut   vertOut [[ stage_in   ]],
  texturecube<half>  cubeTex [[ texture(0) ]],
  texture2d<half>    inTex   [[ texture(1) ]],
  constant float2&   repeat  [[ buffer(1)  ]],
@@ -88,13 +88,13 @@ fragment half4 fragmentCubeIndex
 
 fragment half4 fragmentCubeColor
 (
- VertexOut          vertOut [[ stage_in   ]],
- texturecube<half>  cubeTex [[ texture(0) ]])
+ CubemapVertexOut   out [[ stage_in   ]],
+ texturecube<half>  tex [[ texture(0) ]])
 {
     constexpr sampler samplr(filter::linear,
                              address::repeat);
 
-    float3 texCoord = float3(vertOut.texCoord.x, vertOut.texCoord.y, -vertOut.texCoord.z);
+    float3 texCoord = float3(out.texCoord.x, out.texCoord.y, -out.texCoord.z);
 
-    return cubeTex.sample(samplr, texCoord);
+    return tex.sample(samplr, texCoord);
 }
