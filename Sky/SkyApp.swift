@@ -19,12 +19,12 @@ struct SkyApp: App {
     var body: some Scene {
 
         WindowGroup(id: "App") {
-            ContentView(handsTracker: SkyCanvas.shared.handsTracker)
+            SkyVisionView(handsTracker: SkyCanvas.shared.handsTracker)
         }.windowResizability(.contentSize)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             CompositorLayer(configuration: ContentStageConfiguration()) { renderer in
-                _ = RenderSky(renderer)
+                _ = SkyRender(renderer)
             }
         }
         .body.upperLimbVisibility(.visible)
@@ -56,7 +56,7 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
 struct app: App {
     var body: some Scene {
         WindowGroup {
-            MenuSkyView.shared
+            SkyMenuView.shared
         }
     }
 }

@@ -18,8 +18,8 @@ struct SkyVisionView: View {
 
     func immersion(show: Bool) {
 
-        let menuSkyView = MenuSkyView.shared
-        let metalLayer = menuSkyView.skyCanvas.pipeline.metalLayer
+        let skyMenuView = SkyMenuView.shared
+        let metalLayer = skyMenuView.skyCanvas.pipeline.metalLayer
 
         immersiveSpaceIsShown = show
         NextFrame.shared.pause = show
@@ -31,12 +31,12 @@ struct SkyVisionView: View {
 
         ZStack(alignment: .bottom) {
             if !immersiveSpaceIsShown {
-                MenuSkyView.shared
+                SkyMenuView.shared
                     .frame(minWidth: 640, minHeight: 480)
                     .frame(maxWidth: 640, maxHeight: 480)
             } else {
                 
-                MenuSkyView.shared
+                SkyMenuView.shared
                     .frame(minWidth: 640, minHeight: 400)
                     .frame(maxWidth: 640, maxHeight: 400)
             }

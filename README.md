@@ -49,17 +49,17 @@ Right now, DeepMuse has only Environment and one Object. The Cubemap is the envi
         
 #### Menu Palettes
         
-The original DeepMuse synth, from 20 years ago, mapped the controls to a Wacom Graphics Tablet. It supported control of around 2800 parameters. And yet, I could put the tablet in the hands of a 12-year-old, who could figure out how to perform with it in a few minutes. 
+The original DeepMuse "Old School" synth, from 20 years ago, mapped the controls to a Wacom Graphics Tablet. It supported control of around 2800 parameters. And yet, I could put the tablet in the hands of a 12-year-old, who could figure out how to perform with it in a few minutes. 
             
-The advantage of the static palette is that you could develop muscle memory.The downside is that you would have to look down at the palette so select a context for those parameters. So, nowhere near the 20 millisecond response time that a touch typist takes to hit a key on a normal keyboard. It was rather unwieldy. 
+The advantage of the static palette is that you could develop muscle memory.The downside is that you would have to look down at the palette to select a context for those parameters. So, nowhere near time that a touch typist takes to hit a key on a normal keyboard. It was rather unwieldy. 
             
 So, let's rethink menus. A menu is basically a tree of sub-menus. You have to jump from branch to branch before landing on a leaf. Only then can you do something. But what if the tree knows where you have been before?  Now, while moving up the trunk of the tree, its branches and sub-branches automatically unfold to your last visited leaf. 
             
-Getting back to those 2800 parameters on the Wacom tablet. Let's start with a hypothetical a menu, with an average of 5 choices going 5 levels deep. That would support a total of 5^5, or 3125 leaves. Moreover, because each branch saves the most recent subbranch, that menu could save 5^4, 625 bookmarks. Most likely, reaching a particular leaf would need only a couple of steps -- about half as many as a normal menu. 
+Getting back to those 2800 parameters. A hypothetical menu, with an average of 5 choices going 5 levels deep. That would support a total of 5^5, or 3125 leaves. Moreover, because each branch saves the most recent subbranch, that menu could save 5^4, or 625 bookmarks. Most likely, reaching a particular leaf would need only a couple of steps -- about half as many as a normal menu. 
             
 There's more: 
             
-Each leaf has a default behavior. In the Asteroids style shifting control, mentioned above, double-tapping on the parent branch will reset the shift to a complete standstill. Moreover, double-tapping on the grandparent, great grandparent, and so on, will also pass through that request to stop shifting.
+Each leaf has a default behavior. Recall the screen shift control, mentioned above. Double-tapping on that control's parent branch will reset the shift to its default value: a complete standstill. Moreover, double-tapping on the grandparent, great grandparent, and so on, will also pass through that request to stop shifting.
                 
 Over time, and as long as the menu stays constant, you begin to develop a kind of muscle memory, akin to touch typing on a keyboard. This overcomes some problems with a purely virtual input, where there aren't fixed controls. Which brings us to what's wrong with spatial interfaces, next.
         

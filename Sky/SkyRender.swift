@@ -6,11 +6,10 @@ import MetalKit
 import ARKit
 import Spatial
 import CompositorServices
+import RealityKit
 
 import MuVision
 import MuMetal
-
-import RealityKit
 
 /// This is the example specific part of rendering metal within VisionOS.
 /// The example uses earth in the foreground and stars in the background.
