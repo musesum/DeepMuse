@@ -2,7 +2,6 @@
 
 *DeepMuse is a visual music synthesizer to play between iOS, iPadOS, and visionOS, and MIDI devices. It's both Old School and New School*
 
-
 Here's a demo of the [Old School Synth](https://www.youtube.com/watch?v=hXlkzZubHnM)
 
 ##### Old School includes 
@@ -59,7 +58,7 @@ Getting back to those 2800 parameters. A hypothetical menu, with an average of 5
             
 There's more: 
             
-Each leaf has a default behavior. Recall the screen shift control, mentioned above. Double-tapping on that control's parent branch will reset the shift to its default value: a complete standstill. Moreover, double-tapping on the grandparent, great grandparent, and so on, will also pass through that request to stop shifting.
+Each leaf has a default behavior. Recall the screen shift control, mentioned above. Double-tapping on that control's parent branch will reset the shift to its default value: returning a complete standstill. Moreover, double-tapping on the grandparent, great grandparent, and so on, will also pass through that request to stop shifting.
                 
 Over time, and as long as the menu stays constant, you begin to develop a kind of muscle memory, akin to touch typing on a keyboard. This overcomes some problems with a purely virtual input, where there aren't fixed controls. Which brings us to what's wrong with spatial interfaces, next.
         
@@ -118,14 +117,14 @@ Platonic phases jump. Should refactor to a single continuous phase and
 + learn mode for each joint
 + Platonic shown in visionOS passthrough mode as a "volume"
 + Environment mesh gateways
-+ Gaussian Splat support? 
++ Gaussian Splat, anyone? 
             
 #### The Social Model
 
-DeepMuse is a toy that aspires to be a platform. The basic premise is that all players share the view into an immersive space. It doesn't matter whether that view is through an iPhone, iPad, or Vision Pro. Maybe even an Apple TV could get into the act -- given that the rendering pipeline is simple and performant. 
+DeepMuse is a toy that aspires to be a venue. The basic premise is that all players share the view into an immersive space. It doesn't matter whether that view is through an iPhone, iPad, or Vision Pro. Maybe even an Apple TV could get into the act -- given that the rendering pipeline is simple and performant. 
 
-The result is a collaborative performance, which renders the exact same environment on player's device. Pixel perfect. And not limited to Apple devices. Anyone with a midi instrument can join the fun. 
+The result is a collaborative performance, which renders the exact same environment on player's device. Pixel perfect. And not limited to Apple devices; anyone with a midi instrument can join in.
     
-The ultimate result is that the VisionPro is transformed, from solitude to collaboration. Where you become a conductor, waving your hands to orchestrate a live performance. 
+The ultimate result is that DeepMuse transforms the Vision Pro, from a solo to a shared experience. Imagine yourself as a conductor, waving your hands to orchestrate a group performance of your family and friends. 
             
 
