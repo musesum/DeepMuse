@@ -14,16 +14,16 @@ Here's a demo of the [Old School Synth](https://www.youtube.com/watch?v=hXlkzZub
 
 ##### New School includes
 + Menu Palettes
-+ Hand Pose
++ Hand Pose for VisionOS
 + Sync between devices
     
 #### Cellular Automata
 
-Sometimes referred to as Artificial Life, due to a popular CA called "The Game of Life". How it works is that each pixel looks at its neighbors to determine it how to change its color. CA's have been used to model turbulent flow, genetic drift, even sub-quantum phenomenon. Stephen Wolfram explored CAs to theorize a new kind of physics.
+Sometimes referred to as Artificial Life, due to a popular Cellular Automaton called "The Game of Life". How it works is that each pixel looks at its neighbors to determine how to change its color. CA's have been used to model turbulent flow, genetic drift, even sub-quantum phenomenon. Stephen Wolfram explored CAs to theorize a new kind of physics.
        
 #### Cube Map
 
-In DeepMuse, CAs form 2D surface that gets mapped into a cube. This is the background surface that you see. Cubemaps are somewhat old school, usually replaced by spherical mesh. Be that as is may, a cubemap are fairly performant. Instead of copying pixels to the cube, DeepMuse's cubes contain indices that point to a 2D texture. So, copying is done in the shader. That means DeepMuse can played on older devices, including the last generation iPod Touch. Perhaps even Apple TV. 
+In DeepMuse, CAs form a 2D surface that gets mapped into a cube. This is the background surface that you see. Cubemaps are somewhat old school, usually replaced by a spherical mesh. Be that as is may, Cubemaps are fairly performant. Instead of copying pixels to the cube, DeepMuse's cubes contain indices that point to a 2D texture. So, copying is done in the shader. That means DeepMuse can played on older devices, including the last generation iPod Touch. Perhaps even Apple TV. 
             
 #### Platonic solids 
         
@@ -76,30 +76,30 @@ While not perfect, the DeepMuse menuing system (MuMenu) helps reduce to number o
 
 In the visionOS version, there is a camera control that doesn't work. VisionOS doesn't allow camera. Not sure of the fix. Could take it out, but that would ruin the static nature of sharing controls.
             
-##### Touch mapping to cubemap and spherical meshes.
+##### Touch mapping to Cubemap
             
 In visionOS, touching thumb and index finger tips will draw in Passthrough mode, but not in Immersive mode. Instead, you have to touch thumb and middle finger. 
                 
-With the cubemap's canvas, drawing by pinching on thumb and finger should paint on where you expect it to. That would be where you see your pinch overlapping the canvas. It doesn't. So, with feels random. It merely requires some math around sight lines and suck. 
+With the Cubemap's canvas, drawing by pinching on thumb and finger should paint on where you expect it to. That would be where you see your pinch overlapping the canvas. It doesn't. So, with feels random. It merely requires some math around sight lines and suck. 
                 
-##### 2D canvas doesn't work -- only with cubemap.
+##### 2D canvas doesn't work -- only with Cubemap.
             
 It used to work on the Pad, which was useful for drawing with the Apple Pencil. This allows very expressive calligraphy. Now, the focus shifted towards maintaining consistency between sharing an immersive between Vision Pro, iPad, and iPhone. Crucial for social model, mentioned below.
     
 ##### Platonic Problems
 
-Some vertices on Platonic polyhedra are culled by mistake. Culled vertices return when moving camera to inside the polyhedra.  Is this a 3 layer problem? 
+Some vertices on Platonic polyhedra are culled by mistake. Culled vertices return when moving camera to inside the polyhedra. Is this a 3 layer problem? 
             
-Platonic phases jump. Should refactor to a single continuous phase and   
+Platonic phases jump after a while. Should refactor to a single continuous interval for each harmonic instead of each phase. 
                 
 #### Roadmap
                     
-##### Old Features from previous Aps
+##### Old features from the Old School Sky App
     
 + Record and share performance
 + Select and create multiple palettes.
 + Color pulsing
-+ Beat box looping
++ Beat Box looping
 + Video scratching
 + Luma and chroma keying
 + Multiple background layers
@@ -108,23 +108,24 @@ Platonic phases jump. Should refactor to a single continuous phase and
 + Parametric particles 
 + Additive CA Layers 
 + Sliding Window image strips 
++ Force directed vertices on polyhedra
 
 ##### New Features
 
-+ Attaching a finger to Menu leaf 
++ Attaching a finger to a Menu leaf 
 + Spatial Audio placement
-+ live view of skeleton joints with menu icons
-+ learn mode for each joint
-+ Platonic shown in visionOS passthrough mode as a "volume"
++ Live view of skeleton joints with menu icons
++ Platonic shown in visionOS Passthrough as a "volume"
 + Environment mesh gateways
-+ Gaussian Splat, anyone? 
++ Bundle Audio, MIDI, USDZ, and Metal shaders in a .mu file
++ Record and distribute interactive performances
             
 #### The Social Model
 
-DeepMuse is a toy that aspires to be a venue. The basic premise is that all players share the view into an immersive space. It doesn't matter whether that view is through an iPhone, iPad, or Vision Pro. Maybe even an Apple TV could get into the act -- given that the rendering pipeline is simple and performant. 
+DeepMuse is a toy that aspires to be a venue. The basic premise is that all players share the same view into an immersive space. It doesn't matter whether that view is through an iPhone, iPad, or Vision Pro. Maybe even an Apple TV could get into the act -- given that the rendering pipeline is simple and efficient. 
 
-The result is a collaborative performance, which renders the exact same environment on player's device. Pixel perfect. And not limited to Apple devices; anyone with a midi instrument can join in.
+The result is a collaborative performance, which renders the exact same environment on each player's device. Pixel perfect. And not limited to Apple devices; anyone with a MIDI instrument can join in.
     
-The ultimate result is that DeepMuse transforms the Vision Pro, from a solo to a shared experience. Imagine yourself as a conductor, waving your hands to orchestrate a group performance of your family and friends. 
+A side effect is that DeepMuse can transform the Vision Pro from a solo experiece to a shared one. Imagine yourself waving your hands to conduct a chamber orchestra of your family and friends. 
             
 
