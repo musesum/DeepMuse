@@ -4,7 +4,7 @@ import SwiftUI
 import MuFlo
 import MuAudio
 import MuMenu
-import MuSkyFlo
+import MuSky
 import MuVision
 import MuHand
 
@@ -25,7 +25,7 @@ class SkyCanvas {
 #endif
 
     let archive = FloArchive(
-        bundles: [MuSkyFlo.bundle, MuHand.bundle],
+        bundles: [MuSky.bundle, MuHand.bundle],
         archive: "Snapshot",
         scripts:  ["sky", "shader","model", "menu", "midi"],
         textures: ["draw"])

@@ -1,43 +1,31 @@
 
-MuAudio
-    MuFlo / MuExtensions
-    MuPeer
-MuColor
-    MuFlo / MuExtensions
-MuFlo
-    MuSkyFlo
-    MuExtensions
-MuHand
+DeepMuse
+    MuSky
     MuFlo
-    MuExtensions
-
-MuMenu
-
-    MuFlo / MuExtensions
-
-    MuHand
-    MuPeer
-    MuMetal ??
-
-MuMenuSky
-    MuFlo / ??
-    MuSkyFlo
-MuSkyFlo
-    .
-
-MuMetal
-    MuFlo / MuExtensions
-    MuVision
-
-MuPeer
-    MuFlo / MuExtensions
-
-MuPlato
-    ! MuFlo  / MuExtensions
-    MuMetal
+    MuAudio
+        MuFlo
+        MuPeer
     MuColor
+        MuFlo
+    MuHand
+        MuFlo
+    MuMenu
+        MuFlo
+        MuHand
+        MuPeer
+        MuMetal ??
+    MuSky
+        MuFlo
+    MuMetal
+        MuFlo
+        MuVision
+    MuPeer
+        MuFlo
+    MuPlato
+        MuFlo
+        MuMetal
+        MuColor
+        MuVision
     MuVision
+        MuFlo
 
-MuVision
-
-    MuFlo / MuExtensions
