@@ -6,7 +6,6 @@ import MuAudio
 import MuMenu
 import MuSkyFlo
 import MuVision
-import MuExtensions
 import MuHand
 
 class SkyCanvas {
@@ -52,7 +51,7 @@ class SkyCanvas {
 }
 extension SkyCanvas: MenuDelegate {
 
-    #if os(visionOS)
+#if os(visionOS)
     func window(frame: CGRect, insets: EdgeInsets) {
 
         // save restore frame
@@ -83,7 +82,7 @@ extension SkyCanvas: MenuDelegate {
         pipeline.resize(frame, viewSize, scale)
         log(viewSize)
     }
-    #else
+#else
     func window(frame: CGRect, insets: EdgeInsets) {
 
         let scale = UIScreen.main.scale
@@ -97,7 +96,7 @@ extension SkyCanvas: MenuDelegate {
 
         log(viewSize)
     }
-    #endif
+#endif
     func log(_ viewSize: CGSize) {
 
         //print("state: \(RenderDepth.state.rawValue.pad(6))  frame\(pipeline.metalLayer.frame.script) viewSize\(viewSize.script) touchView\(touchView.frame.size.script)", terminator: " ")
