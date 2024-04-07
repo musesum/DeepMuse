@@ -2,8 +2,7 @@
 
 import SwiftUI
 import MuMenu
-import MuFlo
-import MultipeerConnectivity
+import MuMetal
 
 open class SkyTouchView: TouchesView {
     

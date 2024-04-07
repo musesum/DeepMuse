@@ -10,7 +10,7 @@ struct VertexFlat {
     float2 texCoord;
 };
 
-struct Vertex2D {
+struct FlatmapVertex {
     float2 position;
     float2 texCoord; // 2D texture coordinate
 };
@@ -18,7 +18,7 @@ struct Vertex2D {
 // MARK: - vertex
 vertex VertexFlat vertexFlatmap
 (
- constant Vertex2D*     vertIn    [[ buffer(0) ]],
+ constant FlatmapVertex*     vertIn    [[ buffer(0) ]],
  constant float2&       viewSize  [[ buffer(1) ]],
  constant float4&       clipFrame [[ buffer(2) ]],
  constant UniformEyes&  eyes      [[ buffer(3) ]],

@@ -6,7 +6,7 @@ import MuAudio
 import MuMenu
 import MuSky
 import MuVision
-import MuHand
+import MuMetal
 
 class SkyCanvas {
 

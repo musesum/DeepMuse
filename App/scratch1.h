@@ -1,5 +1,5 @@
 
-DeepMuse
+DeepMuse Modules
     MuSky
     MuFlo
     MuAudio
@@ -7,13 +7,10 @@ DeepMuse
         MuPeer
     MuColor
         MuFlo
-    MuHand
-        MuFlo
     MuMenu
         MuFlo
-        MuHand
         MuPeer
-        MuMetal ??
+        MuVision
     MuSky
         MuFlo
     MuMetal

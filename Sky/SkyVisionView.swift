@@ -2,7 +2,6 @@ import SwiftUI
 import RealityKit
 import MuFlo // NextFrame
 import MuVision
-import MuHand
 
 #if os(visionOS)
 
