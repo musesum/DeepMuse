@@ -5,7 +5,6 @@ import MuFlo
 import MuMetal
 import MuPlato
 import MuMenu
-import MuColor
 
 public class SkyPipeline: Pipeline {
 

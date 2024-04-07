@@ -2,6 +2,8 @@
 DeepMuse Modules
     MuSky
     MuFlo
+    MuPeer
+
     MuAudio
         MuFlo
         MuPeer
@@ -16,8 +18,7 @@ DeepMuse Modules
     MuMetal
         MuFlo
         MuVision
-    MuPeer
-        MuFlo
+
     MuPlato
         MuFlo
         MuMetal
