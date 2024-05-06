@@ -13,7 +13,7 @@ class SkyCanvas {
     static let shared = SkyCanvas()
     var midi: MuMidi
     var pipeline: SkyPipeline
-    var touchView: SkyTouchView
+    var skyTouchView: SkyTouchView
     var settingUp = true
 
     var renderState = RenderDepth.state
@@ -44,9 +44,9 @@ class SkyCanvas {
         pipeline = SkyPipeline(bounds, archive.root˚)
         TouchCanvas.shared.touchFlo.parseRoot(archive.root˚, archive)
 
-        touchView = SkyTouchView(bounds)
-        touchView.backgroundColor = .clear
-        touchView.layer.addSublayer(pipeline.metalLayer)
+        skyTouchView = SkyTouchView(bounds)
+        skyTouchView.backgroundColor = .clear
+        skyTouchView.layer.addSublayer(pipeline.metalLayer)
     }
 }
 extension SkyCanvas: MenuDelegate {
@@ -76,7 +76,7 @@ extension SkyCanvas: MenuDelegate {
             bounds = frame
         }
         let viewSize = bounds.size * scale
-        touchView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+        skyTouchView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
 
         TouchCanvas.shared.touchFlo.viewSize = viewSize
         pipeline.resize(frame, viewSize, scale)
@@ -90,10 +90,13 @@ extension SkyCanvas: MenuDelegate {
         let height = frame.height + insets.top + insets.bottom
         let viewSize = CGSize(width: width, height: height) * scale
 
-        touchView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        skyTouchView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         TouchCanvas.shared.touchFlo.viewSize = viewSize
-        pipeline.resize(frame, viewSize, scale)
+        pipeline.resize(skyTouchView.frame, viewSize, scale)
 
+        // ipad    frame (0,24 1194,790 insets ( 0 0 20 0)
+        // iphone  frame (0,59  430,839 insets (59 0 34 0) bounds (430,932) 932-839=93
+        //
         log(viewSize)
     }
 #endif

@@ -7,31 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		801927C42BBD038C0041CE4C /* compute.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C32BBD038C0041CE4C /* compute.camera.metal */; };
+		80158AAB2BC4459C0081ABAA /* kernel.drawCube.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80158AAA2BC4459C0081ABAA /* kernel.drawCube.metal */; };
+		801927C42BBD038C0041CE4C /* kernel.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C32BBD038C0041CE4C /* kernel.camera.metal */; };
 		801927C92BBD04340041CE4C /* render.cubemap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C52BBD04340041CE4C /* render.cubemap.metal */; };
-		801927CA2BBD04340041CE4C /* compute.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C62BBD04340041CE4C /* compute.camix.metal */; };
+		801927CA2BBD04340041CE4C /* kernel.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C62BBD04340041CE4C /* kernel.camix.metal */; };
 		801927CB2BBD04340041CE4C /* render.flatmap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C72BBD04340041CE4C /* render.flatmap.metal */; };
 		801927CC2BBD04340041CE4C /* render.plato.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C82BBD04340041CE4C /* render.plato.metal */; };
 		8036D85D2BBCD12E00BB35EE /* SkyMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */; };
 		806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A97902AB2F22A00CF04FF /* SkyApp.swift */; };
-		807049EE23378ADC0001617D /* cell.fred.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070495F23378ADB0001617D /* cell.fred.metal */; };
-		807049EF23378ADC0001617D /* cell.ave.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496023378ADB0001617D /* cell.ave.metal */; };
-		807049F023378ADC0001617D /* cell.mod.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496123378ADB0001617D /* cell.mod.metal */; };
-		807049F123378ADC0001617D /* cell.fade.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496223378ADB0001617D /* cell.fade.metal */; };
-		807049F223378ADC0001617D /* compute.color.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496323378ADB0001617D /* compute.color.metal */; };
-		807049F323378ADC0001617D /* cell.tunl.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496423378ADB0001617D /* cell.tunl.metal */; };
-		807049F423378ADC0001617D /* cell.erode.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496523378ADB0001617D /* cell.erode.metal */; };
-		807049F523378ADC0001617D /* cell.zha.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496623378ADB0001617D /* cell.zha.metal */; };
-		807049F623378ADC0001617D /* compute.draw.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496723378ADB0001617D /* compute.draw.metal */; };
-		807049F723378ADC0001617D /* cell.melt.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496823378ADB0001617D /* cell.melt.metal */; };
-		807049F923378ADC0001617D /* cell.slide.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.slide.metal */; };
+		807049EE23378ADC0001617D /* kernel.cell.fred.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070495F23378ADB0001617D /* kernel.cell.fred.metal */; };
+		807049EF23378ADC0001617D /* kernel.cell.ave.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496023378ADB0001617D /* kernel.cell.ave.metal */; };
+		807049F023378ADC0001617D /* kernel.cell.mod.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496123378ADB0001617D /* kernel.cell.mod.metal */; };
+		807049F123378ADC0001617D /* kernel.cell.fade.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496223378ADB0001617D /* kernel.cell.fade.metal */; };
+		807049F223378ADC0001617D /* kernel.color.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496323378ADB0001617D /* kernel.color.metal */; };
+		807049F323378ADC0001617D /* kernel.cell.tunl.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496423378ADB0001617D /* kernel.cell.tunl.metal */; };
+		807049F423378ADC0001617D /* kernel.cell.erode.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496523378ADB0001617D /* kernel.cell.erode.metal */; };
+		807049F523378ADC0001617D /* kernel.cell.zha.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496623378ADB0001617D /* kernel.cell.zha.metal */; };
+		807049F623378ADC0001617D /* kernel.draw.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496723378ADB0001617D /* kernel.draw.metal */; };
+		807049F723378ADC0001617D /* kernel.cell.melt.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496823378ADB0001617D /* kernel.cell.melt.metal */; };
+		807049F923378ADC0001617D /* kernel.cell.slide.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* kernel.cell.slide.metal */; };
 		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
 		80704A0323378ADC0001617D /* SkyPipeline+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497523378ADB0001617D /* SkyPipeline+ext.swift */; };
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80735E622B34CD2000C4A53B /* SkyRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80735E612B34CD1F00C4A53B /* SkyRender.swift */; };
 		807533472A8CA0C600A1808C /* MuPlato in Frameworks */ = {isa = PBXBuildFile; productRef = 807533462A8CA0C600A1808C /* MuPlato */; };
 		807D1C1429BC862F0092FBC7 /* MuMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 807D1C1329BC862F0092FBC7 /* MuMetal */; };
-		8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* compute.tile.metal */; };
+		8090E31129DBA9B4003E02CC /* kernel.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* kernel.tile.metal */; };
 		809820B329F1350E00682AD2 /* SkyTouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809820B229F1350E00682AD2 /* SkyTouchView.swift */; };
 		80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 80A0D01E2BC1A1F1005C2B6B /* MuSky */; };
 		80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */; };
@@ -57,9 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		801927C32BBD038C0041CE4C /* compute.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.camera.metal; sourceTree = "<group>"; };
+		80158AAA2BC4459C0081ABAA /* kernel.drawCube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.drawCube.metal; sourceTree = "<group>"; };
+		801927C32BBD038C0041CE4C /* kernel.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.camera.metal; sourceTree = "<group>"; };
 		801927C52BBD04340041CE4C /* render.cubemap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.cubemap.metal; sourceTree = "<group>"; };
-		801927C62BBD04340041CE4C /* compute.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.camix.metal; sourceTree = "<group>"; };
+		801927C62BBD04340041CE4C /* kernel.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.camix.metal; sourceTree = "<group>"; };
 		801927C72BBD04340041CE4C /* render.flatmap.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.flatmap.metal; sourceTree = "<group>"; };
 		801927C82BBD04340041CE4C /* render.plato.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.plato.metal; sourceTree = "<group>"; };
 		8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMenuView.swift; sourceTree = "<group>"; };
@@ -67,17 +69,17 @@
 		806A97902AB2F22A00CF04FF /* SkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyApp.swift; sourceTree = "<group>"; };
 		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807048F823378A0B0001617D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8070495F23378ADB0001617D /* cell.fred.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.fred.metal; sourceTree = "<group>"; };
-		8070496023378ADB0001617D /* cell.ave.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.ave.metal; sourceTree = "<group>"; };
-		8070496123378ADB0001617D /* cell.mod.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.mod.metal; sourceTree = "<group>"; };
-		8070496223378ADB0001617D /* cell.fade.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.fade.metal; sourceTree = "<group>"; };
-		8070496323378ADB0001617D /* compute.color.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.color.metal; sourceTree = "<group>"; };
-		8070496423378ADB0001617D /* cell.tunl.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.tunl.metal; sourceTree = "<group>"; };
-		8070496523378ADB0001617D /* cell.erode.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.erode.metal; sourceTree = "<group>"; };
-		8070496623378ADB0001617D /* cell.zha.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.zha.metal; sourceTree = "<group>"; };
-		8070496723378ADB0001617D /* compute.draw.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.draw.metal; sourceTree = "<group>"; };
-		8070496823378ADB0001617D /* cell.melt.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.melt.metal; sourceTree = "<group>"; };
-		8070496A23378ADB0001617D /* cell.slide.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.slide.metal; sourceTree = "<group>"; };
+		8070495F23378ADB0001617D /* kernel.cell.fred.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.fred.metal; sourceTree = "<group>"; };
+		8070496023378ADB0001617D /* kernel.cell.ave.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.ave.metal; sourceTree = "<group>"; };
+		8070496123378ADB0001617D /* kernel.cell.mod.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.mod.metal; sourceTree = "<group>"; };
+		8070496223378ADB0001617D /* kernel.cell.fade.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.fade.metal; sourceTree = "<group>"; };
+		8070496323378ADB0001617D /* kernel.color.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.color.metal; sourceTree = "<group>"; };
+		8070496423378ADB0001617D /* kernel.cell.tunl.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.tunl.metal; sourceTree = "<group>"; };
+		8070496523378ADB0001617D /* kernel.cell.erode.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.erode.metal; sourceTree = "<group>"; };
+		8070496623378ADB0001617D /* kernel.cell.zha.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.zha.metal; sourceTree = "<group>"; };
+		8070496723378ADB0001617D /* kernel.draw.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.draw.metal; sourceTree = "<group>"; };
+		8070496823378ADB0001617D /* kernel.cell.melt.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.melt.metal; sourceTree = "<group>"; };
+		8070496A23378ADB0001617D /* kernel.cell.slide.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.cell.slide.metal; sourceTree = "<group>"; };
 		8070497323378ADB0001617D /* SkyPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPipeline.swift; sourceTree = "<group>"; };
 		8070497523378ADB0001617D /* SkyPipeline+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+ext.swift"; sourceTree = "<group>"; };
 		8070497B23378ADB0001617D /* scratch2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scratch2.h; sourceTree = "<group>"; };
@@ -85,7 +87,15 @@
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		80735E612B34CD1F00C4A53B /* SkyRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyRender.swift; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* scratch1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scratch1.h; sourceTree = "<group>"; };
-		8090E31029DBA9B4003E02CC /* compute.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = compute.tile.metal; sourceTree = "<group>"; };
+		8090E31029DBA9B4003E02CC /* kernel.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.tile.metal; sourceTree = "<group>"; };
+		809199C22BDA0BC2008F8711 /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuAudio; path = ../Packages/MuAudio; sourceTree = "<group>"; };
+		809199C32BDA0BCD008F8711 /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuFlo; path = ../Packages/MuFlo; sourceTree = "<group>"; };
+		809199C42BDA0BCD008F8711 /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMenu; path = ../Packages/MuMenu; sourceTree = "<group>"; };
+		809199C52BDA0BD1008F8711 /* MuMetal */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuMetal; path = ../Packages/MuMetal; sourceTree = "<group>"; };
+		809199C62BDA0BD5008F8711 /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPeer; path = ../Packages/MuPeer; sourceTree = "<group>"; };
+		809199C72BDA0BD9008F8711 /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuPlato; path = ../Packages/MuPlato; sourceTree = "<group>"; };
+		809199C82BDA0BDC008F8711 /* MuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuSky; path = ../Packages/MuSky; sourceTree = "<group>"; };
+		809199C92BDA0BE0008F8711 /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MuVision; path = ../Packages/MuVision; sourceTree = "<group>"; };
 		809820B229F1350E00682AD2 /* SkyTouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTouchView.swift; sourceTree = "<group>"; };
 		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
 		80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVisionView.swift; sourceTree = "<group>"; };
@@ -129,6 +139,14 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				809199C92BDA0BE0008F8711 /* MuVision */,
+				809199C82BDA0BDC008F8711 /* MuSky */,
+				809199C72BDA0BD9008F8711 /* MuPlato */,
+				809199C62BDA0BD5008F8711 /* MuPeer */,
+				809199C52BDA0BD1008F8711 /* MuMetal */,
+				809199C32BDA0BCD008F8711 /* MuFlo */,
+				809199C42BDA0BCD008F8711 /* MuMenu */,
+				809199C22BDA0BC2008F8711 /* MuAudio */,
 				8045637D296B900600EE6E0E /* README.md */,
 				807048E923378A090001617D /* App */,
 				8063686F2AB3BE6200800F8A /* Sky */,
@@ -160,23 +178,24 @@
 		8070495D23378ADB0001617D /* Metal */ = {
 			isa = PBXGroup;
 			children = (
-				801927C62BBD04340041CE4C /* compute.camix.metal */,
 				801927C52BBD04340041CE4C /* render.cubemap.metal */,
 				801927C72BBD04340041CE4C /* render.flatmap.metal */,
 				801927C82BBD04340041CE4C /* render.plato.metal */,
-				801927C32BBD038C0041CE4C /* compute.camera.metal */,
-				8090E31029DBA9B4003E02CC /* compute.tile.metal */,
-				8070496323378ADB0001617D /* compute.color.metal */,
-				8070496723378ADB0001617D /* compute.draw.metal */,
-				8070495F23378ADB0001617D /* cell.fred.metal */,
-				8070496023378ADB0001617D /* cell.ave.metal */,
-				8070496123378ADB0001617D /* cell.mod.metal */,
-				8070496223378ADB0001617D /* cell.fade.metal */,
-				8070496423378ADB0001617D /* cell.tunl.metal */,
-				8070496523378ADB0001617D /* cell.erode.metal */,
-				8070496623378ADB0001617D /* cell.zha.metal */,
-				8070496823378ADB0001617D /* cell.melt.metal */,
-				8070496A23378ADB0001617D /* cell.slide.metal */,
+				801927C32BBD038C0041CE4C /* kernel.camera.metal */,
+				801927C62BBD04340041CE4C /* kernel.camix.metal */,
+				8070496323378ADB0001617D /* kernel.color.metal */,
+				8070496723378ADB0001617D /* kernel.draw.metal */,
+				80158AAA2BC4459C0081ABAA /* kernel.drawCube.metal */,
+				8090E31029DBA9B4003E02CC /* kernel.tile.metal */,
+				8070495F23378ADB0001617D /* kernel.cell.fred.metal */,
+				8070496023378ADB0001617D /* kernel.cell.ave.metal */,
+				8070496123378ADB0001617D /* kernel.cell.mod.metal */,
+				8070496223378ADB0001617D /* kernel.cell.fade.metal */,
+				8070496423378ADB0001617D /* kernel.cell.tunl.metal */,
+				8070496523378ADB0001617D /* kernel.cell.erode.metal */,
+				8070496623378ADB0001617D /* kernel.cell.zha.metal */,
+				8070496823378ADB0001617D /* kernel.cell.melt.metal */,
+				8070496A23378ADB0001617D /* kernel.cell.slide.metal */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -287,24 +306,25 @@
 				80735E622B34CD2000C4A53B /* SkyRender.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
 				80704A0323378ADC0001617D /* SkyPipeline+ext.swift in Sources */,
-				807049F123378ADC0001617D /* cell.fade.metal in Sources */,
+				807049F123378ADC0001617D /* kernel.cell.fade.metal in Sources */,
 				801927CB2BBD04340041CE4C /* render.flatmap.metal in Sources */,
-				807049F723378ADC0001617D /* cell.melt.metal in Sources */,
-				807049F623378ADC0001617D /* compute.draw.metal in Sources */,
-				807049F323378ADC0001617D /* cell.tunl.metal in Sources */,
-				807049EF23378ADC0001617D /* cell.ave.metal in Sources */,
+				807049F723378ADC0001617D /* kernel.cell.melt.metal in Sources */,
+				807049F623378ADC0001617D /* kernel.draw.metal in Sources */,
+				807049F323378ADC0001617D /* kernel.cell.tunl.metal in Sources */,
+				807049EF23378ADC0001617D /* kernel.cell.ave.metal in Sources */,
 				801927C92BBD04340041CE4C /* render.cubemap.metal in Sources */,
-				801927CA2BBD04340041CE4C /* compute.camix.metal in Sources */,
+				801927CA2BBD04340041CE4C /* kernel.camix.metal in Sources */,
 				8036D85D2BBCD12E00BB35EE /* SkyMenuView.swift in Sources */,
-				807049F523378ADC0001617D /* cell.zha.metal in Sources */,
-				801927C42BBD038C0041CE4C /* compute.camera.metal in Sources */,
-				807049F923378ADC0001617D /* cell.slide.metal in Sources */,
-				807049F223378ADC0001617D /* compute.color.metal in Sources */,
-				807049EE23378ADC0001617D /* cell.fred.metal in Sources */,
-				807049F023378ADC0001617D /* cell.mod.metal in Sources */,
-				8090E31129DBA9B4003E02CC /* compute.tile.metal in Sources */,
+				807049F523378ADC0001617D /* kernel.cell.zha.metal in Sources */,
+				801927C42BBD038C0041CE4C /* kernel.camera.metal in Sources */,
+				807049F923378ADC0001617D /* kernel.cell.slide.metal in Sources */,
+				80158AAB2BC4459C0081ABAA /* kernel.drawCube.metal in Sources */,
+				807049F223378ADC0001617D /* kernel.color.metal in Sources */,
+				807049EE23378ADC0001617D /* kernel.cell.fred.metal in Sources */,
+				807049F023378ADC0001617D /* kernel.cell.mod.metal in Sources */,
+				8090E31129DBA9B4003E02CC /* kernel.tile.metal in Sources */,
 				801927CC2BBD04340041CE4C /* render.plato.metal in Sources */,
-				807049F423378ADC0001617D /* cell.erode.metal in Sources */,
+				807049F423378ADC0001617D /* kernel.cell.erode.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

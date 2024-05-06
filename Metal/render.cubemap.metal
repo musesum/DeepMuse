@@ -80,8 +80,7 @@ fragment half4 fragmentCubeIndex
                      / fmax(0.0001, mirror.y));
         }
     }
-    float2 modCoord = mod / reps;
-    return inTex.sample(samplr, modCoord);
+    return inTex.sample(samplr, mod / reps);
 }
 
 // MARK: - fragment color

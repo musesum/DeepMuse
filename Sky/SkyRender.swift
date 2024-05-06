@@ -44,7 +44,7 @@ extension SkyRender: RenderLayerProtocol {
 
     func computeLayer(_ commandBuf: MTLCommandBuffer) {
         
-        pipeline?.computeNodes(commandBuf)
+        pipeline?.kernelNodes(commandBuf)
     }
 
     func renderLayer(_ commandBuf    : MTLCommandBuffer,

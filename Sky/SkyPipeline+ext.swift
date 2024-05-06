@@ -7,14 +7,22 @@ extension SkyPipeline {
 
     func makeShader(_ root˚: Flo) {
 
-        guard let shader  = root˚ .findPath("shader" ) else { return err(root˚,"shader" )}
-        guard let cell    = shader.findPath("cell"   ) else { return err(root˚,"cell"   )}
-        guard let compute = shader.findPath("compute") else { return err(root˚,"compute")}
-        guard let render  = shader.findPath("render" ) else { return err(root˚,"render" )}
+        guard let shader = root˚ .findPath("shader") else { return err(root˚,"shader" )}
+        guard let cell   = shader.findPath("cell"  ) else { return err(root˚,"cell"   )}
+        guard let kernel = shader.findPath("kernel") else { return err(root˚,"kernel")}
+        guard let render = shader.findPath("render") else { return err(root˚,"render" )}
 
-        for child in cell.children    { makeMetNode(child) }
-        for child in compute.children { makeMetNode(child) }
-        for child in render.children  { makeMetNode(child) }
+        for child in cell.children   {
+            if cell.name == "more" {
+                for grandchild in child.children {
+                    makeMetNode(grandchild)
+                }
+            } else {
+                makeMetNode(child)
+            }
+        }
+        for child in kernel.children { makeMetNode(child) }
+        for child in render.children { makeMetNode(child) }
 
         func makeMetNode(_ flo: Flo) {
 
@@ -25,7 +33,7 @@ extension SkyPipeline {
             for child in flo.children {
                 switch child.name {
                 case "on"     : addMtlNodeOn(node, child)
-                case "loops"  : node.loops = max(1,child.int)
+                case "loops"  : updateChildBuffer(node, child)
                 case "mix"    : updateChildBuffer(node, child)
                 case "frame"  : updateChildBuffer(node, child)
                 case "repeat" : updateChildBuffer(node, child)
@@ -75,7 +83,6 @@ extension SkyPipeline {
                         }
                     }
                     #endif
-
                 }
             }
             func setMtlNode(_ node: MetalNode,_ isOn: Bool) {

@@ -216,7 +216,7 @@ public class SkyPipeline: Pipeline {
                 if let nextNode = addNodeName(name, after: lastNode) {
                     lastNode = nextNode
                     switch type {
-                    case "compute": cellNode = nextNode
+                    case "kernel" : cellNode = nextNode
                     case "record" : recordNode = nextNode
                     case "camera" : cameraNode = nextNode
                     case "camix"  : camixNode = nextNode
