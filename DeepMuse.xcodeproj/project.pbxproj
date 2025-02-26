@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80158AAB2BC4459C0081ABAA /* kernel.sampleCube.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */; };
+		801927C42BBD038C0041CE4C /* pipe.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C32BBD038C0041CE4C /* pipe.camera.metal */; };
+		801927C92BBD04340041CE4C /* render.map.cube.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C52BBD04340041CE4C /* render.map.cube.metal */; };
+		801927CA2BBD04340041CE4C /* pipe.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C62BBD04340041CE4C /* pipe.camix.metal */; };
+		801927CB2BBD04340041CE4C /* render.map.flat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C72BBD04340041CE4C /* render.map.flat.metal */; };
+		801927CC2BBD04340041CE4C /* render.plato.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C82BBD04340041CE4C /* render.plato.metal */; };
+		8036D85D2BBCD12E00BB35EE /* SkyMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */; };
+		804BC6622CF6B31C00E720C2 /* SkyArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC6612CF6B31C00E720C2 /* SkyArchive.swift */; };
+		806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A97902AB2F22A00CF04FF /* SkyApp.swift */; };
+		806B2DD42C2CED5D0054C979 /* cell.rule.mod.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCF2C2CED5D0054C979 /* cell.rule.mod.metal */; };
+		806B2DD52C2CED5D0054C979 /* cell.rule.zha.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DD22C2CED5D0054C979 /* cell.rule.zha.metal */; };
+		806B2DD62C2CED5D0054C979 /* cell.rule.fade.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCC2C2CED5D0054C979 /* cell.rule.fade.metal */; };
+		806B2DD72C2CED5D0054C979 /* cell.rule.melt.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCE2C2CED5D0054C979 /* cell.rule.melt.metal */; };
+		806B2DD82C2CED5D0054C979 /* cell.rule.erode.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCB2C2CED5D0054C979 /* cell.rule.erode.metal */; };
+		806B2DD92C2CED5D0054C979 /* cell.rule.tunl.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DD12C2CED5D0054C979 /* cell.rule.tunl.metal */; };
+		806B2DDA2C2CED5D0054C979 /* cell.rule.ave.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCA2C2CED5D0054C979 /* cell.rule.ave.metal */; };
+		806B2DDB2C2CED5D0054C979 /* cell.rule.fred.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCD2C2CED5D0054C979 /* cell.rule.fred.metal */; };
+		807049F223378ADC0001617D /* pipe.color.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496323378ADB0001617D /* pipe.color.metal */; };
+		807049F623378ADC0001617D /* pipe.draw.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496723378ADB0001617D /* pipe.draw.metal */; };
+		807049F923378ADC0001617D /* cell.rule.slide.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.rule.slide.metal */; };
+		80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8070497323378ADB0001617D /* SkyPipeline.swift */; };
+		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
+		807533472A8CA0C600A1808C /* MuPlato in Frameworks */ = {isa = PBXBuildFile; productRef = 807533462A8CA0C600A1808C /* MuPlato */; };
+		8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* pipe.tile.metal */; };
+		809B425B2CE542A50016D296 /* rotateTexture.metal in Sources */ = {isa = PBXBuildFile; fileRef = 809B425A2CE542A50016D296 /* rotateTexture.metal */; };
+		80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 80A0D01E2BC1A1F1005C2B6B /* MuSky */; };
+		80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */; };
+		80B3D86D2C5979EF00865274 /* SkyCanvasBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */; };
+		80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62D82A5B9B6800F51B7A /* MuAudio */; };
+		80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62DB2A5B9C1300F51B7A /* MuPeer */; };
+		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
+		80BE47542B34C08600EB05F4 /* MuVision in Frameworks */ = {isa = PBXBuildFile; productRef = 80BE47532B34C08600EB05F4 /* MuVision */; };
+		80BE47602B34C23800EB05F4 /* SkyVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */; };
+		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8061DE1E293985030098F309 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.sampleCube.metal; sourceTree = "<group>"; };
+		801927C32BBD038C0041CE4C /* pipe.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.camera.metal; sourceTree = "<group>"; };
+		801927C52BBD04340041CE4C /* render.map.cube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.map.cube.metal; sourceTree = "<group>"; };
+		801927C62BBD04340041CE4C /* pipe.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.camix.metal; sourceTree = "<group>"; };
+		801927C72BBD04340041CE4C /* render.map.flat.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.map.flat.metal; sourceTree = "<group>"; };
+		801927C82BBD04340041CE4C /* render.plato.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.plato.metal; sourceTree = "<group>"; };
+		8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMenuView.swift; sourceTree = "<group>"; };
+		803DEEF22BE98EC60065B7B4 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		8045637D296B900600EE6E0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8049CDBC2CD04E50009B9B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		804BC6612CF6B31C00E720C2 /* SkyArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyArchive.swift; sourceTree = "<group>"; };
+		80699BD02CC845EC00776CF7 /* DeepMuse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepMuse.entitlements; sourceTree = "<group>"; };
+		806A97902AB2F22A00CF04FF /* SkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyApp.swift; sourceTree = "<group>"; };
+		806B2DCA2C2CED5D0054C979 /* cell.rule.ave.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.ave.metal; sourceTree = "<group>"; };
+		806B2DCB2C2CED5D0054C979 /* cell.rule.erode.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.erode.metal; sourceTree = "<group>"; };
+		806B2DCC2C2CED5D0054C979 /* cell.rule.fade.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.fade.metal; sourceTree = "<group>"; };
+		806B2DCD2C2CED5D0054C979 /* cell.rule.fred.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.fred.metal; sourceTree = "<group>"; };
+		806B2DCE2C2CED5D0054C979 /* cell.rule.melt.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.melt.metal; sourceTree = "<group>"; };
+		806B2DCF2C2CED5D0054C979 /* cell.rule.mod.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.mod.metal; sourceTree = "<group>"; };
+		806B2DD12C2CED5D0054C979 /* cell.rule.tunl.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.tunl.metal; sourceTree = "<group>"; };
+		806B2DD22C2CED5D0054C979 /* cell.rule.zha.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.zha.metal; sourceTree = "<group>"; };
+		807048E723378A090001617D /* Deep Muse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Muse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8070496323378ADB0001617D /* pipe.color.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.color.metal; sourceTree = "<group>"; };
+		8070496723378ADB0001617D /* pipe.draw.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.draw.metal; sourceTree = "<group>"; };
+		8070496A23378ADB0001617D /* cell.rule.slide.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = cell.rule.slide.metal; sourceTree = "<group>"; };
+		8070497323378ADB0001617D /* SkyPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyPipeline.swift; sourceTree = "<group>"; };
+		80704A7723378C1A0001617D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		8082FD8624B2589A002F880A /* packages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = packages.h; sourceTree = "<group>"; };
+		8090E31029DBA9B4003E02CC /* pipe.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.tile.metal; sourceTree = "<group>"; };
+		809B425A2CE542A50016D296 /* rotateTexture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = rotateTexture.metal; sourceTree = "<group>"; };
+		80AC57152BFA56F30073ACBE /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuAudio; sourceTree = "<group>"; };
+		80AC57162BFA56F30073ACBE /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuFlo; sourceTree = "<group>"; };
+		80AC57172BFA56F30073ACBE /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuMenu; sourceTree = "<group>"; };
+		80AC57192BFA56F30073ACBE /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuPeer; sourceTree = "<group>"; };
+		80AC571A2BFA56F30073ACBE /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuPlato; sourceTree = "<group>"; };
+		80AC571B2BFA56F30073ACBE /* MuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuSky; sourceTree = "<group>"; };
+		80AC571C2BFA56F30073ACBE /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuVision; sourceTree = "<group>"; };
+		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
+		80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvasBase.swift; sourceTree = "<group>"; };
+		80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVisionView.swift; sourceTree = "<group>"; };
+		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		807048E423378A090001617D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
+				80BE47542B34C08600EB05F4 /* MuVision in Frameworks */,
+				80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */,
+				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
+				807533472A8CA0C600A1808C /* MuPlato in Frameworks */,
+				80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */,
+				80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8063686F2AB3BE6200800F8A /* Sky */ = {
+			isa = PBXGroup;
+			children = (
+				806A97902AB2F22A00CF04FF /* SkyApp.swift */,
+				8070497323378ADB0001617D /* SkyPipeline.swift */,
+				80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */,
+				80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */,
+				804BC6612CF6B31C00E720C2 /* SkyArchive.swift */,
+				80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */,
+				8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */,
+			);
+			path = Sky;
+			sourceTree = "<group>";
+		};
+		807048DE23378A090001617D = {
+			isa = PBXGroup;
+			children = (
+				80699BD02CC845EC00776CF7 /* DeepMuse.entitlements */,
+				80AC571D2BFA56F30073ACBE /* Packages__ */,
+				8045637D296B900600EE6E0E /* README.md */,
+				803DEEF22BE98EC60065B7B4 /* License.txt */,
+				807048E923378A090001617D /* App */,
+				8063686F2AB3BE6200800F8A /* Sky */,
+				8070495D23378ADB0001617D /* Metal */,
+				807048E823378A090001617D /* Products */,
+				80704A7623378C1A0001617D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		807048E823378A090001617D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				807048E723378A090001617D /* Deep Muse.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		807048E923378A090001617D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8049CDBC2CD04E50009B9B32 /* Info.plist */,
+				80DC21842337ACFB00B99CD9 /* Assets.xcassets */,
+				8082FD8624B2589A002F880A /* packages.h */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8070495D23378ADB0001617D /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				8070496723378ADB0001617D /* pipe.draw.metal */,
+				806B2DCA2C2CED5D0054C979 /* cell.rule.ave.metal */,
+				806B2DCB2C2CED5D0054C979 /* cell.rule.erode.metal */,
+				806B2DCC2C2CED5D0054C979 /* cell.rule.fade.metal */,
+				806B2DCD2C2CED5D0054C979 /* cell.rule.fred.metal */,
+				806B2DCE2C2CED5D0054C979 /* cell.rule.melt.metal */,
+				806B2DCF2C2CED5D0054C979 /* cell.rule.mod.metal */,
+				8070496A23378ADB0001617D /* cell.rule.slide.metal */,
+				806B2DD12C2CED5D0054C979 /* cell.rule.tunl.metal */,
+				806B2DD22C2CED5D0054C979 /* cell.rule.zha.metal */,
+				801927C32BBD038C0041CE4C /* pipe.camera.metal */,
+				801927C62BBD04340041CE4C /* pipe.camix.metal */,
+				8070496323378ADB0001617D /* pipe.color.metal */,
+				8090E31029DBA9B4003E02CC /* pipe.tile.metal */,
+				801927C52BBD04340041CE4C /* render.map.cube.metal */,
+				801927C72BBD04340041CE4C /* render.map.flat.metal */,
+				801927C82BBD04340041CE4C /* render.plato.metal */,
+				80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */,
+				809B425A2CE542A50016D296 /* rotateTexture.metal */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		80704A7623378C1A0001617D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80704A7723378C1A0001617D /* Metal.framework */,
+				80704A7823378C1B0001617D /* MetalKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80AC571D2BFA56F30073ACBE /* Packages__ */ = {
+			isa = PBXGroup;
+			children = (
+				80AC57152BFA56F30073ACBE /* MuAudio */,
+				80AC57162BFA56F30073ACBE /* MuFlo */,
+				80AC57172BFA56F30073ACBE /* MuMenu */,
+				80AC57192BFA56F30073ACBE /* MuPeer */,
+				80AC571A2BFA56F30073ACBE /* MuPlato */,
+				80AC571B2BFA56F30073ACBE /* MuSky */,
+				80AC571C2BFA56F30073ACBE /* MuVision */,
+			);
+			path = Packages__;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		807048E623378A090001617D /* DeepMuse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuse" */;
+			buildPhases = (
+				807048E323378A090001617D /* Sources */,
+				807048E423378A090001617D /* Frameworks */,
+				807048E523378A090001617D /* Resources */,
+				8061DE1E293985030098F309 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeepMuse;
+			packageProductDependencies = (
+				80BDD7C928919CF000C6E2BF /* MuMenu */,
+				80BD62D82A5B9B6800F51B7A /* MuAudio */,
+				80BD62DB2A5B9C1300F51B7A /* MuPeer */,
+				807533462A8CA0C600A1808C /* MuPlato */,
+				80BE47532B34C08600EB05F4 /* MuVision */,
+				80A0D01E2BC1A1F1005C2B6B /* MuSky */,
+			);
+			productName = MuseSky;
+			productReference = 807048E723378A090001617D /* Deep Muse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		807048DF23378A090001617D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1610;
+				ORGANIZATIONNAME = DeepMuse;
+				TargetAttributes = {
+					807048E623378A090001617D = {
+						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1500;
+					};
+				};
+			};
+			buildConfigurationList = 807048E223378A090001617D /* Build configuration list for PBXProject "DeepMuse" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 807048DE23378A090001617D;
+			packageReferences = (
+				80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */,
+				80FA4A8B29E25B8E00A77620 /* XCRemoteSwiftPackageReference "MuPlato" */,
+				80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */,
+				80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */,
+				80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */,
+				80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */,
+			);
+			productRefGroup = 807048E823378A090001617D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				807048E623378A090001617D /* DeepMuse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		807048E523378A090001617D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		807048E323378A090001617D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */,
+				806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */,
+				80B3D86D2C5979EF00865274 /* SkyCanvasBase.swift in Sources */,
+				80BE47602B34C23800EB05F4 /* SkyVisionView.swift in Sources */,
+				804BC6622CF6B31C00E720C2 /* SkyArchive.swift in Sources */,
+				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
+				809B425B2CE542A50016D296 /* rotateTexture.metal in Sources */,
+				801927CB2BBD04340041CE4C /* render.map.flat.metal in Sources */,
+				806B2DD42C2CED5D0054C979 /* cell.rule.mod.metal in Sources */,
+				806B2DD52C2CED5D0054C979 /* cell.rule.zha.metal in Sources */,
+				806B2DD62C2CED5D0054C979 /* cell.rule.fade.metal in Sources */,
+				806B2DD72C2CED5D0054C979 /* cell.rule.melt.metal in Sources */,
+				806B2DD82C2CED5D0054C979 /* cell.rule.erode.metal in Sources */,
+				806B2DD92C2CED5D0054C979 /* cell.rule.tunl.metal in Sources */,
+				806B2DDA2C2CED5D0054C979 /* cell.rule.ave.metal in Sources */,
+				806B2DDB2C2CED5D0054C979 /* cell.rule.fred.metal in Sources */,
+				807049F623378ADC0001617D /* pipe.draw.metal in Sources */,
+				801927C92BBD04340041CE4C /* render.map.cube.metal in Sources */,
+				801927CA2BBD04340041CE4C /* pipe.camix.metal in Sources */,
+				8036D85D2BBCD12E00BB35EE /* SkyMenuView.swift in Sources */,
+				801927C42BBD038C0041CE4C /* pipe.camera.metal in Sources */,
+				807049F923378ADC0001617D /* cell.rule.slide.metal in Sources */,
+				80158AAB2BC4459C0081ABAA /* kernel.sampleCube.metal in Sources */,
+				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
+				8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */,
+				801927CC2BBD04340041CE4C /* render.plato.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8070490F23378A0B0001617D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_PRODUCT = NO;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		8070491023378A0B0001617D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = NO;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
+		8070491223378A0B0001617D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = DeepMuse.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = app/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepmuse.deepmuse;
+				PRODUCT_NAME = "Deep Muse";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TVOS_DEPLOYMENT_TARGET = 14.7;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/DeepMuse";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
+				XROS_DEPLOYMENT_TARGET = 1.3;
+			};
+			name = Debug;
+		};
+		8070491323378A0B0001617D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_ENTITLEMENTS = DeepMuse.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 9AVP5GX45R;
+				INFOPLIST_FILE = app/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deepmuse.deepmuse;
+				PRODUCT_NAME = "Deep Muse";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TVOS_DEPLOYMENT_TARGET = 14.7;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/DeepMuse";
+				XROS_DEPLOYMENT_TARGET = 1.3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		807048E223378A090001617D /* Build configuration list for PBXProject "DeepMuse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8070490F23378A0B0001617D /* Debug */,
+				8070491023378A0B0001617D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8070491123378A0B0001617D /* Build configuration list for PBXNativeTarget "DeepMuse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8070491223378A0B0001617D /* Debug */,
+				8070491323378A0B0001617D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuSky";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuAudio";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuPeer";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuMenu";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuVision";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		80FA4A8B29E25B8E00A77620 /* XCRemoteSwiftPackageReference "MuPlato" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuPlato";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		807533462A8CA0C600A1808C /* MuPlato */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80FA4A8B29E25B8E00A77620 /* XCRemoteSwiftPackageReference "MuPlato" */;
+			productName = MuPlato;
+		};
+		80A0D01E2BC1A1F1005C2B6B /* MuSky */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */;
+			productName = MuSky;
+		};
+		80BD62D82A5B9B6800F51B7A /* MuAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */;
+			productName = MuAudio;
+		};
+		80BD62DB2A5B9C1300F51B7A /* MuPeer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */;
+			productName = MuPeer;
+		};
+		80BDD7C928919CF000C6E2BF /* MuMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */;
+			productName = MuMenu;
+		};
+		80BE47532B34C08600EB05F4 /* MuVision */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */;
+			productName = MuVision;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 807048DF23378A090001617D /* Project object */;
+}
