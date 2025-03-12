@@ -19,7 +19,7 @@ kernel void drawKernel
     float sx, sy;
     switch (int(aspect)) {
     case 0  : sx =   shift.x; sy = shift.y; break;
-    default : sx = 1-shift.y; sy = shift.x; break;
+    default : sx = 1-shift.x; sy = shift.y; break;
     }
 
     int dx = int((sx-0.5) * 256.); // delta x

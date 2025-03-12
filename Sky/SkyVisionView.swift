@@ -13,6 +13,7 @@ struct SkyVisionView: View {
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.scenePhase) var scenePhase
 
     var touchView = SkyMenuTouchView()
     var handsModel: HandsModel!

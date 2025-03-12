@@ -23,7 +23,7 @@ Sometimes referred to as Artificial Life, due to a popular Cellular Automaton ca
        
 #### Cube Map
 
-In DeepMuse, CAs form a 2D surface that gets mapped into a cube. This is the background surface that you see. Cubemaps are somewhat old school, usually replaced by a spherical mesh. Be that as is may, Cubemaps are fairly performant. Instead of copying pixels to the cube, DeepMuse's cubes contain indices that point to a 2D texture. So, copying is done in the shader. That means DeepMuse can be played on older devices, including the last generation iPod Touch. Perhaps even an Apple TV. 
+In DeepMuse, CAs form a 2D surface that gets mapped into a cube. This is the background surface that you see. Cubemaps are somewhat old school, usually replaced by a spherical mesh. Be that as is may, Cubemaps are fairly performant. Instead of copying pixels to the cube, DeepMuse's cubes contain indices that point to a 2D texture. So, copying is done in the shader. That means DeepMuse can be played on older devices, including the last generation iPod Touch. Perhaps, even an Apple TV. 
             
 #### Platonic solids 
         
@@ -32,9 +32,9 @@ This a mere curiosity: How to morph between the 5 platonic solids. So, moving be
         
 #### Data Flow Patching
 
-The first analog music synthesizers used patch cords. You would connect different modules together, like from an oscillator to a filter to an envelope generator to an amplifier. These modules worked within a standard voltage levels. So, the scaler ranges were always are the same. 
+The first analog music synthesizers used patch cords. You would connect different modules together, like from an oscillator to a filter to an envelope generator to an amplifier. These modules worked within a standard voltage level. So, the scaler ranges were always are the same. 
             
-In the digital realm, where a MIDI note has a range between 0 and 127, whereas the screen may have 1920x1280 pixels. So, the scripting language (DSL) allows you to declare the ranges for each module, and patching will auto remap between the ranges. The Swift Package MuFlo, explains other features, like breaking loops and synchronizing between devices. 
+In the digital realm, where a MIDI note has a range between 0 and 127, whereas the screen may have 1920x1280 pixels. So, the scripting language allows you to declare the ranges for each module, and patching will auto remap between the ranges. The Swift Package MuFlo, explains other features, like breaking loops and synchronizing between devices. 
             
 #### The Universe is a Donut
         
@@ -138,6 +138,8 @@ Toddler - finger paint with psychedlic colors. Practice making letter shapes on 
 16-year-old - start tinkering with this repo and its packages.
 
 Adult - The toy becomes a tool. 
+
+Astronaut - How to control the thousands parameters needed to maintain a space ship? Twenty years ago, his question was asked at [NASA's Virtual Iron Bird conference.](https://www.polished-pixels.com/VIB_Workshop/) My guess is that, eventually, it will be a mix of xr glasses, speech, and hand pose. 
 
 #### Future
 

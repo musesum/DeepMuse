@@ -33,7 +33,6 @@ vertex FlatVertex flatVertex
     flatOut.position.z = 0.0;
     flatOut.position.w = 1.0;
 
-
     // Scale texture coordinates using `clipRect.zw` (width and height)
     float2 scaledTex = tex * float2(clipRect.z, clipRect.w);
 

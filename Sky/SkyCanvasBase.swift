@@ -34,7 +34,7 @@ class SkyCanvasBase {
         touchesView.isOpaque = false
         ArchiveVm.shared.archiveProto = self
         NextFrame.shared.addBetweenFrame {
-            self.pipeline.alignNameTex()
+            self.pipeline.alignTextures()
         }
     }
 }
@@ -72,7 +72,7 @@ extension SkyCanvasBase: ArchiveProto {
         pipeline.layer.framebufferOnly = frameBufferOnly
 
         // save snapshot of flo graph
-        addFloScript()
+        saveFloScript("now", scriptOps: .Now)
         archiveExt.replace(title, with: tempName)
 
         completion()
@@ -136,17 +136,11 @@ extension SkyCanvasBase: ArchiveProto {
             }
         }
 
-        func addFloScript(_ full: Bool = true) {
+        func saveFloScript(_ name: String, scriptOps: FloScriptOps) {
 
-            if full {
-                let scriptFull = Flo.root˚.scriptFull
-                let dataFull = Data(scriptFull.utf8)
-                archiveExt.addName("full", ext: "flo.h", data: dataFull)
-            } else {
-                let scriptNow = Flo.root˚.scriptNow
-                let dataNow = Data(scriptNow.utf8)
-                archiveExt.addName("now",  ext: "flo.h", data: dataNow)
-            }
+            let script = Flo.root˚.scriptRoot(scriptOps)
+            let dataNow = Data(script.utf8)
+            archiveExt.addName(name,  ext: "flo.h", data: dataNow)
         }
     }
 }

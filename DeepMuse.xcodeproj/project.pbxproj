@@ -88,13 +88,6 @@
 		8082FD8624B2589A002F880A /* packages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = packages.h; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* pipe.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.tile.metal; sourceTree = "<group>"; };
 		809B425A2CE542A50016D296 /* rotateTexture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = rotateTexture.metal; sourceTree = "<group>"; };
-		80AC57152BFA56F30073ACBE /* MuAudio */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuAudio; sourceTree = "<group>"; };
-		80AC57162BFA56F30073ACBE /* MuFlo */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuFlo; sourceTree = "<group>"; };
-		80AC57172BFA56F30073ACBE /* MuMenu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuMenu; sourceTree = "<group>"; };
-		80AC57192BFA56F30073ACBE /* MuPeer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuPeer; sourceTree = "<group>"; };
-		80AC571A2BFA56F30073ACBE /* MuPlato */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuPlato; sourceTree = "<group>"; };
-		80AC571B2BFA56F30073ACBE /* MuSky */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuSky; sourceTree = "<group>"; };
-		80AC571C2BFA56F30073ACBE /* MuVision */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuVision; sourceTree = "<group>"; };
 		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
 		80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvasBase.swift; sourceTree = "<group>"; };
 		80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVisionView.swift; sourceTree = "<group>"; };
@@ -137,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				80699BD02CC845EC00776CF7 /* DeepMuse.entitlements */,
-				80AC571D2BFA56F30073ACBE /* Packages__ */,
 				8045637D296B900600EE6E0E /* README.md */,
 				803DEEF22BE98EC60065B7B4 /* License.txt */,
 				807048E923378A090001617D /* App */,
@@ -201,20 +193,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		80AC571D2BFA56F30073ACBE /* Packages__ */ = {
-			isa = PBXGroup;
-			children = (
-				80AC57152BFA56F30073ACBE /* MuAudio */,
-				80AC57162BFA56F30073ACBE /* MuFlo */,
-				80AC57172BFA56F30073ACBE /* MuMenu */,
-				80AC57192BFA56F30073ACBE /* MuPeer */,
-				80AC571A2BFA56F30073ACBE /* MuPlato */,
-				80AC571B2BFA56F30073ACBE /* MuSky */,
-				80AC571C2BFA56F30073ACBE /* MuVision */,
-			);
-			path = Packages__;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,7 +230,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 1620;
 				ORGANIZATIONNAME = DeepMuse;
 				TargetAttributes = {
 					807048E623378A090001617D = {
@@ -340,6 +318,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -408,6 +387,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
@@ -478,7 +458,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,7 +479,7 @@
 				TVOS_DEPLOYMENT_TARGET = 14.7;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/DeepMuse";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
-				XROS_DEPLOYMENT_TARGET = 1.3;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -517,7 +497,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,7 +516,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TVOS_DEPLOYMENT_TARGET = 14.7;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/DeepMuse";
-				XROS_DEPLOYMENT_TARGET = 1.3;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -568,7 +548,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuSky";
 			requirement = {
-				branch = main;
+				branch = dev;
 				kind = branch;
 			};
 		};
@@ -576,7 +556,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuAudio";
 			requirement = {
-				branch = main;
+				branch = dev;
 				kind = branch;
 			};
 		};
@@ -584,7 +564,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuPeer";
 			requirement = {
-				branch = main;
+				branch = dev;
 				kind = branch;
 			};
 		};
@@ -592,7 +572,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuMenu";
 			requirement = {
-				branch = main;
+				branch = dev;
 				kind = branch;
 			};
 		};
@@ -600,7 +580,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuVision";
 			requirement = {
-				branch = main;
+				branch = dev;
 				kind = branch;
 			};
 		};
@@ -608,7 +588,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuPlato";
 			requirement = {
-				branch = main;
+				branch = dev;
 				kind = branch;
 			};
 		};
