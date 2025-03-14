@@ -550,7 +550,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuSky";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -558,7 +558,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuAudio";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -566,7 +566,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuPeer";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -574,7 +574,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuMenu";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -582,7 +582,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuVision";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -590,7 +590,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuPlato";
 			requirement = {
-				branch = dev;
+				branch = main;
 				kind = branch;
 			};
 		};
