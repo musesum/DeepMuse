@@ -57,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8002114D2D8275F300D32030 /* SetupPackages.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SetupPackages.sh; sourceTree = "<group>"; };
 		80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.sampleCube.metal; sourceTree = "<group>"; };
 		801927C32BBD038C0041CE4C /* pipe.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.camera.metal; sourceTree = "<group>"; };
 		801927C52BBD04340041CE4C /* render.map.cube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.map.cube.metal; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
+				8002114D2D8275F300D32030 /* SetupPackages.sh */,
 				80699BD02CC845EC00776CF7 /* DeepMuse.entitlements */,
 				8045637D296B900600EE6E0E /* README.md */,
 				803DEEF22BE98EC60065B7B4 /* License.txt */,

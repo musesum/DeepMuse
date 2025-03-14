@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:DeepMuse.xcodeproj">
+   </FileRef>
    <Group
       location = "container:../Mu&#x1f538;"
       name = "Mu&#x1f538;">
@@ -26,7 +29,4 @@
          location = "group:MuSky">
       </FileRef>
    </Group>
-   <FileRef
-      location = "group:DeepMuse.xcodeproj">
-   </FileRef>
 </Workspace>

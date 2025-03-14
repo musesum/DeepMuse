@@ -8,32 +8,35 @@ Two Licenses, Simple Terms:
 
 🏇 UJ-Jockey (Free Tier)
 
-Free for:
+    Free for:
 	•	Individuals, students, non-profits
 	•	Small businesses (< 100 employees, < $100M valuation)
 
-Rights:
+    Rights:
 	•	Use, modify, and share freely
 	•	Include in your projects (open-source or proprietary)
 
-Conditions:
+    Conditions:
 	•	Clearly credit original authors (“attribution”).
 	•	If you share modified Work, you must share modifications under this same license.
 	•	You receive a royalty-free patent license from the Licensor to use patented features within the Work.
     •	Indemnify author from damages
+    •	DeepMuse Icon not used beyond internal use and hackathons; use your own branding.
 
  🦄 UJ-Unicorn (Commercial Tier)
 
-Required for:
+    Required for:
 	•	Large companies/entities (> 100 employees, > $100M valuation)
 	•	Government agencies or publicly owned entities
 
-Rights and Responsibilities:
+    Rights and Responsibilities:
 	•	Evaluate and test freely.
 	•	To commercially deploy, sell, or integrate this Work into products or services, you must obtain a paid commercial license from the Licensor.
 	•	Negotiated fees apply, typical of industry standards.
 	•	Proprietary terms, patent rights, and commercial uses negotiable.
 
-Restrictions:
-	•	You may not legally challenge (“sue”) free-tier (Jockey) users regarding this license or their use of the Work.
+    Restrictions:
+    •	You may not legally challenge (“sue”) free-tier (Jockey) users regarding this license or their use of the Work.
     •	Indemnify author from damages
+
+Enjoy!

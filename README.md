@@ -1,8 +1,27 @@
 ## DeepMuse 
 
-*DeepMuse is a visual music synthesizer to play between iOS, iPadOS, and visionOS, and MIDI devices. It's both Old School and New School*
+*DeepMuse is a visual music synthesizer to play between iOS, iPadOS, and visionOS, and MIDI devices.*
 
-Here's a demo of the [Old School Synth](https://www.youtube.com/watch?v=hXlkzZubHnM)
+### Setup
+
+DeepMuse uses the following packages:
+
+  MuPeer   - Bonjour services to sync between devices
+  MuAudio  - Wrapper around AudioKit for Midi support
+  MuPlato  - Platonic solids
+  MuFlo    - Functional Dataflow graph
+  MuVision - Apple Vision Pro Support 
+  MuMenu   - Deep contextual menus
+  MuSky    - Visual Graph Scripts
+  
+You can explore these packages locally in the DeepMuse.xcworkspace
+    1) open terminal 
+    2) navigate to this directory
+    3) bash SetupPackages.sh
+
+#### Overview
+
+*Deep Muse has both Old School and New School*
 
 ##### Old School includes 
 + Cellular Automata 
@@ -11,12 +30,13 @@ Here's a demo of the [Old School Synth](https://www.youtube.com/watch?v=hXlkzZub
 + Donut Universe
 + Modular Patching
 + MIDI Musical Instrument support
++ Here's a demo of the [Old School Synth](https://www.youtube.com/watch?v=hXlkzZubHnM)
 
 ##### New School includes
 + Menu Palettes
 + Hand Pose for VisionOS
 + Sync between devices
-    
+        
 #### Cellular Automata
 
 Sometimes referred to as Artificial Life, due to a popular Cellular Automaton called "The Game of Life". How it works is that each pixel looks at its neighbors to determine how to change its color. CA's have been used to model turbulent flow, genetic drift, even sub-quantum phenomenon. Stephen Wolfram explored CAs to theorize a new kind of physics.
@@ -29,7 +49,6 @@ In DeepMuse, CAs form a 2D surface that gets mapped into a cube. This is the bac
         
 This a mere curiosity: How to morph between the 5 platonic solids. So, moving between tetrahedron, octahedron, cube, dodecahedron, and icosahedron. After each cycle through the 5 solids, Platonic will sub-divide each triangle into 3 sub-triangles. These subdivisions are kind of like the audio overtone series. So, they're called harmonics.
                  
-        
 #### Data Flow Patching
 
 The first analog music synthesizers used patch cords. You would connect different modules together, like from an oscillator to a filter to an envelope generator to an amplifier. These modules worked within a standard voltage level. So, the scaler ranges were always are the same. 
