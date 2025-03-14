@@ -1,8 +1,6 @@
-Unicorn Jockey (UJ) License
+Unicorn Jockey (UJ) License - DeepMuse 2025
 
-Preamble
-
-The UJ License enables free, open innovation for individuals (“Jockeys”), while fairly requiring larger organizations (“Unicorns”) to pay for commercial use. It ensures creators benefit when companies commercially deploy or integrate this Work.
+The UJ License enables free, open innovation for individuals (“Jockeys”), while fairly requiring larger organizations (“Unicorns”) to pay for commercial use.
 
 Two Licenses, Simple Terms:
 
@@ -10,33 +8,26 @@ Two Licenses, Simple Terms:
 
     Free for:
 	•	Individuals, students, non-profits
-	•	Small businesses (< 100 employees, < $100M valuation)
+	•	Small businesses (< 100 employees and < $100M valuation)
 
     Rights:
 	•	Use, modify, and share freely
-	•	Include in your projects (open-source or proprietary)
+	•	Ingest or deploy in your projects (open-source or proprietary)
 
     Conditions:
-	•	Clearly credit original authors (“attribution”).
-	•	If you share modified Work, you must share modifications under this same license.
-	•	You receive a royalty-free patent license from the Licensor to use patented features within the Work.
+	•	You receive a royalty-free patent license from the Licensor.
     •	Indemnify author from damages
-    •	DeepMuse Icon not used beyond internal use and hackathons; use your own branding.
 
  🦄 UJ-Unicorn (Commercial Tier)
 
     Required for:
-	•	Large companies/entities (> 100 employees, > $100M valuation)
+	•	Large companies/entities (> 100 employees or > $100M valuation)
 	•	Government agencies or publicly owned entities
 
     Rights and Responsibilities:
 	•	Evaluate and test freely.
-	•	To commercially deploy, sell, or integrate this Work into products or services, you must obtain a paid commercial license from the Licensor.
-	•	Negotiated fees apply, typical of industry standards.
-	•	Proprietary terms, patent rights, and commercial uses negotiable.
+	•	To deploy commercially ingested or original requires a license from the Licensor.
 
     Restrictions:
-    •	You may not legally challenge (“sue”) free-tier (Jockey) users regarding this license or their use of the Work.
+    •	You may not sue free-tier (Jockey) users regarding this Work.
     •	Indemnify author from damages
-
-Enjoy!
