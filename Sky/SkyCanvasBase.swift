@@ -57,8 +57,8 @@ extension SkyCanvasBase: ArchiveProto {
                             _ completion: @escaping CallVoid) {
 
         // setup temp filename with current time
-        let time = trunc(Date().timeIntervalSince1970)
-        let tempName = title + ".\(time)"
+        let time = String(trunc(Date().timeIntervalSince1970))
+        let tempName = "\(time).\(title)"
         guard let archiveExt = ArchiveZip(tempName, "mu", .create) else { return }
 
         // save framebuffer state and allow transfer to cpu memory
@@ -72,8 +72,10 @@ extension SkyCanvasBase: ArchiveProto {
         pipeline.layer.framebufferOnly = frameBufferOnly
 
         // save snapshot of flo graph
-        saveFloScript("now", scriptOps: .Now)
-        archiveExt.replace(title, with: tempName)
+        // genius saving deltas instead of complete script
+        saveFloScript("delta", scriptOps: .Time)
+        // saveFloScript("now", scriptOps: .Now)
+        saveDescription(description)
 
         completion()
 
@@ -137,10 +139,13 @@ extension SkyCanvasBase: ArchiveProto {
         }
 
         func saveFloScript(_ name: String, scriptOps: FloScriptOps) {
-
             let script = Flo.root˚.scriptRoot(scriptOps)
             let dataNow = Data(script.utf8)
             archiveExt.addName(name,  ext: "flo.h", data: dataNow)
+        }
+        func saveDescription(_ desciption: String) {
+            let dataNow = Data(desciption.utf8)
+            archiveExt.addName("description",  ext: "txt", data: dataNow)
         }
     }
 }

@@ -6,7 +6,7 @@ import MuSky
 
 class SkyArchive: ArchiveFlo {
 
-    public static let shared = SkyArchive()
+    public static let shared = SkyArchive(withTextures: true)
 
     private var bundles = [MuSky.bundle, MuVision.bundle]
     private var snapName = "Snapshot"
@@ -16,7 +16,8 @@ class SkyArchive: ArchiveFlo {
 #else
     private var scriptNames  = ["sky", "pipe", "menu", "midi"]
 #endif
-    init() {
+    init(withTextures: Bool) {
+        let texNames: [String] = withTextures ? self.texNames : []
         super.init(bundles, snapName, scriptNames, texNames)
     }
 }
