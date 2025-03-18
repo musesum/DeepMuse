@@ -5,7 +5,7 @@
 ### Setup
 
 DeepMuse uses the following packages:
-
+```
   MuPeer   - Bonjour services to sync between devices
   MuAudio  - Wrapper around AudioKit for Midi support
   MuPlato  - Platonic solids
@@ -13,7 +13,7 @@ DeepMuse uses the following packages:
   MuVision - Apple Vision Pro Support 
   MuMenu   - Deep contextual menus
   MuSky    - Visual Graph Scripts
-  
+```  
 You can explore these packages locally in the DeepMuse.xcworkspace
     1) open terminal 
     2) navigate to this directory
@@ -63,7 +63,7 @@ Getting back to the Cellular Automata, there is an option to scroll the CA unive
             
 By the way, double tapping on the menu will reset the value for screen shift back to normal (no shift). Which leads us to some new stuff: 
                 
-Right now, DeepMuse has only one space and one onject. The Cubemap is the space with a single Platonic object. This is fine for very abstract performances -- particularly when the object reflects the environment. But it doesn't need to stop there. 
+Right now, DeepMuse has only one space and one object. The Cubemap is the space with a single Platonic object. This is fine for very abstract performances -- particularly when the object reflects the environment. But it doesn't need to stop there. 
         
 #### Menu Palettes
         
@@ -144,7 +144,7 @@ DeepMuse is a toy that aspires to be a venue. The basic premise is that all play
 
 The result is a collaborative performance, which renders the exact same environment on each player's device. Pixel perfect. And not limited to Apple devices; anyone with a MIDI instrument can join in.
     
-A side effect is that DeepMuse can transform the Vision Pro from a solo experiece to a shared one. Imagine yourself waving your hands to conduct a chamber orchestra of your family and friends. 
+A side effect is that DeepMuse can transform the Vision Pro from a solo experience to a shared one. Imagine yourself waving your hands to conduct a chamber orchestra of your family and friends. 
             
 #### Personas
 
