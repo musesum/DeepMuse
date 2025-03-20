@@ -53,7 +53,7 @@ This a mere curiosity: How to morph between the 5 platonic solids. So, moving be
 
 The first analog music synthesizers used patch cords. You would connect different modules together, like from an oscillator to a filter to an envelope generator to an amplifier. These modules worked within a standard voltage level. So, the scaler ranges were always are the same. 
             
-In the digital realm, where a MIDI note has a range between 0 and 127, whereas the screen may have 1920x1280 pixels. So, the scripting language allows you to declare the ranges for each module, and patching will auto remap between the ranges. The Swift Package MuFlo, explains other features, like breaking loops and synchronizing between devices. 
+In the digital realm, there are many ranges: where a MIDI note is between 0 and 127 and a screen may have 1920x1280 pixels. So, the scripting language allows you to declare the ranges for each module, and patching will auto remap between the ranges. The Swift Package MuFlo, explains other features, like breaking loops and synchronizing between devices. 
             
 #### The Universe is a Donut
         
