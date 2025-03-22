@@ -1,5 +1,5 @@
-//  SkyApp.swift
-//  created by musesum on 9/14/23.
+// SkyApp.swift
+// created by musesum on 9/14/23.
 
 import SwiftUI
 import MuVision
@@ -12,11 +12,10 @@ import CompositorServices
 struct SkyApp: App {
 
     @State private var immersionStyle: ImmersionStyle = .full
-
     var body: some Scene {
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
         WindowGroup(id: "App") {
-            SkyVisionView()
+            VisionView()
                 .onOpenURL { url in
                     SkyCanvas.shared.readUserArchive(url, local: false)
                 }
@@ -58,7 +57,7 @@ struct SkyApp: App {
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            SkyMenuTouchView.shared
+            MenuTouchView()
                 .onOpenURL { url in
                     SkyCanvas.shared.readUserArchive(url, local: false)
                 }

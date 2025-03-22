@@ -158,7 +158,7 @@ Toddler - finger paint with psychedlic colors. Practice making letter shapes on 
 
 Adult - The toy becomes a tool. 
 
-Astronaut - How to control the thousands parameters needed to maintain a space ship? Twenty years ago, his question was asked at [NASA's Virtual Iron Bird conference.](https://www.polished-pixels.com/VIB_Workshop/) My guess is that, eventually, it will be a mix of xr glasses, speech, and hand pose. 
+Astronaut - How to control the thousands parameters needed to maintain a space ship in zero gravity? Twenty years ago, this question was asked at [NASA's Virtual Iron Bird conference.](https://www.polished-pixels.com/VIB_Workshop/) My guess is that, eventually, it will be a mix of xr glasses, speech, and hand pose. 
 
 #### Future
 

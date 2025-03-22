@@ -39,7 +39,7 @@
 		80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62DB2A5B9C1300F51B7A /* MuPeer */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80BE47542B34C08600EB05F4 /* MuVision in Frameworks */ = {isa = PBXBuildFile; productRef = 80BE47532B34C08600EB05F4 /* MuVision */; };
-		80BE47602B34C23800EB05F4 /* SkyVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */; };
+		80BE47602B34C23800EB05F4 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE475B2B34C23800EB05F4 /* VisionView.swift */; };
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +91,7 @@
 		809B425A2CE542A50016D296 /* rotateTexture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = rotateTexture.metal; sourceTree = "<group>"; };
 		80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvas.swift; sourceTree = "<group>"; };
 		80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvasBase.swift; sourceTree = "<group>"; };
-		80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyVisionView.swift; sourceTree = "<group>"; };
+		80BE475B2B34C23800EB05F4 /* VisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,7 +121,7 @@
 				80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */,
 				80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */,
 				804BC6612CF6B31C00E720C2 /* SkyArchive.swift */,
-				80BE475B2B34C23800EB05F4 /* SkyVisionView.swift */,
+				80BE475B2B34C23800EB05F4 /* VisionView.swift */,
 				8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */,
 			);
 			path = Sky;
@@ -286,7 +286,7 @@
 				80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */,
 				806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */,
 				80B3D86D2C5979EF00865274 /* SkyCanvasBase.swift in Sources */,
-				80BE47602B34C23800EB05F4 /* SkyVisionView.swift in Sources */,
+				80BE47602B34C23800EB05F4 /* VisionView.swift in Sources */,
 				804BC6622CF6B31C00E720C2 /* SkyArchive.swift in Sources */,
 				80704A0123378ADC0001617D /* SkyPipeline.swift in Sources */,
 				809B425B2CE542A50016D296 /* rotateTexture.metal in Sources */,

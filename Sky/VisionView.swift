@@ -3,10 +3,11 @@ import RealityKit
 import MuFlo // NextFrame
 import MuVision
 import MetalKit
+import MuMenu
 
 #if os(visionOS)
 
-struct SkyVisionView: View {
+struct VisionView: View {
 
     @State private var showImmersion = false
     @State public var immersive = false
@@ -15,7 +16,7 @@ struct SkyVisionView: View {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.scenePhase) var scenePhase
 
-    var touchView = SkyMenuTouchView()
+    var menuTouchView = MenuTouchView()
     var handsModel: HandsModel!
     var handsTracker: HandsTracker!
 
@@ -27,7 +28,7 @@ struct SkyVisionView: View {
     func setImmersion(_ immersive: Bool) {
         self.immersive = immersive
         NextFrame.shared.pause = immersive
-        touchView.skyCanvas.pipeline.layer.opacity = immersive ? 0 : 1
+        menuTouchView.skyCanvas.pipeline.layer.opacity = immersive ? 0 : 1
         RenderDepth.state = immersive ? .immersive : .passthrough
     }
 
@@ -36,11 +37,12 @@ struct SkyVisionView: View {
         ZStack(alignment: .bottom) {
 
             if immersive {
-                touchView
+                menuTouchView
                     .frame(minWidth: 640, minHeight: 480)
                     .frame(maxWidth: 800, maxHeight: 480)
+
             } else {
-                touchView
+                menuTouchView
                     .frame(minWidth: 800, minHeight: 600)
                     .frame(maxWidth: 1920, maxHeight: 1280)
             }
@@ -78,7 +80,6 @@ struct SkyVisionView: View {
                 default:  break
                 }
             }
-
             .task { await handsTracker.startHands() }
             .task { await handsTracker.updateHands() }
             .task { await handsTracker.monitorSessionEvents() }
