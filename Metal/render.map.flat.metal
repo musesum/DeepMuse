@@ -41,23 +41,43 @@ vertex FlatVertex flatVertex
 
     return flatOut;
 }
+
+// MARK: - vertex
 vertex FlatVertex flatVertex_
 (
- constant FlatIn* flatIn  [[ buffer(0) ]],
- constant float2& drawBuf [[ buffer(1) ]],
- constant float4& clipBuf [[ buffer(2) ]],
- constant float&  angle   [[ buffer(3) ]],
- uint vertexId [[ vertex_id ]])
+ constant FlatIn* flatIn      [[ buffer(0) ]],
+ constant float2& drawSize    [[ buffer(1) ]],
+ constant float4& clipRect    [[ buffer(2) ]],
+ constant float& displaceFact [[ buffer(3) ]], // new uniform for strength
+ texture2d<float> displaceTex [[ texture(1) ]], // new displacement texture
+ uint vertexId                [[ vertex_id ]]
+ )
 {
     FlatVertex flatOut;
 
-    float2 pos = flatIn[vertexId].position.xy;
-    float2 tex = flatIn[vertexId].texCoord.xy;
+    // Extract position and texture coordinates
+    float2 pos = flatIn[vertexId].position;
+    float2 tex = flatIn[vertexId].texCoord;
 
-    flatOut.position.xy = pos / (drawBuf / 2.0); //(-1, -1) to (1, 1)
-    flatOut.position.z = 0.0;
+    // Set up a sampler for the displacement texture
+    constexpr sampler samplr(filter::linear, address::clamp_to_edge);
+
+    // Sample the displacement map. Here, we use the red channel as the displacement value.
+    float displacement = displaceTex.sample(samplr, tex).r;
+
+    // Use the displacement value to adjust the vertex position along the z-axis
+    float zOffset = displacement * displaceFact;
+
+    // Normalize position: map from (-drawSize/2, drawSize/2) to (-1, 1)
+    flatOut.position.xy = pos / (drawSize / 2.0);
+    flatOut.position.z = zOffset; // displaced z position
     flatOut.position.w = 1.0;
-    flatOut.texCoord = (tex + clipBuf.xy) * clipBuf.zw;
+
+    // Scale texture coordinates using clipRect.zw (width and height)
+    float2 scaledTex = tex * float2(clipRect.z, clipRect.w);
+
+    // Apply translation using clipRect.xy (offsets)
+    flatOut.texCoord = scaledTex + float2(clipRect.x, clipRect.y);
 
     return flatOut;
 }
