@@ -17,12 +17,14 @@ struct VisionView: View {
     @Environment(\.scenePhase) var scenePhase
 
     var menuTouchView = MenuTouchView()
-    var handsModel: HandsModel!
-    var handsTracker: HandsTracker!
+    var handsModel: HandsModel
+    var handsTracker: HandsTracker
+    var skyCanvas: TouchCanvas
 
-    init() {
-        handsModel = HandsModel(TouchCanvas.shared, Flo.root˚)
-        handsTracker = HandsTracker(handsModel.handsFlo)
+    init(_ skyCanvas: SkyCanvas) {
+        self.skyCanvas = skyCanvas
+        self.handsModel = HandsModel(TouchCanvas.shared, Root˚)
+        self.handsTracker = HandsTracker(handsModel.handsFlo)
     }
 
     func setImmersion(_ immersive: Bool) {

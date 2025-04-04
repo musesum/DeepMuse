@@ -12,12 +12,21 @@ import CompositorServices
 struct SkyApp: App {
 
     @State private var immersionStyle: ImmersionStyle = .full
+    let root˚: Flo
+    let skyCanvas: SkyCanvas
+    init() {
+        root˚ = Flo("√")
+        skyCanvas = SSkyCanvas(root˚, 3, .zero)
+    }
+
     var body: some Scene {
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
         WindowGroup(id: "App") {
-            VisionView()
+            VisionView(skyCanvas)
                 .onOpenURL { url in
-                    SkyCanvas.shared.readUserArchive(url, local: false)
+                    Task {
+                        await SkyCanvas.shared.readUserArchive(url, local: false)
+                    }
                 }
         }
         .windowResizability(.contentSize)
@@ -54,12 +63,20 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
 
 @main
 struct SkyApp: App {
+    let root˚: Flo
+    let skyCanvas: SkyCanvas
+    init() {
+        root˚ = Flo("√")
+        skyCanvas = SkyCanvas(root˚, UIScreen.main.scale, UIScreen.main.bounds)
+    }
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            MenuTouchView()
+            MenuTouchView(skyCanvas)
                 .onOpenURL { url in
-                    SkyCanvas.shared.readUserArchive(url, local: false)
+                    Task {
+                        await skyCanvas.readUserArchive(url, local: false)
+                    }
                 }
         }
     }

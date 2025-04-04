@@ -8,7 +8,6 @@ import MuVision
 #if os(visionOS)
 class SkyCanvas: SkyCanvasBase, MenuFrame {
 
-    static let shared = SkyCanvas()
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
     func menuFrame(_ frame: CGRect,
@@ -43,7 +42,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
             let drawableSize = size * scale // layer.drawableSize
             let layerFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
             touchesView.frame = layerFrame
-            TouchDraw.shared.drawableSize = drawableSize
+            touchDraw.drawableSize = drawableSize
             pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
             DebugLog { P("🧭 \(state) size\(size.digits()) ports:\(RenderLayer.viewports?.count ?? 0)") }
         }
@@ -65,9 +64,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
     }
 }
 #else
-class SkyCanvas: SkyCanvasBase, MenuFrame {
-
-    static let shared = SkyCanvas()
+class SkyCanvas: SkyCanvasBase, MenuFrame, @unchecked Sendable {
 
     func menuFrame(_ frame: CGRect,
                    _ insets: EdgeInsets,
@@ -83,8 +80,8 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
         let drawableSize = size * scale  // layer.drawableSize
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
-        touchesView.frame = frame
-        TouchDraw.shared.drawableSize = drawableSize
+        touchView.frame = frame //.... not nil? 
+        touchDraw.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
     }
 }
@@ -95,6 +92,8 @@ extension SkyCanvas: NextFrameDelegate {
         return true
     }
     func cancel(_ key: Int) {
-        NextFrame.shared.removeDelegate(key)
+        Task { @MainActor in
+            NextFrame.shared.removeDelegate(key)
+        }
     }
 }
