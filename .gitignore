@@ -72,7 +72,6 @@ fastlane/test_output
 ## Other
 
 ### Xcode Patch ###
-DeepMuse.xcworkspace/
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
