@@ -8,82 +8,72 @@ import MuMenu
 #if os(visionOS)
 
 struct VisionView: View {
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(AppModel.self) var appModel
+    
+    @StateObject private var visionModel = VisionModel()
+    
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            visionModel.menuTouchView
+                .frame(minWidth: appModel.showImmersiveSpace ? 640 : 800,
+                       minHeight: appModel.showImmersiveSpace ? 480 : 600)
+                .frame(maxWidth: appModel.showImmersiveSpace ? 800 : 1920,
+                       maxHeight: appModel.showImmersiveSpace ? 480 : 1280)
+            
+            Button {
+                appModel.showImmersiveSpace.toggle()
+            } label: {
+                Text(appModel.showImmersiveSpace ? "Passthrough" : "Immersive")
+            }
+            .padding(6)
+        }
+        
+        .onChange(of: appModel.showImmersiveSpace) { _, newValue in
+            visionModel.setImmersion(newValue)
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            Task { @MainActor in
+                if newPhase == .background {
+                    DebugLog { P("🎬 VisionView scenePhase .background") }
+                    appModel.showImmersiveSpace = false
+                } else {
+                    DebugLog { P("🎬 VisionView scenePhase NOT .background") }
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                await visionModel.start(appModel.showImmersiveSpace)
+            }
+        }
+    }
+}
 
-    @State private var showImmersion = false
-    @State public var immersive = false
-
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    @Environment(\.scenePhase) var scenePhase
-
-    var menuTouchView = MenuTouchView()
-    var handsModel: HandsModel!
-    var handsTracker: HandsTracker!
-
+@MainActor
+final class VisionModel: ObservableObject {
+    let menuTouchView = MenuTouchView()
+    let skyCanvas = SkyCanvas.shared
+    let handsModel: HandsModel
+    let handsTracker: HandsTracker
+    
     init() {
         handsModel = HandsModel(TouchCanvas.shared, Flo.root˚)
         handsTracker = HandsTracker(handsModel.handsFlo)
     }
 
     func setImmersion(_ immersive: Bool) {
-        self.immersive = immersive
         NextFrame.shared.pause = immersive
-        menuTouchView.skyCanvas.pipeline.layer.opacity = immersive ? 0 : 1
+        skyCanvas.pipeline.layer.opacity = immersive ? 0 : 1
         RenderDepth.state = immersive ? .immersive : .passthrough
     }
+    
+    func start(_ showImmersiveSpace: Bool) async {
+        setImmersion(showImmersiveSpace)
+        await handsTracker.startHands()
+        await handsTracker.updateHands()
+        await handsTracker.monitorSessionEvents()
 
-    var body: some View {
-
-        ZStack(alignment: .bottom) {
-
-            if immersive {
-                menuTouchView
-                    .frame(minWidth: 640, minHeight: 480)
-                    .frame(maxWidth: 800, maxHeight: 480)
-
-            } else {
-                menuTouchView
-                    .frame(minWidth: 800, minHeight: 600)
-                    .frame(maxWidth: 1920, maxHeight: 1280)
-            }
-            Toggle(showImmersion
-                   ? "Passthrough"
-                   : "Immersive",
-                   isOn: $showImmersion)
-            .toggleStyle(.button)
-            .padding(EdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6))
-            .glassBackgroundEffect()
-
-            .onChange(of: showImmersion) { _, newValue in
-                Task {
-                    if newValue {
-                        switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                        case .opened: setImmersion(true)
-                        default:      setImmersion(false)
-                        }
-                    } else if immersive {
-                        await dismissImmersiveSpace()
-                        setImmersion(false)
-                    }
-                }
-            }
-            .onChange(of: scenePhase) { _, newPhase in
-                switch newPhase {
-                case .active:
-                    DebugLog { P("🎬 SkyVisionView") }
-                    NextFrame.shared.pause = false
-                case .inactive:
-                    DebugLog { P("🏁 SkyVisionView") }
-                    SkyCanvas.shared.saveArchive("Snapshot", "autosaved") {
-                        NextFrame.shared.pause = true
-                    }
-                default:  break
-                }
-            }
-            .task { await handsTracker.startHands() }
-            .task { await handsTracker.updateHands() }
-            .task { await handsTracker.monitorSessionEvents() }
-        }
     }
 }
 

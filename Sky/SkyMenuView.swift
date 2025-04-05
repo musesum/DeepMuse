@@ -44,10 +44,10 @@ struct MenuTouchView: View {
         .onChange(of: scenePhase) { _, newPhase in
             switch newPhase {
             case .active:
-                DebugLog { P("🎬 SkyMenuTouchView") }
+                DebugLog { P("🎬 MenuTouchView 🟢") }
                 NextFrame.shared.pause = false
             case .inactive:
-                DebugLog { P("🏁 SkyMenuTouchView") }
+                DebugLog { P("🎬 MenuTouchView 🔴") }
                 SkyCanvas.shared.saveArchive("Snapshot", "autosaved") {
                     NextFrame.shared.pause = true
                 }

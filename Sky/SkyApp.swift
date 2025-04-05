@@ -11,42 +11,48 @@ import CompositorServices
 @main
 struct SkyApp: App {
 
-    @State private var immersionStyle: ImmersionStyle = .full
+    @State private var appModel = AppModel()
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+
     var body: some Scene {
+
+        @Environment(\.scenePhase) var scenePhase
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
         WindowGroup(id: "App") {
             VisionView()
+                .environment(appModel)
                 .onOpenURL { url in
                     SkyCanvas.shared.readUserArchive(url, local: false)
                 }
+                .onChange(of: appModel.showImmersiveSpace) { _, newValue in
+                    // Manage the lifecycle of the immersive space.
+                    Task { @MainActor in
+                        if newValue {
+                            switch await openImmersiveSpace(id: ImmersiveScene.id) {
+                            case .opened:
+                                appModel.immersiveSpaceIsShown = true
+                            case .error, .userCancelled:
+                                fallthrough
+                            @unknown default:
+                                appModel.immersiveSpaceIsShown = false
+                                appModel.showImmersiveSpace = false
+                            }
+                        } else if appModel.immersiveSpaceIsShown {
+                            await dismissImmersiveSpace()
+                        }
+                    }
+                }
         }
         .windowResizability(.contentSize)
-
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            CompositorLayer(configuration: ContentStageConfiguration()) {
-                _ = RenderLayer($0, SkyCanvas.shared.pipeline)
-            }
-        }
-        .body.upperLimbVisibility(.visible)
-        .immersionStyle(selection: $immersionStyle, in: .full)
+        ImmersiveScene()
+            .environment(appModel)
     }
 }
-
-struct ContentStageConfiguration: CompositorLayerConfiguration {
-
-    func makeConfiguration(capabilities: LayerRenderer.Capabilities,
-                           configuration: inout LayerRenderer.Configuration) {
-        DebugLog{ P("🧭 Immersive config") }
-        configuration.depthFormat = .depth32Float
-        configuration.colorFormat = MetalRenderPixelFormat
-
-        let hasFoveation = capabilities.supportsFoveation
-        configuration.isFoveationEnabled = hasFoveation
-
-        let options: LayerRenderer.Capabilities.SupportedLayoutsOptions = hasFoveation ? [.foveationEnabled] : []
-        let supportedLayouts = capabilities.supportedLayouts(options: options)
-
-        configuration.layout = supportedLayouts.contains(.layered) ? .layered : .dedicated
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return .all
     }
 }
 
@@ -66,8 +72,3 @@ struct SkyApp: App {
 }
 #endif
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return .all
-    }
-}
