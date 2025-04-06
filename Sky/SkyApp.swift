@@ -11,7 +11,7 @@ import CompositorServices
 @main
 struct SkyApp: App {
 
-    @State private var appModel = AppModel()
+    @State public var appModel = AppModel()
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
 

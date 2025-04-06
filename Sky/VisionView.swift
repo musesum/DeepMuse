@@ -28,7 +28,11 @@ struct VisionView: View {
             }
             .padding(6)
         }
-        
+
+        .onAppear {
+            visionModel.setImmersion(appModel.showImmersiveSpace)
+            Task { await visionModel.startHands() }
+        }
         .onChange(of: appModel.showImmersiveSpace) { _, newValue in
             visionModel.setImmersion(newValue)
         }
@@ -40,11 +44,6 @@ struct VisionView: View {
                 } else {
                     DebugLog { P("🎬 VisionView scenePhase NOT .background") }
                 }
-            }
-        }
-        .onAppear {
-            Task {
-                await visionModel.start(appModel.showImmersiveSpace)
             }
         }
     }
@@ -68,8 +67,7 @@ final class VisionModel: ObservableObject {
         RenderDepth.state = immersive ? .immersive : .passthrough
     }
     
-    func start(_ showImmersiveSpace: Bool) async {
-        setImmersion(showImmersiveSpace)
+    func startHands() async {
         await handsTracker.startHands()
         await handsTracker.updateHands()
         await handsTracker.monitorSessionEvents()

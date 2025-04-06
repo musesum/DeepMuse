@@ -28,14 +28,14 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
 
         if RenderDepth.state == .immersive {
             var size = frame.size
-            if let viewports = RenderLayer.viewports,
+            if let viewports = Renderer.viewports,
                let v = viewports.first {
                 size = CGSize(width: v.width, height: v.height) / 3 // Scale
             } else {
-                size = CGSize(width: 2732, height: 2048) / 3 // Scale
-                secondMenuFrame()
+                size = CGSize(width: 1355, height: 1087) // ignore -- hard coded !!
+                return secondMenuFrame()
             }
-            setFrame("Immersive",size, scale: 3)
+            setFrame("Immersive", size, scale: 3)
         } else {
             setFrame("Non-Immersive", frame.size, scale: 3)
         }
@@ -45,7 +45,10 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
             touchesView.frame = layerFrame
             TouchDraw.shared.drawableSize = drawableSize
             pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
-            DebugLog { P("🧭 \(state) size\(size.digits()) ports:\(RenderLayer.viewports?.count ?? 0)") }
+            DebugLog {
+                P("🧭 \(state) size\(size.digits()) ports:\(Renderer.viewports?.count ?? -1)")
+                return
+            }
         }
     }
 
@@ -58,7 +61,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
     ///   determine the frame size. So, we wait for a one second
     ///   and try it again.
     func secondMenuFrame() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             DebugLog { P("🧭 Immersive secondMenuFrame") }
             self.menuFrame(self.touchesView.frame, self.insets, onAppear: false)
         }

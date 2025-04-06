@@ -16,20 +16,25 @@ struct ImmersiveScene: Scene {
     var body: some Scene {
         ImmersiveSpace(id: Self.id) {
             CompositorLayer(configuration: ContentStageConfiguration()) {
+                layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
-                let renderer = RenderLayer($0, SkyCanvas.shared.pipeline)
-                renderer.startRenderLoop()
+                Task(priority: .high) {
+
+                    let pipeline = SkyCanvas.shared.pipeline
+                    let renderer = Renderer(layerRenderer, pipeline, appModel)
+                    try await renderer.renderLoop()
+                }
             }
         }
-        .upperLimbVisibility(.visible)
         .immersionStyle(selection: .constant(appModel.immersionStyle), in: .mixed, .full)
+        .upperLimbVisibility(.visible)
     }
 }
 struct ContentStageConfiguration: CompositorLayerConfiguration {
 
     func makeConfiguration(capabilities: LayerRenderer.Capabilities,
                            configuration: inout LayerRenderer.Configuration) {
-        DebugLog{ P("🧭 Immmersive config") }
+        DebugLog{ P("🧭 Immmersive makeConfiguration") }
         configuration.depthFormat = .depth32Float
         configuration.colorFormat = MetalRenderPixelFormat
 

@@ -41,7 +41,6 @@
 		80BE47542B34C08600EB05F4 /* MuVision in Frameworks */ = {isa = PBXBuildFile; productRef = 80BE47532B34C08600EB05F4 /* MuVision */; };
 		80BE47602B34C23800EB05F4 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE475B2B34C23800EB05F4 /* VisionView.swift */; };
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
-		80E0AFB52DA0AADA0056E787 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0AFB42DA0AADA0056E787 /* AppModel.swift */; };
 		80E0AFB72DA0C5160056E787 /* ImmersiveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0AFB62DA0C5160056E787 /* ImmersiveScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,7 +94,6 @@
 		80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCanvasBase.swift; sourceTree = "<group>"; };
 		80BE475B2B34C23800EB05F4 /* VisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
 		80DC21842337ACFB00B99CD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		80E0AFB42DA0AADA0056E787 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		80E0AFB62DA0C5160056E787 /* ImmersiveScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +118,6 @@
 		8063686F2AB3BE6200800F8A /* Sky */ = {
 			isa = PBXGroup;
 			children = (
-				80E0AFB42DA0AADA0056E787 /* AppModel.swift */,
 				806A97902AB2F22A00CF04FF /* SkyApp.swift */,
 				80E0AFB62DA0C5160056E787 /* ImmersiveScene.swift */,
 				8070497323378ADB0001617D /* SkyPipeline.swift */,
@@ -303,7 +300,6 @@
 				806B2DD62C2CED5D0054C979 /* cell.rule.fade.metal in Sources */,
 				806B2DD72C2CED5D0054C979 /* cell.rule.melt.metal in Sources */,
 				806B2DD82C2CED5D0054C979 /* cell.rule.erode.metal in Sources */,
-				80E0AFB52DA0AADA0056E787 /* AppModel.swift in Sources */,
 				806B2DD92C2CED5D0054C979 /* cell.rule.tunl.metal in Sources */,
 				806B2DDA2C2CED5D0054C979 /* cell.rule.ave.metal in Sources */,
 				806B2DDB2C2CED5D0054C979 /* cell.rule.fred.metal in Sources */,

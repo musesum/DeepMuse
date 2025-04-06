@@ -85,9 +85,9 @@
 			<array>
 				<dict>
 					<key>UISceneClassName</key>
-					<string></string>
+					<string>ImmersiveScene</string>
 					<key>UISceneDelegateClassName</key>
-					<string></string>
+					<string>CPImmersiveSceneDelegate</string>
 					<key>UISceneConfigurationName</key>
 					<string>Immersive</string>
 					<key>UISceneInitialImmersionStyle</key>
