@@ -44,7 +44,7 @@ fragment half4 cubeIndexFragment
  CubeVertex         cubeVertex [[ stage_in   ]],
  texture2d<half>    inTex      [[ texture(0) ]],
  texturecube<half>  cudex      [[ texture(1) ]],
- constant float&    mixcube    [[ buffer(0)  ]])
+ constant float2&    mixcube    [[ buffer(0)  ]])
 {
     float3 texCoord = float3(cubeVertex.texCoord.x,
                              cubeVertex.texCoord.y,
@@ -55,7 +55,9 @@ fragment half4 cubeIndexFragment
     half4 index = cudex.sample(samplr,texCoord);
     float2 inCoord = float2(index.xy);
     half4 sample = inTex.sample(samplr, inCoord);
-    return half4(sample.xyz, mixcube);
+    float mix = mixcube.x;
+    float alpha = mixcube.y;
+    return half4(sample.xyz, mix);
 }
 
 // MARK: - fragment color
