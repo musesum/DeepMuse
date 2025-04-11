@@ -11,8 +11,11 @@ struct VisionView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(AppModel.self) var appModel
     
-    @StateObject private var visionModel = VisionModel()
-    
+    private var visionModel: VisionModel
+    init(_ visionModel: VisionModel) {
+        self.visionModel = visionModel
+    }
+
     var body: some View {
         ZStack(alignment: .bottom) {
             visionModel.menuTouchView
@@ -20,7 +23,6 @@ struct VisionView: View {
                        minHeight: appModel.showImmersiveSpace ? 480 : 600)
                 .frame(maxWidth: appModel.showImmersiveSpace ? 800 : 1920,
                        maxHeight: appModel.showImmersiveSpace ? 480 : 1280)
-            
             Button {
                 appModel.showImmersiveSpace.toggle()
             } label: {
@@ -28,7 +30,6 @@ struct VisionView: View {
             }
             .padding(6)
         }
-
         .onAppear {
             visionModel.setImmersion(appModel.showImmersiveSpace)
             Task { await visionModel.startHands() }
@@ -36,43 +37,7 @@ struct VisionView: View {
         .onChange(of: appModel.showImmersiveSpace) { _, newValue in
             visionModel.setImmersion(newValue)
         }
-        .onChange(of: scenePhase) { _, newPhase in
-            Task { @MainActor in
-                if newPhase == .background {
-                    DebugLog { P("🎬 VisionView scenePhase .background") }
-                    appModel.showImmersiveSpace = false
-                } else {
-                    DebugLog { P("🎬 VisionView scenePhase NOT .background") }
-                }
-            }
-        }
+        .opacity(visionModel.showMenu ? 1 : 0)
     }
 }
-
-@MainActor
-final class VisionModel: ObservableObject {
-    let menuTouchView = MenuTouchView()
-    let skyCanvas = SkyCanvas.shared
-    let handsModel: HandsModel
-    let handsTracker: HandsTracker
-    
-    init() {
-        handsModel = HandsModel(TouchCanvas.shared, Flo.root˚)
-        handsTracker = HandsTracker(handsModel.handsFlo)
-    }
-
-    func setImmersion(_ immersive: Bool) {
-        NextFrame.shared.pause = immersive
-        skyCanvas.pipeline.layer.opacity = immersive ? 0 : 1
-        RenderDepth.state = immersive ? .immersive : .passthrough
-    }
-    
-    func startHands() async {
-        await handsTracker.startHands()
-        await handsTracker.updateHands()
-        await handsTracker.monitorSessionEvents()
-
-    }
-}
-
 #endif

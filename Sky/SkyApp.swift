@@ -19,9 +19,10 @@ struct SkyApp: App {
 
         @Environment(\.scenePhase) var scenePhase
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+        let visionModel = VisionModel()
 
         WindowGroup(id: "App") {
-            VisionView()
+            VisionView(visionModel)
                 .environment(appModel)
                 .onOpenURL { url in
                     SkyCanvas.shared.readUserArchive(url, local: false)
@@ -33,7 +34,14 @@ struct SkyApp: App {
                             switch await openImmersiveSpace(id: ImmersiveScene.id) {
                             case .opened:
                                 appModel.immersiveSpaceIsShown = true
-                            case .error, .userCancelled:
+                            case .userCancelled:
+                                // stay in immersive state to allow user to use
+                                // only hand pose to controll parameters 
+                                // otherwise fallthrough to @nknown default to stop
+                                DebugLog{ P("👐👆 setting visionModel.showMenu to false") }
+                                visionModel.showMenu = false
+                                break
+                            case .error:
                                 fallthrough
                             @unknown default:
                                 appModel.immersiveSpaceIsShown = false
