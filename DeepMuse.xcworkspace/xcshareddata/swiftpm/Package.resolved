@@ -1,4 +1,5 @@
 {
+  "originHash" : "b8dbbfcc8b522da7f77c00a62d034468a0aabc9ce0ea2461152c2dd0ac1d2bbc",
   "pins" : [
     {
       "identity" : "audiokit",
@@ -7,6 +8,69 @@
       "state" : {
         "branch" : "main",
         "revision" : "03eb92a79a427c739617160f5d407e43c56069b6"
+      }
+    },
+    {
+      "identity" : "muaudio",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuAudio",
+      "state" : {
+        "branch" : "main",
+        "revision" : "820ba881388de5265afd3261cbb430e66d0237c7"
+      }
+    },
+    {
+      "identity" : "muflo",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuFlo.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c22ee3510b56a55652093532719137623c040dca"
+      }
+    },
+    {
+      "identity" : "mumenu",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuMenu",
+      "state" : {
+        "branch" : "main",
+        "revision" : "fa30a66f6483470a1695214d176de0f308311010"
+      }
+    },
+    {
+      "identity" : "mupeer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuPeer",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f88ef31d218bf47cd9649eb8fa2e07ef03c9b8e7"
+      }
+    },
+    {
+      "identity" : "muplato",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuPlato",
+      "state" : {
+        "branch" : "main",
+        "revision" : "789d7d3f87884f20f1107a15f75a11d13da1500e"
+      }
+    },
+    {
+      "identity" : "musky",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuSky",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7a9492b413b81b2e03bc2e9bd2b0a82d10b787d9"
+      }
+    },
+    {
+      "identity" : "muvision",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuVision",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7e845fbea8cf4245795c3da20af9e3bd2b81b57d"
       }
     },
     {
@@ -37,5 +101,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

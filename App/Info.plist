@@ -10,30 +10,6 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Deep Muse</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Deep Muse Snapshot</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.deepmuse.mu</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Deep Muse Script</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.deepmuse.flo</string>
-			</array>
-		</dict>
-		<dict/>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -79,6 +55,12 @@
 	<string>navigate menu via voice commands</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
+		<string>UIWindowSceneSessionRoleApplication</string>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
+		<string>UIWindowSceneSessionRoleVolumetricApplication</string>
 		<key>UISceneConfigurations</key>
 		<dict>
 			<key>CPSceneSessionRoleImmersiveSpaceApplication</key>
@@ -86,21 +68,15 @@
 				<dict>
 					<key>UISceneClassName</key>
 					<string>ImmersiveScene</string>
-					<key>UISceneDelegateClassName</key>
-					<string>CPImmersiveSceneDelegate</string>
 					<key>UISceneConfigurationName</key>
 					<string>Immersive</string>
+					<key>UISceneDelegateClassName</key>
+					<string>CPImmersiveSceneDelegate</string>
 					<key>UISceneInitialImmersionStyle</key>
 					<string>UIImmersionStyleMixed</string>
 				</dict>
 			</array>
 		</dict>
-		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
-		<string>UIWindowSceneSessionRoleApplication</string>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<true/>
-		<key>UIApplicationSupportsTabbedSceneCollection</key>
-		<string>UIWindowSceneSessionRoleVolumetricApplication</string>
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
@@ -134,7 +110,7 @@
 				<string>public.content</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>Deep Muse Snapshot</string>
+			<string>Deep Muse Patch</string>
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
