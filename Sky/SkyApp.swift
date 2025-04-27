@@ -21,7 +21,7 @@ struct SkyApp: App {
     let peers = Peers("Sky")
     init() {
         root˚ = Flo("√")
-        skyCanvas = SkyCanvas(root˚, 3, .zero)
+        skyCanvas = SkyCanvas(root˚, peers, 3, .zero)
         visionModel = VisionModel(skyCanvas, peers)
     }
     var body: some Scene {
@@ -81,7 +81,7 @@ struct SkyApp: App {
     let peers = Peers("Sky")
     init() {
         root˚ = Flo("√")
-        skyCanvas = SkyCanvas(root˚, UIScreen.main.scale, UIScreen.main.bounds)
+        skyCanvas = SkyCanvas(root˚, peers, UIScreen.main.scale, UIScreen.main.bounds)
     }
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase

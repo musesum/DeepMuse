@@ -6,6 +6,7 @@ import MuAudio
 import MuSky
 import MuVision
 import MuMenu
+import MuPeer
 
 class SkyCanvasBase {
 
@@ -23,17 +24,20 @@ class SkyCanvasBase {
     public var touchCanvas: TouchCanvas
     public var touchDraw: TouchDraw
     public var root˚: Flo
+    public var peers: Peers
 
     init(_ root˚: Flo,
+         _ peers: Peers,
          _ scale: CGFloat,
          _ bounds: CGRect) {
 
         self.root˚ = root˚
+        self.peers = peers
         skyArchive = SkyArchive(root˚) // reads and parses files into root˚
-        muAudio = MuAudio(root˚)
+        muAudio = MuAudio(root˚, peers)
         touchDraw = TouchDraw(root˚, scale)
         pipeline = SkyPipeline(root˚, skyArchive, touchDraw, scale, bounds)
-        touchCanvas = TouchCanvas(touchDraw)
+        touchCanvas = TouchCanvas(touchDraw, peers)
         midiDrawDot = MidiDrawDot(root˚, touchCanvas, touchDraw, skyArchive, "sky.draw.dot")
         midiRipple = MidiDrawRipple(root˚, touchCanvas, touchDraw, skyArchive, "sky.draw.ripple")
         touchView = TouchView(pipeline, touchCanvas)
