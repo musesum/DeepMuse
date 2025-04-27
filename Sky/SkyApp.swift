@@ -14,18 +14,24 @@ struct SkyApp: App {
     @State public var appModel = AppModel()
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
-
+    let root˚: Flo
+    let skyCanvas: SkyCanvas
+    let visionModel: VisionModel
+    init() {
+        root˚ = Flo("√")
+        skyCanvas = SkyCanvas(root˚, 3, .zero)
+        visionModel = VisionModel(skyCanvas)
+    }
     var body: some Scene {
 
         @Environment(\.scenePhase) var scenePhase
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-        let visionModel = VisionModel()
 
         WindowGroup(id: "App") {
             VisionView(visionModel)
                 .environment(appModel)
                 .onOpenURL { url in
-                    SkyCanvas.shared.readUserArchive(url, local: false)
+                    skyCanvas.readUserArchive(url, local: false)
                 }
                 .onChange(of: appModel.showImmersiveSpace) { _, newValue in
                     // Manage the lifecycle of the immersive space.
@@ -54,7 +60,7 @@ struct SkyApp: App {
                 }
         }
         .windowResizability(.contentSize)
-        ImmersiveScene()
+        ImmersiveScene(skyCanvas.pipeline)
             .environment(appModel)
     }
 }
@@ -68,12 +74,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SkyApp: App {
+    let root˚: Flo
+    let skyCanvas: SkyCanvas
+    init() {
+        root˚ = Flo("√")
+        skyCanvas = SkyCanvas(root˚, UIScreen.main.scale, UIScreen.main.bounds)
+    }
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            MenuTouchView()
+            MenuTouchView(skyCanvas)
                 .onOpenURL { url in
-                    SkyCanvas.shared.readUserArchive(url, local: false)
+                    skyCanvas.readUserArchive(url, local: false)
                 }
         }
     }

@@ -9,29 +9,35 @@ import MuMenu
 
 class SkyCanvasBase {
 
-    private var midi: MuMidi
     private var settingUp = true
     private var frameNow = CGRect.zero
-    private var archive: SkyArchive
+    private var skyArchive: SkyArchive
+    private var muAudio: MuAudio!
+    private var midiDrawDot: MidiDrawDot!
+    private var midiRipple: MidiDrawRipple!
 
     public var pipeline: SkyPipeline
-    public var touchesView: TouchesView
+    public var touchView: TouchView
     public var renderState = RenderDepth.state
     public var stateFrame = [RenderState: CGRect]()
-    public var touchCanvas = TouchCanvas.shared
+    public var touchCanvas: TouchCanvas
+    public var touchDraw: TouchDraw
+    public var root˚: Flo
 
-    init() {
-        archive = SkyArchive.shared
-        midi = MuMidi(root: Flo.root˚)
-        TouchMidi.touchRemote = midi
-        _ = MuAudio.shared // MuAudio.shared.test()
-        TouchDraw.shared.parseRoot(Flo.root˚, archive)
-        pipeline = SkyPipeline(Flo.root˚, archive)
+    init(_ root˚: Flo,
+         _ scale: CGFloat,
+         _ bounds: CGRect) {
 
-        touchesView = TouchesView(pipeline.pipeSize, touchCanvas)
-        touchesView.backgroundColor = .clear
-        touchesView.layer.addSublayer(pipeline.layer)
-        touchesView.isOpaque = false
+        self.root˚ = root˚
+        skyArchive = SkyArchive(root˚) // reads and parses files into root˚
+        muAudio = MuAudio(root˚)
+        touchDraw = TouchDraw(root˚, scale)
+        pipeline = SkyPipeline(root˚, skyArchive, touchDraw, scale, bounds)
+        touchCanvas = TouchCanvas(touchDraw)
+        midiDrawDot = MidiDrawDot(root˚, touchCanvas, touchDraw, skyArchive, "sky.draw.dot")
+        midiRipple = MidiDrawRipple(root˚, touchCanvas, touchDraw, skyArchive, "sky.draw.ripple")
+        touchView = TouchView(pipeline, touchCanvas)
+
         ArchiveVm.shared.archiveProto = self
         NextFrame.shared.addBetweenFrame {
             self.pipeline.alignTextures()
@@ -43,7 +49,7 @@ extension SkyCanvasBase: ArchiveProto {
 
     func readUserArchive(_ url: URL, local: Bool) {
 
-        archive.readUrl(url, local: local)
+        skyArchive.readUrl(url, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
         NextFrame.shared.addBetweenFrame {
@@ -138,7 +144,7 @@ extension SkyCanvasBase: ArchiveProto {
 
         func saveFloScript(_ name: String, scriptOps: FloScriptOps) {
 
-            let script = Flo.root˚.scriptRoot(scriptOps)
+            let script = root˚.scriptRoot(scriptOps)
             let dataNow = Data(script.utf8)
             archiveExt.addName(name,  ext: "flo.h", data: dataNow)
         }

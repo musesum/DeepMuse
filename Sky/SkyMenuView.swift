@@ -11,15 +11,15 @@ struct MenuTouchView: View {
     @Environment(\.scenePhase) var scenePhase
 
     var menuVms: [MenuVm]
-    let skyCanvas = SkyCanvas.shared
+    let skyCanvas: SkyCanvas
     var renderState: RenderState = .passthrough
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
 
-    public init() {
-
-        self.menuVms = MenuVms(Flo.root˚).menuVms
-        self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchesView)
+    public init(_ skyCanvas: SkyCanvas) {
+        self.skyCanvas = skyCanvas
+        self.menuVms = MenuVms(skyCanvas.root˚).menuVms
+        self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
         RenderDepth.state = renderState
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
@@ -48,7 +48,7 @@ struct MenuTouchView: View {
                 NextFrame.shared.pause = false
             case .inactive:
                 DebugLog { P("🎬 MenuTouchView 🔴") }
-                SkyCanvas.shared.saveArchive("Snapshot", "autosaved") {
+                skyCanvas.saveArchive("Snapshot", "autosaved") {
                     NextFrame.shared.pause = true
                 }
             default:  break

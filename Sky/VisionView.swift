@@ -10,10 +10,12 @@ import MuMenu
 struct VisionView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(AppModel.self) var appModel
-    
+    let skyCanvas: SkyCanvas
     private var visionModel: VisionModel
-    init(_ visionModel: VisionModel) {
+    init(_ visionModel: VisionModel,
+         _ skyCanvas: SkyCanvas) {
         self.visionModel = visionModel
+        self.skyCanvas = skyCanvas
     }
 
     var body: some View {

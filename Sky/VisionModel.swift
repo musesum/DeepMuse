@@ -12,15 +12,19 @@ import MuMenu
 @MainActor
 final class VisionModel: ObservableObject, ImmersionDelegate {
     let menuTouchView = MenuTouchView()
-    let skyCanvas = SkyCanvas.shared
-    let touchCanvas = TouchCanvas.shared
+    let skyCanvas: SkyCanvas
+    let touchCanvas: TouchCanvas
     let handsModel: HandsModel
     let handsTracker: HandsTracker
     var immersive: Bool = false
     var showMenu: Bool = true
 
-    init() {
-        handsModel = HandsModel(TouchCanvas.shared, Flo.root˚)
+
+    init(_ skyCanvas: SkyCanvas) {
+        self.skyCanvas = skyCanvas
+        self.touchCanvas = TouchCanvas()
+
+        handsModel = HandsModel(touchCanvas, skyCanvas.root˚)
         handsTracker = HandsTracker(handsModel.handsFlo)
         touchCanvas.immersiveDelegate = self
     }

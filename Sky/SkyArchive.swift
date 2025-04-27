@@ -4,9 +4,7 @@ import MuFlo
 import MuVision
 import MuSky
 
-class SkyArchive: ArchiveFlo {
-
-    public static let shared = SkyArchive()
+public class SkyArchive: ArchiveFlo {
 
     private var bundles = [MuSky.bundle, MuVision.bundle]
     private var snapName = "Snapshot"
@@ -16,7 +14,7 @@ class SkyArchive: ArchiveFlo {
 #else
     private var scriptNames  = ["sky", "pipe", "canvas", "plato", "cell", "camera", "more", "midi"]
 #endif
-    init() {
-        super.init(bundles, snapName, scriptNames, texNames)
+    init(_ root˚: Flo) {
+        super.init(root˚, bundles, snapName, scriptNames, texNames)
     }
 }

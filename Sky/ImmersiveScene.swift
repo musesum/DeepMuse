@@ -10,18 +10,19 @@ import CompositorServices
 struct ImmersiveScene: Scene {
 
     @Environment(AppModel.self) var appModel
-
     static let id = "Immersive"
 
+    let skyPipeline: SkyPipeline
+    init(_ skyPipeline: SkyPipeline) {
+        self.skyPipeline = skyPipeline
+    }
     var body: some Scene {
         ImmersiveSpace(id: Self.id) {
             CompositorLayer(configuration: ContentStageConfiguration()) {
                 layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
                 Task(priority: .high) {
-
-                    let pipeline = SkyCanvas.shared.pipeline
-                    let renderer = Renderer(layerRenderer, pipeline, appModel)
+                    let renderer = Renderer(layerRenderer, skyPipeline, appModel)
                     try await renderer.renderLoop()
                 }
             }
