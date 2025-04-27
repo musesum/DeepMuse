@@ -6,6 +6,7 @@ import BackgroundTasks
 import MuFlo
 import MuVision
 import MuMenu
+import MuPeer
 
 struct MenuTouchView: View {
     @Environment(\.scenePhase) var scenePhase
@@ -16,9 +17,9 @@ struct MenuTouchView: View {
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
 
-    public init(_ skyCanvas: SkyCanvas) {
+    public init(_ skyCanvas: SkyCanvas, _ peers: Peers) {
         self.skyCanvas = skyCanvas
-        self.menuVms = MenuVms(skyCanvas.root˚).menuVms
+        self.menuVms = MenuVms(skyCanvas.root˚, peers).menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
         RenderDepth.state = renderState
         NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)

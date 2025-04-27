@@ -6,6 +6,7 @@ import MuFlo // NextFrame
 import MuVision
 import MetalKit
 import MuMenu
+import MuPeer
 
 #if os(visionOS)
 
@@ -19,11 +20,10 @@ final class VisionModel: ObservableObject, ImmersionDelegate {
     var immersive: Bool = false
     var showMenu: Bool = true
 
-
-    init(_ skyCanvas: SkyCanvas) {
+    init(_ skyCanvas: SkyCanvas, _ peers: Peers) {
         self.skyCanvas = skyCanvas
         self.touchCanvas = TouchCanvas(skyCanvas.touchDraw)
-        self.menuTouchView = MenuTouchView(skyCanvas)
+        self.menuTouchView = MenuTouchView(skyCanvas, peers)
 
         handsModel = HandsModel(touchCanvas, skyCanvas.root˚)
         handsTracker = HandsTracker(handsModel.handsFlo)

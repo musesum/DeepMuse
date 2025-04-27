@@ -4,6 +4,7 @@
 import SwiftUI
 import MuVision
 import MuFlo // NextFrame
+import MuPeer
 
 #if os(visionOS)
 import CompositorServices
@@ -17,10 +18,11 @@ struct SkyApp: App {
     let root˚: Flo
     let skyCanvas: SkyCanvas
     let visionModel: VisionModel
+    let peers = Peers("Sky")
     init() {
         root˚ = Flo("√")
         skyCanvas = SkyCanvas(root˚, 3, .zero)
-        visionModel = VisionModel(skyCanvas)
+        visionModel = VisionModel(skyCanvas, peers)
     }
     var body: some Scene {
 
@@ -76,6 +78,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct SkyApp: App {
     let root˚: Flo
     let skyCanvas: SkyCanvas
+    let peers = Peers("Sky")
     init() {
         root˚ = Flo("√")
         skyCanvas = SkyCanvas(root˚, UIScreen.main.scale, UIScreen.main.bounds)
@@ -83,7 +86,7 @@ struct SkyApp: App {
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            MenuTouchView(skyCanvas)
+            MenuTouchView(skyCanvas, peers)
                 .onOpenURL { url in
                     skyCanvas.readUserArchive(url, local: false)
                 }
