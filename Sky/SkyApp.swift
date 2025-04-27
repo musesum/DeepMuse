@@ -28,7 +28,7 @@ struct SkyApp: App {
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
         WindowGroup(id: "App") {
-            VisionView(visionModel)
+            VisionView(visionModel, skyCanvas)
                 .environment(appModel)
                 .onOpenURL { url in
                     skyCanvas.readUserArchive(url, local: false)

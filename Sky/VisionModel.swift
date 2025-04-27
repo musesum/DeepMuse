@@ -11,7 +11,7 @@ import MuMenu
 
 @MainActor
 final class VisionModel: ObservableObject, ImmersionDelegate {
-    let menuTouchView = MenuTouchView()
+    let menuTouchView: MenuTouchView
     let skyCanvas: SkyCanvas
     let touchCanvas: TouchCanvas
     let handsModel: HandsModel
@@ -22,7 +22,8 @@ final class VisionModel: ObservableObject, ImmersionDelegate {
 
     init(_ skyCanvas: SkyCanvas) {
         self.skyCanvas = skyCanvas
-        self.touchCanvas = TouchCanvas()
+        self.touchCanvas = TouchCanvas(skyCanvas.touchDraw)
+        self.menuTouchView = MenuTouchView(skyCanvas)
 
         handsModel = HandsModel(touchCanvas, skyCanvas.root˚)
         handsTracker = HandsTracker(handsModel.handsFlo)

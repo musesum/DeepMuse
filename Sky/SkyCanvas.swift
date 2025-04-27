@@ -41,7 +41,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
         func setFrame(_ state: String,_ size: CGSize, scale: CGFloat) {
             let drawableSize = size * scale // layer.drawableSize
             let layerFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            touchesView.frame = layerFrame
+            touchView.frame = layerFrame
             touchDraw.drawableSize = drawableSize
             pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
             DebugLog {
@@ -62,7 +62,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
     func secondMenuFrame() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             DebugLog { P("🧭 Immersive secondMenuFrame") }
-            self.menuFrame(self.touchesView.frame, self.insets, onAppear: false)
+            self.menuFrame(self.touchView.frame, self.insets, onAppear: false)
         }
     }
 }
