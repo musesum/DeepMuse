@@ -22,7 +22,7 @@ final class VisionModel: ObservableObject, ImmersionDelegate {
 
     init(_ skyCanvas: SkyCanvas, _ peers: Peers) {
         self.skyCanvas = skyCanvas
-        self.touchCanvas = TouchCanvas(skyCanvas.touchDraw)
+        self.touchCanvas = TouchCanvas(skyCanvas.touchDraw, peers)
         self.menuTouchView = MenuTouchView(skyCanvas, peers)
 
         handsModel = HandsModel(touchCanvas, skyCanvas.root˚)
