@@ -10,40 +10,46 @@ import MuPeer
 
 class SkyCanvasBase {
 
-    private var settingUp = true
-    private var frameNow = CGRect.zero
-    private var skyArchive: SkyArchive
-    private var muAudio: MuAudio!
-    private var midiDrawDot: MidiDrawDot!
-    private var midiRipple: MidiDrawRipple!
+    private let archive: SkyArchive
+    private let muAudio: MuAudio!
+    private let drawDot: DrawDot
+    private let drawPal: DrawPal
+    private let ripples: Ripples
+    private let touchCanvas: TouchCanvas
+    private let peers: Peers
 
-    public var pipeline: SkyPipeline
-    public var touchView: TouchView
+    public let root˚: Flo
+    public let pipeline: SkyPipeline
+    public let touchView: TouchView
+    public let touchDraw: TouchDraw
+    public let nextFrame: NextFrame
+    public let archiveVm: ArchiveVm
+
     public var renderState = RenderDepth.state
     public var stateFrame = [RenderState: CGRect]()
-    public var touchCanvas: TouchCanvas
-    public var touchDraw: TouchDraw
-    public var root˚: Flo
-    public var peers: Peers
 
     init(_ root˚: Flo,
+         _ archiveVm: ArchiveVm,
          _ peers: Peers,
          _ scale: CGFloat,
          _ bounds: CGRect) {
 
         self.root˚ = root˚
+        self.archiveVm = archiveVm
+        self.nextFrame = archiveVm.nextFrame
         self.peers = peers
-        skyArchive = SkyArchive(root˚) // reads and parses files into root˚
+        self.ripples = Ripples()
+        archive = SkyArchive(root˚, nextFrame)
         muAudio = MuAudio(root˚, peers)
         touchDraw = TouchDraw(root˚, scale)
-        pipeline = SkyPipeline(root˚, skyArchive, touchDraw, scale, bounds)
+        pipeline = SkyPipeline(root˚, archive, touchDraw, scale, bounds, ripples)
         touchCanvas = TouchCanvas(touchDraw, peers)
-        midiDrawDot = MidiDrawDot(root˚, touchCanvas, touchDraw, skyArchive, "sky.draw.dot")
-        midiRipple = MidiDrawRipple(root˚, touchCanvas, touchDraw, skyArchive, "sky.draw.ripple")
+        drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
+        drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
         touchView = TouchView(pipeline, touchCanvas)
 
-        ArchiveVm.shared.archiveProto = self
-        NextFrame.shared.addBetweenFrame {
+        archiveVm.archiveProto = self
+        nextFrame.addBetweenFrame {
             self.pipeline.alignTextures()
         }
     }
@@ -51,12 +57,12 @@ class SkyCanvasBase {
 
 extension SkyCanvasBase: ArchiveProto {
 
-    func readUserArchive(_ url: URL, local: Bool) {
+    func readUserArchive(_ url: URL, _ nextFrame: NextFrame, local: Bool) {
 
-        skyArchive.readUrl(url, local: local)
+        archive.readUrl(url, nextFrame, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
-        NextFrame.shared.addBetweenFrame {
+        nextFrame.addBetweenFrame {
             self.pipeline.alignNameTex()
         }
     }
@@ -115,8 +121,8 @@ extension SkyCanvasBase: ArchiveProto {
 
                 guard let pipeNode else { return }
 
-                let pipeFlo = pipeNode.pipeFlo
-                for child in pipeFlo.children {
+                let pipeNode˚ = pipeNode.pipeNode˚
+                for child in pipeNode˚.children {
 
                     // found a new achive texture
                     if child.passthrough == false,
@@ -139,7 +145,7 @@ extension SkyCanvasBase: ArchiveProto {
                 for pipeChild in pipeNode.pipeChildren {
                     // `on` == 1 is the active part of a pipeline
                     // `on` == 0 can be skipped
-                    if let on = pipeChild.pipeFlo.val("on"), on > 0 {
+                    if let on = pipeChild.pipeNode˚.val("on"), on > 0 {
                         savePipe(pipeChild)
                     }
                 }

@@ -90,11 +90,11 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
 }
 #endif
 extension SkyCanvas: NextFrameDelegate {
-    func nextFrame() -> Bool {
+    func goFrame() -> Bool {
         pipeline.renderFrame()
         return true
     }
     func cancel(_ key: Int) {
-        NextFrame.shared.removeDelegate(key)
+        nextFrame.removeDelegate(key)
     }
 }

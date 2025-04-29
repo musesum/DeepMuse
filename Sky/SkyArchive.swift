@@ -14,7 +14,7 @@ public class SkyArchive: ArchiveFlo {
 #else
     private var scriptNames  = ["sky", "pipe", "canvas", "plato", "cell", "camera", "more", "midi"]
 #endif
-    init(_ root˚: Flo) {
-        super.init(root˚, bundles, snapName, scriptNames, texNames)
+    init(_ root˚: Flo, _ nextFrame: NextFrame) {
+        super.init(root˚, bundles, snapName, scriptNames, texNames, nextFrame)
     }
 }

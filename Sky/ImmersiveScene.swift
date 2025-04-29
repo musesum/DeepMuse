@@ -12,9 +12,14 @@ struct ImmersiveScene: Scene {
     @Environment(AppModel.self) var appModel
     static let id = "Immersive"
 
-    let skyPipeline: SkyPipeline
-    init(_ skyPipeline: SkyPipeline) {
-        self.skyPipeline = skyPipeline
+    let pipeline: SkyPipeline
+    let nextFrame: NextFrame
+
+    init(_ pipeline: SkyPipeline,
+         _ nextFrame: NextFrame) {
+        
+        self.pipeline = pipeline
+        self.nextFrame = nextFrame
     }
     var body: some Scene {
         ImmersiveSpace(id: Self.id) {
@@ -22,7 +27,7 @@ struct ImmersiveScene: Scene {
                 layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
                 Task(priority: .high) {
-                    let renderer = Renderer(layerRenderer, skyPipeline, appModel)
+                    let renderer = Renderer(layerRenderer, pipeline, nextFrame, appModel)
                     try await renderer.renderLoop()
                 }
             }

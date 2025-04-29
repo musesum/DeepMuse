@@ -12,8 +12,9 @@ import MuPeer
 
 @MainActor
 final class VisionModel: ObservableObject, ImmersionDelegate {
-    let menuTouchView: MenuTouchView
+    let menuTouchView: SkyView
     let skyCanvas: SkyCanvas
+    let nextFrame: NextFrame
     let touchCanvas: TouchCanvas
     let handsModel: HandsModel
     let handsTracker: HandsTracker
@@ -22,8 +23,9 @@ final class VisionModel: ObservableObject, ImmersionDelegate {
 
     init(_ skyCanvas: SkyCanvas, _ peers: Peers) {
         self.skyCanvas = skyCanvas
+        self.nextFrame = skyCanvas.nextFrame
         self.touchCanvas = TouchCanvas(skyCanvas.touchDraw, peers)
-        self.menuTouchView = MenuTouchView(skyCanvas, peers)
+        self.menuTouchView = SkyView(skyCanvas, peers)
 
         handsModel = HandsModel(touchCanvas, skyCanvas.root˚)
         handsTracker = HandsTracker(handsModel.handsFlo)
@@ -33,7 +35,7 @@ final class VisionModel: ObservableObject, ImmersionDelegate {
     func setImmersion(_ immersive: Bool) {
         self.immersive = immersive
         touchCanvas.immersive = immersive
-        NextFrame.shared.pause = immersive
+        nextFrame.pause = immersive
         skyCanvas.pipeline.layer.opacity = immersive ? 0 : 1
         RenderDepth.state = immersive ? .immersive : .passthrough
     }

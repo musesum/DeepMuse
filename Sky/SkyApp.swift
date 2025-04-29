@@ -19,9 +19,12 @@ struct SkyApp: App {
     let skyCanvas: SkyCanvas
     let visionModel: VisionModel
     let peers = Peers("Sky")
+    let archiveVm: ArchiveVm
+    let nextFrame = NextFrame()
     init() {
         root˚ = Flo("√")
-        skyCanvas = SkyCanvas(root˚, peers, 3, .zero)
+        archiveVm = ArchiveVm(nextFrame)
+        skyCanvas = SkyCanvas(root˚, archiveVm, peers, 3, .zero)
         visionModel = VisionModel(skyCanvas, peers)
     }
     var body: some Scene {
@@ -33,7 +36,7 @@ struct SkyApp: App {
             VisionView(visionModel, skyCanvas)
                 .environment(appModel)
                 .onOpenURL { url in
-                    skyCanvas.readUserArchive(url, local: false)
+                    skyCanvas.readUserArchive(url, nextFrame, local: false)
                 }
                 .onChange(of: appModel.showImmersiveSpace) { _, newValue in
                     // Manage the lifecycle of the immersive space.
@@ -62,7 +65,7 @@ struct SkyApp: App {
                 }
         }
         .windowResizability(.contentSize)
-        ImmersiveScene(skyCanvas.pipeline)
+        ImmersiveScene(skyCanvas.pipeline, skyCanvas.nextFrame)
             .environment(appModel)
     }
 }
@@ -78,17 +81,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct SkyApp: App {
     let root˚: Flo
     let skyCanvas: SkyCanvas
+    let nextFrame = NextFrame()
+    let archiveVm: ArchiveVm
     let peers = Peers("Sky")
     init() {
         root˚ = Flo("√")
-        skyCanvas = SkyCanvas(root˚, peers, UIScreen.main.scale, UIScreen.main.bounds)
+        archiveVm = ArchiveVm(nextFrame)
+        skyCanvas = SkyCanvas(root˚, archiveVm, peers, UIScreen.main.scale, UIScreen.main.bounds)
     }
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            MenuTouchView(skyCanvas, peers)
+            SkyView(skyCanvas, peers)
                 .onOpenURL { url in
-                    skyCanvas.readUserArchive(url, local: false)
+                    skyCanvas.readUserArchive(url, skyCanvas.nextFrame, local: false)
                 }
         }
     }

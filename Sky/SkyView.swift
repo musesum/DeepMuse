@@ -8,7 +8,7 @@ import MuVision
 import MuMenu
 import MuPeer
 
-struct MenuTouchView: View {
+struct SkyView: View {
     @Environment(\.scenePhase) var scenePhase
 
     var menuVms: [MenuVm]
@@ -16,13 +16,16 @@ struct MenuTouchView: View {
     var renderState: RenderState = .passthrough
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
+    let nextFrame: NextFrame
 
     public init(_ skyCanvas: SkyCanvas, _ peers: Peers) {
         self.skyCanvas = skyCanvas
-        self.menuVms = MenuVms(skyCanvas.root˚, peers).menuVms
+        self.nextFrame = skyCanvas.nextFrame
+        self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
+
         RenderDepth.state = renderState
-        NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyCanvas)
+        nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 
     var body: some View {
@@ -46,11 +49,11 @@ struct MenuTouchView: View {
             switch newPhase {
             case .active:
                 DebugLog { P("🎬 MenuTouchView 🟢") }
-                NextFrame.shared.pause = false
+                nextFrame.pause = false
             case .inactive:
                 DebugLog { P("🎬 MenuTouchView 🔴") }
                 skyCanvas.saveArchive("Snapshot", "autosaved") {
-                    NextFrame.shared.pause = true
+                    nextFrame.pause = true
                 }
             default:  break
             }

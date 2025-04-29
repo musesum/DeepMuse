@@ -13,7 +13,7 @@
 		801927CA2BBD04340041CE4C /* pipe.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C62BBD04340041CE4C /* pipe.camix.metal */; };
 		801927CB2BBD04340041CE4C /* render.map.flat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C72BBD04340041CE4C /* render.map.flat.metal */; };
 		801927CC2BBD04340041CE4C /* render.plato.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C82BBD04340041CE4C /* render.plato.metal */; };
-		8036D85D2BBCD12E00BB35EE /* SkyMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */; };
+		8036D85D2BBCD12E00BB35EE /* SkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036D85C2BBCD12E00BB35EE /* SkyView.swift */; };
 		804BC6622CF6B31C00E720C2 /* SkyArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804BC6612CF6B31C00E720C2 /* SkyArchive.swift */; };
 		806A97912AB2F22A00CF04FF /* SkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A97902AB2F22A00CF04FF /* SkyApp.swift */; };
 		806B2DD42C2CED5D0054C979 /* cell.rule.mod.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806B2DCF2C2CED5D0054C979 /* cell.rule.mod.metal */; };
@@ -66,7 +66,7 @@
 		801927C62BBD04340041CE4C /* pipe.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.camix.metal; sourceTree = "<group>"; };
 		801927C72BBD04340041CE4C /* render.map.flat.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.map.flat.metal; sourceTree = "<group>"; };
 		801927C82BBD04340041CE4C /* render.plato.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.plato.metal; sourceTree = "<group>"; };
-		8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyMenuView.swift; sourceTree = "<group>"; };
+		8036D85C2BBCD12E00BB35EE /* SkyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyView.swift; sourceTree = "<group>"; };
 		803DEEF22BE98EC60065B7B4 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		8045637D296B900600EE6E0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8049CDBC2CD04E50009B9B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */,
 				80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */,
 				804BC6612CF6B31C00E720C2 /* SkyArchive.swift */,
-				8036D85C2BBCD12E00BB35EE /* SkyMenuView.swift */,
+				8036D85C2BBCD12E00BB35EE /* SkyView.swift */,
 				80BE475B2B34C23800EB05F4 /* VisionView.swift */,
 				80A87E3D2DA7B391005A800F /* VisionModel.swift */,
 			);
@@ -341,7 +341,7 @@
 				807049F623378ADC0001617D /* pipe.draw.metal in Sources */,
 				801927C92BBD04340041CE4C /* render.map.cube.metal in Sources */,
 				801927CA2BBD04340041CE4C /* pipe.camix.metal in Sources */,
-				8036D85D2BBCD12E00BB35EE /* SkyMenuView.swift in Sources */,
+				8036D85D2BBCD12E00BB35EE /* SkyView.swift in Sources */,
 				801927C42BBD038C0041CE4C /* pipe.camera.metal in Sources */,
 				807049F923378ADC0001617D /* cell.rule.slide.metal in Sources */,
 				80158AAB2BC4459C0081ABAA /* kernel.sampleCube.metal in Sources */,
