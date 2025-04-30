@@ -9,37 +9,36 @@ import MuMenu
 
 struct VisionView: View {
     @Environment(\.scenePhase) private var scenePhase
-    @Environment(AppModel.self) var appModel
-    let skyCanvas: SkyCanvas
-    private var visionModel: VisionModel
-    init(_ visionModel: VisionModel,
-         _ skyCanvas: SkyCanvas) {
+    @Environment(ImmersionModel.self) var immersionModel
+
+    private let visionModel: VisionModel
+
+    init(_ visionModel: VisionModel) {
         self.visionModel = visionModel
-        self.skyCanvas = skyCanvas
     }
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            visionModel.menuTouchView
-                .frame(minWidth: appModel.showImmersiveSpace ? 640 : 800,
-                       minHeight: appModel.showImmersiveSpace ? 480 : 600)
-                .frame(maxWidth: appModel.showImmersiveSpace ? 800 : 1920,
-                       maxHeight: appModel.showImmersiveSpace ? 480 : 1280)
+            visionModel.skyView
+                .frame(minWidth: immersionModel.showImmersiveSpace ? 640 : 800,
+                       minHeight: immersionModel.showImmersiveSpace ? 480 : 600)
+                .frame(maxWidth: immersionModel.showImmersiveSpace ? 800 : 1920,
+                       maxHeight: immersionModel.showImmersiveSpace ? 480 : 1280)
             Button {
-                appModel.showImmersiveSpace.toggle()
+                immersionModel.showImmersiveSpace.toggle()
             } label: {
-                Text(appModel.showImmersiveSpace ? "Passthrough" : "Immersive")
+                Text(immersionModel.showImmersiveSpace ? "Passthrough" : "Immersive")
             }
             .padding(6)
         }
         .onAppear {
-            visionModel.setImmersion(appModel.showImmersiveSpace)
+            visionModel.setImmersion(immersionModel.showImmersiveSpace)
             Task { await visionModel.startHands() }
         }
-        .onChange(of: appModel.showImmersiveSpace) { _, newValue in
+        .onChange(of: immersionModel.showImmersiveSpace) { _, newValue in
             visionModel.setImmersion(newValue)
         }
-        .opacity(visionModel.showMenu ? 1 : 0)
+        .opacity(immersionModel.showMenu ? 1 : 0)
     }
 }
 #endif

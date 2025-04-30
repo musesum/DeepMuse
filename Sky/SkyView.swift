@@ -13,18 +13,16 @@ struct SkyView: View {
 
     var menuVms: [MenuVm]
     let skyCanvas: SkyCanvas
-    var renderState: RenderState = .passthrough
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
     let nextFrame: NextFrame
 
     public init(_ skyCanvas: SkyCanvas, _ peers: Peers) {
+
         self.skyCanvas = skyCanvas
         self.nextFrame = skyCanvas.nextFrame
         self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
-
-        RenderDepth.state = renderState
         nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 

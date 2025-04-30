@@ -15,9 +15,9 @@ class SkyCanvasBase {
     private let drawDot: DrawDot
     private let drawPal: DrawPal
     private let ripples: Ripples
-    private let touchCanvas: TouchCanvas
     private let peers: Peers
 
+    public let touchCanvas: TouchCanvas
     public let root˚: Flo
     public let pipeline: SkyPipeline
     public let touchView: TouchView
@@ -25,28 +25,30 @@ class SkyCanvasBase {
     public let nextFrame: NextFrame
     public let archiveVm: ArchiveVm
 
-    public var renderState = RenderDepth.state
+    public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
 
     init(_ root˚: Flo,
+         _ renderState: RenderState,
          _ archiveVm: ArchiveVm,
          _ peers: Peers,
          _ scale: CGFloat,
          _ bounds: CGRect) {
 
         self.root˚ = root˚
+        self.renderState = renderState
         self.archiveVm = archiveVm
         self.nextFrame = archiveVm.nextFrame
         self.peers = peers
         self.ripples = Ripples()
-        archive = SkyArchive(root˚, nextFrame)
-        muAudio = MuAudio(root˚, peers)
-        touchDraw = TouchDraw(root˚, scale)
-        pipeline = SkyPipeline(root˚, archive, touchDraw, scale, bounds, ripples)
-        touchCanvas = TouchCanvas(touchDraw, peers)
-        drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
-        drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
-        touchView = TouchView(pipeline, touchCanvas)
+        self.archive = SkyArchive(root˚, nextFrame)
+        self.muAudio = MuAudio(root˚, peers)
+        self.touchDraw = TouchDraw(root˚, scale)
+        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples)
+        self.touchCanvas = TouchCanvas(touchDraw, peers)
+        self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
+        self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
+        self.touchView = TouchView(pipeline, touchCanvas)
 
         archiveVm.archiveProto = self
         nextFrame.addBetweenFrame {

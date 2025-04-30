@@ -3,7 +3,7 @@
 
 import SwiftUI
 import MuVision
-import MuFlo // NextFrame
+import MuFlo 
 import MuPeer
 
 #if os(visionOS)
@@ -12,61 +12,38 @@ import CompositorServices
 @main
 struct SkyApp: App {
 
-    @State public var appModel = AppModel()
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    let root˚: Flo
-    let skyCanvas: SkyCanvas
-    let visionModel: VisionModel
-    let peers = Peers("Sky")
-    let archiveVm: ArchiveVm
-    let nextFrame = NextFrame()
-    init() {
-        root˚ = Flo("√")
-        archiveVm = ArchiveVm(nextFrame)
-        skyCanvas = SkyCanvas(root˚, archiveVm, peers, 3, .zero)
-        visionModel = VisionModel(skyCanvas, peers)
-    }
+    
+    @State public var immersionModel = ImmersionModel()
+    let visionModel = VisionModel(.windowed)
+
     var body: some Scene {
 
         @Environment(\.scenePhase) var scenePhase
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
         WindowGroup(id: "App") {
-            VisionView(visionModel, skyCanvas)
-                .environment(appModel)
+            VisionView(visionModel)
+                .environment(immersionModel)
                 .onOpenURL { url in
-                    skyCanvas.readUserArchive(url, nextFrame, local: false)
+                    visionModel.openURL(url)
                 }
-                .onChange(of: appModel.showImmersiveSpace) { _, newValue in
+                .onChange(of: immersionModel.showImmersiveSpace) { _, newValue in
                     // Manage the lifecycle of the immersive space.
                     Task { @MainActor in
                         if newValue {
-                            switch await openImmersiveSpace(id: ImmersiveScene.id) {
-                            case .opened:
-                                appModel.immersiveSpaceIsShown = true
-                            case .userCancelled:
-                                // stay in immersive state to allow user to use
-                                // only hand pose to controll parameters 
-                                // otherwise fallthrough to @nknown default to stop
-                                DebugLog{ P("👐👆 setting visionModel.showMenu to false") }
-                                visionModel.showMenu = false
-                                break
-                            case .error:
-                                fallthrough
-                            @unknown default:
-                                appModel.immersiveSpaceIsShown = false
-                                appModel.showImmersiveSpace = false
-                            }
-                        } else if appModel.immersiveSpaceIsShown {
+                            let act = await openImmersiveSpace(id: ImmersiveScene.id)
+                            immersionModel.changed(act)
+                        } else if immersionModel.immersiveSpaceIsShown {
                             await dismissImmersiveSpace()
                         }
                     }
                 }
         }
         .windowResizability(.contentSize)
-        ImmersiveScene(skyCanvas.pipeline, skyCanvas.nextFrame)
-            .environment(appModel)
+        ImmersiveScene(visionModel)
+            .environment(immersionModel)
     }
 }
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -87,7 +64,7 @@ struct SkyApp: App {
     init() {
         root˚ = Flo("√")
         archiveVm = ArchiveVm(nextFrame)
-        skyCanvas = SkyCanvas(root˚, archiveVm, peers, UIScreen.main.scale, UIScreen.main.bounds)
+        skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, UIScreen.main.scale, UIScreen.main.bounds)
     }
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase

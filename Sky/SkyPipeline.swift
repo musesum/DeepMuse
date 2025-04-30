@@ -11,13 +11,14 @@ public class SkyPipeline: Pipeline {
     private var ripples: Ripples
 
     public init(_ root˚: Flo,
+                _ renderState: RenderState,
                 _ archive: ArchiveFlo,
                 _ touchDraw: TouchDraw,
                 _ scale: CGFloat,
                 _ bounds: CGRect,
                 _ ripples: Ripples) {
         self.ripples = ripples
-        super.init(root˚, archive, touchDraw, scale, bounds)
+        super.init(root˚, renderState, archive, touchDraw, scale, bounds)
     }
 
     override public func makePipeNode(_ pipeNode˚: Flo,

@@ -9,17 +9,16 @@ import CompositorServices
 
 struct ImmersiveScene: Scene {
 
-    @Environment(AppModel.self) var appModel
+    @Environment(ImmersionModel.self) var immersionModel
     static let id = "Immersive"
 
     let pipeline: SkyPipeline
     let nextFrame: NextFrame
 
-    init(_ pipeline: SkyPipeline,
-         _ nextFrame: NextFrame) {
-        
-        self.pipeline = pipeline
-        self.nextFrame = nextFrame
+    init(_ visionModel: VisionModel) {
+        let skyCanvas = visionModel.skyCanvas
+        self.pipeline = skyCanvas.pipeline
+        self.nextFrame = skyCanvas.nextFrame
     }
     var body: some Scene {
         ImmersiveSpace(id: Self.id) {
@@ -27,12 +26,12 @@ struct ImmersiveScene: Scene {
                 layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
                 Task(priority: .high) {
-                    let renderer = Renderer(layerRenderer, pipeline, nextFrame, appModel)
+                    let renderer = Renderer(layerRenderer, pipeline, nextFrame)
                     try await renderer.renderLoop()
                 }
             }
         }
-        .immersionStyle(selection: .constant(appModel.immersionStyle), in: .mixed, .full)
+        .immersionStyle(selection: .constant(immersionModel.immersionStyle), in: .mixed, .full)
         .upperLimbVisibility(.visible)
     }
 }
