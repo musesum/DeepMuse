@@ -56,8 +56,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SkyApp: App {
-    let appModel:AppModel
-    let skyView: SkyView
+    let appModel: AppModel
     var skyCanvas: SkyCanvas { appModel.skyCanvas }
 
     init() {
