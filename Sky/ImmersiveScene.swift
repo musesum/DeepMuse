@@ -15,8 +15,8 @@ struct ImmersiveScene: Scene {
     let pipeline: SkyPipeline
     let nextFrame: NextFrame
 
-    init(_ visionModel: VisionModel) {
-        let skyCanvas = visionModel.skyCanvas
+    init(_ appModel: AppModel) {
+        let skyCanvas = appModel.skyCanvas
         self.pipeline = skyCanvas.pipeline
         self.nextFrame = skyCanvas.nextFrame
     }

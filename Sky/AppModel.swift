@@ -8,43 +8,43 @@ import MetalKit
 import MuMenu
 import MuPeer
 
-#if os(visionOS)
+class AppModel: ObservableObject {
 
-final class VisionModel: ObservableObject {
     let root˚: Flo
+    let peers: Peers
     let archiveVm: ArchiveVm
     let nextFrame: NextFrame
     let skyCanvas: SkyCanvas
-    let peers: Peers
     let skyView: SkyView
-    let handsModel: HandsModel
-    let handsTracker: HandsTracker
 
-    var renderState: RenderState
 
-    init(_ renderState: RenderState) {
-        self.renderState = renderState
-        self.nextFrame = NextFrame()
+    init () {
         self.root˚ = Flo("√")
         self.peers = Peers("Sky")
+        self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
         self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, /*scale*/ 3, .zero)
         self.skyView = SkyView(skyCanvas, peers)
+    }
+}
+
+
+#if os(visionOS)
+
+class VisionModel: AppModel {
+
+    var handsModel: HandsModel!
+    var handsTracker: HandsTracker!
+
+    override init () {
+        super.init()
         self.handsModel = HandsModel(skyCanvas.touchCanvas, skyCanvas.root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)
     }
     func setImmersion(_ immersion: Bool) {
-
-        renderState = immersion ? .immersed : .windowed
-        skyCanvas.setRenderState(renderState)
-        skyCanvas.nextFrame.pause = immersion
+        skyCanvas.setImmersion(immersion)
     }
 
-    func startHands() async {
-        await handsTracker.startHands()
-        await handsTracker.updateHands()
-        await handsTracker.monitorSessionEvents()
-    }
     func openURL(_ url: URL) {
         skyCanvas.readUserArchive(url, nextFrame, local: false)
     }

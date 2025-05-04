@@ -10,7 +10,8 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
 
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
-    func setRenderState(_ renderState: RenderState) {
+    func setImmersion(_ immersion: Bool) {
+        let renderState: RenderState = immersion ? .immersed : .windowed
         if self.renderState != renderState {
             self.renderState = renderState
             pipeline.renderState = renderState
@@ -26,6 +27,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
                 setSize(frame.size, onAppear: false)
             }
         }
+        nextFrame.pause = immersion
     }
 
     func menuFrame(_ frame: CGRect,

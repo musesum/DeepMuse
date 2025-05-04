@@ -94,7 +94,7 @@ fragment half4 platoFragment
     float alpha    = shading.alpha; // x-axis
     float depth    = shading.depth;
     float harmonic = platoVertex.harmonic;
-    float inverse  = shading.invert * count;
+    float inverse  = (1-shading.invert) * count;
     float gradient = depth * abs(harmonic-inverse);
     half3 shaded   = mix * (1-gradient);
     return half4(shaded.xyz, 1 - alpha * gradient);

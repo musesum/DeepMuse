@@ -16,7 +16,7 @@ struct SkyApp: App {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     
     @State public var immersionModel = ImmersionModel()
-    let visionModel = VisionModel(.windowed)
+    let appModel = VisionModel()
 
     var body: some Scene {
 
@@ -24,25 +24,25 @@ struct SkyApp: App {
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
         WindowGroup(id: "App") {
-            VisionView(visionModel)
+            VisionView(appModel)
                 .environment(immersionModel)
                 .onOpenURL { url in
-                    visionModel.openURL(url)
+                    appModel.openURL(url)
                 }
-                .onChange(of: immersionModel.showImmersiveSpace) { _, newValue in
+                .onChange(of: immersionModel.goImmersive) { _, newValue in
                     // Manage the lifecycle of the immersive space.
                     Task { @MainActor in
                         if newValue {
                             let act = await openImmersiveSpace(id: ImmersiveScene.id)
                             immersionModel.changed(act)
-                        } else if immersionModel.immersiveSpaceIsShown {
+                        } else if immersionModel.isImmersive {
                             await dismissImmersiveSpace()
                         }
                     }
                 }
         }
         .windowResizability(.contentSize)
-        ImmersiveScene(visionModel)
+        ImmersiveScene(appModel)
             .environment(immersionModel)
     }
 }
@@ -56,20 +56,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SkyApp: App {
-    let root˚: Flo
-    let skyCanvas: SkyCanvas
-    let nextFrame = NextFrame()
-    let archiveVm: ArchiveVm
-    let peers = Peers("Sky")
+    let appModel:AppModel
+    let skyView: SkyView
+    var skyCanvas: SkyCanvas { appModel.skyCanvas }
+
     init() {
-        root˚ = Flo("√")
-        archiveVm = ArchiveVm(nextFrame)
-        skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, UIScreen.main.scale, UIScreen.main.bounds)
+        self.appModel = AppModel()
     }
+
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            SkyView(skyCanvas, peers)
+            appModel.skyView
                 .onOpenURL { url in
                     skyCanvas.readUserArchive(url, skyCanvas.nextFrame, local: false)
                 }

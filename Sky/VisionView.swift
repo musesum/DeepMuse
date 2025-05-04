@@ -11,32 +11,32 @@ struct VisionView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(ImmersionModel.self) var immersionModel
 
-    private let visionModel: VisionModel
+    let appModel: VisionModel
 
-    init(_ visionModel: VisionModel) {
-        self.visionModel = visionModel
+    init(_ appModel: VisionModel) {
+        self.appModel = appModel
     }
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            visionModel.skyView
-                .frame(minWidth: immersionModel.showImmersiveSpace ? 640 : 800,
-                       minHeight: immersionModel.showImmersiveSpace ? 480 : 600)
-                .frame(maxWidth: immersionModel.showImmersiveSpace ? 800 : 1920,
-                       maxHeight: immersionModel.showImmersiveSpace ? 480 : 1280)
+            appModel.skyView
+                .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
+                       minHeight : immersionModel.goImmersive ? 480 : 600)
+                .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
+                       maxHeight : immersionModel.goImmersive ? 480 : 1280)
             Button {
-                immersionModel.showImmersiveSpace.toggle()
+                immersionModel.goImmersive.toggle()
             } label: {
-                Text(immersionModel.showImmersiveSpace ? "Passthrough" : "Immersive")
+                Text(immersionModel.goImmersive ? "Passthrough" : "Immersive")
             }
             .padding(6)
         }
         .onAppear {
-            visionModel.setImmersion(immersionModel.showImmersiveSpace)
-            Task { await visionModel.startHands() }
+            appModel.setImmersion(immersionModel.goImmersive)
+            Task { await appModel.handsTracker.startHands() }
         }
-        .onChange(of: immersionModel.showImmersiveSpace) { _, newValue in
-            visionModel.setImmersion(newValue)
+        .onChange(of: immersionModel.goImmersive) { _, newValue in
+            appModel.setImmersion(newValue)
         }
         .opacity(immersionModel.showMenu ? 1 : 0)
     }
