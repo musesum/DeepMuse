@@ -38,8 +38,8 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
         var size: CGSize
         switch renderState {
         case .immersed:
-            if let viewports = Renderer.viewports,
-               let v = viewports.first {
+            if pipeline.viewports.count > 0,
+               let v = pipeline.viewports.first {
                 size = CGSize(width: v.width, height: v.height) / 3 // Scale
             } else {
                 size = CGSize(width: 1355, height: 1087) //... ignore; hard coded
@@ -54,12 +54,12 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
         let scale = CGFloat(3)
         let drawableSize = size * scale // layer.drawableSize
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        touchView.frame = frame
+
+        //.... touchView.frame = frame
         touchDraw.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
         DebugLog {
-            P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(Renderer.viewports?.count ?? -1)")
-            return
+            P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)")
         }
     }
 

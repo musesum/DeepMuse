@@ -4,7 +4,7 @@
 import SwiftUI
 import MuVision
 import MuFlo 
-import MuPeer
+import MuPeers
 
 #if os(visionOS)
 import CompositorServices

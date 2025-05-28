@@ -6,7 +6,7 @@ import MuFlo // NextFrame
 import MuVision
 import MetalKit
 import MuMenu
-import MuPeer
+import MuPeers
 
 class AppModel: ObservableObject {
 

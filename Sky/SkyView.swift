@@ -6,7 +6,7 @@ import BackgroundTasks
 import MuFlo
 import MuVision
 import MuMenu
-import MuPeer
+import MuPeers
 
 struct SkyView: View {
     @Environment(\.scenePhase) var scenePhase

@@ -5,7 +5,8 @@
 
 using namespace metal;
 
-struct Shading {
+// PlatoShading
+struct PlatoShading {
     float convex; //  depth multiplier of each subdivision
     float reflect;
     float alpha;
@@ -69,10 +70,10 @@ vertex PlatoVertex platoVertex
 fragment half4 platoFragment
 (
  PlatoVertex        platoVertex [[ stage_in   ]],
- constant Shading&  shading     [[ buffer(1)  ]],
- texturecube<half>  cubeTex     [[ texture(4) ]],
- texture2d  <half>  inTex       [[ texture(0) ]],
- texture2d  <half>  palTex      [[ texture(2) ]]) {{
+ constant PlatoShading& shading [[ buffer(1)  ]],
+ texturecube<half>      cubeTex [[ texture(4) ]],
+ texture2d  <half>      inTex   [[ texture(0) ]],
+ texture2d  <half>      palTex  [[ texture(2) ]]) {{
 
     constexpr sampler samplr(filter::linear, address::repeat);
 

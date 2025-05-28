@@ -37,7 +37,6 @@
 		80ADA2FE2AB7657F00FCF8FF /* SkyCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyCanvas.swift */; };
 		80B3D86D2C5979EF00865274 /* SkyCanvasBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D86C2C5979EF00865274 /* SkyCanvasBase.swift */; };
 		80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62D82A5B9B6800F51B7A /* MuAudio */; };
-		80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62DB2A5B9C1300F51B7A /* MuPeer */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80BE47542B34C08600EB05F4 /* MuVision in Frameworks */ = {isa = PBXBuildFile; productRef = 80BE47532B34C08600EB05F4 /* MuVision */; };
 		80BE47602B34C23800EB05F4 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE475B2B34C23800EB05F4 /* VisionView.swift */; };
@@ -99,34 +98,6 @@
 		80E0AFB62DA0C5160056E787 /* ImmersiveScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		80DDF75B2DB9AE3700410FAA /* Exceptions for "Mu🔸" folder in "DeepMuse" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MuAudio,
-				MuFlo,
-				MuMenu,
-				MuPeer,
-				MuPlato,
-				MuSky,
-				MuVision,
-			);
-			target = 807048E623378A090001617D /* DeepMuse */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		80DDF75A2DB9AE3700410FAA /* Mu🔸 */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				80DDF75B2DB9AE3700410FAA /* Exceptions for "Mu🔸" folder in "DeepMuse" target */,
-			);
-			name = "Mu🔸";
-			path = "../Mu🔸";
-			sourceTree = SOURCE_ROOT;
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		807048E423378A090001617D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -137,7 +108,6 @@
 				80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
 				807533472A8CA0C600A1808C /* MuPlato in Frameworks */,
-				80BD62DC2A5B9C1300F51B7A /* MuPeer in Frameworks */,
 				80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,7 +134,6 @@
 		807048DE23378A090001617D = {
 			isa = PBXGroup;
 			children = (
-				80DDF75A2DB9AE3700410FAA /* Mu🔸 */,
 				8002114D2D8275F300D32030 /* SetupPackages.sh */,
 				80699BD02CC845EC00776CF7 /* DeepMuse.entitlements */,
 				8045637D296B900600EE6E0E /* README.md */,
@@ -246,14 +215,10 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				80DDF75A2DB9AE3700410FAA /* Mu🔸 */,
-			);
 			name = DeepMuse;
 			packageProductDependencies = (
 				80BDD7C928919CF000C6E2BF /* MuMenu */,
 				80BD62D82A5B9B6800F51B7A /* MuAudio */,
-				80BD62DB2A5B9C1300F51B7A /* MuPeer */,
 				807533462A8CA0C600A1808C /* MuPlato */,
 				80BE47532B34C08600EB05F4 /* MuVision */,
 				80A0D01E2BC1A1F1005C2B6B /* MuSky */,
@@ -291,9 +256,9 @@
 				80BDD7C828919CF000C6E2BF /* XCRemoteSwiftPackageReference "MuMenu" */,
 				80FA4A8B29E25B8E00A77620 /* XCRemoteSwiftPackageReference "MuPlato" */,
 				80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */,
-				80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */,
 				80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */,
 				80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */,
+				80161BFF2DE774B100DBFF10 /* XCRemoteSwiftPackageReference "MuPeers" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -586,6 +551,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		80161BFF2DE774B100DBFF10 /* XCRemoteSwiftPackageReference "MuPeers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/musesum/MuPeers";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuSky";
@@ -597,14 +570,6 @@
 		80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuAudio";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/musesum/MuPeer";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -651,11 +616,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 80BD62D72A5B9B6800F51B7A /* XCRemoteSwiftPackageReference "MuAudio" */;
 			productName = MuAudio;
-		};
-		80BD62DB2A5B9C1300F51B7A /* MuPeer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 80BD62DA2A5B9C1300F51B7A /* XCRemoteSwiftPackageReference "MuPeer" */;
-			productName = MuPeer;
 		};
 		80BDD7C928919CF000C6E2BF /* MuMenu */ = {
 			isa = XCSwiftPackageProductDependency;

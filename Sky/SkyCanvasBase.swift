@@ -6,7 +6,7 @@ import MuAudio
 import MuSky
 import MuVision
 import MuMenu
-import MuPeer
+import MuPeers
 
 class SkyCanvasBase {
 
@@ -20,10 +20,10 @@ class SkyCanvasBase {
     public let touchCanvas: TouchCanvas
     public let root˚: Flo
     public let pipeline: SkyPipeline
-    public let touchView: TouchView
     public let touchDraw: TouchDraw
     public let nextFrame: NextFrame
     public let archiveVm: ArchiveVm
+    public var touchView: TouchView
 
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()

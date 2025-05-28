@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileSystemSynchronizedGroup
+   <Group
       location = "container:../Mu&#x1f538;"
       name = "Mu&#x1f538;">
-   </FileSystemSynchronizedGroup>
+      <FileRef
+         location = "group:MuAudio">
+      </FileRef>
+      <FileRef
+         location = "group:MuPeers">
+      </FileRef>
+      <FileRef
+         location = "group:MuPlato">
+      </FileRef>
+      <FileRef
+         location = "group:MuFlo">
+      </FileRef>
+      <FileRef
+         location = "group:MuVision">
+      </FileRef>
+      <FileRef
+         location = "group:MuMenu">
+      </FileRef>
+      <FileRef
+         location = "group:MuSky">
+      </FileRef>
+   </Group>
    <FileRef
       location = "container:DeepMuse.xcodeproj">
    </FileRef>
