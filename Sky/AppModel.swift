@@ -17,17 +17,17 @@ class AppModel: ObservableObject {
     let skyCanvas: SkyCanvas
     let skyView: SkyView
 
-
     init () {
         self.root˚ = Flo("√")
-        self.peers = Peers("Sky")
+        self.peers = Peers(PeersConfig(
+            service: "_deepmuse-peer._tcp",
+            secret: ""))
         self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
         self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, /*scale*/ 3, .zero)
         self.skyView = SkyView(skyCanvas, peers)
     }
 }
-
 
 #if os(visionOS)
 
