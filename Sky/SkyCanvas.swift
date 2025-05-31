@@ -55,7 +55,6 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
         let drawableSize = size * scale // layer.drawableSize
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
-        //.... touchView.frame = frame
         touchDraw.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
         DebugLog {

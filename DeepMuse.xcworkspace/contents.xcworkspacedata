@@ -5,8 +5,8 @@
       location = "container:DeepMuse.xcodeproj">
    </FileRef>
    <Group
-      location = "container:../Mu&#x1f538;"
-      name = "Mu&#x1f538;">
+      location = "container:../Mu"
+      name = "Mu">
       <FileRef
          location = "group:MuAudio">
       </FileRef>
