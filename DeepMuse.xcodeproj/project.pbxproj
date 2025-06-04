@@ -259,6 +259,7 @@
 				80BE47522B34C08600EB05F4 /* XCRemoteSwiftPackageReference "MuVision" */,
 				80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */,
 				80161BFF2DE774B100DBFF10 /* XCRemoteSwiftPackageReference "MuPeers" */,
+				80860AD62DEF5E4A007A20DD /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -557,6 +558,14 @@
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		80860AD62DEF5E4A007A20DD /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.83.0;
 			};
 		};
 		80A0D01D2BC1A1F1005C2B6B /* XCRemoteSwiftPackageReference "MuSky" */ = {
