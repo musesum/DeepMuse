@@ -6,7 +6,7 @@ import MuMenu
 import MuVision
 
 #if os(visionOS)
-class SkyCanvas: SkyCanvasBase, MenuFrame {
+class SkyCanvas: SkyCanvasBase, MenuRect {
 
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
@@ -30,7 +30,7 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
         nextFrame.pause = immersion
     }
 
-    func menuFrame(_ frame: CGRect,
+    func menuRect(_ frame: CGRect,
                    _ insets: EdgeInsets,
                    onAppear: Bool) {
         self.insets = insets
@@ -73,14 +73,14 @@ class SkyCanvas: SkyCanvasBase, MenuFrame {
     func secondMenuFrame() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             DebugLog { P("🧭 Immersive secondMenuFrame") }
-            self.menuFrame(self.touchView.frame, self.insets, onAppear: false)
+            self.menuRect(self.touchView.frame, self.insets, onAppear: false)
         }
     }
 }
 #else
-class SkyCanvas: SkyCanvasBase, MenuFrame {
+class SkyCanvas: SkyCanvasBase, MenuRect {
 
-    func menuFrame(_ frame: CGRect,
+    func menuRect(_ frame: CGRect,
                    _ insets: EdgeInsets,
                    onAppear: Bool) {
         
