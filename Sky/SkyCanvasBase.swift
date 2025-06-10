@@ -51,6 +51,7 @@ class SkyCanvasBase {
         self.touchView = TouchView(pipeline, touchCanvas)
 
         archiveVm.archiveProto = self
+        peers.setDelegate(self, for: .archiveFrame)
         nextFrame.addBetweenFrame {
             self.pipeline.alignTextures()
         }
@@ -64,6 +65,28 @@ extension SkyCanvasBase: ArchiveProto {
         archive.readUrl(url, nextFrame, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
+        
+        // If this is a local archive selection, share it with peers
+        if local {
+            Task {
+                do {
+                    let archiveData = try Data(contentsOf: url)
+                    let archiveFrame = ArchiveFrame(url: url, data: archiveData)
+                    
+                    await peers.sendItem(.archiveFrame) {
+                        do {
+                            return try JSONEncoder().encode(archiveFrame)
+                        } catch {
+                            print("⁉️ Error encoding archive frame: \(error)")
+                            return nil
+                        }
+                    }
+                } catch {
+                    print("⁉️ Error reading archive file: \(error)")
+                }
+            }
+        }
+        
         nextFrame.addBetweenFrame {
             self.pipeline.alignNameTex()
         }
@@ -159,6 +182,26 @@ extension SkyCanvasBase: ArchiveProto {
             let script = root˚.scriptRoot(scriptOps)
             let dataNow = Data(script.utf8)
             archiveExt.addName(name,  ext: "flo.h", data: dataNow)
+        }
+    }
+}
+
+extension SkyCanvasBase: PeersDelegate {
+    
+    public func received(data: Data) {
+        let decoder = JSONDecoder()
+        if let archiveFrame = try? decoder.decode(ArchiveFrame.self, from: data) {
+            // Save the received archive data to a temporary file
+            let tempDir = FileManager.default.temporaryDirectory
+            let tempUrl = tempDir.appendingPathComponent(archiveFrame.name).appendingPathExtension("mu")
+            
+            do {
+                try archiveFrame.data.write(to: tempUrl)
+                // Process the archive as a remote archive
+                readUserArchive(tempUrl, nextFrame, local: false)
+            } catch {
+                print("⁉️ Error saving received archive: \(error)")
+            }
         }
     }
 }
