@@ -78,6 +78,7 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
     }
 }
 #else
+@MainActor
 class SkyCanvas: SkyCanvasBase, MenuRect {
 
     func menuRect(_ frame: CGRect,

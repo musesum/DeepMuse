@@ -8,6 +8,7 @@ import MuVision
 import MuMenu
 import MuPeers
 
+@MainActor
 class SkyCanvasBase {
 
     private let archive: SkyArchive

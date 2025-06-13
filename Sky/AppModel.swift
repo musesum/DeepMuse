@@ -8,6 +8,7 @@ import MetalKit
 import MuMenu
 import MuPeers
 
+@MainActor
 class AppModel: ObservableObject {
 
     let root˚: Flo
@@ -50,3 +51,4 @@ class VisionModel: AppModel {
     }
 }
 #endif
+
