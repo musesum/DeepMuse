@@ -22,8 +22,8 @@ class AppModel: ObservableObject {
         self.root˚ = Flo("√")
         self.peers = Peers(PeersConfig(
             service: "_deepmuse-peer._tcp",
-            secret: "yo")) // replace with a real secret
-        //.... peers.setupPeers()
+            secret: "")) // replace with a real secret
+        peers.setupPeers()
         self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
         self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, /*scale*/ 3, .zero)
