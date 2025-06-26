@@ -17,6 +17,7 @@ class SkyCanvasBase {
     private let drawPal: DrawPal
     private let ripples: Ripples
     private let peers: Peers
+    internal let scale: CGFloat
 
     public let touchCanvas: TouchCanvas
     public let root˚: Flo
@@ -25,6 +26,7 @@ class SkyCanvasBase {
     public let nextFrame: NextFrame
     public let archiveVm: ArchiveVm
     public var touchView: TouchView
+    public var skyView: SkyView?
 
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
@@ -40,6 +42,7 @@ class SkyCanvasBase {
         self.renderState = renderState
         self.archiveVm = archiveVm
         self.nextFrame = archiveVm.nextFrame
+        self.scale = scale 
         self.peers = peers
         self.ripples = Ripples()
         self.archive = SkyArchive(root˚, nextFrame)

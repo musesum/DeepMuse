@@ -18,9 +18,11 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
             if renderState == .immersed {
                 pipeline.layer.opacity = 0
                 touchCanvas.immersive = true
+                skyView?.viewing = [.menu, .hands]
             } else {
                 pipeline.layer.opacity = 1
                 touchCanvas.immersive = false
+                skyView?.viewing = [.menu, .canvas, .hands]
             }
             if let frame = stateFrame[renderState],
                frame != .zero {
@@ -40,7 +42,7 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
         case .immersed:
             if pipeline.viewports.count > 0,
                let v = pipeline.viewports.first {
-                size = CGSize(width: v.width, height: v.height) / 3 // Scale
+                size = CGSize(width: v.width, height: v.height) / scale
             } else {
                 size = CGSize(width: 1355, height: 1087) //... ignore; hard coded
                 return secondMenuFrame()
@@ -51,7 +53,6 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
         setSize(size, onAppear: onAppear)
     }
     func setSize(_ size: CGSize, onAppear: Bool) {
-        let scale = CGFloat(3)
         let drawableSize = size * scale // layer.drawableSize
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
@@ -86,20 +87,16 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
                    onAppear: Bool) {
         
         DebugLog { P("🧭 menuFrame\(frame.digits())") }
-        Task { @MainActor in
-            
-            let scale = UIScreen.main.scale
-            let width = frame.width + insets.leading + insets.trailing
-            let height = frame.height + insets.top + insets.bottom
-            let size = CGSize(width: width, height: height)
-            
-            let drawableSize = size * scale  // layer.drawableSize
-            let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            
-            touchView.frame = frame
-            touchDraw.drawableSize = drawableSize
-            pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
-        }
+        let width = frame.width + insets.leading + insets.trailing
+        let height = frame.height + insets.top + insets.bottom
+        let size = CGSize(width: width, height: height)
+
+        let drawableSize = size * scale  // layer.drawableSize
+        let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+
+        touchView.frame = frame
+        touchDraw.drawableSize = drawableSize
+        pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
     }
 }
 #endif

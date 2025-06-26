@@ -9,6 +9,7 @@ import MuMenu
 import MuPeers
 
 struct SkyView: View {
+
     @Environment(\.scenePhase) var scenePhase
 
     var menuVms: [MenuVm]
@@ -17,10 +18,13 @@ struct SkyView: View {
     let peers: Peers
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
+    var viewing: Viewing
 
-
-    public init(_ skyCanvas: SkyCanvas,_ peers: Peers) {
+    public init(_ skyCanvas: SkyCanvas,
+                _ viewing: Viewing,
+                _ peers: Peers) {
         self.skyCanvas = skyCanvas
+        self.viewing = viewing
         self.nextFrame = skyCanvas.nextFrame
         self.peers = peers
         self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
@@ -31,19 +35,22 @@ struct SkyView: View {
     var body: some View {
         
         GeometryReader { geo in
-            touchView
-                .frame(width:  (geo.size.width  +
-                                geo.safeAreaInsets.leading +
-                                geo.safeAreaInsets.trailing),
-                       height: (geo.size.height +
-                                geo.safeAreaInsets.top +
-                                geo.safeAreaInsets.bottom))
-                .offset(CGSize(width:  -geo.safeAreaInsets.leading,
-                               height: -geo.safeAreaInsets.top))
-            MenuView(menuVms, skyCanvas)
-                .background(.clear)
-                .persistentSystemOverlays(.hidden)
-            
+            if viewing.canvas {
+                touchView
+                    .frame(width:  (geo.size.width  +
+                                    geo.safeAreaInsets.leading +
+                                    geo.safeAreaInsets.trailing),
+                           height: (geo.size.height +
+                                    geo.safeAreaInsets.top +
+                                    geo.safeAreaInsets.bottom))
+                    .offset(CGSize(width:  -geo.safeAreaInsets.leading,
+                                   height: -geo.safeAreaInsets.top))
+            }
+            if viewing.menu {
+                MenuView(menuVms, skyCanvas)
+                    .background(.clear)
+                    .persistentSystemOverlays(.hidden)
+            }
         }
         .onChange(of: scenePhase) { _, newPhase in
             switch newPhase {
