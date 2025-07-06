@@ -8,21 +8,6 @@ import MetalKit
 import MuMenu
 import MuPeers
 
-struct Viewing: OptionSet {
-    let rawValue: Int
-
-    static let canvas = Viewing(rawValue: 1 << 0)
-    static let menu   = Viewing(rawValue: 1 << 1)
-    static let hands  = Viewing(rawValue: 1 << 2)
-    static let left   = Viewing(rawValue: 1 << 3)
-    static let right  = Viewing(rawValue: 1 << 4)
-
-    var canvas : Bool { contains(.canvas ) }
-    var menu   : Bool { contains(.menu   ) }
-    var hands  : Bool { contains(.hands  ) }
-    var left   : Bool { contains(.left   ) }
-    var right  : Bool { contains(.right  ) }
-}
 
 @MainActor
 class AppModel {
@@ -32,7 +17,6 @@ class AppModel {
     let archiveVm: ArchiveVm
     let nextFrame: NextFrame
     let skyCanvas: SkyCanvas
-    let skyView: SkyView
 
     init () {
         self.root˚ = Flo("√")
@@ -50,8 +34,7 @@ class AppModel {
         let scale = UIScreen.main.scale
         #endif
         self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, scale, bounds)
-        self.skyView = SkyView(skyCanvas, [.canvas,.menu,.left,.right], peers)
-        skyCanvas.skyView = skyView
+        skyCanvas.skyView = SkyView(skyCanvas, [.canvas,.menu,.left,.right], peers)
     }
 }
 
@@ -66,8 +49,6 @@ class VisionModel: AppModel {
         super.init()
         self.handsModel = HandsModel(skyCanvas.touchCanvas, skyCanvas.root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)
-        skyCanvas.skyView = SkyView(skyCanvas, [.canvas,.menu,.hands,.left,.right], peers)
-
     }
     func setImmersion(_ immersion: Bool) {
         skyCanvas.setImmersion(immersion)

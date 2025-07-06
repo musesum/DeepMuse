@@ -9,7 +9,7 @@ import MuMenu
 import MuPeers
 
 @MainActor
-class SkyCanvasBase {
+class SkyBase {
 
     private let archive: SkyArchive
     private let muAudio: MuAudio!
@@ -62,7 +62,7 @@ class SkyCanvasBase {
     }
 }
 
-extension SkyCanvasBase: ArchiveProto {
+extension SkyBase: ArchiveProto {
 
     func readUserArchive(_ url: URL, _ nextFrame: NextFrame, local: Bool) {
 
@@ -190,7 +190,7 @@ extension SkyCanvasBase: ArchiveProto {
     }
 }
 
-extension SkyCanvasBase: PeersDelegate {
+extension SkyBase: PeersDelegate {
     
     public func received(data: Data) {
         let decoder = JSONDecoder()

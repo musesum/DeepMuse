@@ -6,33 +6,33 @@ import MuMenu
 import MuVision
 
 #if os(visionOS)
-class SkyCanvas: SkyCanvasBase, MenuRect {
+class SkyCanvas: SkyBase {
 
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
     func setImmersion(_ immersion: Bool) {
         let renderState: RenderState = immersion ? .immersed : .windowed
+
         if self.renderState != renderState {
             self.renderState = renderState
             pipeline.renderState = renderState
             if renderState == .immersed {
                 pipeline.layer.opacity = 0
                 touchCanvas.immersive = true
-                skyView?.viewing = [.menu, .hands]
             } else {
                 pipeline.layer.opacity = 1
                 touchCanvas.immersive = false
-                skyView?.viewing = [.menu, .canvas, .hands]
             }
             if let frame = stateFrame[renderState],
                frame != .zero {
                 setSize(frame.size, onAppear: false)
             }
         }
+        skyView?.immersive = renderState == .immersed
         nextFrame.pause = immersion
     }
 
-    func menuRect(_ frame: CGRect,
+    func setFrame(_ frame: CGRect,
                    _ insets: EdgeInsets,
                    onAppear: Bool) {
         self.insets = insets
@@ -58,9 +58,7 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
 
         touchDraw.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
-        DebugLog {
-            P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)")
-        }
+        DebugLog { P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
     }
 
     /// Adjust frame after rendering first frame
@@ -69,23 +67,23 @@ class SkyCanvas: SkyCanvasBase, MenuRect {
     ///   rendering the first frame in an immersive space.
     ///   The problem is that we need a DrawableLayer to setup
     ///   the viewports, and it is from the viewport that we can
-    ///   determine the frame size. So, we wait for a one second
+    ///   determine the frame size. So, wait for a few frames.
     ///   and try it again.
     func secondMenuFrame() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             DebugLog { P("🧭 Immersive secondMenuFrame") }
-            self.menuRect(self.touchView.frame, self.insets, onAppear: false)
+            self.setFrame(self.touchView.frame, self.insets, onAppear: false)
         }
     }
 }
 #else
 @MainActor
-class SkyCanvas: SkyCanvasBase, MenuRect {
+class SkyCanvas: SkyBase {
 
-    func menuRect(_ frame: CGRect,
-                   _ insets: EdgeInsets,
-                   onAppear: Bool) {
-        
+    func setFrame(_ frame: CGRect,
+                  _ insets: EdgeInsets,
+                  onAppear: Bool) {
+
         DebugLog { P("🧭 menuFrame\(frame.digits())") }
         let width = frame.width + insets.leading + insets.trailing
         let height = frame.height + insets.top + insets.bottom

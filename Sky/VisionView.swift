@@ -19,7 +19,7 @@ struct VisionView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            appModel.skyView
+            appModel.skyCanvas.skyView
                 .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
                        minHeight : immersionModel.goImmersive ? 480 : 600)
                 .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
@@ -38,7 +38,6 @@ struct VisionView: View {
         .onChange(of: immersionModel.goImmersive) { _, newValue in
             appModel.setImmersion(newValue)
         }
-        .opacity(immersionModel.showMenu ? 1 : 0)
     }
 }
 #endif

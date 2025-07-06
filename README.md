@@ -6,12 +6,12 @@
 
 DeepMuse uses the following packages:
 ```
-  MuPeer   - Bonjour services to sync between devices
   MuAudio  - Wrapper around AudioKit for Midi support
   MuPlato  - Platonic solids
   MuFlo    - Functional Dataflow graph
   MuVision - Apple Vision Pro Support 
   MuMenu   - Deep contextual menus
+  MuPeers  - Network service to synchronize devices
   MuSky    - Visual Graph Scripts
 ```  
 You can explore these packages locally in the DeepMuse.xcworkspace
@@ -98,7 +98,7 @@ In the visionOS version, there is a camera control that doesn't work. VisionOS d
             
 In visionOS, touching thumb and index finger tips will draw in Passthrough mode, but not in Immersive mode. Instead, you have to touch thumb and middle finger. 
                 
-With the Cubemap's canvas, drawing by pinching on thumb and finger should paint on where you expect it to. That would be where you see your pinch overlapping the canvas. It doesn't. So, with feels random. It merely requires some math around sight lines and suck. 
+With the Cubemap's canvas, drawing by pinching on thumb and finger should paint on where you expect it to. That would be where you see your pinch overlapping the canvas. It doesn't. So, it feels random. Fix needs to project a sight line. 
                 
 ##### 2D canvas doesn't work -- only with Cubemap.
             

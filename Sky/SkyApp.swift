@@ -40,6 +40,7 @@ struct SkyApp: App {
                     }
                 }
         }
+        .windowStyle(.plain)
         .windowResizability(.contentSize)
         ImmersiveScene(appModel)
             .environment(immersionModel)
@@ -65,7 +66,7 @@ struct SkyApp: App {
     var body: some Scene {
         @Environment(\.scenePhase) var scenePhase
         WindowGroup {
-            appModel.skyView
+            appModel.skyCanvas.skyView
                 .onOpenURL { url in
                     skyCanvas.readUserArchive(url, skyCanvas.nextFrame, local: false)
                 }
