@@ -100,11 +100,15 @@ class SkyCanvas: SkyBase {
 }
 #endif
 extension SkyCanvas: NextFrameDelegate {
-    func goFrame() -> Bool {
-        pipeline.renderFrame()
+    nonisolated func goFrame() -> Bool {
+        Task { @MainActor in
+            pipeline.renderFrame()
+        }
         return true
     }
-    func cancel(_ key: Int) {
-        nextFrame.removeDelegate(key)
+    nonisolated func cancel(_ key: Int) {
+        Task { @MainActor in
+            nextFrame.removeDelegate(key)
+        }
     }
 }

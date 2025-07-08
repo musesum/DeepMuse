@@ -62,10 +62,10 @@ class SkyBase {
     }
 }
 
-extension SkyBase: ArchiveProto {
+extension SkyBase: @MainActor ArchiveProto {
 
     func readUserArchive(_ url: URL, _ nextFrame: NextFrame, local: Bool) {
-
+        
         archive.readUrl(url, nextFrame, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
@@ -95,7 +95,7 @@ extension SkyBase: ArchiveProto {
             self.pipeline.alignNameTex()
         }
     }
-
+    
     // snapshot on framebuffer, draw Texture and skyGraph
     public func saveArchive(_ title: String,
                             _ description: String,
@@ -190,7 +190,7 @@ extension SkyBase: ArchiveProto {
     }
 }
 
-extension SkyBase: PeersDelegate {
+extension SkyBase: @MainActor PeersDelegate {
     
     public func received(data: Data) {
         let decoder = JSONDecoder()

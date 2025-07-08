@@ -4,7 +4,7 @@ set -e
 # Determine the parent directory of the current directory.
 # This assumes that your main app is in a folder and you want "Mu Packages" to be its sibling.
 BASE_DIR="$(dirname "$PWD")"
-MU_PACKAGES_DIR="$BASE_DIR/Mu🔸"
+MU_PACKAGES_DIR="$BASE_DIR/Mu"
 
 echo "Creating directory: $MU_PACKAGES_DIR"
 mkdir -p "$MU_PACKAGES_DIR"
