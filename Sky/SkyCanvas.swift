@@ -35,7 +35,8 @@ class SkyCanvas: SkyBase {
     func setFrame(_ frame: CGRect,
                    _ insets: EdgeInsets,
                    onAppear: Bool) {
-        self.insets = insets
+
+        self.insets = insets + 40
 
         var size: CGSize
         switch renderState {

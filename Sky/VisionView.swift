@@ -27,8 +27,15 @@ struct VisionView: View {
             Button {
                 immersionModel.goImmersive.toggle()
             } label: {
-                Text(immersionModel.goImmersive ? "Passthrough" : "Immersive")
+                Image(immersionModel.goImmersive
+                      ? "icon.room.white"
+                      : "icon.galaxy.white")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 48, height: 48)
+
             }
+            .offset(x: 0, y: -20)
             .padding(6)
         }
         .onAppear {

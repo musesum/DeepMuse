@@ -38,9 +38,9 @@ open class SkyMenu {
 struct SkyView: View {
 
     @Environment(\.scenePhase) var scenePhase
-#if os(visionOS)
+    #if os(visionOS)
     @Environment(ImmersionModel.self) var immersionModel
-#endif
+    #endif
 
     let id = Visitor.nextId()
     var menuVms: [MenuVm]
@@ -64,21 +64,33 @@ struct SkyView: View {
         self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
         self.skyMenu = SkyMenu(skyCanvas.root˚)
-
         nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 
     func geoFrame(_ geo: GeometryProxy, onAppear: Bool) {
-
         let frame = geo.frame(in: .global)
         let insets = geo.safeAreaInsets
         skyCanvas.setFrame(frame, insets, onAppear: onAppear)
+    }
+    func touchWidth(_ geo: GeometryProxy) -> CGFloat {
+        geo.size.width +
+        geo.safeAreaInsets.leading +
+        geo.safeAreaInsets.trailing
+    }
+    func touchHeight(_ geo: GeometryProxy) -> CGFloat {
+        geo.size.height +
+        geo.safeAreaInsets.top +
+        geo.safeAreaInsets.bottom
+    }
+    func touchOffset(_ geo: GeometryProxy) -> CGSize {
+        CGSize(width:  -geo.safeAreaInsets.leading,
+               height: -geo.safeAreaInsets.top)
     }
 
     var showTouchView: Bool {
         #if os(visionOS)
         let immersive = immersionModel.goImmersive
-        PrintLog("immersive: \(immersive)")
+        DebugLog { P("꩜ immersive: \(immersive)") }
         return !immersive
         #else
         return true
@@ -87,26 +99,23 @@ struct SkyView: View {
     var body: some View {
         
         GeometryReader { geo in
-            if showTouchView {
-                touchView
-                    .frame(width:  (geo.size.width +
-                                    geo.safeAreaInsets.leading +
-                                    geo.safeAreaInsets.trailing),
-                           height: (geo.size.height +
-                                    geo.safeAreaInsets.top +
-                                    geo.safeAreaInsets.bottom))
-                    .offset(CGSize(width:  -geo.safeAreaInsets.leading,
-                                   height: -geo.safeAreaInsets.top))
-                    .cornerRadius(40)
+            Group {
+                if showTouchView {
+                    touchView
+                        .cornerRadius(40)
+                        .frame(width: touchWidth(geo), height: touchHeight(geo))
+                        .offset(touchOffset(geo))
+                }
+                MenuView(menuVms)
+                    .background(.clear)
+                    #if os(iOS)
+                    .persistentSystemOverlays(.hidden)
+                    #endif
             }
-            MenuView(menuVms)
-                .background(.clear)
-                .persistentSystemOverlays(.hidden)
-
             .onAppear { geoFrame(geo, onAppear: true) }
-            .onChange(of: geo.frame(in: .global)) { geoFrame(geo, onAppear: false) }
+            .onChange(of: geo.frame(in: .global)) { geoFrame(geo, onAppear: false) 
+            }
         }
-
         .onChange(of: scenePhase) { _, newPhase in
             switch newPhase {
             case .active:
