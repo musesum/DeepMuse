@@ -25,11 +25,11 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<false/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>feed media to synthesizer</string>
+	<string>feed music to synthesizer</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>connect input devices and MIDI instruments</string>
 	<key>NSBonjourServices</key>
@@ -100,6 +100,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
 	<array>

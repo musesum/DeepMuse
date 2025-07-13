@@ -25,8 +25,8 @@ struct ImmersiveScene: Scene {
             CompositorLayer(configuration: ContentStageConfiguration()) {
                 layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
+                nonisolated(unsafe) let renderer = Renderer(layerRenderer, pipeline, nextFrame)
                 Task(priority: .high) {
-                    let renderer = Renderer(layerRenderer, pipeline, nextFrame)
                     try await renderer.renderLoop()
                 }
             }
