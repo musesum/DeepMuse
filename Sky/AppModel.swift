@@ -29,11 +29,13 @@ class AppModel {
         #if os(visionOS)
         let bounds = CGRect.zero
         let scale: CGFloat = 3
+        let camera = CameraSession()
         #else
         let bounds = UIScreen.main.bounds
         let scale = UIScreen.main.scale
+        let camera = CameraSession(nil, position: .front)
         #endif
-        self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, scale, bounds)
+        self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
         skyCanvas.skyView = SkyView(skyCanvas, [.canvas,.menu,.left,.right], peers)
     }
 }

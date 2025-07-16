@@ -16,6 +16,7 @@ class SkyBase {
     private let drawDot: DrawDot
     private let drawPal: DrawPal
     private let ripples: Ripples
+    private let camera: CameraSession
     private let peers: Peers
     internal let scale: CGFloat
 
@@ -36,7 +37,8 @@ class SkyBase {
          _ archiveVm: ArchiveVm,
          _ peers: Peers,
          _ scale: CGFloat,
-         _ bounds: CGRect) {
+         _ bounds: CGRect,
+         _ camera: CameraSession) {
 
         self.root˚ = root˚
         self.renderState = renderState
@@ -48,7 +50,8 @@ class SkyBase {
         self.archive = SkyArchive(root˚, nextFrame)
         self.muAudio = MuAudio(root˚, peers)
         self.touchDraw = TouchDraw(root˚, scale)
-        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples)
+        self.camera = camera
+        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera)
         self.touchCanvas = TouchCanvas(touchDraw, peers)
         self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
         self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
