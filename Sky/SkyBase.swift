@@ -29,6 +29,7 @@ class SkyBase {
     public var touchView: TouchView
     public var skyView: SkyView?
 
+
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
 
@@ -51,8 +52,8 @@ class SkyBase {
         self.muAudio = MuAudio(root˚, peers)
         self.touchDraw = TouchDraw(root˚, scale)
         self.camera = camera
-        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera)
         self.touchCanvas = TouchCanvas(touchDraw, peers)
+        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas)    
         self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
         self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)

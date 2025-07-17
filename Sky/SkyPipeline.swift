@@ -10,6 +10,7 @@ public class SkyPipeline: Pipeline {
 
     private var ripples: Ripples
     private var camera: CameraSession
+    private var touchCanvas: TouchCanvas
 
     public init(_ root˚: Flo,
                 _ renderState: RenderState,
@@ -18,9 +19,11 @@ public class SkyPipeline: Pipeline {
                 _ scale: CGFloat,
                 _ bounds: CGRect,
                 _ ripples: Ripples,
-                _ camera: CameraSession) {
+                _ camera: CameraSession,
+                _ touchCanvas: TouchCanvas) {
         self.ripples = ripples
         self.camera = camera
+        self.touchCanvas = touchCanvas
         super.init(root˚, renderState, archive, touchDraw, scale, bounds)
     }
 
@@ -30,7 +33,7 @@ public class SkyPipeline: Pipeline {
         switch pipeNode˚.name {
         case "camera" : pipeNode = CameraNode(self, pipeNode˚, camera)
         case "camix"  : pipeNode = CamixNode (self, pipeNode˚, camera)
-        case "draw"   : pipeNode = DrawNode  (self, pipeNode˚)
+        case "draw"   : pipeNode = DrawNode  (self, pipeNode˚, touchCanvas)
         case "color"  : pipeNode = ColorNode (self, pipeNode˚, ripples)
         case "tile"   : pipeNode = TileNode  (self, pipeNode˚)
         case "flat"   : pipeNode = FlatNode  (self, pipeNode˚)
