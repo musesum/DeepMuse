@@ -15,29 +15,22 @@ struct SkyView: View {
     @Environment(ImmersionModel.self) var immersionModel
     #endif
 
+
     let id = Visitor.nextId()
     var menuVms: [MenuVm]
     let skyCanvas: SkyCanvas
-    let nextFrame: NextFrame
     let peers: Peers
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
-    var viewing: MenuViewing
-    var menuState: MenuState
     var immersive: Bool = false
 
     public init(_ skyCanvas: SkyCanvas,
-                _ viewing: MenuViewing,
                 _ peers: Peers) {
 
         self.skyCanvas = skyCanvas
-        self.viewing = viewing
-        self.nextFrame = skyCanvas.nextFrame
         self.peers = peers
         self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
-        self.menuState = MenuState(skyCanvas.root˚)
-        nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 
     func geoFrame(_ geo: GeometryProxy, onAppear: Bool) {
@@ -81,29 +74,16 @@ struct SkyView: View {
                         .offset(touchOffset(geo))
                 }
                 MenuView(menuVms)
-                    .environmentObject(menuState)
+
                     .background(.clear)
                     #if os(iOS)
                     .persistentSystemOverlays(.hidden)
                     #endif
             }
             .onAppear { geoFrame(geo, onAppear: true) }
-            .onChange(of: geo.frame(in: .global)) { geoFrame(geo, onAppear: false) 
-            }
+            .onChange(of: geo.frame(in: .global)) { geoFrame(geo, onAppear: false) }
         }
-        .onChange(of: scenePhase) { _, newPhase in
-            switch newPhase {
-            case .active:
-                DebugLog { P("🎬 MenuTouchView 🟢") }
-                nextFrame.pause = false
-            case .inactive:
-                DebugLog { P("🎬 MenuTouchView 🔴") }
-                skyCanvas.saveArchive("Snapshot", "autosaved") {
-                    nextFrame.pause = true
-                }
-            default:  break
-            }
-        }
+        
     }
 }
 

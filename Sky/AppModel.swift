@@ -36,7 +36,7 @@ class AppModel {
         let camera = CameraSession(nil, position: .front)
         #endif
         self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
-        skyCanvas.skyView = SkyView(skyCanvas, [.canvas,.menu,.left,.right], peers)
+        skyCanvas.skyView = SkyView(skyCanvas, peers)
     }
 }
 
@@ -46,8 +46,9 @@ class VisionModel: AppModel {
 
     var handsModel: HandsModel!
     var handsTracker: HandsTracker!
-
-    override init () {
+    var immersionModel: ImmersionModel!
+   
+    init (_ immersionModel: ImmersionModel) {
         super.init()
         self.handsModel = HandsModel(skyCanvas.touchCanvas, skyCanvas.root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)

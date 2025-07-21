@@ -13,9 +13,15 @@ struct SkyApp: App {
 
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.openWindow) var openWindow
     
-    @State public var immersionModel = ImmersionModel()
-    let appModel = VisionModel()
+    @State public var immersionModel: ImmersionModel
+    var appModel: VisionModel!
+
+    init() {
+        self.immersionModel = ImmersionModel()
+        self.appModel = VisionModel(immersionModel)
+    }
 
     var body: some Scene {
 
@@ -37,6 +43,12 @@ struct SkyApp: App {
                         } else if immersionModel.isImmersive {
                             await dismissImmersiveSpace()
                         }
+                    }
+                }
+                .onChange(of: immersionModel.shouldRestoreSkyView) { _, shouldRestore in
+                    if shouldRestore {
+                        openWindow(id: "App")
+                        immersionModel.shouldRestoreSkyView = false
                     }
                 }
         }

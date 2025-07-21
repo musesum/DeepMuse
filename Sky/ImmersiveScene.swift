@@ -14,8 +14,10 @@ struct ImmersiveScene: Scene {
 
     let pipeline: SkyPipeline
     let nextFrame: NextFrame
+    let appModel: AppModel
 
     init(_ appModel: AppModel) {
+        self.appModel = appModel
         let skyCanvas = appModel.skyCanvas
         self.pipeline = skyCanvas.pipeline
         self.nextFrame = skyCanvas.nextFrame
@@ -33,6 +35,15 @@ struct ImmersiveScene: Scene {
         }
         .immersionStyle(selection: .constant(immersionModel.immersionStyle), in: .mixed, .full)
         .upperLimbVisibility(.visible)
+    }
+    
+    // Stub function for hand gesture to restore SkyView
+    func handleRestoreSkyView() {
+        Task { @MainActor in
+            if immersionModel.isImmersive && !immersionModel.isSkyViewVisible {
+                immersionModel.shouldRestoreSkyView = true
+            }
+        }
     }
 }
 struct ContentStageConfiguration: CompositorLayerConfiguration {
