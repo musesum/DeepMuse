@@ -46,9 +46,8 @@ class VisionModel: AppModel {
 
     var handsModel: HandsModel!
     var handsTracker: HandsTracker!
-    var immersionModel: ImmersionModel!
    
-    init (_ immersionModel: ImmersionModel) {
+    override init () {
         super.init()
         self.handsModel = HandsModel(skyCanvas.touchCanvas, skyCanvas.root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)

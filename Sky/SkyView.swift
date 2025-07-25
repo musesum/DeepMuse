@@ -22,15 +22,19 @@ struct SkyView: View {
     let peers: Peers
     var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
     let touchView: TouchViewRepresentable!
-    var immersive: Bool = false
+    let nextFrame: NextFrame
+    var glassState: GlassState
 
     public init(_ skyCanvas: SkyCanvas,
                 _ peers: Peers) {
 
         self.skyCanvas = skyCanvas
+        self.nextFrame = skyCanvas.nextFrame
         self.peers = peers
         self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
+        self.glassState = GlassState(skyCanvas.root˚)
+        nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
     }
 
     func geoFrame(_ geo: GeometryProxy, onAppear: Bool) {
@@ -53,11 +57,30 @@ struct SkyView: View {
                height: -geo.safeAreaInsets.top)
     }
 
+    func logScenePhase(_ phase: ScenePhase, changed: Bool) {
+        var msg = "🎬 SkyView scenePhase: "
+        switch phase {
+        case .active     : msg += "🟩 .active id: \(id)"
+        case .inactive   : msg += "🟥 .inactive"
+        case .background : msg += "🟦 .background"
+        @unknown default : break
+        }
+        DebugLog { P(msg) }
+        if changed {
+            switch phase {
+            case .active: nextFrame.pause = false
+            case .inactive: skyCanvas.saveArchive("Snapshot", "autosaved") { nextFrame.pause = true }
+            default:  break
+            }
+        }
+    }
     var showTouchView: Bool {
         #if os(visionOS)
-        let immersive = immersionModel.goImmersive
-        DebugLog { P("꩜ immersive: \(immersive)") }
-        return !immersive
+        let goImmersive = immersionModel.goImmersive
+        let isImmersive = immersionModel.isImmersive
+
+        DebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
+        return !goImmersive
         #else
         return true
         #endif
@@ -74,16 +97,23 @@ struct SkyView: View {
                         .offset(touchOffset(geo))
                 }
                 MenuView(menuVms)
-
+                    .environmentObject(glassState)
                     .background(.clear)
-                    #if os(iOS)
+                #if os(iOS)
                     .persistentSystemOverlays(.hidden)
-                    #endif
+                #elseif os(visionOS)
+                    .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
+                #endif
             }
-            .onAppear { geoFrame(geo, onAppear: true) }
+            .onAppear() {
+                logScenePhase(scenePhase, changed: false)
+                geoFrame(geo, onAppear: true)
+            }
+            .onChange(of: scenePhase) { logScenePhase($1, changed: true) }
             .onChange(of: geo.frame(in: .global)) { geoFrame(geo, onAppear: false) }
         }
-        
+
+
     }
 }
 

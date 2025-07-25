@@ -11,11 +11,14 @@ class SkyCanvas: SkyBase {
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
     func setImmersion(_ immersion: Bool) {
+
         let renderState: RenderState = immersion ? .immersed : .windowed
 
         if self.renderState != renderState {
+
             self.renderState = renderState
             pipeline.renderState = renderState
+
             if renderState == .immersed {
                 pipeline.layer.opacity = 0
                 touchCanvas.immersive = true
@@ -28,7 +31,7 @@ class SkyCanvas: SkyBase {
                 setSize(frame.size, onAppear: false)
             }
         }
-        skyView?.immersive = renderState == .immersed
+        DebugLog { P("🎬 SkyCanvas nextFrame.pause: \(immersion)") }
         nextFrame.pause = immersion
     }
 
@@ -59,7 +62,7 @@ class SkyCanvas: SkyBase {
 
         touchDraw.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
-        DebugLog { P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
+        NoDebugLog { P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
     }
 
     /// Adjust frame after rendering first frame
@@ -72,7 +75,7 @@ class SkyCanvas: SkyBase {
     ///   and try it again.
     func secondMenuFrame() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            DebugLog { P("🧭 Immersive secondMenuFrame") }
+            NoDebugLog { P("🧭 Immersive secondMenuFrame") }
             self.setFrame(self.touchView.frame, self.insets, onAppear: false)
         }
     }

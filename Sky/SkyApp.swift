@@ -4,9 +4,15 @@
 import SwiftUI
 import MuVision
 import MuFlo
+import MuMenu
 
 #if os(visionOS)
 import CompositorServices
+
+@MainActor
+class ShowApp: ObservableObject, @unchecked Sendable {
+    @Published var showTime = ShowTime()
+}
 
 @main
 struct SkyApp: App {
@@ -14,43 +20,62 @@ struct SkyApp: App {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.openWindow) var openWindow
-    
+    @ObservedObject var showApp = ShowApp()
+    @ObservedObject var handState: HandState
     @State public var immersionModel: ImmersionModel
-    var appModel: VisionModel!
+
+    let nextFrame: NextFrame
+    let appModel: VisionModel
+    let skyCanvas: SkyCanvas
+    let visionView: VisionView
+
+    var immersed: Bool { immersionModel.isImmersive }
+    var showOpacity: CGFloat {  immersed ? showApp.showTime.opacity : 1 }
+    var showAnimation: Animation { showApp.showTime.animation }
 
     init() {
         self.immersionModel = ImmersionModel()
-        self.appModel = VisionModel(immersionModel)
+        self.appModel = VisionModel()
+        self.skyCanvas = appModel.skyCanvas
+        self.handState = HandState(skyCanvas.root˚)
+        self.nextFrame = skyCanvas.nextFrame
+        self.visionView = VisionView(appModel)
     }
 
     var body: some Scene {
 
-        @Environment(\.scenePhase) var scenePhase
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+        WindowGroup(id: "SkyApp") {
 
-        WindowGroup(id: "App") {
-            VisionView(appModel)
+            visionView
                 .environment(immersionModel)
-                .onOpenURL { url in
-                    appModel.openURL(url)
-                }
-                .onChange(of: immersionModel.goImmersive) { _, newValue in
-                    // Manage the lifecycle of the immersive space.
+                .environmentObject(handState)
+                .onOpenURL { url in appModel.openURL(url) }
+                .onChange(of: immersionModel.goImmersive) { _, goImmersive in
+                    DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
                     Task { @MainActor in
-                        if newValue {
-                            let act = await openImmersiveSpace(id: ImmersiveScene.id)
-                            immersionModel.changed(act)
-                        } else if immersionModel.isImmersive {
+                        if goImmersive {
+                            if immersionModel.isImmersive == false {
+                                let result = await openImmersiveSpace(id: ImmersiveScene.SceneId)
+                                immersionModel.changed(result)
+                            }
+                        } else  {
                             await dismissImmersiveSpace()
+                            immersionModel.isImmersive = false
                         }
                     }
+                    skyCanvas.setImmersion(goImmersive)
                 }
-                .onChange(of: immersionModel.shouldRestoreSkyView) { _, shouldRestore in
-                    if shouldRestore {
-                        openWindow(id: "App")
-                        immersionModel.shouldRestoreSkyView = false
-                    }
-                }
+                .opacity(showOpacity)
+                .animation(showAnimation, value: showOpacity)
+        }
+         .onChange(of: handState.showPhase) { _, showPhase in
+             var icon: String = "🤏"
+             switch showPhase {
+             case 0: icon += "🤏🔰" ; showApp.showTime.showNow()
+             case 3: icon += "🤏♦️" ; showApp.showTime.startAutoFade()
+             default: return
+             }
         }
         .windowStyle(.plain)
         .windowResizability(.contentSize)
@@ -76,7 +101,6 @@ struct SkyApp: App {
     }
 
     var body: some Scene {
-        @Environment(\.scenePhase) var scenePhase
         WindowGroup {
             appModel.skyCanvas.skyView
                 .onOpenURL { url in

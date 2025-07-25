@@ -8,26 +8,46 @@ import MuMenu
 #if os(visionOS)
 
 struct VisionView: View {
-    @Environment(\.scenePhase) private var scenePhase
+
+    let id = Visitor.nextId() //.....
     @Environment(ImmersionModel.self) var immersionModel
-    @ObservedObject var menuState: MenuState
+    @Environment(\.scenePhase) var scenePhase
+    @EnvironmentObject var handState: HandState
 
     let appModel: VisionModel
     let skyCanvas: SkyCanvas
+    let skyView: SkyView?
     let nextFrame: NextFrame
 
+    func logScenePhase(_ phase: ScenePhase, changed: Bool) {
+        var msg = "🎬 VisionView scenePhase: "
+        switch phase {
+        case .active     : msg += "🟩 .active id: \(id)"
+        case .inactive   : msg += "🟥 .inactive"
+        case .background : msg += "🟦 .background"
+        @unknown default : break
+        }
+        DebugLog { P(msg) }
+        if changed {
+            switch phase {
+            case .active: handState.showPhase = 3 /* ended */
+            case .inactive: break
+            case .background: handState.showPhase = 3 /* ended */
+            default:  break
+            }
+        }
+    }
     init(_ appModel: VisionModel) {
         self.appModel = appModel
         self.skyCanvas = appModel.skyCanvas
-        self.menuState = MenuState(skyCanvas.root˚)
+        self.skyView  = appModel.skyCanvas.skyView
         self.nextFrame = skyCanvas.nextFrame
-        nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
+        PrintLog("🎬 VisionView id: \(self.id)")
     }
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            appModel.skyCanvas.skyView
-                .environmentObject(menuState)
+            skyView
                 .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
                        minHeight : immersionModel.goImmersive ? 480 : 600)
                 .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
@@ -47,38 +67,11 @@ struct VisionView: View {
             .padding(6)
         }
         .onAppear {
-            immersionModel.skyViewAppeared()
-            appModel.setImmersion(immersionModel.goImmersive)
+            logScenePhase(scenePhase, changed: false)
+            skyCanvas.setImmersion(immersionModel.goImmersive)
             Task { await appModel.handsTracker.startHands() }
         }
-        .onChange(of: immersionModel.goImmersive) { _, newValue in
-            appModel.setImmersion(newValue)
-        }
-        .onChange(of: menuState.showMenu) {
-            if menuState.showMenu,
-               !immersionModel.isSkyViewVisible {
-                immersionModel.isSkyViewVisible = true
-            }
-        }
-        .onChange(of: scenePhase) { _, newPhase in
-            switch newPhase {
-            case .active:
-                DebugLog { P("🎬 MenuTouchView 🟢 .active") }
-                nextFrame.pause = false
-                immersionModel.skyViewAppeared()
-            case .inactive:
-                DebugLog { P("🎬 MenuTouchView 🔴 .inactive") }
-                skyCanvas.saveArchive("Snapshot", "autosaved") {
-                    nextFrame.pause = true
-                }
-            case .background:
-                DebugLog { P("🎬 MenuTouchView 🔵 .background") }
-                menuState.showMenu = false
-                immersionModel.isSkyViewVisible = false
-            @unknown default:
-                break
-            }
-        }
+        .onChange(of: scenePhase) { logScenePhase($1, changed: true) }
     }
 }
 #endif

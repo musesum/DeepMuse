@@ -8,9 +8,9 @@ import MuVision
 import CompositorServices
 
 struct ImmersiveScene: Scene {
-
+    static let SceneId = "Immersive"
+    let id = Visitor.nextId()
     @Environment(ImmersionModel.self) var immersionModel
-    static let id = "Immersive"
 
     let pipeline: SkyPipeline
     let nextFrame: NextFrame
@@ -23,34 +23,25 @@ struct ImmersiveScene: Scene {
         self.nextFrame = skyCanvas.nextFrame
     }
     var body: some Scene {
-        ImmersiveSpace(id: Self.id) {
+        ImmersiveSpace(id: Self.SceneId) {
             CompositorLayer(configuration: ContentStageConfiguration()) {
                 layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
-                nonisolated(unsafe) let renderer = Renderer(layerRenderer, pipeline, nextFrame)
+                let renderer = Renderer(layerRenderer, pipeline, nextFrame)
                 Task(priority: .high) {
-                    try await renderer.renderLoop()
+                    try await renderer.renderLoop(id)
                 }
             }
         }
-        .immersionStyle(selection: .constant(immersionModel.immersionStyle), in: .mixed, .full)
+        .immersionStyle(selection: .constant(.mixed), in: .mixed, .full)
         .upperLimbVisibility(.visible)
-    }
-    
-    // Stub function for hand gesture to restore SkyView
-    func handleRestoreSkyView() {
-        Task { @MainActor in
-            if immersionModel.isImmersive && !immersionModel.isSkyViewVisible {
-                immersionModel.shouldRestoreSkyView = true
-            }
-        }
     }
 }
 struct ContentStageConfiguration: CompositorLayerConfiguration {
 
     func makeConfiguration(capabilities: LayerRenderer.Capabilities,
                            configuration: inout LayerRenderer.Configuration) {
-        DebugLog{ P("🧭 Immmersive makeConfiguration") }
+        NoDebugLog{ P("🧭 Immmersive makeConfiguration") }
         configuration.depthFormat = .depth32Float
         configuration.colorFormat = MetalRenderPixelFormat
 

@@ -29,7 +29,6 @@ class SkyBase {
     public var touchView: TouchView
     public var skyView: SkyView?
 
-
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
 
