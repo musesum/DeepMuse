@@ -7,7 +7,7 @@ import MuVision
 import MetalKit
 import MuMenu
 import MuPeers
-
+import MuHands
 
 @MainActor
 class AppModel {

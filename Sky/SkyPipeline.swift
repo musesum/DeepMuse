@@ -5,6 +5,7 @@ import MuFlo
 import MuVision
 import MuPlato
 import MuMenu
+import MuHands
 
 public class SkyPipeline: Pipeline {
 

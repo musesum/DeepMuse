@@ -7,6 +7,7 @@ import MuSky
 import MuVision
 import MuMenu
 import MuPeers
+import MuHands
 
 @MainActor
 class SkyBase {
@@ -20,9 +21,10 @@ class SkyBase {
     private let peers: Peers
     internal let scale: CGFloat
 
-    public let touchCanvas: TouchCanvas
+
     public let root˚: Flo
     public let pipeline: SkyPipeline
+    public let touchCanvas: TouchCanvas
     public let touchDraw: TouchDraw
     public let nextFrame: NextFrame
     public let archiveVm: ArchiveVm

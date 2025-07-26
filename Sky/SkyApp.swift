@@ -9,19 +9,14 @@ import MuMenu
 #if os(visionOS)
 import CompositorServices
 
-@MainActor
-class ShowApp: ObservableObject, @unchecked Sendable {
-    @Published var showTime = ShowTime()
-}
-
 @main
 struct SkyApp: App {
 
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.openWindow) var openWindow
-    @ObservedObject var showApp = ShowApp()
-    @ObservedObject var handState: HandState
+    @ObservedObject var showTime = ShowTime()
+    @ObservedObject var pinchPhase: PinchPhase
     @State public var immersionModel: ImmersionModel
 
     let nextFrame: NextFrame
@@ -30,14 +25,14 @@ struct SkyApp: App {
     let visionView: VisionView
 
     var immersed: Bool { immersionModel.isImmersive }
-    var showOpacity: CGFloat {  immersed ? showApp.showTime.opacity : 1 }
-    var showAnimation: Animation { showApp.showTime.animation }
+    var showOpacity: CGFloat {  immersed ? showTime.opacity : 1 }
+    var showAnimation: Animation { showTime.animation }
 
     init() {
         self.immersionModel = ImmersionModel()
         self.appModel = VisionModel()
         self.skyCanvas = appModel.skyCanvas
-        self.handState = HandState(skyCanvas.root˚)
+        self.pinchPhase = PinchPhase(skyCanvas.root˚)
         self.nextFrame = skyCanvas.nextFrame
         self.visionView = VisionView(appModel)
     }
@@ -46,10 +41,9 @@ struct SkyApp: App {
 
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
         WindowGroup(id: "SkyApp") {
-
             visionView
                 .environment(immersionModel)
-                .environmentObject(handState)
+                .environmentObject(pinchPhase)
                 .onOpenURL { url in appModel.openURL(url) }
                 .onChange(of: immersionModel.goImmersive) { _, goImmersive in
                     DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
@@ -69,12 +63,17 @@ struct SkyApp: App {
                 .opacity(showOpacity)
                 .animation(showAnimation, value: showOpacity)
         }
-         .onChange(of: handState.showPhase) { _, showPhase in
+         .onChange(of: pinchPhase.state) { _, state in
              var icon: String = "🤏"
-             switch showPhase {
-             case 0: icon += "🤏🔰" ; showApp.showTime.showNow()
-             case 3: icon += "🤏♦️" ; showApp.showTime.startAutoFade()
-             default: return
+             switch state.left  {
+             case .begin : icon += "🔰" ; showTime.showNow()
+             case .end   : icon += "♦️" ; showTime.startAutoFade()
+             default     : icon += "⬜︎"
+             }
+             switch state.right  {
+             case .begin : icon += "🔰" ; showTime.showNow()
+             case .end   : icon += "♦️" ; showTime.startAutoFade()
+             default     : icon += "⬜︎"
              }
         }
         .windowStyle(.plain)
@@ -95,6 +94,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct SkyApp: App {
     let appModel: AppModel
     var skyCanvas: SkyCanvas { appModel.skyCanvas }
+    var skyView: SkyView { skyCanvas.skyView}
 
     init() {
         self.appModel = AppModel()
@@ -102,7 +102,7 @@ struct SkyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            appModel.skyCanvas.skyView
+            skyView
                 .onOpenURL { url in
                     skyCanvas.readUserArchive(url, skyCanvas.nextFrame, local: false)
                 }

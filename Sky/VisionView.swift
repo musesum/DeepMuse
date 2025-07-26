@@ -5,14 +5,14 @@ import MuVision
 import MetalKit
 import MuMenu
 
-#if os(visionOS)
+#if os(visionOS) 
 
 struct VisionView: View {
 
     let id = Visitor.nextId() //.....
     @Environment(ImmersionModel.self) var immersionModel
     @Environment(\.scenePhase) var scenePhase
-    @EnvironmentObject var handState: HandState
+    @EnvironmentObject var handState: PinchPhase
 
     let appModel: VisionModel
     let skyCanvas: SkyCanvas
@@ -28,14 +28,7 @@ struct VisionView: View {
         @unknown default : break
         }
         DebugLog { P(msg) }
-        if changed {
-            switch phase {
-            case .active: handState.showPhase = 3 /* ended */
-            case .inactive: break
-            case .background: handState.showPhase = 3 /* ended */
-            default:  break
-            }
-        }
+
     }
     init(_ appModel: VisionModel) {
         self.appModel = appModel

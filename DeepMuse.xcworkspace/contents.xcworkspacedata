@@ -28,5 +28,8 @@
       <FileRef
          location = "group:MuSky">
       </FileRef>
+      <FileRef
+         location = "container:../Mu/MuHands">
+      </FileRef>
    </Group>
 </Workspace>
