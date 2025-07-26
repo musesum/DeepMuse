@@ -93,16 +93,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SkyApp: App {
     let appModel: AppModel
-    var skyCanvas: SkyCanvas { appModel.skyCanvas }
-    var skyView: SkyView { skyCanvas.skyView}
+    let skyCanvas: SkyCanvas
 
     init() {
         self.appModel = AppModel()
+        self.skyCanvas = appModel.skyCanvas
     }
 
     var body: some Scene {
         WindowGroup {
-            skyView
+            skyCanvas.skyView
                 .onOpenURL { url in
                     skyCanvas.readUserArchive(url, skyCanvas.nextFrame, local: false)
                 }
