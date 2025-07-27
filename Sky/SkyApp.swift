@@ -5,6 +5,7 @@ import SwiftUI
 import MuVision
 import MuFlo
 import MuMenu
+import MuHands
 
 #if os(visionOS)
 import CompositorServices
@@ -16,7 +17,7 @@ struct SkyApp: App {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.openWindow) var openWindow
     @ObservedObject var showTime = ShowTime()
-    @ObservedObject var pinchPhase: PinchPhase
+    @ObservedObject var handsPhase: HandsPhase
     @State public var immersionModel: ImmersionModel
 
     let nextFrame: NextFrame
@@ -32,8 +33,8 @@ struct SkyApp: App {
         self.immersionModel = ImmersionModel()
         self.appModel = VisionModel()
         self.skyCanvas = appModel.skyCanvas
-        self.pinchPhase = PinchPhase(skyCanvas.root˚)
         self.nextFrame = skyCanvas.nextFrame
+        self.handsPhase = skyCanvas.handsPhase
         self.visionView = VisionView(appModel)
     }
 
@@ -43,7 +44,7 @@ struct SkyApp: App {
         WindowGroup(id: "SkyApp") {
             visionView
                 .environment(immersionModel)
-                .environmentObject(pinchPhase)
+                .environmentObject(handsPhase)
                 .onOpenURL { url in appModel.openURL(url) }
                 .onChange(of: immersionModel.goImmersive) { _, goImmersive in
                     DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
@@ -63,7 +64,7 @@ struct SkyApp: App {
                 .opacity(showOpacity)
                 .animation(showAnimation, value: showOpacity)
         }
-         .onChange(of: pinchPhase.state) { _, state in
+         .onChange(of: handsPhase.state) { _, state in
              var icon: String = "🤏"
              switch state.left  {
              case .begin : icon += "🔰" ; showTime.showNow()

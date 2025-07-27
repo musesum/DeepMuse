@@ -4,15 +4,16 @@ import MuFlo // NextFrame
 import MuVision
 import MetalKit
 import MuMenu
+import MuHands
 
-#if os(visionOS) 
+#if os(visionOS)
 
 struct VisionView: View {
 
     let id = Visitor.nextId() //.....
     @Environment(ImmersionModel.self) var immersionModel
     @Environment(\.scenePhase) var scenePhase
-    @EnvironmentObject var handState: PinchPhase
+    @EnvironmentObject var handState: HandsPhase
 
     let appModel: VisionModel
     let skyCanvas: SkyCanvas
@@ -64,7 +65,7 @@ struct VisionView: View {
             skyCanvas.setImmersion(immersionModel.goImmersive)
             Task { await appModel.handsTracker.startHands() }
         }
-        .onChange(of: scenePhase) { logScenePhase($1, changed: true) }
+        //.onChange(of: scenePhase) { logScenePhase($1, changed: true) }
     }
 }
 #endif

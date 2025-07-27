@@ -31,7 +31,7 @@ struct SkyView: View {
         self.skyCanvas = skyCanvas
         self.nextFrame = skyCanvas.nextFrame
         self.peers = peers
-        self.menuVms = MenuVms(skyCanvas.root˚, skyCanvas.archiveVm, peers).menuVms
+        self.menuVms = skyCanvas.menuHands.menuVms
         self.touchView = TouchViewRepresentable(menuVms, skyCanvas.touchView)
         self.glassState = GlassState(skyCanvas.root˚)
         nextFrame.addFrameDelegate("SkyCanvas".hash, skyCanvas)
@@ -78,8 +78,7 @@ struct SkyView: View {
         #if os(visionOS)
         let goImmersive = immersionModel.goImmersive
         let isImmersive = immersionModel.isImmersive
-
-        DebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
+        NoDebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
         return !goImmersive
         #else
         return true

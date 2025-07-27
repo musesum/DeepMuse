@@ -21,7 +21,6 @@ class SkyBase {
     private let peers: Peers
     internal let scale: CGFloat
 
-
     public let root˚: Flo
     public let pipeline: SkyPipeline
     public let touchCanvas: TouchCanvas
@@ -30,6 +29,8 @@ class SkyBase {
     public let archiveVm: ArchiveVm
     public var touchView: TouchView
     public var skyView: SkyView?
+    public var handsPhase: HandsPhase
+    public var menuHands: MenuHands
 
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
@@ -58,6 +59,8 @@ class SkyBase {
         self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
         self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
+        self.handsPhase = HandsPhase(root˚)
+        self.menuHands = MenuHands(root˚, archiveVm, handsPhase, peers)
 
         archiveVm.archiveProto = self
         peers.setDelegate(self, for: .archiveFrame)
