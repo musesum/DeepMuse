@@ -1,5 +1,5 @@
 {
-  "originHash" : "2eca9e3530ae105f3f7c25886a8273c65c66d0d6662357508a22caf881b7124f",
+  "originHash" : "3bec07c117daa4f90aaee2821dbd30c4ce859e85bb8d4806e4a13f57596b661d",
   "pins" : [
     {
       "identity" : "audiokit",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "037023fb07d572f48ff12e6a4ce7801c0bbeaa0a"
+      }
+    },
+    {
+      "identity" : "muspeech",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/musesum/MuSpeech",
+      "state" : {
+        "branch" : "main",
+        "revision" : "72bf2c48760b1c82a6321001ac8f5d89dd67464e"
       }
     },
     {

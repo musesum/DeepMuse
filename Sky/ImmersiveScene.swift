@@ -18,9 +18,9 @@ struct ImmersiveScene: Scene {
 
     init(_ appModel: AppModel) {
         self.appModel = appModel
-        let skyCanvas = appModel.skyCanvas
-        self.pipeline = skyCanvas.pipeline
-        self.nextFrame = skyCanvas.nextFrame
+        let skyVm = appModel.skyVm
+        self.pipeline = skyVm.pipeline
+        self.nextFrame = skyVm.nextFrame
     }
     var body: some Scene {
         ImmersiveSpace(id: Self.SceneId) {

@@ -6,7 +6,7 @@ import MuMenu
 import MuVision
 
 #if os(visionOS)
-class SkyCanvas: SkyBase {
+class SkyVm: SkyBase {
 
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
@@ -82,7 +82,7 @@ class SkyCanvas: SkyBase {
 }
 #else
 @MainActor
-class SkyCanvas: SkyBase {
+class SkyVm: SkyBase {
 
     func setFrame(_ frame: CGRect,
                   _ insets: EdgeInsets,
@@ -102,7 +102,7 @@ class SkyCanvas: SkyBase {
     }
 }
 #endif
-extension SkyCanvas: NextFrameDelegate {
+extension SkyVm: NextFrameDelegate {
     nonisolated func goFrame() -> Bool {
         Task { @MainActor in
             pipeline.renderFrame()

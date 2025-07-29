@@ -22,7 +22,7 @@ struct SkyApp: App {
 
     let nextFrame: NextFrame
     let appModel: VisionModel
-    let skyCanvas: SkyCanvas
+    let skyVm: SkyVm
     let visionView: VisionView
 
     var immersed: Bool { immersionModel.isImmersive }
@@ -32,12 +32,28 @@ struct SkyApp: App {
     init() {
         self.immersionModel = ImmersionModel()
         self.appModel = VisionModel()
-        self.skyCanvas = appModel.skyCanvas
-        self.nextFrame = skyCanvas.nextFrame
-        self.handsPhase = skyCanvas.handsPhase
+        self.skyVm = appModel.skyVm
+        self.nextFrame = skyVm.nextFrame
+        self.handsPhase = skyVm.handsPhase
         self.visionView = VisionView(appModel)
     }
 
+    func changeHandsPhase(_ handsPhase: HandsPhase) {
+        let state = handsPhase.state
+        if let phase = state.left {
+            switch phase {
+            case .end : showTime.startAutoFade()
+            default   : showTime.showNow()
+            }
+        }
+        if let phase = state.right {
+            switch phase  {
+            case .end : showTime.startAutoFade()
+            default   : showTime.showNow()
+            }
+        }
+        NoTimeLog(handsPhase.icon, interval: 1) { P(handsPhase.icon) }
+    }
     var body: some Scene {
 
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -59,24 +75,12 @@ struct SkyApp: App {
                             immersionModel.isImmersive = false
                         }
                     }
-                    skyCanvas.setImmersion(goImmersive)
+                    skyVm.setImmersion(goImmersive)
                 }
                 .opacity(showOpacity)
                 .animation(showAnimation, value: showOpacity)
         }
-         .onChange(of: handsPhase.state) { _, state in
-             var icon: String = "🤏"
-             switch state.left  {
-             case .begin : icon += "🔰" ; showTime.showNow()
-             case .end   : icon += "♦️" ; showTime.startAutoFade()
-             default     : icon += "⬜︎"
-             }
-             switch state.right  {
-             case .begin : icon += "🔰" ; showTime.showNow()
-             case .end   : icon += "♦️" ; showTime.startAutoFade()
-             default     : icon += "⬜︎"
-             }
-        }
+        .onChange(of: handsPhase.update) { changeHandsPhase(handsPhase) }
         .windowStyle(.plain)
         .windowResizability(.contentSize)
         ImmersiveScene(appModel)
@@ -94,21 +98,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SkyApp: App {
     let appModel: AppModel
-    let skyCanvas: SkyCanvas
+    let skyVm: SkyVm
 
     init() {
         self.appModel = AppModel()
-        self.skyCanvas = appModel.skyCanvas
+        self.skyVm = appModel.skyVm
     }
 
     var body: some Scene {
         WindowGroup {
-            skyCanvas.skyView
+            SkyView(skyVm)
                 .onOpenURL { url in
-                    skyCanvas.readUserArchive(url, skyCanvas.nextFrame, local: false)
+                    skyVm.readUserArchive(url, skyVm.nextFrame, local: false)
                 }
         }
     }
 }
 #endif
+
 

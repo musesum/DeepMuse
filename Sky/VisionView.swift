@@ -10,20 +10,18 @@ import MuHands
 
 struct VisionView: View {
 
-    let id = Visitor.nextId() //.....
     @Environment(ImmersionModel.self) var immersionModel
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var handState: HandsPhase
 
     let appModel: VisionModel
-    let skyCanvas: SkyCanvas
-    let skyView: SkyView?
+    let skyVm: SkyVm
     let nextFrame: NextFrame
 
     func logScenePhase(_ phase: ScenePhase, changed: Bool) {
         var msg = "🎬 VisionView scenePhase: "
         switch phase {
-        case .active     : msg += "🟩 .active id: \(id)"
+        case .active     : msg += "🟩 .active"
         case .inactive   : msg += "🟥 .inactive"
         case .background : msg += "🟦 .background"
         @unknown default : break
@@ -33,15 +31,14 @@ struct VisionView: View {
     }
     init(_ appModel: VisionModel) {
         self.appModel = appModel
-        self.skyCanvas = appModel.skyCanvas
-        self.skyView  = appModel.skyCanvas.skyView
-        self.nextFrame = skyCanvas.nextFrame
-        PrintLog("🎬 VisionView id: \(self.id)")
+        self.skyVm = appModel.skyVm
+        self.nextFrame = skyVm.nextFrame
+        PrintLog("🎬 VisionView")
     }
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            skyView
+            SkyView(skyVm)
                 .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
                        minHeight : immersionModel.goImmersive ? 480 : 600)
                 .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
@@ -62,7 +59,7 @@ struct VisionView: View {
         }
         .onAppear {
             logScenePhase(scenePhase, changed: false)
-            skyCanvas.setImmersion(immersionModel.goImmersive)
+            skyVm.setImmersion(immersionModel.goImmersive)
             Task { await appModel.handsTracker.startHands() }
         }
         //.onChange(of: scenePhase) { logScenePhase($1, changed: true) }

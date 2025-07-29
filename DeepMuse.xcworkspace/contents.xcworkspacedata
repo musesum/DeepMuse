@@ -11,25 +11,25 @@
          location = "group:MuAudio">
       </FileRef>
       <FileRef
+         location = "container:../Mu/MuHands">
+      </FileRef>
+      <FileRef
+         location = "group:MuFlo">
+      </FileRef>
+      <FileRef
+         location = "group:MuMenu">
+      </FileRef>
+      <FileRef
          location = "group:MuPeers">
       </FileRef>
       <FileRef
          location = "group:MuPlato">
       </FileRef>
       <FileRef
-         location = "group:MuFlo">
-      </FileRef>
-      <FileRef
-         location = "group:MuVision">
-      </FileRef>
-      <FileRef
-         location = "group:MuMenu">
-      </FileRef>
-      <FileRef
          location = "group:MuSky">
       </FileRef>
       <FileRef
-         location = "container:../Mu/MuHands">
+         location = "group:MuVision">
       </FileRef>
    </Group>
 </Workspace>

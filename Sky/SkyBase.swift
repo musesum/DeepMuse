@@ -18,9 +18,9 @@ class SkyBase {
     private let drawPal: DrawPal
     private let ripples: Ripples
     private let camera: CameraSession
-    private let peers: Peers
-    internal let scale: CGFloat
 
+    internal let scale: CGFloat
+    public let peers: Peers
     public let root˚: Flo
     public let pipeline: SkyPipeline
     public let touchCanvas: TouchCanvas
@@ -28,7 +28,6 @@ class SkyBase {
     public let nextFrame: NextFrame
     public let archiveVm: ArchiveVm
     public var touchView: TouchView
-    public var skyView: SkyView?
     public var handsPhase: HandsPhase
     public var menuHands: MenuHands
 

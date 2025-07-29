@@ -16,13 +16,13 @@ class AppModel {
     let peers: Peers
     let archiveVm: ArchiveVm
     let nextFrame: NextFrame
-    let skyCanvas: SkyCanvas
+    let skyVm: SkyVm
 
     init () {
         self.root˚ = Flo("√")
-        self.peers = Peers(PeersConfig(
-            service: "_deepmuse-peer._tcp",
-            secret: "")) // replace with a real secret
+        self.peers = Peers(PeersConfig(service: "_deepmuse-peer._tcp",
+                                        secret: ""), // replace with a real secret
+                           logging: false)
         peers.setupPeers()
         self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
@@ -35,8 +35,8 @@ class AppModel {
         let scale = UIScreen.main.scale
         let camera = CameraSession(nil, position: .front)
         #endif
-        self.skyCanvas = SkyCanvas(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
-        skyCanvas.skyView = SkyView(skyCanvas, peers)
+        self.skyVm = SkyVm(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
+
     }
 }
 
@@ -49,15 +49,15 @@ class VisionModel: AppModel {
    
     override init () {
         super.init()
-        self.handsModel = HandsModel(skyCanvas.touchCanvas, skyCanvas.root˚)
+        self.handsModel = HandsModel(skyVm.touchCanvas, skyVm.root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)
     }
     func setImmersion(_ immersion: Bool) {
-        skyCanvas.setImmersion(immersion)
+        skyVm.setImmersion(immersion)
     }
 
     func openURL(_ url: URL) {
-        skyCanvas.readUserArchive(url, nextFrame, local: false)
+        skyVm.readUserArchive(url, nextFrame, local: false)
     }
 }
 #endif
