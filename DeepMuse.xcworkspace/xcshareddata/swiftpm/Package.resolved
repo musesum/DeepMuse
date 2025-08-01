@@ -1,5 +1,5 @@
 {
-  "originHash" : "3bec07c117daa4f90aaee2821dbd30c4ce859e85bb8d4806e4a13f57596b661d",
+  "originHash" : "a17dfc8f273fc3cd40283f769e0ab78c1d052645b6ba0c0998c4b5e04c986353",
   "pins" : [
     {
       "identity" : "audiokit",
@@ -8,15 +8,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "037023fb07d572f48ff12e6a4ce7801c0bbeaa0a"
-      }
-    },
-    {
-      "identity" : "muspeech",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musesum/MuSpeech",
-      "state" : {
-        "branch" : "main",
-        "revision" : "72bf2c48760b1c82a6321001ac8f5d89dd67464e"
       }
     },
     {
@@ -60,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system.git",
       "state" : {
-        "revision" : "41daa93a5d229e1548ec86ab527ce4783ca84dda",
-        "version" : "1.6.0"
+        "revision" : "b63d24d465e237966c3f59f47dcac6c70fb0bca3",
+        "version" : "1.6.1"
       }
     },
     {

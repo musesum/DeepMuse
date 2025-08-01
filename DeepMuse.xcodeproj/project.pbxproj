@@ -37,7 +37,6 @@
 		80ADA2FE2AB7657F00FCF8FF /* SkyVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyVm.swift */; };
 		80AF1D002E35382C002AE153 /* MuHands in Frameworks */ = {isa = PBXBuildFile; productRef = 80AF1CFF2E35382C002AE153 /* MuHands */; };
 		80B3D86D2C5979EF00865274 /* SkyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D86C2C5979EF00865274 /* SkyBase.swift */; };
-		80B965FC2E3828F000853FDE /* MuSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 80B965FB2E3828F000853FDE /* MuSpeech */; };
 		80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 80BD62D82A5B9B6800F51B7A /* MuAudio */; };
 		80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 80BDD7C928919CF000C6E2BF /* MuMenu */; };
 		80BE47542B34C08600EB05F4 /* MuVision in Frameworks */ = {isa = PBXBuildFile; productRef = 80BE47532B34C08600EB05F4 /* MuVision */; };
@@ -107,7 +106,6 @@
 			files = (
 				80704A7923378C1B0001617D /* Metal.framework in Frameworks */,
 				80BE47542B34C08600EB05F4 /* MuVision in Frameworks */,
-				80B965FC2E3828F000853FDE /* MuSpeech in Frameworks */,
 				80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
 				807533472A8CA0C600A1808C /* MuPlato in Frameworks */,
@@ -227,7 +225,6 @@
 				80BE47532B34C08600EB05F4 /* MuVision */,
 				80A0D01E2BC1A1F1005C2B6B /* MuSky */,
 				80AF1CFF2E35382C002AE153 /* MuHands */,
-				80B965FB2E3828F000853FDE /* MuSpeech */,
 			);
 			productName = MuseSky;
 			productReference = 807048E723378A090001617D /* Deep Muse.app */;
@@ -267,7 +264,6 @@
 				80161BFF2DE774B100DBFF10 /* XCRemoteSwiftPackageReference "MuPeers" */,
 				80860AD62DEF5E4A007A20DD /* XCRemoteSwiftPackageReference "swift-nio" */,
 				80AF1CFE2E35382C002AE153 /* XCRemoteSwiftPackageReference "MuHands" */,
-				80F47F372E38280B00A54C57 /* XCRemoteSwiftPackageReference "MuSpeech" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -385,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -394,8 +390,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = NO;
-				XROS_DEPLOYMENT_TARGET = 1.0;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -449,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -457,8 +454,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = NO;
-				XROS_DEPLOYMENT_TARGET = 1.0;
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -618,14 +616,6 @@
 				kind = branch;
 			};
 		};
-		80F47F372E38280B00A54C57 /* XCRemoteSwiftPackageReference "MuSpeech" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/musesum/MuSpeech";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		80FA4A8B29E25B8E00A77620 /* XCRemoteSwiftPackageReference "MuPlato" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/musesum/MuPlato";
@@ -651,11 +641,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 80AF1CFE2E35382C002AE153 /* XCRemoteSwiftPackageReference "MuHands" */;
 			productName = MuHands;
-		};
-		80B965FB2E3828F000853FDE /* MuSpeech */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 80F47F372E38280B00A54C57 /* XCRemoteSwiftPackageReference "MuSpeech" */;
-			productName = MuSpeech;
 		};
 		80BD62D82A5B9B6800F51B7A /* MuAudio */ = {
 			isa = XCSwiftPackageProductDependency;

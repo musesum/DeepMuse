@@ -15,22 +15,24 @@ struct SkyView: View {
     @Environment(ImmersionModel.self) var immersionModel
     #endif
 
-
     let id = Visitor.nextId()
-    var menuVms: [MenuVm]
+    let menuVms: [MenuVm]
     let skyVm: SkyVm
-    var cornerVms: [CornerVm] { menuVms.map { $0.rootVm.cornerVm } }
+    let cornerVms: [CornerVm]
     let touchView: TouchViewRepresentable!
     let nextFrame: NextFrame
-    var glassState: GlassState
+    let glassState: GlassState
+    let panicState: PanicState
 
     public init(_ skyVm: SkyVm) {
 
         self.skyVm = skyVm
         self.nextFrame = skyVm.nextFrame
         self.menuVms = skyVm.menuHands.menuVms
+        self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
         self.touchView = TouchViewRepresentable(menuVms, skyVm.touchView)
         self.glassState = GlassState(skyVm.root˚)
+        self.panicState = PanicState(skyVm.root˚)
         nextFrame.addFrameDelegate("SkyCanvas".hash, skyVm)
     }
 

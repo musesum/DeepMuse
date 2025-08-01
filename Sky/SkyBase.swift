@@ -64,7 +64,9 @@ class SkyBase {
         archiveVm.archiveProto = self
         peers.setDelegate(self, for: .archiveFrame)
         nextFrame.addBetweenFrame {
-            self.pipeline.alignTextures()
+            self.pipeline.rotateTextures() {
+                PrintLog("*** SkyBase done rotateTextures() ***")
+            }
         }
     }
 }
@@ -99,7 +101,10 @@ extension SkyBase: @MainActor ArchiveProto {
         }
         
         nextFrame.addBetweenFrame {
-            self.pipeline.alignNameTex()
+            
+            self.pipeline.alignNameTex() {
+                PrintLog("*** SkyBase done alignNameTex() ***")
+            }
         }
     }
     
