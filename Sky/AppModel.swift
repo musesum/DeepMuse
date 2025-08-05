@@ -33,7 +33,7 @@ class AppModel {
         #else
         let bounds = UIScreen.main.bounds
         let scale = UIScreen.main.scale
-        let camera = CameraSession(nil, position: .front)
+        let camera = CameraSession(nil, position: .front, nextFrame)
         #endif
         self.skyVm = SkyVm(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
 

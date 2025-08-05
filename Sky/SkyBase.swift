@@ -54,7 +54,7 @@ class SkyBase {
         self.touchDraw = TouchDraw(root˚, scale)
         self.camera = camera
         self.touchCanvas = TouchCanvas(touchDraw, peers)
-        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas)    
+        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas, archiveVm.nextFrame)    
         self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
         self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)

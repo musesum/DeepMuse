@@ -32,11 +32,12 @@ struct SkyView: View {
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
         self.touchView = TouchViewRepresentable(menuVms, skyVm.touchView)
         self.glassState = GlassState(skyVm.root˚)
-        self.panicState = PanicState(skyVm.root˚)
+        self.panicState = PanicState(skyVm.root˚, nextFrame)
         nextFrame.addFrameDelegate("SkyCanvas".hash, skyVm)
     }
 
-    func geoFrame(_ geo: GeometryProxy, onAppear: Bool) {
+    func changedGeoFrame(_ geo: GeometryProxy, onAppear: Bool) {
+        DebugLog { P("🎬 SkyView changed geometry ") }
         let frame = geo.frame(in: .global)
         let insets = geo.safeAreaInsets
         skyVm.setFrame(frame, insets, onAppear: onAppear)
@@ -56,15 +57,18 @@ struct SkyView: View {
                height: -geo.safeAreaInsets.top)
     }
 
-    func logScenePhase(_ phase: ScenePhase, changed: Bool) {
-        var msg = "🎬 SkyView scenePhase: "
-        switch phase {
-        case .active     : msg += "🟩 .active id: \(id)"
-        case .inactive   : msg += "🟥 .inactive"
-        case .background : msg += "🟦 .background"
-        @unknown default : break
+    func changedScene(_ phase: ScenePhase, changed: Bool) {
+
+        DebugLog {
+            var msg = "🎬 SkyView scenePhase: "
+            switch phase {
+            case .active     : msg += "🟩 .active id: \(id)"
+            case .inactive   : msg += "🟥 .inactive"
+            case .background : msg += "🟦 .background"
+            @unknown default : break
+            }
+            P(msg)
         }
-        DebugLog { P(msg) }
         if changed {
             switch phase {
             case .active: nextFrame.pause = false
@@ -104,11 +108,11 @@ struct SkyView: View {
                 #endif
             }
             .onAppear() {
-                logScenePhase(scenePhase, changed: false)
-                geoFrame(geo, onAppear: true)
+                changedScene(scenePhase, changed: false)
+                changedGeoFrame(geo, onAppear: true)
             }
-            .onChange(of: scenePhase) { logScenePhase($1, changed: true) }
-            .onChange(of: geo.frame(in: .global)) { geoFrame(geo, onAppear: false) }
+            .onChange(of: scenePhase) { changedScene($1, changed: true) }
+            .onChange(of: geo.frame(in: .global)) { changedGeoFrame(geo, onAppear: false) }
         }
 
 
