@@ -205,8 +205,7 @@ extension SkyBase: @MainActor ArchiveProto {
 extension SkyBase: @MainActor PeersDelegate {
     
     public func received(data: Data) {
-        let decoder = JSONDecoder()
-        if let archiveFrame = try? decoder.decode(ArchiveFrame.self, from: data) {
+        if let archiveFrame = try? JSONDecoder().decode(ArchiveFrame.self, from: data) {
             // Save the received archive data to a temporary file
             let tempDir = FileManager.default.temporaryDirectory
             let tempUrl = tempDir.appendingPathComponent(archiveFrame.name).appendingPathExtension("mu")

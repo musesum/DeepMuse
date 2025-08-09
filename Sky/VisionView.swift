@@ -60,7 +60,12 @@ struct VisionView: View {
         .onAppear {
             logScenePhase(scenePhase, changed: false)
             skyVm.setImmersion(immersionModel.goImmersive)
-            Task { await appModel.handsTracker.startHands() }
+            Task {
+                if let handsTracker = appModel.handsTracker {
+                    await handsTracker.startHands()
+                }
+                //await appModel.handsTracker.startHands()
+            }
         }
         //.onChange(of: scenePhase) { logScenePhase($1, changed: true) }
     }

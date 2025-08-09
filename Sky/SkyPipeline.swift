@@ -23,6 +23,7 @@ public class SkyPipeline: Pipeline {
                 _ camera: CameraSession,
                 _ touchCanvas: TouchCanvas,
                 _ nextFrame: NextFrame) {
+        
         self.ripples = ripples
         self.camera = camera
         self.touchCanvas = touchCanvas

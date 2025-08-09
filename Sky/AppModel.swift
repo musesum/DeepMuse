@@ -10,7 +10,7 @@ import MuPeers
 import MuHands
 
 @MainActor
-class AppModel {
+class AppModel: Sendable {
 
     let root˚: Flo
     let peers: Peers
