@@ -10,7 +10,7 @@ import MuPeers
 import MuHands
 
 @MainActor
-class SkyBase {
+class SkyModel {
 
     private let archive: SkyArchive
     private let muAudio: MuAudio!
@@ -71,7 +71,7 @@ class SkyBase {
     }
 }
 
-extension SkyBase: @MainActor ArchiveProto {
+extension SkyModel: @MainActor ArchiveProto {
 
     func readUserArchive(_ url: URL, _ nextFrame: NextFrame, local: Bool) {
         
@@ -202,7 +202,7 @@ extension SkyBase: @MainActor ArchiveProto {
     }
 }
 
-extension SkyBase: @MainActor PeersDelegate {
+extension SkyModel: @MainActor PeersDelegate {
     
     public func received(data: Data) {
         if let archiveFrame = try? JSONDecoder().decode(ArchiveFrame.self, from: data) {

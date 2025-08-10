@@ -6,7 +6,7 @@ import MuMenu
 import MuVision
 
 #if os(visionOS)
-class SkyVm: SkyBase {
+class SkyVm: SkyModel {
 
     var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
@@ -82,7 +82,7 @@ class SkyVm: SkyBase {
 }
 #else
 @MainActor
-class SkyVm: SkyBase {
+class SkyVm: SkyModel {
 
     func setFrame(_ frame: CGRect,
                   _ insets: EdgeInsets,

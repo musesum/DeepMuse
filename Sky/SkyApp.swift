@@ -16,51 +16,25 @@ struct SkyApp: App {
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.openWindow) var openWindow
-    @ObservedObject var showTime = ShowTime()
-    @ObservedObject var handsPhase: HandsPhase
     @State public var immersionModel: ImmersionModel
 
     let nextFrame: NextFrame
     let appModel: VisionModel
     let skyVm: SkyVm
-    let visionView: VisionView
-
-    var immersed: Bool { immersionModel.isImmersive }
-    var showOpacity: CGFloat {  immersed ? showTime.opacity : 1 }
-    var showAnimation: Animation { showTime.animation }
 
     init() {
         self.immersionModel = ImmersionModel()
         self.appModel = VisionModel()
         self.skyVm = appModel.skyVm
         self.nextFrame = skyVm.nextFrame
-        self.handsPhase = skyVm.handsPhase
-        self.visionView = VisionView(appModel)
     }
 
-    func changeHandsPhase(_ handsPhase: HandsPhase) {
-        let state = handsPhase.state
-        if let phase = state.left {
-            switch phase {
-            case .end : showTime.startAutoFade()
-            default   : showTime.showNow()
-            }
-        }
-        if let phase = state.right {
-            switch phase  {
-            case .end : showTime.startAutoFade()
-            default   : showTime.showNow()
-            }
-        }
-        NoTimeLog(handsPhase.icon, interval: 1) { P(handsPhase.icon) }
-    }
     var body: some Scene {
 
         @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
         WindowGroup(id: "SkyApp") {
-            visionView
+            VisionView(appModel)
                 .environment(immersionModel)
-                .environmentObject(handsPhase)
                 .onOpenURL { url in appModel.openURL(url) }
                 .onChange(of: immersionModel.goImmersive) { _, goImmersive in
                     DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
@@ -77,10 +51,8 @@ struct SkyApp: App {
                     }
                     skyVm.setImmersion(goImmersive)
                 }
-                .opacity(showOpacity)
-                .animation(showAnimation, value: showOpacity)
         }
-        .onChange(of: handsPhase.update) { changeHandsPhase(handsPhase) }
+
         .windowStyle(.plain)
         .windowResizability(.contentSize)
         ImmersiveScene(appModel)

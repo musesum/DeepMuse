@@ -13,10 +13,14 @@ struct VisionView: View {
     @Environment(ImmersionModel.self) var immersionModel
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var handState: HandsPhase
+    @ObservedObject var showTime = ShowTime()
+    @ObservedObject var handsPhase: HandsPhase
 
     let appModel: VisionModel
     let skyVm: SkyVm
     let nextFrame: NextFrame
+
+
 
     func logScenePhase(_ phase: ScenePhase, changed: Bool) {
         var msg = "🎬 VisionView scenePhase: "
@@ -33,9 +37,30 @@ struct VisionView: View {
         self.appModel = appModel
         self.skyVm = appModel.skyVm
         self.nextFrame = skyVm.nextFrame
+        self.handsPhase = skyVm.handsPhase
         PrintLog("🎬 VisionView")
     }
 
+    func changeHandsPhase(_ handsPhase: HandsPhase) {
+        let state = handsPhase.state
+        if let phase = state.left {
+            switch phase {
+            case .ended : showTime.startAutoFade()
+            default   : showTime.showNow()
+            }
+        }
+        if let phase = state.right {
+            switch phase  {
+            case .ended : showTime.startAutoFade()
+            default   : showTime.showNow()
+            }
+        }
+        TimeLog(handsPhase.handsIcon, interval: 1) { P(handsPhase.handsIcon) }
+    }
+    var immersed: Bool { immersionModel.isImmersive }
+    var showOpacity: CGFloat {  immersed ? showTime.opacity : 1 }
+    var showAnimation: Animation { showTime.animation }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             SkyView(skyVm)
@@ -45,6 +70,7 @@ struct VisionView: View {
                        maxHeight : immersionModel.goImmersive ? 480 : 1280)
             Button {
                 immersionModel.goImmersive.toggle()
+
             } label: {
                 Image(immersionModel.goImmersive
                       ? "icon.room.white"
@@ -52,10 +78,11 @@ struct VisionView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 48, height: 48)
-
             }
+
             .offset(x: 0, y: -20)
             .padding(6)
+
         }
         .onAppear {
             logScenePhase(scenePhase, changed: false)
@@ -64,11 +91,11 @@ struct VisionView: View {
                 if let handsTracker = appModel.handsTracker {
                     await handsTracker.startHands()
                 }
-                //await appModel.handsTracker.startHands()
             }
         }
-        //.onChange(of: scenePhase) { logScenePhase($1, changed: true) }
+        .opacity(showOpacity)
+        .animation(showAnimation, value: showOpacity)
+        .onChange(of: handsPhase.update) { changeHandsPhase(handsPhase) }
     }
 }
 #endif
-
