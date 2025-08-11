@@ -64,9 +64,7 @@ class SkyModel {
         archiveVm.archiveProto = self
         peers.setDelegate(self, for: .archiveFrame)
         nextFrame.addBetweenFrame {
-            self.pipeline.rotateTextures() {
-                PrintLog("*** SkyBase done rotateTextures() ***")
-            }
+            self.pipeline.rotateTextures()
         }
     }
 }
@@ -99,12 +97,8 @@ extension SkyModel: @MainActor ArchiveProto {
                 }
             }
         }
-        
         nextFrame.addBetweenFrame {
-            
-            self.pipeline.alignNameTex() {
-                PrintLog("*** SkyBase done alignNameTex() ***")
-            }
+            self.pipeline.alignNameTex()
         }
     }
     
