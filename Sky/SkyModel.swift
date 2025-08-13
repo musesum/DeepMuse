@@ -88,12 +88,12 @@ extension SkyModel: @MainActor ArchiveProto {
                         do {
                             return try JSONEncoder().encode(archiveFrame)
                         } catch {
-                            print("⁉️ Error encoding archive frame: \(error)")
+                            PrintLog("⁉️ Error encoding archive frame: \(error)")
                             return nil
                         }
                     }
                 } catch {
-                    print("⁉️ Error reading archive file: \(error)")
+                    PrintLog("⁉️ Error reading archive file: \(error)")
                 }
             }
         }
@@ -209,7 +209,7 @@ extension SkyModel: @MainActor PeersDelegate {
                 // Process the archive as a remote archive
                 readUserArchive(tempUrl, nextFrame, local: false)
             } catch {
-                print("⁉️ Error saving received archive: \(error)")
+                PrintLog("⁉️ Error saving received archive: \(error)")
             }
         }
     }
