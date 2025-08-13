@@ -55,7 +55,7 @@ struct VisionView: View {
             default   : showTime.showNow()
             }
         }
-        TimeLog(handsPhase.handsIcon, interval: 1) { P(handsPhase.handsIcon) }
+        TimeLog(handsPhase.handsState, interval: 1) { P(handsPhase.handsState) }
     }
     var immersed: Bool { immersionModel.isImmersive }
     var showOpacity: CGFloat {  immersed ? showTime.opacity : 1 }

@@ -29,7 +29,7 @@ class SkyModel {
     public let archiveVm: ArchiveVm
     public var touchView: TouchView
     public var handsPhase: HandsPhase
-    public var menuHands: MenuHands
+    public var menus: Menus
 
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
@@ -59,7 +59,7 @@ class SkyModel {
         self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
         self.handsPhase = HandsPhase(root˚)
-        self.menuHands = MenuHands(root˚, archiveVm, handsPhase, peers)
+        self.menus = Menus(root˚, archiveVm, handsPhase, peers)
 
         archiveVm.archiveProto = self
         peers.setDelegate(self, for: .archiveFrame)

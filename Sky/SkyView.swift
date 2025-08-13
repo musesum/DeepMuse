@@ -28,7 +28,7 @@ struct SkyView: View {
 
         self.skyVm = skyVm
         self.nextFrame = skyVm.nextFrame
-        self.menuVms = skyVm.menuHands.menuVms
+        self.menuVms = skyVm.menus.menuVms
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
         self.touchView = TouchViewRepresentable(menuVms, skyVm.touchView)
         self.glassState = GlassState(skyVm.root˚)
