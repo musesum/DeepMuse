@@ -2,21 +2,22 @@
 
 import SwiftUI
 import RealityKit
-import MuFlo // NextFrame
+import MuFlo // NextFrame, TapeFlo
 import MuVision
 import MetalKit
 import MuMenu
 import MuPeers
 import MuHands
 
+
 @MainActor
 class AppModel: Sendable {
 
     let root˚: Flo
-    let peers: Peers
     let archiveVm: ArchiveVm
     let nextFrame: NextFrame
     let skyVm: SkyVm
+    let peers: Peers
 
     init () {
         self.root˚ = Flo("√")

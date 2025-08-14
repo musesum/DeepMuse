@@ -18,9 +18,12 @@ class SkyModel {
     private let drawPal: DrawPal
     private let ripples: Ripples
     private let camera: CameraSession
+    private let peers: Peers
+    private let tapeFlo: TapeFlo
+    private let share: Share
 
     internal let scale: CGFloat
-    public let peers: Peers
+
     public let root˚: Flo
     public let pipeline: SkyPipeline
     public let touchCanvas: TouchCanvas
@@ -50,19 +53,21 @@ class SkyModel {
         self.peers = peers
         self.ripples = Ripples()
         self.archive = SkyArchive(root˚, nextFrame)
-        self.muAudio = MuAudio(root˚, peers)
+        self.tapeFlo = TapeFlo(root˚)
+        self.share = Share(peers, tapeFlo)
+        self.muAudio = MuAudio(root˚, share)
         self.touchDraw = TouchDraw(root˚, scale)
         self.camera = camera
-        self.touchCanvas = TouchCanvas(touchDraw, peers)
-        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas, archiveVm.nextFrame)    
+        self.touchCanvas = TouchCanvas(touchDraw, share)
+        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas, archiveVm.nextFrame)
         self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas, touchDraw, archive)
         self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, touchDraw, archive, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
         self.handsPhase = HandsPhase(root˚)
-        self.menus = Menus(root˚, archiveVm, handsPhase, peers)
+        self.menus = Menus(root˚, archiveVm, handsPhase, share)
 
         archiveVm.archiveProto = self
-        peers.setDelegate(self, for: .archiveFrame)
+        peers.addDelegate(self, for: .archiveFrame)
         nextFrame.addBetweenFrame {
             self.pipeline.rotateTextures()
         }
