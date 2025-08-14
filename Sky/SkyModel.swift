@@ -76,32 +76,29 @@ extension SkyModel: @MainActor ArchiveProto {
         archive.readUrl(url, nextFrame, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
-        
-        // If this is a local archive selection, share it with peers
-        if local {
-            Task {
-                do {
-                    let archiveData = try Data(contentsOf: url)
-                    let archiveFrame = ArchiveFrame(url: url, data: archiveData)
-                    
-                    await peers.sendItem(.archiveFrame) {
-                        do {
-                            return try JSONEncoder().encode(archiveFrame)
-                        } catch {
-                            PrintLog("⁉️ Error encoding archive frame: \(error)")
-                            return nil
-                        }
-                    }
-                } catch {
-                    PrintLog("⁉️ Error reading archive file: \(error)")
-                }
-            }
-        }
+
         nextFrame.addBetweenFrame {
             self.pipeline.alignNameTex()
         }
+        if local {
+            shareItem(url)
+        }
     }
-    
+
+    func shareItem(_ url: URL) {
+        Task {
+            guard let data = try? Data(contentsOf: url) else {
+                return PrintLog("⁉️ Error reading archive file")
+            }
+            await peers.sendItem(.archiveFrame) {
+                (try? JSONEncoder().encode(ArchiveFrame(url: url, data: data))) ?? {
+                    PrintLog("⁉️ Error encoding archive frame")
+                    return nil
+                }()
+            }
+        }
+    }
+
     // snapshot on framebuffer, draw Texture and skyGraph
     public func saveArchive(_ title: String,
                             _ description: String,
