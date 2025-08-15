@@ -12,7 +12,7 @@ public class SkyArchive: ArchiveFlo {
 #if os(visionOS)
     private var  scriptNames = ["sky", "pipe.avp", "canvas", "plato.avp", "cell", "more", "hand", "chat", "midi", "tape"]
 #else
-    private var scriptNames  = ["sky", "pipe", "canvas", "plato", "cell", "camera", "more", "chat", "midi", "tape"]
+    private var scriptNames  = ["sky", "pipe", "canvas", "plato", "cell", "camera", "more", "hand", "chat", "midi", "tape"]
 #endif
     init(_ root˚: Flo, _ nextFrame: NextFrame) {
         super.init(root˚, bundles, snapName, scriptNames, texNames, nextFrame)
