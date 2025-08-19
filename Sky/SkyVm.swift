@@ -60,7 +60,7 @@ class SkyVm: SkyModel {
         let drawableSize = size * scale // layer.drawableSize
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
-        touchDraw.drawableSize = drawableSize
+        touchCanvas.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
         NoDebugLog { P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
     }
@@ -97,7 +97,7 @@ class SkyVm: SkyModel {
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
         touchView.frame = frame
-        touchDraw.drawableSize = drawableSize
+        touchCanvas.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
     }
 }

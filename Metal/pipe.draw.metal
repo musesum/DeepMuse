@@ -23,39 +23,45 @@ kernel void drawDotKernel
 {
     int w = inTex.get_width();
     int h = inTex.get_height();
+    float width = (float)w;
+    float height = (float)h;
 
-    // same aspect/shift as drawKernel
-    float sx, sy;
-    switch (int(aspect)) {
-    case 0  : sx =       shift.x; sy = shift.y; break;
-    default : sx = 1.0 - shift.y; sy = shift.x; break;
+    // adjust shift based on aspect
+    float aspectX, aspectY;
+    if (aspect < 1) {
+        aspectX = shift.x;
+        aspectY = shift.y;
+    } else {
+        aspectX = 1.0 - shift.y;
+        aspectY = shift.x;
     }
-    int dx = int((sx - 0.5f) * 256.0f);
-    int dy = int((0.5f - sy) * 256.0f);
+    // map 0…1 to -1…1 to shift either direction
+    float shiftX = (aspectX - 0.5f) * 256.0f;
+    float shiftY = (0.5f - aspectY) * 256.0f;
 
     // always positive modulo for x,y position
-    int x = (int(gid.x) + w + dx) % w;
-    int y = (int(gid.y) + h + dy) % h;
+    float pixelX = fmod(float(gid.x) + width  + shiftX, width);
+    float pixelY = fmod(float(gid.y) + height + shiftY, height);
 
-    // draw dots (last entry wins)
+    // maybe draw part of a dot (last entry wins)
     for (int i = int(dotCount) - 1; i >= 0; --i) {
         // encountered a fill command
         if (dots[i].radius < 0) {
-            half c = min(255.0,dots[i].color*255.0);
+            half c = dots[i].color;
             return outTex.write(half4(c,c,c,c), gid);
         }
-        // test if inside set of dot radii
-        int px = ((int)dots[i].p.x + w + dx) % w;
-        int py = ((int)dots[i].p.y + h + dy) % h;
-        float dx_ = abs(float(x - px));
-        dx_ = min(dx_, float(w) - dx_); // wrap horizontally
-        float dy_ = abs(float(y - py));
-        dy_ = min(dy_, float(h) - dy_); // wrap vertically
-        if (dx_ * dx_ + dy_ * dy_ <= dots[i].radius * dots[i].radius) {
+        // test if pixel is inside set of dots
+        int dotX = fmod(dots[i].p.x + width  + shiftX, width);
+        int dotY = fmod(dots[i].p.y + height + shiftY, height);
+        float distanceX = abs(pixelX - dotX);
+        float distanceY = abs(pixelY - dotY);
+        float wrapX = min(distanceX, width  - distanceX);
+        float wrapY = min(distanceY, height - distanceY);
+        if (wrapX * wrapX + wrapY * wrapY <= dots[i].radius * dots[i].radius) {
             half c = min(255.0, dots[i].color);
             return outTex.write(half4(0,0,c,0), gid);
         }
     }
-    // otherwise pass-through shifted input
-    outTex.write(inTex.read(uint2(x, y)), gid);
+    // otherwise pass-through (shifted) input
+    outTex.write(inTex.read(uint2(pixelX, pixelY)), gid);
 }
