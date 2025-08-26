@@ -18,9 +18,9 @@ struct ImmersiveScene: Scene {
 
     init(_ appModel: AppModel) {
         self.appModel = appModel
-        let skyVm = appModel.skyVm
-        self.pipeline = skyVm.pipeline
-        self.nextFrame = skyVm.nextFrame
+        let skyModel = appModel.skyModel
+        self.pipeline = skyModel.pipeline
+        self.nextFrame = skyModel.nextFrame
     }
     var body: some Scene {
         ImmersiveSpace(id: Self.SceneId) {
@@ -43,7 +43,7 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
                            configuration: inout LayerRenderer.Configuration) {
         NoDebugLog{ P("🧭 Immmersive makeConfiguration") }
         configuration.depthFormat = .depth32Float
-        configuration.colorFormat = MetalRenderPixelFormat
+        configuration.colorFormat = MuRenderPixelFormat
 
         let hasFoveation = capabilities.supportsFoveation
         configuration.isFoveationEnabled = hasFoveation

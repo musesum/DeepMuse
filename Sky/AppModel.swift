@@ -16,7 +16,7 @@ class AppModel: Sendable {
     let root˚: Flo
     let archiveVm: ArchiveVm
     let nextFrame: NextFrame
-    let skyVm: SkyVm
+    let skyModel: SkyModel
     let peers: Peers
 
     init () {
@@ -36,7 +36,7 @@ class AppModel: Sendable {
         let scale = UIScreen.main.scale
         let camera = CameraSession(nil, position: .front, nextFrame)
         #endif
-        self.skyVm = SkyVm(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
+        self.skyModel = SkyModel(root˚, .windowed, archiveVm, peers, scale, bounds, camera)
 
     }
 }
@@ -50,15 +50,15 @@ class VisionModel: AppModel {
    
     override init () {
         super.init()
-        self.handsModel = HandsModel(skyVm.touchCanvas, skyVm.root˚)
+        self.handsModel = HandsModel(skyModel.touchCanvas, skyModel.root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)
     }
     func setImmersion(_ immersion: Bool) {
-        skyVm.setImmersion(immersion)
+        skyModel.setImmersion(immersion)
     }
 
     func openURL(_ url: URL) {
-        skyVm.readUserArchive(url, nextFrame, local: false)
+        skyModel.readUserArchive(url, nextFrame, local: false)
     }
 }
 #endif

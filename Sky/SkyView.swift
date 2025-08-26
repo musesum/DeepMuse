@@ -17,30 +17,30 @@ struct SkyView: View {
 
     let id = Visitor.nextId()
     let menuVms: [MenuVm]
-    let skyVm: SkyVm
+    let skyModel: SkyModel
     let cornerVms: [CornerVm]
     let touchView: TouchViewRepresentable!
     let nextFrame: NextFrame
     let glassState: GlassState
     let panicState: PanicState
 
-    public init(_ skyVm: SkyVm) {
+    public init(_ skyModel: SkyModel) {
 
-        self.skyVm = skyVm
-        self.nextFrame = skyVm.nextFrame
-        self.menuVms = skyVm.menus.menuVms
+        self.skyModel = skyModel
+        self.nextFrame = skyModel.nextFrame
+        self.menuVms = skyModel.menus.menuVms
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
-        self.touchView = TouchViewRepresentable(menuVms, skyVm.touchView)
-        self.glassState = GlassState(skyVm.root˚)
-        self.panicState = PanicState(skyVm.root˚, nextFrame)
-        nextFrame.addFrameDelegate("SkyCanvas".hash, skyVm)
+        self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
+        self.glassState = GlassState(skyModel.root˚)
+        self.panicState = PanicState(skyModel.root˚, nextFrame)
+        nextFrame.addFrameDelegate("SkyCanvas".hash, skyModel)
     }
 
     func changedGeoFrame(_ geo: GeometryProxy, onAppear: Bool) {
         DebugLog { P("🎬 SkyView changed geometry ") }
         let frame = geo.frame(in: .global)
         let insets = geo.safeAreaInsets
-        skyVm.setFrame(frame, insets, onAppear: onAppear)
+        skyModel.setFrame(frame, insets, onAppear: onAppear)
     }
     func touchWidth(_ geo: GeometryProxy) -> CGFloat {
         geo.size.width +
@@ -72,7 +72,7 @@ struct SkyView: View {
         if changed {
             switch phase {
             case .active: nextFrame.pause = false
-            case .inactive: skyVm.saveArchive("Snapshot", "autosaved") { nextFrame.pause = true }
+            case .inactive: skyModel.saveArchive("Snapshot", "autosaved") { nextFrame.pause = true }
             default:  break
             }
         }

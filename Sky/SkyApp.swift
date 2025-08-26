@@ -20,13 +20,13 @@ struct SkyApp: App {
 
     let nextFrame: NextFrame
     let appModel: VisionModel
-    let skyVm: SkyVm
+    let skyModel: SkyModel
 
     init() {
         self.immersionModel = ImmersionModel()
         self.appModel = VisionModel()
-        self.skyVm = appModel.skyVm
-        self.nextFrame = skyVm.nextFrame
+        self.skyModel = appModel.skyModel
+        self.nextFrame = skyModel.nextFrame
     }
 
     var body: some Scene {
@@ -49,7 +49,7 @@ struct SkyApp: App {
                             immersionModel.isImmersive = false
                         }
                     }
-                    skyVm.setImmersion(goImmersive)
+                    skyModel.setImmersion(goImmersive)
                 }
         }
 
@@ -70,18 +70,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SkyApp: App {
     let appModel: AppModel
-    let skyVm: SkyVm
+    let skyModel: SkyModel
 
     init() {
         self.appModel = AppModel()
-        self.skyVm = appModel.skyVm
+        self.skyModel = appModel.skyModel
     }
 
     var body: some Scene {
         WindowGroup {
-            SkyView(skyVm)
+            SkyView(skyModel)
                 .onOpenURL { url in
-                    skyVm.readUserArchive(url, skyVm.nextFrame, local: false)
+                    skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
                 }
         }
     }

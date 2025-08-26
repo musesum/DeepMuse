@@ -5,10 +5,12 @@ using namespace metal;
 
 kernel void colorKernel
 (
- texture2d<half, access::read>  inTex    [[ texture(0) ]],
- texture2d<half, access::write> colorTex [[ texture(1) ]],
- texture2d<half, access::read>  palTex   [[ texture(2) ]],
- constant float&                plane    [[ buffer(0) ]],
+ texture2d<half, access::read>  inTex     [[ texture(0) ]],
+ texture2d<half, access::read>  palTex    [[ texture(1) ]],
+ texture2d<half, access::write> colorTex  [[ texture(2) ]],
+ texture2d<half, access::write> heightTex [[ texture(3) ]],
+ constant float&                plane     [[ buffer(0) ]],
+ constant float&                height    [[ buffer(1) ]],
  uint2 gid [[thread_position_in_grid]])
 {{
     const half4 item = inTex.read(gid);
@@ -33,10 +35,13 @@ kernel void colorKernel
     uint2 palIndexj = uint2(bgraj, 0);     // address for second pal color
     half4 palBgrai = palTex.read(palIndexi); // bgra for first pal
     half4 palBgraj = palTex.read(palIndexj); // bgra for second pal
-    
-    // use fractional part of bitplane address to fade between two palettes
-    half4 fadeBgra = (palBgrai * (1.0 - frac) +
-                      palBgraj *        frac);
 
-    colorTex.write(fadeBgra, gid);
+    // use fractional part of bitplane address to fade between two palettes
+    half4 color = (palBgrai * (1.0 - frac) +
+                   palBgraj *        frac);
+
+    colorTex.write(color, gid);
+    float mono = (color.r) * height;
+    heightTex.write(mono,gid);
+
 }}

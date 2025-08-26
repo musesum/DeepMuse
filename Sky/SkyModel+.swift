@@ -6,9 +6,7 @@ import MuMenu
 import MuVision
 
 #if os(visionOS)
-class SkyVm: SkyModel {
-
-    var insets =  EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+extension SkyModel  { // visionOS
 
     func setImmersion(_ immersion: Bool) {
 
@@ -82,7 +80,7 @@ class SkyVm: SkyModel {
 }
 #else
 @MainActor
-class SkyVm: SkyModel {
+extension SkyModel { // iOS, iPadOS
 
     func setFrame(_ frame: CGRect,
                   _ insets: EdgeInsets,
@@ -102,7 +100,7 @@ class SkyVm: SkyModel {
     }
 }
 #endif
-extension SkyVm: NextFrameDelegate {
+extension SkyModel: NextFrameDelegate {
     nonisolated func goFrame() -> Bool {
         Task { @MainActor in
             pipeline.renderFrame()

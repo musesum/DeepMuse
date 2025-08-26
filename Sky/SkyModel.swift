@@ -22,6 +22,7 @@ class SkyModel {
     private let tapeFlo: TapeFlo
     private let share: Share
 
+    internal var insets = EdgeInsets()
     internal let scale: CGFloat
 
     public let root˚: Flo

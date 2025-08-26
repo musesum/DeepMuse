@@ -17,10 +17,8 @@ struct VisionView: View {
     @ObservedObject var handsPhase: HandsPhase
 
     let appModel: VisionModel
-    let skyVm: SkyVm
+    let skyModel: SkyModel
     let nextFrame: NextFrame
-
-
 
     func logScenePhase(_ phase: ScenePhase, changed: Bool) {
         var msg = "🎬 VisionView scenePhase: "
@@ -35,9 +33,9 @@ struct VisionView: View {
     }
     init(_ appModel: VisionModel) {
         self.appModel = appModel
-        self.skyVm = appModel.skyVm
-        self.nextFrame = skyVm.nextFrame
-        self.handsPhase = skyVm.handsPhase
+        self.skyModel = appModel.skyModel
+        self.nextFrame = skyModel.nextFrame
+        self.handsPhase = skyModel.handsPhase
         PrintLog("🎬 VisionView")
     }
 
@@ -46,16 +44,17 @@ struct VisionView: View {
         if let phase = state.left {
             switch phase {
             case .ended : showTime.startAutoFade()
-            default   : showTime.showNow()
+            default     : showTime.showNow()
             }
         }
         if let phase = state.right {
             switch phase  {
             case .ended : showTime.startAutoFade()
-            default   : showTime.showNow()
+            default     : showTime.showNow()
             }
         }
-        TimeLog(handsPhase.handsState, interval: 1) { P(handsPhase.handsState) }
+        let title = "VisionView "+handsPhase.handsState
+        TimeLog(title, interval: 1) { P(title) }
     }
     var immersed: Bool { immersionModel.isImmersive }
     var showOpacity: CGFloat {  immersed ? showTime.opacity : 1 }
@@ -63,7 +62,7 @@ struct VisionView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            SkyView(skyVm)
+            SkyView(skyModel)
                 .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
                        minHeight : immersionModel.goImmersive ? 480 : 600)
                 .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
@@ -86,7 +85,7 @@ struct VisionView: View {
         }
         .onAppear {
             logScenePhase(scenePhase, changed: false)
-            skyVm.setImmersion(immersionModel.goImmersive)
+            skyModel.setImmersion(immersionModel.goImmersive)
             Task {
                 if let handsTracker = appModel.handsTracker {
                     await handsTracker.startHands()
