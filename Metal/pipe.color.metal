@@ -41,7 +41,7 @@ kernel void colorKernel
                    palBgraj *        frac);
 
     colorTex.write(color, gid);
-    float mono = (color.r) * height;
-    heightTex.write(mono,gid);
+    // float mono = (color.r) * height;
+    // heightTex.write(mono,gid);
 
 }}

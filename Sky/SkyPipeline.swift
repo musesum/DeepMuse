@@ -30,22 +30,22 @@ public class SkyPipeline: Pipeline {
         super.init(root˚, renderState, archive, touchDraw, scale, bounds, nextFrame)
     }
 
-    override public func makePipeNode(_ pipeNode˚: Flo,
+    override public func makePipeNode(_ flo˚: Flo,
                                       _ pipeParent: PipeNode?) {
         let pipeNode: PipeNode
-        switch pipeNode˚.name {
-        case "camera" : pipeNode = CameraNode(self, pipeNode˚, camera)
-        case "camix"  : pipeNode = CamixNode (self, pipeNode˚, camera)
-        case "draw"   : pipeNode = DrawNode  (self, pipeNode˚, touchCanvas)
-        case "color"  : pipeNode = ColorNode (self, pipeNode˚, ripples)
-        case "tile"   : pipeNode = TileNode  (self, pipeNode˚)
-        case "flat"   : pipeNode = FlatNode  (self, pipeNode˚)
-        case "cube"   : pipeNode = CubeNode  (self, pipeNode˚)
-        case "plato"  : pipeNode = PlatoNode (self, pipeNode˚)
+        switch flo˚.name {
+        case "camera" : pipeNode = CameraNode(self, flo˚, camera)
+        case "camix"  : pipeNode = CamixNode (self, flo˚, camera)
+        case "draw"   : pipeNode = DrawNode  (self, flo˚, touchCanvas)
+        case "color"  : pipeNode = ColorNode (self, flo˚, ripples)
+        case "tile"   : pipeNode = TileNode  (self, flo˚)
+        case "flat"   : pipeNode = FlatNode  (self, flo˚)
+        case "cube"   : pipeNode = CubeNode  (self, flo˚)
+        case "plato"  : pipeNode = PlatoNode (self, flo˚)
 
         case "slide","zha","ave","fade","melt","tunl","fred"
-            /**/      : pipeNode = CellNode  (self, pipeNode˚)
-        default       : pipeNode = PipeNode  (self, pipeNode˚)
+            /**/      : pipeNode = CellNode  (self, flo˚)
+        default       : pipeNode = PipeNode  (self, flo˚)
         }
         pipeParent?.pipeChildren.append(pipeNode)
     }

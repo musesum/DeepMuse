@@ -10,7 +10,7 @@ public class SkyArchive: ArchiveFlo {
     private var snapName = "Snapshot"
     private var texNames = ["pipe.draw.out"] // textures
 #if os(visionOS)
-    private var  scriptNames = ["sky", "pipe.avp", "canvas", "plato.avp", "cell", "more", "hand", "chat", "midi", "tape"]
+    private var  scriptNames = ["sky", "pipe", "canvas", "plato", "cell",  "camera", "more", "hand", "chat", "midi", "tape"]
 #else
     private var scriptNames  = ["sky", "pipe", "canvas", "plato", "cell", "camera", "more", "hand", "chat", "midi", "tape"]
 #endif

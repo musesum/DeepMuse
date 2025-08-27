@@ -43,51 +43,28 @@ vertex CubeVertex cubeVertex
 }
 
 // MARK: - Fragment via index texture `cudex`
-
-fragment FragmentOut cubeIndexFragment_
+fragment half4 cubeIndexFragment
 (
  CubeVertex         cubeVertex [[ stage_in   ]],
  texture2d<half>    inTex      [[ texture(0) ]],
  texturecube<half>  cudex      [[ texture(1) ]],
- constant float2&   mixcube    [[ buffer(0)  ]],
- texture2d<half>    displace   [[ texture(3) ]],
- constant Eyes&     eyes       [[ buffer(15) ]],
- ushort             ampId      [[ amplification_id ]])
+ constant float2&   mixcube    [[ buffer(0)  ]])
 {
-    constexpr sampler samplr(filter::linear, address::clamp_to_edge);
-
     float3 texCoord = float3(cubeVertex.texCoord.x,
                              cubeVertex.texCoord.y,
                              -cubeVertex.texCoord.z);
-    
-    // Sample index first to get inCoord
-    half4 index = cudex.sample(samplr, texCoord);
+
+    constexpr sampler samplr(filter::linear, address::clamp_to_edge);
+
+    half4 index = cudex.sample(samplr,texCoord);
     float2 inCoord = float2(index.xy);
-    
-    // Sample displacement value at inCoord
-    float displacement = float(displace.sample(samplr, inCoord).r);
-
-    // Now use displaced z value for cube lookup
-    float3 displaceCoord = float3(cubeVertex.texCoord.x,
-                                  cubeVertex.texCoord.y,
-                                  -cubeVertex.texCoord.z - displacement);
-
-    half4 newIndex = cudex.sample(samplr, displaceCoord);
-    float2 displacedInCoord = float2(newIndex.xy);
-    half4 sample = inTex.sample(samplr, displacedInCoord);
-
-    FragmentOut out;
-    out.color = half4(sample.xyz, mixcube.x);
-
-    // --------------------------------------------
-    UniformEye eye = eyes.eye[ampId];
-    float4 displacedPosition = cubeVertex.texCoord;
-    displacedPosition.z -= displacement;
-    float4 projected = eye.projection * eye.viewModel * displacedPosition;
-    out.depth = projected.z / projected.w; // Metal NDC depth;
-    return out;
+    half4 sample = inTex.sample(samplr, inCoord);
+    float mix = mixcube.x;
+    //float alpha = mixcube.y;
+    return half4(sample.xyz, mix);
 }
-fragment half4 cubeIndexFragment
+
+fragment half4 cubeIndexFragment_
 (
  CubeVertex         cubeVertex [[ stage_in   ]],
  texture2d<half>    inTex      [[ texture(0) ]],
