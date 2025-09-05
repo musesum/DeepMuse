@@ -84,10 +84,18 @@ struct SkyVisionView: View {
     public init(_ skyModel: SkyModel) {
         self.skyModel = skyModel
     }
+    var showVolumeView: Bool {
 
+        let goImmersive = immersionModel.goImmersive
+        let isImmersive = immersionModel.isImmersive
+        NoDebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
+        return !goImmersive
+    }
     var body: some View {
         ZStack(alignment: .bottom) {
-            VolumeView(skyModel.pipeline)
+            if showVolumeView {
+                VolumeView(skyModel.pipeline)
+            }
             SkyView(skyModel) {}
 
                 Button {
@@ -99,6 +107,8 @@ struct SkyVisionView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 48, height: 48)
                 }
+                .offset(x: 0, y: -20)
+                .padding(6)
         }
     }
 }

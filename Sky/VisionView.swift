@@ -64,9 +64,10 @@ struct VisionView: View {
     var body: some View {
         ZStack {
             SkyVisionView(skyModel)
-                .frame(minWidth : 640, maxWidth : 800,
-                       minHeight: 480, maxHeight: 480)
-                
+                .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
+                       minHeight : immersionModel.goImmersive ? 480 : 600)
+                .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
+                       maxHeight : immersionModel.goImmersive ? 480 : 1280)
         }
 
         .onAppear {
