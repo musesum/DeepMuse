@@ -159,7 +159,7 @@ extension SkyModel: @MainActor ArchiveProto {
 
                 guard let pipeNode else { return }
 
-                let pipeNode˚ = pipeNode.pipeNode˚
+                let pipeNode˚ = pipeNode.pipeFlo˚
                 for child in pipeNode˚.children {
 
                     // found a new achive texture
@@ -183,7 +183,7 @@ extension SkyModel: @MainActor ArchiveProto {
                 for pipeChild in pipeNode.pipeChildren {
                     // `on` == 1 is the active part of a pipeline
                     // `on` == 0 can be skipped
-                    if let on = pipeChild.pipeNode˚.val("on"), on > 0 {
+                    if let on = pipeChild.pipeFlo˚.val("on"), on > 0 {
                         savePipe(pipeChild)
                     }
                 }

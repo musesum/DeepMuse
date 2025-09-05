@@ -29,8 +29,8 @@ struct VisionView: View {
         @unknown default : break
         }
         DebugLog { P(msg) }
-
     }
+
     init(_ appModel: VisionModel) {
         self.appModel = appModel
         self.skyModel = appModel.skyModel
@@ -53,36 +53,22 @@ struct VisionView: View {
             default     : showTime.showNow()
             }
         }
-        let title = "VisionView "+handsPhase.handsState
+        let title = "VisionView " + handsPhase.handsState
         TimeLog(title, interval: 1) { P(title) }
     }
+
     var immersed: Bool { immersionModel.isImmersive }
-    var showOpacity: CGFloat {  immersed ? showTime.opacity : 1 }
+    var showOpacity: CGFloat { immersed ? showTime.opacity : 1 }
     var showAnimation: Animation { showTime.animation }
-    
+
     var body: some View {
-        ZStack(alignment: .bottom) {
-            SkyView(skyModel)
-                .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
-                       minHeight : immersionModel.goImmersive ? 480 : 600)
-                .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
-                       maxHeight : immersionModel.goImmersive ? 480 : 1280)
-            Button {
-                immersionModel.goImmersive.toggle()
-
-            } label: {
-                Image(immersionModel.goImmersive
-                      ? "icon.room.white"
-                      : "icon.galaxy.white")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 48, height: 48)
-            }
-
-            .offset(x: 0, y: -20)
-            .padding(6)
-
+        ZStack {
+            SkyVisionView(skyModel)
+                .frame(minWidth : 640, maxWidth : 800,
+                       minHeight: 480, maxHeight: 480)
+                
         }
+
         .onAppear {
             logScenePhase(scenePhase, changed: false)
             skyModel.setImmersion(immersionModel.goImmersive)

@@ -19,6 +19,60 @@ struct FragmentOut {
     float depth [[depth(any)]];
 };
 
+// --- add under your structs ---
+
+struct FragmentOut2 {
+    half4 color0 [[color(0)]];
+    half4 color1 [[color(1)]];
+    float depth  [[depth(any)]];
+};
+
+inline float3 dirFromFaceUV(uint face, float2 uv01) {
+    float2 a = fma(uv01, 2.0, -1.0); // [0,1] → [-1,1]
+    switch (face) { // 0:left,1:right,2:top,3:bot,4:front,5:back
+    case 0: return normalize(float3(-1,  a.y,  a.x));  // -X
+    case 1: return normalize(float3( 1,  a.y, -a.x));  // +X
+    case 2: return normalize(float3( a.x,  1, -a.y));  // +Y
+    case 3: return normalize(float3( a.x, -1,  a.y));  // -Y
+    case 4: return normalize(float3( a.x,  a.y,  1));  // +Z
+    default:return normalize(float3(-a.x,  a.y, -1));  // -Z
+    }
+}
+
+// bake: full‑screen quad → cube direction for a given face
+vertex CubeVertex cubeBakeVertex(uint vid [[vertex_id]],
+                                 constant uint& face [[buffer(10)]]) {
+    const float2 pos[6] = { {-1,-1},{+1,-1},{-1,+1}, {-1,+1},{+1,-1},{+1,+1} };
+    const float2 tex[6] = { { 0, 0},{ 1, 0},{ 0, 1}, { 0, 1},{ 1, 0},{ 1, 1} };
+
+    CubeVertex out;
+    out.position = float4(pos[vid], 0, 1);
+    float3 dir = dirFromFaceUV(face, tex[vid]);
+    out.texCoord = float4(dir, 1); // reuse existing path
+    return out;
+}
+
+// --- new MRT variant (keep your original `cubeIndexFragment` as-is) ---
+fragment FragmentOut2 cubeIndexFragment_mrt
+(
+ CubeVertex         in         [[ stage_in   ]],
+ texture2d<half>    inTex      [[ texture(0) ]],
+ texturecube<half>  cudex      [[ texture(1) ]],
+ constant float2&   mixcube    [[ buffer(0)  ]])
+{
+    constexpr sampler samplr(filter::linear, address::clamp_to_edge);
+
+    // same sampling as your single‑target path
+    float3 texCoord = float3(in.texCoord.x, in.texCoord.y, -in.texCoord.z);
+    half2 index  = cudex.sample(samplr, texCoord).xy;
+    half4 col = inTex.sample(samplr, float2(index));
+
+    FragmentOut2 out;
+    out.color0 = half4(col.xyz, half(mixcube.x));     // normal output
+    out.color1 = col;                                 // baked face (RGBA)
+    out.depth  = 0.0;
+    return out;
+}
 // MARK: - Vertex
 
 vertex CubeVertex cubeVertex
@@ -28,18 +82,18 @@ vertex CubeVertex cubeVertex
  ushort           ampId    [[ amplification_id]],
  uint32_t         vertexId [[ vertex_id ]])
 {
-    CubeVertex vertexOut;
+    CubeVertex out;
     UniformEye eye = eyes.eye[ampId]; // works with eye[1], eye[0]
 
     float4 position = vertices[vertexId].position;
     
-    vertexOut.position = (eye.projection *
-                          eye.viewModel *
-                          position);
+    out.position = (eye.projection *
+                    eye.viewModel *
+                    position);
 
-    vertexOut.texCoord = position;
+    out.texCoord = position;
 
-    return vertexOut;
+    return out;
 }
 
 // MARK: - Fragment via index texture `cudex`
@@ -58,59 +112,34 @@ fragment half4 cubeIndexFragment
 
     half4 index = cudex.sample(samplr,texCoord);
     float2 inCoord = float2(index.xy);
-    half4 sample = inTex.sample(samplr, inCoord);
+    half4 sampled = inTex.sample(samplr, inCoord);
     float mix = mixcube.x;
     //float alpha = mixcube.y;
-    return half4(sample.xyz, mix);
+    return half4(sampled.xyz, mix);
 }
 
-fragment half4 cubeIndexFragment_
+// MARK: - Compute bake from indirection map (cudex) to a single face
+// Bind cudex as a 2D-array view of the cube (one slice per face).
+// Dispatch per face with a 2D grid matching the output texture size.
+kernel void bakeFaceFromIndex2DArray
 (
- CubeVertex         cubeVertex [[ stage_in   ]],
- texture2d<half>    inTex      [[ texture(0) ]],
- texturecube<half>  cudex      [[ texture(1) ]],
- constant float2&   mixcube    [[ buffer(0)  ]],
- texture2d<half>    displace   [[ texture(3) ]])
+ texture2d<half>                               inTex    [[ texture(0) ]],
+ texture2d_array<half>                         cudexArr [[ texture(1) ]],
+ texture2d<half, access::write>                outTex   [[ texture(2) ]],
+ constant uint&                                 face    [[ buffer(0)  ]],
+ uint2                                          gid     [[ thread_position_in_grid ]]
+)
 {
-    constexpr sampler samplr(filter::linear, address::clamp_to_edge);
+    if (gid.x >= outTex.get_width() || gid.y >= outTex.get_height()) return;
+    if (gid.x >= cudexArr.get_width() || gid.y >= cudexArr.get_height()) return;
 
-    float3 texCoord = float3(cubeVertex.texCoord.x,
-                             cubeVertex.texCoord.y,
-                             -cubeVertex.texCoord.z);
+    // Read UV from indirection map for this pixel/face
+    half4 idx = cudexArr.read(gid, face);
+    float2 uv = float2(idx.xy);
 
-    // Sample index first to get inCoord
-    half4 index = cudex.sample(samplr, texCoord);
-    float2 inCoord = float2(index.xy);
+    constexpr sampler s(filter::linear, address::clamp_to_edge);
 
-    // Sample displacement value at inCoord
-    float displacement = float(displace.sample(samplr, inCoord).r);
-
-    // Now use displaced z value for cube lookup
-    float3 displaceCoord = float3(cubeVertex.texCoord.x,
-                                  cubeVertex.texCoord.y,
-                                  -cubeVertex.texCoord.z - displacement);
-
-    half4 newIndex = cudex.sample(samplr, displaceCoord);
-    float2 displacedInCoord = float2(newIndex.xy);
-    half4 sample = inTex.sample(samplr, displacedInCoord);
-
-    return half4(sample.xyz, mixcube.x);
+    // Sample source and write out
+    half4 col = inTex.sample(s, uv);
+    outTex.write(col, gid);
 }
-
-// MARK: - fragment color
-
-fragment half4 cubeColorFragment
-(
- CubeVertex         cubeVertex  [[ stage_in   ]],
- texturecube<half>  colorTex    [[ texture(1) ]]) {
-
-    constexpr sampler samplr(filter::linear,
-                             address::repeat);
-
-    float3 texCoord = float3(cubeVertex.texCoord.x,
-                             cubeVertex.texCoord.y,
-                             -cubeVertex.texCoord.z);
-
-    return colorTex.sample(samplr, texCoord);
-}
-

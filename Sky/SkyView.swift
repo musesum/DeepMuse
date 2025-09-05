@@ -8,29 +8,24 @@ import MuMenu
 import MuPeers
 import Observation
 
-struct SkyView: View {
+struct SkyView <Content: View>: View  {
 
     @Environment(\.scenePhase) var scenePhase
-    #if os(visionOS)
-    @Environment(ImmersionModel.self) var immersionModel
-    #endif
-
     let id = Visitor.nextId()
+    let content: () -> Content
     let menuVms: [MenuVm]
     let skyModel: SkyModel
-    let cornerVms: [CornerVm]
-    let touchView: TouchViewRepresentable!
     let nextFrame: NextFrame
     let glassState: GlassState
     let panicState: PanicState
 
-    public init(_ skyModel: SkyModel) {
+    public init(_ skyModel: SkyModel, @ViewBuilder content: @escaping () -> Content) {
 
         self.skyModel = skyModel
+        self.content = content
+
         self.nextFrame = skyModel.nextFrame
         self.menuVms = skyModel.menus.menuVms
-        self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
-        self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
         self.glassState = GlassState(skyModel.root˚)
         self.panicState = PanicState(skyModel.root˚, nextFrame)
         nextFrame.addFrameDelegate("SkyCanvas".hash, skyModel)
@@ -41,20 +36,6 @@ struct SkyView: View {
         let frame = geo.frame(in: .global)
         let insets = geo.safeAreaInsets
         skyModel.setFrame(frame, insets, onAppear: onAppear)
-    }
-    func touchWidth(_ geo: GeometryProxy) -> CGFloat {
-        geo.size.width +
-        geo.safeAreaInsets.leading +
-        geo.safeAreaInsets.trailing
-    }
-    func touchHeight(_ geo: GeometryProxy) -> CGFloat {
-        geo.size.height +
-        geo.safeAreaInsets.top +
-        geo.safeAreaInsets.bottom
-    }
-    func touchOffset(_ geo: GeometryProxy) -> CGSize {
-        CGSize(width:  -geo.safeAreaInsets.leading,
-               height: -geo.safeAreaInsets.top)
     }
 
     func changedScene(_ phase: ScenePhase, changed: Bool) {
@@ -77,35 +58,13 @@ struct SkyView: View {
             }
         }
     }
-    var showTouchView: Bool {
-        #if os(visionOS)
-        let goImmersive = immersionModel.goImmersive
-        let isImmersive = immersionModel.isImmersive
-        NoDebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
-        return !goImmersive
-        #else
-        return true
-        #endif
-    }
-
     var body: some View {
-        
         GeometryReader { geo in
             Group {
-                if showTouchView {
-                    touchView
-                        .cornerRadius(40)
-                        .frame(width: touchWidth(geo), height: touchHeight(geo))
-                        .offset(touchOffset(geo))
-                }
+                content()
                 MenuView(menuVms)
                     .environmentObject(glassState)
                     .background(.clear)
-                #if os(iOS)
-                    .persistentSystemOverlays(.hidden)
-                #elseif os(visionOS)
-                    .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
-                #endif
             }
             .onAppear() {
                 changedScene(scenePhase, changed: false)
@@ -114,8 +73,58 @@ struct SkyView: View {
             .onChange(of: scenePhase) { changedScene($1, changed: true) }
             .onChange(of: geo.frame(in: .global)) { changedGeoFrame(geo, onAppear: false) }
         }
-
-
     }
 }
+#if os(visionOS)
+struct SkyVisionView: View {
 
+    @Environment(ImmersionModel.self) var immersionModel
+    let id = Visitor.nextId()
+    let skyModel: SkyModel
+    public init(_ skyModel: SkyModel) {
+        self.skyModel = skyModel
+    }
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            VolumeView(skyModel.pipeline)
+            SkyView(skyModel) {}
+
+                Button {
+                    immersionModel.goImmersive.toggle()
+                } label: {
+                    Image(immersionModel.goImmersive ? "icon.room.white"
+                          : "icon.galaxy.white")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 48, height: 48)
+                }
+        }
+    }
+}
+#else
+struct SkyTouchView: View {
+
+    let id = Visitor.nextId()
+    let skyModel: SkyModel
+    let touchView: TouchViewRepresentable!
+
+    public init(_ skyModel: SkyModel) {
+        self.skyModel = skyModel
+        let menuVms = skyModel.menus.menuVms
+        self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
+    }
+
+    var body: some View {
+        GeometryReader { geo in
+            SkyView(skyModel) {
+                touchView
+                    .cornerRadius(40)
+                    .frame(width: Menu.touchWidth(geo),
+                           height: Menu.touchHeight(geo))
+                    .offset(Menu.touchOffset(geo))
+            }
+        }
+    }
+}
+#endif

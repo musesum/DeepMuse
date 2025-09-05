@@ -31,7 +31,6 @@ struct SkyApp: App {
 
     var body: some Scene {
 
-        @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
         WindowGroup(id: "SkyApp") {
             VisionView(appModel)
                 .environment(immersionModel)
@@ -51,10 +50,12 @@ struct SkyApp: App {
                     }
                     skyModel.setImmersion(goImmersive)
                 }
+                .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
         }
+        .windowStyle(.volumetric)
+        .defaultSize(width: 0.5, height: 0.5, depth: 0.5, in: .meters)
+        //.windowResizability(.contentSize)
 
-        .windowStyle(.plain)
-        .windowResizability(.contentSize)
         ImmersiveScene(appModel)
             .environment(immersionModel)
     }
@@ -79,13 +80,12 @@ struct SkyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SkyView(skyModel)
+            SkyTouchView(skyModel)
                 .onOpenURL { url in
                     skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
                 }
+                .persistentSystemOverlays(.hidden)
         }
     }
 }
 #endif
-
-
