@@ -34,8 +34,7 @@ struct SkyApp: App {
         WindowGroup(id: "SkyApp") {
             VisionView(appModel)
                 .environment(immersionModel)
-                .accessibilityHidden(true)
-                .accessibilityRespondsToUserInteraction(false)
+
                 .onOpenURL { url in appModel.openURL(url) }
                 .onChange(of: immersionModel.goImmersive) { _, goImmersive in
                     DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
@@ -52,11 +51,13 @@ struct SkyApp: App {
                     }
                     skyModel.setImmersion(goImmersive)
                 }
+                .accessibilityHidden(true)
+                .accessibilityRespondsToUserInteraction(false)
                 .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
         }
         .windowStyle(.volumetric)
         .defaultSize(width: 0.5, height: 0.5, depth: 0.5, in: .meters)
-        //.windowResizability(.contentSize)
+        .windowResizability(.contentSize)
 
         ImmersiveScene(appModel)
             .environment(immersionModel)
@@ -83,8 +84,7 @@ struct SkyApp: App {
     var body: some Scene {
         WindowGroup {
             SkyTouchView(skyModel)
-                .accessibilityHidden(true)
-                .accessibilityRespondsToUserInteraction(false)
+
                 .onOpenURL { url in
                     skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
                 }

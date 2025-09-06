@@ -31,12 +31,12 @@ inline float3 facing(uint face, uint vid) {
     const float2 tex[6] = { { -1, -1},{ 1, -1},{ -1, 1}, { -1, 1},{ 1, -1},{ 1, 1} };
     float2 a = tex[vid];
     switch (face) { // 0:left,1:right,2:top,3:bot,4:front,5:back
-    case 0: return normalize(float3(-1,  a.y,  a.x));  // -X
-    case 1: return normalize(float3( 1,  a.y, -a.x));  // +X
-    case 2: return normalize(float3( a.x,  1, -a.y));  // +Y
-    case 3: return normalize(float3( a.x, -1,  a.y));  // -Y
-    case 4: return normalize(float3( a.x,  a.y,  1));  // +Z
-    default:return normalize(float3(-a.x,  a.y, -1));  // -Z
+    case 0: return float3(-1,  a.y,  a.x); // -X yo
+    case 2: return float3( 1,  a.y, -a.x); // +X yo
+    case 1: return float3( a.x,  1, -a.y); // +Y top
+    case 3: return float3( a.x, -1,  a.y); // -Y bot
+    case 4: return float3( a.x,  a.y,  1); // +Z oy
+    default:return float3(-a.x,  a.y, -1); // -Z oy
     }
 }
 
@@ -94,6 +94,6 @@ fragment half4 cubeIndexFragment
     float2 inCoord = float2(index.xy);
     half4 sampled = inTex.sample(s, inCoord);
     float mix = mixcube.x;
-    //float alpha = mixcube.y;
-    return half4(sampled.xyz, mix);
+    float alpha = mixcube.y;
+    return half4(sampled.xyz, mix * alpha);
 }
