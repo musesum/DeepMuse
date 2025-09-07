@@ -34,7 +34,6 @@ struct SkyApp: App {
         WindowGroup(id: "SkyApp") {
             VisionView(appModel)
                 .environment(immersionModel)
-
                 .onOpenURL { url in appModel.openURL(url) }
                 .onChange(of: immersionModel.goImmersive) { _, goImmersive in
                     DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
@@ -53,7 +52,8 @@ struct SkyApp: App {
                 }
                 .accessibilityHidden(true)
                 .accessibilityRespondsToUserInteraction(false)
-                .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
+                .persistentSystemOverlays(immersionModel.isImmersive
+                                          ? .hidden : .visible)
         }
         .windowStyle(.volumetric)
         .defaultSize(width: 0.5, height: 0.5, depth: 0.5, in: .meters)

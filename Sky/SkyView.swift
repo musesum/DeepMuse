@@ -101,7 +101,8 @@ struct SkyVisionView: View {
                 Button {
                     immersionModel.goImmersive.toggle()
                 } label: {
-                    Image(immersionModel.goImmersive ? "icon.room.white"
+                    Image(immersionModel.goImmersive 
+                          ? "icon.room.white"
                           : "icon.galaxy.white")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

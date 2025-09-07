@@ -19,13 +19,6 @@ struct FragmentOut {
     float depth [[depth(any)]];
 };
 
-// --- add under your structs ---
-
-struct FragmentOut2 {
-    half4 color [[color(0)]];
-    float depth  [[depth(any)]];
-};
-
 inline float3 facing(uint face, uint vid) {
 
     const float2 tex[6] = { { -1, -1},{ 1, -1},{ -1, 1}, { -1, 1},{ 1, -1},{ 1, 1} };
@@ -41,10 +34,10 @@ inline float3 facing(uint face, uint vid) {
 }
 
 // bake: full‑screen quad → cube direction for a given face
-vertex CubeVertex cubeBakeVertex
+vertex CubeVertex cubeBoxVertex
 (
- uint               vid   [[ vertex_id  ]],
- constant uint&     face  [[ buffer(10) ]]) {
+ uint            vid  [[ vertex_id  ]],
+ constant uint&  face [[ buffer(10) ]]) {
 
     const float2 pos[6] = { {-1,-1},{+1,-1},{-1,+1}, {-1,+1},{+1,-1},{+1,+1} };
 
