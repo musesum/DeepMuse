@@ -73,22 +73,34 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SkyApp: App {
+    let id = Visitor.nextId()
     let appModel: AppModel
     let skyModel: SkyModel
+    let touchView: TouchViewRepresentable!
 
     init() {
         self.appModel = AppModel()
         self.skyModel = appModel.skyModel
+        let menuVms = skyModel.menus.menuVms
+        self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
     }
 
     var body: some Scene {
         WindowGroup {
-            SkyTouchView(skyModel)
+            GeometryReader { geo in
 
-                .onOpenURL { url in
-                    skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
-                }
-                .persistentSystemOverlays(.hidden)
+                touchView
+                    .cornerRadius(40)
+                    .frame(width: Menu.touchWidth(geo),
+                           height: Menu.touchHeight(geo))
+                    .offset(Menu.touchOffset(geo))
+
+                    .onOpenURL { url in
+                        skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
+                    }
+                    .persistentSystemOverlays(.hidden)
+                SkyView(skyModel) 
+            }
         }
     }
 }

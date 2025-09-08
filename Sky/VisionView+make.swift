@@ -4,8 +4,17 @@ import RealityKit
 import SwiftUI
 import MuFlo // PrintLog
 #if os(visionOS)
-extension VolumeView {
 
+extension VisionView {
+    internal func makeBox() async -> Entity {
+        let materials = await makeMaterials(viewModel, side: 512)
+        let edge: Float = 0.25
+        let mesh = MeshResource.generateBox(width  : edge,
+                                            height : edge,
+                                            depth  : edge,
+                                            splitFaces: true)
+        return ModelEntity(mesh: mesh, materials: materials)
+    }
     /// Build 6 materials backed by live DrawableQueues
     internal func makeMaterials(_ vm: ViewModel, side: Int) async -> [RealityKit.Material] {
         do {

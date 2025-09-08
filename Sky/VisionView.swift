@@ -8,8 +8,13 @@ import MuHands
 
 #if os(visionOS)
 
-struct VisionView: View {
+final class ViewModel: ObservableObject {
+    @Published var drawQueue: [TextureResource.DrawableQueue] = []
+    @Published var faceTex: [TextureResource] = []
+}
 
+struct VisionView: View {
+    let id = Visitor.nextId()
     @Environment(ImmersionModel.self) var immersionModel
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var handState: HandsPhase
@@ -19,16 +24,20 @@ struct VisionView: View {
     let appModel: VisionModel
     let skyModel: SkyModel
     let nextFrame: NextFrame
+    let pipeline: Pipeline
 
-    func logScenePhase(_ phase: ScenePhase, changed: Bool) {
-        var msg = "🎬 VisionView scenePhase: "
-        switch phase {
-        case .active     : msg += "🟩 .active"
-        case .inactive   : msg += "🟥 .inactive"
-        case .background : msg += "🟦 .background"
-        @unknown default : break
-        }
-        DebugLog { P(msg) }
+    var _cubeNode: CubeNode?
+    var cubeNode: CubeNode? {
+        guard let _cubeNode = _cubeNode ?? pipeline.node["cube"] as? CubeNode else { return nil }
+        return _cubeNode
+    }
+    @StateObject internal var viewModel = ViewModel()
+
+    var showBoxView: Bool {
+        let goImmersive = immersionModel.goImmersive
+        let isImmersive = immersionModel.isImmersive
+        NoDebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
+        return !goImmersive
     }
 
     init(_ appModel: VisionModel) {
@@ -36,6 +45,7 @@ struct VisionView: View {
         self.skyModel = appModel.skyModel
         self.nextFrame = skyModel.nextFrame
         self.handsPhase = skyModel.handsPhase
+        self.pipeline = skyModel.pipeline
         PrintLog("🎬 VisionView")
     }
 
@@ -62,16 +72,40 @@ struct VisionView: View {
     var showAnimation: Animation { showTime.animation }
 
     var body: some View {
-        ZStack {
-            SkyVisionView(skyModel)
-                .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
-                       minHeight : immersionModel.goImmersive ? 480 : 600)
-                .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
-                       maxHeight : immersionModel.goImmersive ? 480 : 1280)
+        ZStack(alignment: .bottom) {
+            if showBoxView {
+                RealityView { content in
+                    let box = await makeBox()
+                    content.add(box)
+                    ManipulationComponent.configureEntity(box)
+                } update: { _ in
+                    if viewModel.drawQueue.count == 6 {
+                        cubeNode?.boxFaces(to: viewModel.drawQueue)
+                    }
+                }
+                .realityViewLayoutBehavior(.centered)
+            }
+            SkyView(skyModel)
+
+            Button {
+                immersionModel.goImmersive.toggle()
+            } label: {
+                Image(immersionModel.goImmersive
+                      ? "icon.room.white"
+                      : "icon.galaxy.white")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 48, height: 48)
+            }
+            .offset(x: 0, y: -20)
+            .padding(6)
         }
+        .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
+               minHeight : immersionModel.goImmersive ? 480 : 600)
+        .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
+               maxHeight : immersionModel.goImmersive ? 480 : 1280)
 
         .onAppear {
-            logScenePhase(scenePhase, changed: false)
             skyModel.setImmersion(immersionModel.goImmersive)
             Task {
                 if let handsTracker = appModel.handsTracker {
