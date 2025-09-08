@@ -15,7 +15,7 @@ final class ViewModel: ObservableObject {
 
 struct VisionView: View {
     let id = Visitor.nextId()
-    @Environment(ImmersionModel.self) var immersionModel
+    @Environment(ImmersionModel.self) var immersion
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var handState: HandsPhase
     @ObservedObject var showTime = ShowTime()
@@ -25,20 +25,13 @@ struct VisionView: View {
     let skyModel: SkyModel
     let nextFrame: NextFrame
     let pipeline: Pipeline
-
+    var immersed: Bool { immersion.goImmersive }
     var _cubeNode: CubeNode?
     var cubeNode: CubeNode? {
         guard let _cubeNode = _cubeNode ?? pipeline.node["cube"] as? CubeNode else { return nil }
         return _cubeNode
     }
     @StateObject internal var viewModel = ViewModel()
-
-    var showBoxView: Bool {
-        let goImmersive = immersionModel.goImmersive
-        let isImmersive = immersionModel.isImmersive
-        NoDebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
-        return !goImmersive
-    }
 
     init(_ appModel: VisionModel) {
         self.appModel = appModel
@@ -67,13 +60,12 @@ struct VisionView: View {
         TimeLog(title, interval: 1) { P(title) }
     }
 
-    var immersed: Bool { immersionModel.isImmersive }
     var showOpacity: CGFloat { immersed ? showTime.opacity : 1 }
     var showAnimation: Animation { showTime.animation }
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            if showBoxView {
+            if !immersed {
                 RealityView { content in
                     let box = await makeBox()
                     content.add(box)
@@ -88,9 +80,9 @@ struct VisionView: View {
             SkyView(skyModel)
 
             Button {
-                immersionModel.goImmersive.toggle()
+                immersion.goImmersive.toggle()
             } label: {
-                Image(immersionModel.goImmersive
+                Image(immersion.goImmersive
                       ? "icon.room.white"
                       : "icon.galaxy.white")
                 .resizable()
@@ -100,13 +92,14 @@ struct VisionView: View {
             .offset(x: 0, y: -20)
             .padding(6)
         }
-        .frame(minWidth  : immersionModel.goImmersive ? 640 : 800,
-               minHeight : immersionModel.goImmersive ? 480 : 600)
-        .frame(maxWidth  : immersionModel.goImmersive ? 800 : 1920,
-               maxHeight : immersionModel.goImmersive ? 480 : 1280)
+        .frame(
+            minWidth  : immersed ? 640 : 800, idealWidth: 640,
+            maxWidth  : immersed ? 800 : 1920,
+            minHeight : immersed ? 480 : 600, idealHeight: 480,
+            maxHeight : immersed ? 480 : 1280)
 
         .onAppear {
-            skyModel.setImmersion(immersionModel.goImmersive)
+            skyModel.setImmersion(immersion.goImmersive)
             Task {
                 if let handsTracker = appModel.handsTracker {
                     await handsTracker.startHands()
