@@ -41,6 +41,7 @@ public class SkyPipeline: Pipeline {
         case "tile"   : pipeNode = TileNode  (self, flo˚)
         case "flat"   : pipeNode = FlatNode  (self, flo˚)
         case "cube"   : pipeNode = CubeNode  (self, flo˚)
+        //...... case "box"    : pipeNode = BoxNode   (self, flo˚)
         case "plato"  : pipeNode = PlatoNode (self, flo˚)
 
         case "slide","zha","ave","fade","melt","tunl","fred"

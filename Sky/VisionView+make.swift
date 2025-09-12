@@ -48,6 +48,7 @@ extension VisionView {
             return textures.map {
                 var m = UnlitMaterial()
                 m.color = .init(texture: .init($0))
+                m.faceCulling = .none
                 return m
             }
         } catch {

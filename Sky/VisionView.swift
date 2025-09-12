@@ -26,10 +26,10 @@ struct VisionView: View {
     let nextFrame: NextFrame
     let pipeline: Pipeline
     var immersed: Bool { immersion.goImmersive }
-    var _cubeNode: CubeNode?
-    var cubeNode: CubeNode? {
-        guard let _cubeNode = _cubeNode ?? pipeline.node["cube"] as? CubeNode else { return nil }
-        return _cubeNode
+    var _boxNode: BoxNode?
+    var boxNode: BoxNode? {
+        guard let _boxNode = _boxNode ?? pipeline.node["box"] as? BoxNode else { return nil }
+        return _boxNode
     }
     @StateObject internal var viewModel = ViewModel()
 
@@ -72,7 +72,7 @@ struct VisionView: View {
                     ManipulationComponent.configureEntity(box)
                 } update: { _ in
                     if viewModel.drawQueue.count == 6 {
-                        cubeNode?.boxFaces(to: viewModel.drawQueue)
+                        boxNode?.boxFaces(to: viewModel.drawQueue)
                     }
                 }
                 .realityViewLayoutBehavior(.centered)
@@ -93,9 +93,9 @@ struct VisionView: View {
             .padding(6)
         }
         .frame(
-            minWidth  : immersed ? 640 : 800, idealWidth: 640,
+            minWidth  : immersed ? 640 : 800,
             maxWidth  : immersed ? 800 : 1920,
-            minHeight : immersed ? 480 : 600, idealHeight: 480,
+            minHeight : immersed ? 480 : 600,
             maxHeight : immersed ? 480 : 1280)
 
         .onAppear {
