@@ -53,7 +53,7 @@ extension VisionView {
             }
         } catch {
             // Log and fallback: solid-color UnlitMaterial so RealityView always has a 3D entity
-            PrintLog("⁉️ VolumeView.makeMaterials error: \(error)")
+            PrintLog("⁉️ VisionView.makeMaterials error: \(error)")
             vm.drawQueue = []
             vm.faceTex = []
             let tints: [UIColor] = [.red, .green, .blue, .yellow, .cyan, .orange]

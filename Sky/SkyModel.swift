@@ -69,9 +69,6 @@ class SkyModel {
 
         archiveVm.archiveProto = self
         peers.addDelegate(self, for: .archiveFrame)
-        nextFrame.addBetweenFrame {
-            self.pipeline.rotateTextures()
-        }
     }
 }
 
@@ -83,9 +80,6 @@ extension SkyModel: @MainActor ArchiveProto {
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
 
-        nextFrame.addBetweenFrame {
-            self.pipeline.alignNameTex()
-        }
         if local {
             shareItem(url)
         }

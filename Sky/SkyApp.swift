@@ -12,7 +12,7 @@ import CompositorServices
 
 @main
 struct SkyApp: App {
-
+    let id = Visitor.nextId()
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.openWindow) var openWindow
@@ -61,6 +61,20 @@ struct SkyApp: App {
 
         ImmersiveScene(appModel)
             .environment(immersionModel)
+    }
+    var body_: some Scene {
+        ImmersiveSpace {
+            CompositorLayer(configuration: ContentStageConfiguration()) {
+                layerRenderer in
+                DebugLog{ P("🧭 Immmersive CompositorLayer") }
+                let renderer = Renderer(layerRenderer, skyModel.pipeline, nextFrame)
+                Task(priority: .high) {
+                    try await renderer.renderLoop(id)
+                }
+            }
+        }
+        .immersionStyle(selection: .constant(.mixed), in: .mixed, .full)
+        .upperLimbVisibility(.visible)
     }
 }
 class AppDelegate: NSObject, UIApplicationDelegate {
