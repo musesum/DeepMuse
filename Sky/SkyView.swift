@@ -62,9 +62,9 @@ struct SkyView: View {
         DebugLog {
             var msg = "🎬 SkyView scenePhase: "
             switch phase {
-            case .active     : msg += "🟩 .active id: \(id)"
-            case .inactive   : msg += "🟥 .inactive"
-            case .background : msg += "🟦 .background"
+            case .active     : msg += "🟢 .active id: \(id)"
+            case .inactive   : msg += "🔴 .inactive"
+            case .background : msg += "🔵 .background"
             @unknown default : break
             }
             P(msg)
@@ -78,14 +78,14 @@ struct SkyView: View {
         }
     }
     var showTouchView: Bool {
-#if os(visionOS)
+        #if os(visionOS)
         let goImmersive = immersionModel.goImmersive
         let isImmersive = immersionModel.isImmersive
         NoDebugLog { P("🎬 SkyView go/is Immersive: \(goImmersive)/\(isImmersive) id: \(id)") }
         return !goImmersive
-#else
+        #else
         return true
-#endif
+        #endif
     }
 
     var body: some View {
@@ -98,14 +98,24 @@ struct SkyView: View {
                         .frame(width: touchWidth(geo), height: touchHeight(geo))
                         .offset(touchOffset(geo))
                 }
-                MenuView(menuVms)
-                    .environmentObject(glassState)
-                    .background(.clear)
-#if os(iOS)
-                    .persistentSystemOverlays(.hidden)
-#elseif os(visionOS)
-                    .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
-#endif
+                if scenePhase != .active {
+                    ZStack {
+                        Image("icon.ring")
+                            .scaleEffect(0.33)
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                } else {
+                    MenuView(menuVms)
+                        .environmentObject(glassState)
+                        .background(.clear)
+                        #if os(iOS)
+                        .persistentSystemOverlays(.hidden)
+                        #elseif os(visionOS)
+                        .persistentSystemOverlays(immersionModel.isImmersive ? .hidden : .visible)
+                        #endif
+                }
             }
             .onAppear() {
                 changedScene(scenePhase, changed: false)
@@ -118,4 +128,3 @@ struct SkyView: View {
 
     }
 }
-
