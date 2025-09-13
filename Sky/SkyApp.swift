@@ -12,7 +12,6 @@ import CompositorServices
 
 @main
 struct SkyApp: App {
-    let id = Visitor.nextId()
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.openWindow) var openWindow
@@ -50,36 +49,11 @@ struct SkyApp: App {
                     }
                     skyModel.setImmersion(goImmersive)
                 }
-                .accessibilityHidden(true)
-                .accessibilityRespondsToUserInteraction(false)
-                .persistentSystemOverlays(immersionModel.isImmersive
-                                          ? .hidden : .visible)
         }
-        .windowStyle(.volumetric)
-        .defaultSize(width: 0.5, height: 0.5, depth: 0.5, in: .meters)
+        .windowStyle(.plain)
         .windowResizability(.contentSize)
-
         ImmersiveScene(appModel)
             .environment(immersionModel)
-    }
-    var body_: some Scene {
-        ImmersiveSpace {
-            CompositorLayer(configuration: ContentStageConfiguration()) {
-                layerRenderer in
-                DebugLog{ P("🧭 Immmersive CompositorLayer") }
-                let renderer = Renderer(layerRenderer, skyModel.pipeline, nextFrame)
-                Task(priority: .high) {
-                    try await renderer.renderLoop(id)
-                }
-            }
-        }
-        .immersionStyle(selection: .constant(.mixed), in: .mixed, .full)
-        .upperLimbVisibility(.visible)
-    }
-}
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return .all
     }
 }
 
@@ -87,34 +61,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct SkyApp: App {
-    let id = Visitor.nextId()
     let appModel: AppModel
     let skyModel: SkyModel
-    let touchView: TouchViewRepresentable!
 
     init() {
         self.appModel = AppModel()
         self.skyModel = appModel.skyModel
-        let menuVms = skyModel.menus.menuVms
-        self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
     }
 
     var body: some Scene {
         WindowGroup {
-            GeometryReader { geo in
-
-                touchView
-                    .cornerRadius(40)
-                    .frame(width: Menu.touchWidth(geo),
-                           height: Menu.touchHeight(geo))
-                    .offset(Menu.touchOffset(geo))
-
-                    .onOpenURL { url in
-                        skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
-                    }
-                    .persistentSystemOverlays(.hidden)
-                SkyView(skyModel) 
-            }
+            SkyView(skyModel)
+                .onOpenURL { url in
+                    skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
+                }
         }
     }
 }

@@ -8,40 +8,27 @@ import MuHands
 
 #if os(visionOS)
 
-final class ViewModel: ObservableObject {
-    @Published var drawQueue: [TextureResource.DrawableQueue] = []
-    @Published var faceTex: [TextureResource] = []
-}
-
 struct VisionView: View {
-    let id = Visitor.nextId()
+    
     @Environment(ImmersionModel.self) var immersion
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var handState: HandsPhase
     @ObservedObject var showTime = ShowTime()
     @ObservedObject var handsPhase: HandsPhase
-
+    
     let appModel: VisionModel
     let skyModel: SkyModel
     let nextFrame: NextFrame
-    let pipeline: Pipeline
     var immersed: Bool { immersion.goImmersive }
-    var _boxNode: BoxNode?
-    var boxNode: BoxNode? {
-        guard let _boxNode = _boxNode ?? pipeline.node["box"] as? BoxNode else { return nil }
-        return _boxNode
-    }
-    @StateObject internal var viewModel = ViewModel()
-
+    
     init(_ appModel: VisionModel) {
         self.appModel = appModel
         self.skyModel = appModel.skyModel
         self.nextFrame = skyModel.nextFrame
         self.handsPhase = skyModel.handsPhase
-        self.pipeline = skyModel.pipeline
         PrintLog("🎬 VisionView")
     }
-
+    
     func changeHandsPhase(_ handsPhase: HandsPhase) {
         let state = handsPhase.state
         if let phase = state.left {
@@ -59,26 +46,18 @@ struct VisionView: View {
         let title = "VisionView " + handsPhase.handsState
         TimeLog(title, interval: 1) { P(title) }
     }
-
+    
     var showOpacity: CGFloat { immersed ? showTime.opacity : 1 }
     var showAnimation: Animation { showTime.animation }
-
+    
     var body: some View {
         ZStack(alignment: .bottom) {
-            if !immersed {
-                RealityView { content in
-                    let box = await makeBox()
-                    content.add(box)
-                    ManipulationComponent.configureEntity(box)
-                } update: { _ in
-                    if viewModel.drawQueue.count == 6 {
-                        boxNode?.boxFaces(to: viewModel.drawQueue)
-                    }
-                }
-                .realityViewLayoutBehavior(.centered)
-            }
             SkyView(skyModel)
-
+                .frame(minWidth  : immersed ? 640 : 800,
+                       maxWidth  : immersed ? 800 : 1920,
+                       minHeight : immersed ? 480 : 600,
+                       maxHeight : immersed ? 480 : 1280)
+            
             Button {
                 immersion.goImmersive.toggle()
             } label: {
@@ -92,12 +71,6 @@ struct VisionView: View {
             .offset(x: 0, y: -20)
             .padding(6)
         }
-        .frame(
-            minWidth  : immersed ? 640 : 800,
-            maxWidth  : immersed ? 800 : 1920,
-            minHeight : immersed ? 480 : 600,
-            maxHeight : immersed ? 480 : 1280)
-
         .onAppear {
             skyModel.setImmersion(immersion.goImmersive)
             Task {

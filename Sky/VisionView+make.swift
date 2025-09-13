@@ -3,7 +3,7 @@
 import RealityKit
 import SwiftUI
 import MuFlo // PrintLog
-#if os(visionOS)
+#if false // os(visionOS)
 
 extension VisionView {
     internal func makeBox() async -> Entity {

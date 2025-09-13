@@ -1,5 +1,5 @@
 {
-  "originHash" : "a17dfc8f273fc3cd40283f769e0ab78c1d052645b6ba0c0998c4b5e04c986353",
+  "originHash" : "85fdadcd390c9756d9850719323c46de35a21eeb99276e6acbdebfa5554f2649",
   "pins" : [
     {
       "identity" : "audiokit",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/AudioKit/AudioKit.git",
       "state" : {
         "branch" : "main",
-        "revision" : "037023fb07d572f48ff12e6a4ce7801c0bbeaa0a"
+        "revision" : "4d6bd365cebbd8762a385cda0ce6d56ee478840c"
       }
     },
     {
