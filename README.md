@@ -86,7 +86,7 @@ Over time, and as long as the menu stays constant, you begin to develop a kind o
             
 VisionOS provides the first workable hand-pose. But, as with any visual UI, it requires shifting gaze to an object to select it. During this Eye Saccade, you are  blind for 200 milliseconds. Compare this with a touch typist that can tap a key in 20 msec. One workaround is to use mixed modal input with voice. 
             
-While not perfect, the DeepMuse menuing system (MuMenu) helps reduce to number of steps. The more perfect solution will be discussed is not yet implements. Stay tuned. 
+The DeepMuse menuing system (MuMenu) helps reduce to number of steps. 
             
 #### Bugs
             

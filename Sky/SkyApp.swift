@@ -12,47 +12,48 @@ import CompositorServices
 
 @main
 struct SkyApp: App {
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.openWindow) var openWindow
+
+    @Environment(\.dismissImmersiveSpace) var dismissImmersive
+    @Environment(\.openImmersiveSpace) var openImmersive
     @State public var immersionModel: ImmersionModel
 
     let nextFrame: NextFrame
-    let appModel: VisionModel
+    let visionModel: VisionModel
     let skyModel: SkyModel
 
     init() {
         self.immersionModel = ImmersionModel()
-        self.appModel = VisionModel()
-        self.skyModel = appModel.skyModel
+        self.visionModel = VisionModel()
+        self.skyModel = visionModel.skyModel
         self.nextFrame = skyModel.nextFrame
     }
 
     var body: some Scene {
 
         WindowGroup(id: "SkyApp") {
-            VisionView(appModel)
+            VisionView(visionModel)
                 .environment(immersionModel)
-                .onOpenURL { url in appModel.openURL(url) }
-                .onChange(of: immersionModel.goImmersive) { _, goImmersive in
-                    DebugLog { P("🎬 SkyApp.onChange goImmersive: \(goImmersive)") }
+                .onOpenURL { url in visionModel.openURL(url) }
+                .onChange(of: immersionModel.state) { _, state in
+                    DebugLog { P("🎬 SkyApp.onChange tab: \(state)") }
                     Task { @MainActor in
-                        if goImmersive {
-                            if immersionModel.isImmersive == false {
-                                let result = await openImmersiveSpace(id: ImmersiveScene.SceneId)
+                        switch state {
+                        case .windowed:
+                            await dismissImmersive()
+                            immersionModel.isImmersed = false
+                        case .mixed, .full:
+                            if immersionModel.isImmersed == false {
+                                let result = await openImmersive(id: ImmersiveScene.id)
                                 immersionModel.changed(result)
                             }
-                        } else  {
-                            await dismissImmersiveSpace()
-                            immersionModel.isImmersive = false
                         }
                     }
-                    skyModel.setImmersion(goImmersive)
+                    skyModel.setImmersion(state != .windowed)
                 }
         }
         .windowStyle(.plain)
         .windowResizability(.contentSize)
-        ImmersiveScene(appModel)
+        ImmersiveScene(visionModel)
             .environment(immersionModel)
     }
 }
@@ -79,3 +80,4 @@ struct SkyApp: App {
     }
 }
 #endif
+

@@ -34,6 +34,7 @@ class SkyModel {
     public var touchView: TouchView
     public var handsPhase: HandsPhase
     public var menus: Menus
+    public var menuView: MenuView
 
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
@@ -66,7 +67,7 @@ class SkyModel {
         self.touchView = TouchView(pipeline, touchCanvas)
         self.handsPhase = HandsPhase(root˚)
         self.menus = Menus(root˚, archiveVm, handsPhase, share)
-
+        self.menuView = MenuView(menus.menuVms)
         archiveVm.archiveProto = self
         peers.addDelegate(self, for: .archiveFrame)
     }
@@ -80,6 +81,8 @@ extension SkyModel: @MainActor ArchiveProto {
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
         nextFrame.addBetweenFrame {
+
+            self.pipeline.alignNameTex()
             Reset.reset()
         }
         if local {

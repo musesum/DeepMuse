@@ -53,6 +53,8 @@
 	<string>feed photos to synthesizer</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>navigate menu via voice commands</string>
+	<key>NSWorldSensingUsageDescription</key>
+	<string>World Sensing for world tracking.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>

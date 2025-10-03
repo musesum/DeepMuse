@@ -10,20 +10,20 @@ import MuHands
 
 struct VisionView: View {
     
-    @Environment(ImmersionModel.self) var immersion
+    @Environment(ImmersionModel.self) var immersionModel
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var handState: HandsPhase
     @ObservedObject var showTime = ShowTime()
     @ObservedObject var handsPhase: HandsPhase
     
-    let appModel: VisionModel
+    let visionModel: VisionModel
     let skyModel: SkyModel
     let nextFrame: NextFrame
-    var immersed: Bool { immersion.goImmersive }
-    
-    init(_ appModel: VisionModel) {
-        self.appModel = appModel
-        self.skyModel = appModel.skyModel
+    var immersed: Bool { immersionModel.state != .windowed }
+
+    init(_ visionModel: VisionModel) {
+        self.visionModel = visionModel
+        self.skyModel = visionModel.skyModel
         self.nextFrame = skyModel.nextFrame
         self.handsPhase = skyModel.handsPhase
         PrintLog("🎬 VisionView")
@@ -52,29 +52,38 @@ struct VisionView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            SkyView(skyModel)
+            SkyVisionView(skyModel)
                 .frame(minWidth  : immersed ? 640 : 800,
                        maxWidth  : immersed ? 800 : 1920,
                        minHeight : immersed ? 480 : 600,
                        maxHeight : immersed ? 480 : 1280)
-            
-            Button {
-                immersion.goImmersive.toggle()
-            } label: {
-                Image(immersion.goImmersive
-                      ? "icon.room.white"
-                      : "icon.galaxy.white")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 48, height: 48)
+
+            Picker("Immersion", selection: Binding<ImmersionModel.State>(get: { immersionModel.state }, set: { immersionModel.state = $0 })) {
+                Image(systemName: "rectangle")
+                    .resizable()
+                    .frame(width: 44, height: 44)
+                    .accessibilityLabel("Window")
+                    .tag(ImmersionModel.State.windowed)
+                Image("icon.room.white")
+                    .resizable()
+                    .frame(width: 44, height: 44)
+                    .accessibilityLabel("Mixed")
+                    .tag(ImmersionModel.State.mixed)
+                Image("icon.galaxy.white")
+                    .resizable()
+                    .frame(width: 44, height: 44)
+                    .accessibilityLabel("Mixed")
+                    .tag(ImmersionModel.State.full)
             }
+            .pickerStyle(.segmented)
+            .frame(width: 260)
             .offset(x: 0, y: -20)
             .padding(6)
         }
         .onAppear {
-            skyModel.setImmersion(immersion.goImmersive)
+            skyModel.setImmersion(immersionModel.state != .windowed)
             Task {
-                if let handsTracker = appModel.handsTracker {
+                if let handsTracker = visionModel.handsTracker {
                     await handsTracker.startHands()
                 }
             }
@@ -82,6 +91,10 @@ struct VisionView: View {
         .opacity(showOpacity)
         .animation(showAnimation, value: showOpacity)
         .onChange(of: handsPhase.update) { changeHandsPhase(handsPhase) }
+        .onChange(of: immersionModel.state) { _, newValue in
+            // Ensure style follows the tab locally (SkyApp also sets this)
+            immersionModel.style = (newValue == .full) ? .full : .mixed
+        }
     }
 }
 #endif

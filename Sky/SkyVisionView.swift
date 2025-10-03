@@ -1,5 +1,5 @@
-// created by musesum on 9/14/23.
-
+// created by musesum on 9/17/25
+#if os(visionOS)
 import SwiftUI
 import BackgroundTasks
 import MuFlo
@@ -8,9 +8,10 @@ import MuMenu
 import MuPeers
 import Observation
 
-struct SkyView: View {
+struct SkyVisionView: View {
 
     @Environment(\.scenePhase) var scenePhase
+    @Environment(ImmersionModel.self) var immersion
 
     let id = Visitor.nextId()
     let skyModel: SkyModel
@@ -76,10 +77,7 @@ struct SkyView: View {
 
         GeometryReader { geo in
             Group {
-                touchView
-                    .cornerRadius(40)
-                    .frame(width: touchWidth(geo), height: touchHeight(geo))
-                    .offset(touchOffset(geo))
+                // activity indicator during startup
                 if scenePhase != .active {
                     ZStack {
                         Image("icon.ring")
@@ -89,9 +87,15 @@ struct SkyView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 } else {
+                    if immersion.state == .windowed {
+                        touchView
+                            .cornerRadius(40)
+                            .frame(width: touchWidth(geo), height: touchHeight(geo))
+                            .offset(touchOffset(geo))
+                    }
                     skyModel.menuView
                         .background(.clear)
-                        .persistentSystemOverlays(.hidden)
+                        .persistentSystemOverlays(immersion.isImmersed ? .hidden : .visible)
                 }
             }
             .onAppear() {
@@ -103,5 +107,4 @@ struct SkyView: View {
         }
     }
 }
-
-
+#endif

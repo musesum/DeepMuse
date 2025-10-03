@@ -31,6 +31,7 @@
 		80704A7923378C1B0001617D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80704A7723378C1A0001617D /* Metal.framework */; };
 		80735F792E6E2C7B00719CEA /* VisionView+make.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80735F772E6E2C7B00719CEA /* VisionView+make.swift */; };
 		807533472A8CA0C600A1808C /* MuPlato in Frameworks */ = {isa = PBXBuildFile; productRef = 807533462A8CA0C600A1808C /* MuPlato */; };
+		808441FD2E7B22080008E66B /* SkyVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808441FC2E7B22080008E66B /* SkyVisionView.swift */; };
 		8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* pipe.tile.metal */; };
 		809B425B2CE542A50016D296 /* rotateTexture.metal in Sources */ = {isa = PBXBuildFile; fileRef = 809B425A2CE542A50016D296 /* rotateTexture.metal */; };
 		80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 80A0D01E2BC1A1F1005C2B6B /* MuSky */; };
@@ -91,6 +92,7 @@
 		80704A7823378C1B0001617D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		80735F772E6E2C7B00719CEA /* VisionView+make.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionView+make.swift"; sourceTree = "<group>"; };
 		8082FD8624B2589A002F880A /* packages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = packages.h; sourceTree = "<group>"; };
+		808441FC2E7B22080008E66B /* SkyVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyVisionView.swift; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* pipe.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.tile.metal; sourceTree = "<group>"; };
 		809B425A2CE542A50016D296 /* rotateTexture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = rotateTexture.metal; sourceTree = "<group>"; };
 		80A87E3D2DA7B391005A800F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				80B3D86C2C5979EF00865274 /* SkyModel.swift */,
 				804BC6612CF6B31C00E720C2 /* SkyArchive.swift */,
 				8036D85C2BBCD12E00BB35EE /* SkyView.swift */,
+				808441FC2E7B22080008E66B /* SkyVisionView.swift */,
 				80BE475B2B34C23800EB05F4 /* VisionView.swift */,
 				80A87E3D2DA7B391005A800F /* AppModel.swift */,
 				80735F772E6E2C7B00719CEA /* VisionView+make.swift */,
@@ -321,6 +324,7 @@
 				80158AAB2BC4459C0081ABAA /* kernel.sampleCube.metal in Sources */,
 				80A87E3E2DA7B391005A800F /* AppModel.swift in Sources */,
 				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
+				808441FD2E7B22080008E66B /* SkyVisionView.swift in Sources */,
 				8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */,
 				801927CC2BBD04340041CE4C /* render.plato.metal in Sources */,
 			);
