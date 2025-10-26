@@ -58,27 +58,27 @@ struct VisionView: View {
                        minHeight : immersed ? 480 : 600,
                        maxHeight : immersed ? 480 : 1280)
 
-            Picker("Immersion", selection: Binding<ImmersionModel.State>(get: { immersionModel.state }, set: { immersionModel.state = $0 })) {
+            Picker("Immersion", selection: Binding<ImmersionModel.State>(
+                get: { immersionModel.state },
+                set: { immersionModel.state = $0 })) {
                 Image(systemName: "rectangle")
-                    .resizable()
+                    .scaledToFill()
                     .frame(width: 44, height: 44)
-                    .accessibilityLabel("Window")
                     .tag(ImmersionModel.State.windowed)
                 Image("icon.room.white")
-                    .resizable()
+
                     .frame(width: 44, height: 44)
-                    .accessibilityLabel("Mixed")
                     .tag(ImmersionModel.State.mixed)
                 Image("icon.galaxy.white")
-                    .resizable()
+                    
                     .frame(width: 44, height: 44)
-                    .accessibilityLabel("Mixed")
                     .tag(ImmersionModel.State.full)
             }
+
             .pickerStyle(.segmented)
-            .frame(width: 260)
+            .frame(width: 148, height: 44)
             .offset(x: 0, y: -20)
-            .padding(6)
+            .padding(16)
         }
         .onAppear {
             skyModel.setImmersion(immersionModel.state != .windowed)
