@@ -5,12 +5,12 @@ using namespace metal;
 
 kernel void colorKernel
 (
- texture2d<half, access::read>  inTex     [[ texture(0) ]],
- texture2d<half, access::read>  palTex    [[ texture(1) ]],
- texture2d<half, access::write> colorTex  [[ texture(2) ]],
- texture2d<half, access::write> heightTex [[ texture(3) ]],
- constant float&                plane     [[ buffer(0) ]],
- constant float&                height    [[ buffer(1) ]],
+ texture2d<half, access::read>  inTex    [[ texture(0) ]],
+ texture2d<half, access::read>  palTex   [[ texture(1) ]],
+ texture2d<half, access::write> colorTex [[ texture(2) ]],
+ texture2d<half, access::write> displace [[ texture(3) ]],
+ constant float&                plane    [[ buffer(0) ]],
+ constant float&                height   [[ buffer(1) ]],
  uint2 gid [[thread_position_in_grid]])
 {{
     const half4 item = inTex.read(gid);

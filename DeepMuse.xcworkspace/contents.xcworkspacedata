@@ -32,4 +32,7 @@
          location = "group:MuVision">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:inWidth.swift">
+   </FileRef>
 </Workspace>
