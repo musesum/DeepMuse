@@ -20,7 +20,6 @@ class SkyModel {
     private let camera: CameraSession
     private let peers: Peers
     private let tapeFlo: TapeFlo
-    private let share: Share
 
     internal var insets = EdgeInsets()
     internal let scale: CGFloat
@@ -43,6 +42,7 @@ class SkyModel {
          _ renderState: RenderState,
          _ archiveVm: ArchiveVm,
          _ peers: Peers,
+         _ tapeFlo: TapeFlo,
          _ scale: CGFloat,
          _ bounds: CGRect,
          _ camera: CameraSession) {
@@ -55,18 +55,17 @@ class SkyModel {
         self.peers = peers
         self.ripples = Ripples()
         self.archive = SkyArchive(root˚, nextFrame)
-        self.tapeFlo = TapeFlo(root˚)
-        self.share = Share(peers, tapeFlo)
-        self.muAudio = MuAudio(root˚, share)
+        self.tapeFlo = tapeFlo
+        self.muAudio = MuAudio(root˚, peers)
         self.touchDraw = TouchDraw(root˚,scale)
         self.camera = camera
-        self.touchCanvas = TouchCanvas(touchDraw, scale, share)
+        self.touchCanvas = TouchCanvas(touchDraw, scale, peers)
         self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas, archiveVm.nextFrame)
         self.drawDot = DrawDot(root˚, "draw.dot", touchCanvas)
         self.drawPal = DrawPal(root˚, "draw.ripple", touchCanvas, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
         self.handsPhase = HandsPhase(root˚)
-        self.menus = Menus(root˚, archiveVm, handsPhase, share)
+        self.menus = Menus(root˚, archiveVm, handsPhase, peers)
         self.menuView = MenuView(menus.menuVms)
         archiveVm.archiveProto = self
         peers.addDelegate(self, for: .archiveFrame)
