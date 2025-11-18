@@ -19,14 +19,15 @@ class AppModel: Sendable {
     let peers: Peers
     let tapeFlo: TapeFlo
     let peersConfig = PeersConfig(service: "_deepmuse-peer._tcp",
-                                secret: "") // replace with a real secret
+                                  secret: "") // replace with a real secret
 
     init () {
         self.root˚ = Flo("√")
-        self.tapeFlo = TapeFlo(root˚)
+        self.tapeFlo = TapeFlo()
         self.peers = Peers(peersConfig,
-                           mirror: tapeFlo,
+                           mirrorSink: tapeFlo,
                            logging: false)
+        tapeFlo.source = peers
         peers.setupPeers()
         self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
@@ -40,7 +41,6 @@ class AppModel: Sendable {
         let camera = CameraSession(nil, position: .front, nextFrame)
         #endif
         self.skyModel = SkyModel(root˚, .windowed, archiveVm, peers, tapeFlo, scale, bounds, camera)
-
     }
 }
 

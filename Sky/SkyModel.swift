@@ -19,7 +19,6 @@ class SkyModel {
     private let ripples: Ripples
     private let camera: CameraSession
     private let peers: Peers
-    private let tapeFlo: TapeFlo
 
     internal var insets = EdgeInsets()
     internal let scale: CGFloat
@@ -55,7 +54,7 @@ class SkyModel {
         self.peers = peers
         self.ripples = Ripples()
         self.archive = SkyArchive(root˚, nextFrame)
-        self.tapeFlo = tapeFlo
+        tapeFlo.update(root˚)
         self.muAudio = MuAudio(root˚, peers)
         self.touchDraw = TouchDraw(root˚,scale)
         self.camera = camera
