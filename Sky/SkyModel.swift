@@ -62,8 +62,8 @@ class SkyModel {
         self.camera = camera
         self.touchCanvas = TouchCanvas(touchDraw, scale, share)
         self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas, archiveVm.nextFrame)
-        self.drawDot = DrawDot(root˚, "sky.draw.dot", touchCanvas)
-        self.drawPal = DrawPal(root˚, "sky.draw.ripple", touchCanvas, ripples)
+        self.drawDot = DrawDot(root˚, "draw.dot", touchCanvas)
+        self.drawPal = DrawPal(root˚, "draw.ripple", touchCanvas, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
         self.handsPhase = HandsPhase(root˚)
         self.menus = Menus(root˚, archiveVm, handsPhase, share)
