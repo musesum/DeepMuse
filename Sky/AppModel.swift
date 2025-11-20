@@ -24,10 +24,8 @@ class AppModel: Sendable {
     init () {
         self.root˚ = Flo("√")
         self.tapeFlo = TapeFlo()
-        self.peers = Peers(peersConfig,
-                           mirrorSink: tapeFlo,
-                           logging: false)
-        tapeFlo.source = peers
+        self.peers = Peers(peersConfig, mirror: tapeFlo, logging: false)
+        tapeFlo.setPeers(peers)
         peers.setupPeers()
         self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
