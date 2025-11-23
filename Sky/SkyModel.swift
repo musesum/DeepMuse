@@ -198,7 +198,7 @@ extension SkyModel: @MainActor ArchiveProto {
 
 extension SkyModel: @MainActor PeersDelegate {
     
-    public func received(data: Data) {
+    public func received(data: Data, from: DataFrom) {
         if let archiveFrame = try? JSONDecoder().decode(ArchiveFrame.self, from: data) {
             // Save the received archive data to a temporary file
             let tempDir = FileManager.default.temporaryDirectory
