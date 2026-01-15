@@ -28,13 +28,8 @@ kernel void drawDotKernel
 
     // adjust shift based on aspect
     float aspectX, aspectY;
-    if (aspect < 1) {
-        aspectX = shift.x;
-        aspectY = shift.y;
-    } else {
-        aspectX = 1.0 - shift.y;
-        aspectY = shift.x;
-    }
+    aspectX = shift.x;
+    aspectY = shift.y;
     // map 0…1 to -1…1 to shift either direction
     float shiftX = (aspectX - 0.5f) * 256.0f;
     float shiftY = (0.5f - aspectY) * 256.0f;

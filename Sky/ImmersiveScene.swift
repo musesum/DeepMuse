@@ -10,7 +10,7 @@ import CompositorServices
 import RealityKit
 
 struct ImmersiveScene: SwiftUI.Scene {
-    static let id = "Immersive"
+    static let id = "ImmersiveScene"
     @Environment(ImmersionModel.self) var immersionModel
 
     let pipeline: SkyPipeline

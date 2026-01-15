@@ -48,7 +48,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>feed microphone to synthesizer</string>
 	<key>NSMotionUsageDescription</key>
-	<string>feed motion to synthesizer</string>
+	<string>Feed motion to synthesizer</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>feed photos to synthesizer</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
