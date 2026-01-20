@@ -93,7 +93,7 @@ extension SkyModel: @MainActor ArchiveProto {
             guard let data = try? Data(contentsOf: url) else {
                 return PrintLog("⁉️ Error reading archive file")
             }
-            await peers.sendItem(.archiveFrame) {
+            await peers.sendItem(.archiveFrame, nil) {
                 (try? JSONEncoder().encode(ArchiveFrame(url: url, data: data))) ?? {
                     PrintLog("⁉️ Error encoding archive frame")
                     return nil
