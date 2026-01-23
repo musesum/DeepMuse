@@ -26,7 +26,6 @@ class SkyModel {
     public let pipeline: SkyPipeline
     public let touchCanvas: TouchCanvas
     public let touchDraw: TouchDraw
-    public let nextFrame: NextFrame
     public let archiveVm: ArchiveVm
     public var touchView: TouchView
     public var handsPhase: HandsPhase
@@ -47,16 +46,15 @@ class SkyModel {
         self.root˚ = root˚
         self.renderState = renderState
         self.archiveVm = archiveVm
-        self.nextFrame = archiveVm.nextFrame
-        self.scale = scale 
+        self.scale = scale
         self.ripples = Ripples()
-        self.archive = SkyArchive(root˚, nextFrame)
+        self.archive = SkyArchive(root˚)
         tapeFlo.update(root˚)
         self.muAudio = MuAudio(root˚)
         self.touchDraw = TouchDraw(root˚,scale)
         self.camera = camera
         self.touchCanvas = TouchCanvas(touchDraw, scale)
-        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas, archiveVm.nextFrame)
+        self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas)
         self.drawDot = DrawDot(root˚, "draw.dot", touchCanvas)
         self.drawPal = DrawPal(root˚, "draw.ripple", touchCanvas, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
@@ -70,12 +68,12 @@ class SkyModel {
 
 extension SkyModel: @MainActor ArchiveProto {
 
-    func readUserArchive(_ url: URL, _ nextFrame: NextFrame, local: Bool) {
-        
-        archive.readUrl(url, nextFrame, local: local)
+    func readUserArchive(_ url: URL, local: Bool) {
+
+        archive.readUrl(url, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
-        nextFrame.addBetweenFrame {
+        NextFrame.shared.addBetweenFrame {
 
             self.pipeline.alignNameTex()
             Reset.reset()
@@ -204,7 +202,7 @@ extension SkyModel: @MainActor PeersDelegate {
             do {
                 try archiveFrame.data.write(to: tempUrl)
                 // Process the archive as a remote archive
-                readUserArchive(tempUrl, nextFrame, local: false)
+                readUserArchive(tempUrl, local: false)
             } catch {
                 PrintLog("⁉️ Error saving received archive: \(error)")
             }

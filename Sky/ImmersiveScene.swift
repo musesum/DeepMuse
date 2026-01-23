@@ -14,13 +14,11 @@ struct ImmersiveScene: SwiftUI.Scene {
     @Environment(ImmersionModel.self) var immersionModel
 
     let pipeline: SkyPipeline
-    let nextFrame: NextFrame
     let menuView: MenuView
 
     init(_ appModel: AppModel) {
         let skyModel = appModel.skyModel
         self.pipeline = skyModel.pipeline
-        self.nextFrame = skyModel.nextFrame
         self.menuView = skyModel.menuView
     }
 
@@ -29,7 +27,7 @@ struct ImmersiveScene: SwiftUI.Scene {
             CompositorLayer(configuration: ContentStageConfiguration()) {
                 layerRenderer in
                 DebugLog{ P("🧭 Immmersive CompositorLayer") }
-                let renderer = Renderer(layerRenderer, pipeline, nextFrame)
+                let renderer = Renderer(layerRenderer, pipeline)
                 Task(priority: .high) { try await renderer.renderLoop() }
             }
         }

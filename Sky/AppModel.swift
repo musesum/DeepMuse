@@ -2,7 +2,7 @@
 
 import SwiftUI
 import RealityKit
-import MuFlo // NextFrame, TapeFlo
+import MuFlo // TapeFlo
 import MuVision
 import MetalKit
 import MuMenu
@@ -16,16 +16,13 @@ class AppModel: Sendable {
 
     let root˚: Flo
     let archiveVm: ArchiveVm
-    let nextFrame: NextFrame
     let skyModel: SkyModel
     let tapeFlo: TapeFlo
 
     init () {
         self.root˚ = Flo("√")
         self.tapeFlo = TapeFlo()
-
-        self.nextFrame = NextFrame()
-        self.archiveVm = ArchiveVm(nextFrame)
+        self.archiveVm = ArchiveVm()
         #if os(visionOS)
         let bounds = CGRect.zero
         let scale  = CGFloat(3)
@@ -33,7 +30,7 @@ class AppModel: Sendable {
         #else
         let bounds = UIScreen.main.bounds
         let scale  = UIScreen.main.scale
-        let camera = CameraSession(nil, position: .front, nextFrame)
+        let camera = CameraSession(nil, position: .front)
         #endif
         self.skyModel = SkyModel(
             root˚,
@@ -64,7 +61,7 @@ class VisionModel: AppModel {
     }
 
     func openURL(_ url: URL) {
-        skyModel.readUserArchive(url, nextFrame, local: false)
+        skyModel.readUserArchive(url, local: false)
     }
 }
 #endif

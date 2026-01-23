@@ -17,7 +17,6 @@ struct SkyApp: App {
     @Environment(\.openImmersiveSpace) var openImmersive
     @State public var immersionModel: ImmersionModel
 
-    let nextFrame: NextFrame
     let visionModel: VisionModel
     let skyModel: SkyModel
 
@@ -25,7 +24,6 @@ struct SkyApp: App {
         self.immersionModel = ImmersionModel()
         self.visionModel = VisionModel()
         self.skyModel = visionModel.skyModel
-        self.nextFrame = skyModel.nextFrame
     }
 
     var body: some Scene {
@@ -74,7 +72,7 @@ struct SkyApp: App {
         WindowGroup {
             SkyView(skyModel)
                 .onOpenURL { url in
-                    skyModel.readUserArchive(url, skyModel.nextFrame, local: false)
+                    skyModel.readUserArchive(url, local: false)
                 }
         }
     }

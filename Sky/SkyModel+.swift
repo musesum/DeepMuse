@@ -29,8 +29,8 @@ extension SkyModel  { // visionOS
                 setSize(frame.size, onAppear: false)
             }
         }
-        DebugLog { P("🎬 SkyCanvas nextFrame.pause: \(immersion)") }
-        nextFrame.pause = immersion
+        DebugLog { P("🎬 SkyCanvas NextFrame.pause: \(immersion)") }
+        NextFrame.shared.pause = immersion
     }
 
     func setFrame(_ frame: CGRect,
@@ -109,7 +109,7 @@ extension SkyModel: NextFrameDelegate {
     }
     nonisolated func cancel(_ key: Int) {
         Task { @MainActor in
-            nextFrame.removeDelegate(key)
+            NextFrame.shared.removeDelegate(key)
         }
     }
 }

@@ -1,10 +1,10 @@
 import SwiftUI
 import RealityKit
-import MuFlo // NextFrame
 import MuVision
 import MetalKit
 import MuMenu
 import MuHands
+import MuFlo 
 
 #if os(visionOS)
 
@@ -18,13 +18,11 @@ struct VisionView: View {
     
     let visionModel: VisionModel
     let skyModel: SkyModel
-    let nextFrame: NextFrame
     var immersed: Bool { immersionModel.state != .windowed }
 
     init(_ visionModel: VisionModel) {
         self.visionModel = visionModel
         self.skyModel = visionModel.skyModel
-        self.nextFrame = skyModel.nextFrame
         self.handsPhase = skyModel.handsPhase
         PrintLog("🎬 VisionView")
     }

@@ -21,13 +21,12 @@ public class SkyPipeline: Pipeline {
                 _ bounds: CGRect,
                 _ ripples: Ripples,
                 _ camera: CameraSession,
-                _ touchCanvas: TouchCanvas,
-                _ nextFrame: NextFrame) {
+                _ touchCanvas: TouchCanvas) {
         
         self.ripples = ripples
         self.camera = camera
         self.touchCanvas = touchCanvas
-        super.init(root˚, renderState, archive, touchDraw, scale, bounds, nextFrame)
+        super.init(root˚, renderState, archive, touchDraw, scale, bounds)
     }
 
     override public func makePipeNode(_ flo˚: Flo,

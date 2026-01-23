@@ -17,18 +17,16 @@ struct SkyVisionView: View {
     let skyModel: SkyModel
     let cornerVms: [CornerVm]
     let touchView: TouchViewRepresentable!
-    let nextFrame: NextFrame
     let panicState: PanicState
 
     public init(_ skyModel: SkyModel) {
 
         self.skyModel = skyModel
-        self.nextFrame = skyModel.nextFrame
         let menuVms = skyModel.menus.menuVms
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
         self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
-        self.panicState = PanicState(skyModel.root˚, nextFrame)
-        nextFrame.addFrameDelegate("SkyCanvas".hash, skyModel)
+        self.panicState = PanicState(skyModel.root˚)
+        NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyModel)
     }
 
     func changedGeoFrame(_ geo: GeometryProxy, onAppear: Bool) {
@@ -66,8 +64,8 @@ struct SkyVisionView: View {
         }
         if changed {
             switch phase {
-            case .active: nextFrame.pause = false
-            case .inactive: skyModel.saveArchive("Snapshot", "autosaved") { nextFrame.pause = true }
+            case .active: NextFrame.shared.pause = false
+            case .inactive: skyModel.saveArchive("Snapshot", "autosaved") { NextFrame.shared.pause = true }
             default:  break
             }
         }
