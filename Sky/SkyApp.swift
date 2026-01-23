@@ -66,7 +66,7 @@ struct SkyApp: App {
     let skyModel: SkyModel
 
     init() {
-        self.appModel = AppModel()
+        self.appModel = AppModel.shared
         self.skyModel = appModel.skyModel
     }
 

@@ -12,21 +12,18 @@ import MuHands
 @MainActor
 class AppModel: Sendable {
 
+    public static var shared = AppModel()
+
     let root˚: Flo
     let archiveVm: ArchiveVm
     let nextFrame: NextFrame
     let skyModel: SkyModel
-    let peers: Peers
     let tapeFlo: TapeFlo
-    let peersConfig = PeersConfig(service: "_deepmuse-peer._tcp",
-                                  secret: "") // replace with a real secret
 
     init () {
         self.root˚ = Flo("√")
         self.tapeFlo = TapeFlo()
-        self.peers = Peers(peersConfig, tapeFlo, logging: false)
-        tapeFlo.setPeers(peers)
-        peers.setupPeers()
+
         self.nextFrame = NextFrame()
         self.archiveVm = ArchiveVm(nextFrame)
         #if os(visionOS)
@@ -38,7 +35,15 @@ class AppModel: Sendable {
         let scale  = UIScreen.main.scale
         let camera = CameraSession(nil, position: .front, nextFrame)
         #endif
-        self.skyModel = SkyModel(root˚, .windowed, archiveVm, peers, tapeFlo, scale, bounds, camera)
+        self.skyModel = SkyModel(
+            root˚,
+            .windowed,
+            archiveVm,
+            tapeFlo,
+            scale,
+            bounds,
+            camera)
+        Peers.shared.setupPeers(tapeFlo)
     }
 }
 
