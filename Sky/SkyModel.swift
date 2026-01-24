@@ -11,6 +11,7 @@ import MuHands
 
 @MainActor
 class SkyModel {
+    public static var shared = SkyModel()
 
     private let archive: SkyArchive
     private let muAudio: MuAudio!
@@ -18,6 +19,7 @@ class SkyModel {
     private let drawPal: DrawPal
     private let ripples: Ripples
     private let camera: CameraSession
+    private let tapeFlo: TapeFlo
 
     internal var insets = EdgeInsets()
     internal let scale: CGFloat
@@ -35,24 +37,27 @@ class SkyModel {
     public var renderState: RenderState
     public var stateFrame = [RenderState: CGRect]()
 
-    init(_ root˚: Flo,
-         _ renderState : RenderState,
-         _ archiveVm   : ArchiveVm,
-         _ tapeFlo     : TapeFlo,
-         _ scale       : CGFloat,
-         _ bounds      : CGRect,
-         _ camera      : CameraSession) {
+    init() {
 
-        self.root˚ = root˚
-        self.renderState = renderState
-        self.archiveVm = archiveVm
-        self.scale = scale
+        #if os(visionOS)
+        let bounds = CGRect.zero
+        self.scale = CGFloat(3)
+        #else
+        let bounds = UIScreen.main.bounds
+        self.scale = UIScreen.main.scale
+        #endif
+
+
+        self.root˚ = Flo("√")
+        self.archiveVm = ArchiveVm()
+        self.renderState = .windowed
         self.ripples = Ripples()
         self.archive = SkyArchive(root˚)
-        tapeFlo.update(root˚)
+        self.tapeFlo = TapeFlo(root˚)
+        Peers.shared.setupPeers(tapeFlo)
         self.muAudio = MuAudio(root˚)
         self.touchDraw = TouchDraw(root˚,scale)
-        self.camera = camera
+        self.camera = CameraSession()
         self.touchCanvas = TouchCanvas(touchDraw, scale)
         self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas)
         self.drawDot = DrawDot(root˚, "draw.dot", touchCanvas)
@@ -62,6 +67,7 @@ class SkyModel {
         self.menus = Menus(root˚, archiveVm, handsPhase)
         self.menuView = MenuView(menus.menuVms)
         archiveVm.archiveProto = self
+        PrintLog("〄 A");
         Peers.shared.addDelegate(self, for: .archiveFrame)
     }
 }
@@ -88,7 +94,7 @@ extension SkyModel: @MainActor ArchiveProto {
             guard let data = try? Data(contentsOf: url) else {
                 return PrintLog("⁉️ Error reading archive file")
             }
-            await Peers.shared.sendItem(.archiveFrame, nil) {
+            await Peers.shared.sendItem(.archiveFrame) {
                 (try? JSONEncoder().encode(ArchiveFrame(url: url, data: data))) ?? {
                     PrintLog("⁉️ Error encoding archive frame")
                     return nil

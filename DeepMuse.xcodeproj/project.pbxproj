@@ -35,7 +35,7 @@
 		8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8090E31029DBA9B4003E02CC /* pipe.tile.metal */; };
 		809B425B2CE542A50016D296 /* rotateTexture.metal in Sources */ = {isa = PBXBuildFile; fileRef = 809B425A2CE542A50016D296 /* rotateTexture.metal */; };
 		80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */ = {isa = PBXBuildFile; productRef = 80A0D01E2BC1A1F1005C2B6B /* MuSky */; };
-		80A87E3E2DA7B391005A800F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A87E3D2DA7B391005A800F /* AppModel.swift */; };
+		80A87E3E2DA7B391005A800F /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A87E3D2DA7B391005A800F /* VisionModel.swift */; };
 		80ADA2FE2AB7657F00FCF8FF /* SkyModel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ADA2FD2AB7657F00FCF8FF /* SkyModel+.swift */; };
 		80AF1D002E35382C002AE153 /* MuHands in Frameworks */ = {isa = PBXBuildFile; productRef = 80AF1CFF2E35382C002AE153 /* MuHands */; };
 		80B3D86D2C5979EF00865274 /* SkyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3D86C2C5979EF00865274 /* SkyModel.swift */; };
@@ -95,7 +95,7 @@
 		808441FC2E7B22080008E66B /* SkyVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyVisionView.swift; sourceTree = "<group>"; };
 		8090E31029DBA9B4003E02CC /* pipe.tile.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.tile.metal; sourceTree = "<group>"; };
 		809B425A2CE542A50016D296 /* rotateTexture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = rotateTexture.metal; sourceTree = "<group>"; };
-		80A87E3D2DA7B391005A800F /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		80A87E3D2DA7B391005A800F /* VisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
 		80ADA2FD2AB7657F00FCF8FF /* SkyModel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkyModel+.swift"; sourceTree = "<group>"; };
 		80B3D86C2C5979EF00865274 /* SkyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyModel.swift; sourceTree = "<group>"; };
 		80BE475B2B34C23800EB05F4 /* VisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				8036D85C2BBCD12E00BB35EE /* SkyView.swift */,
 				808441FC2E7B22080008E66B /* SkyVisionView.swift */,
 				80BE475B2B34C23800EB05F4 /* VisionView.swift */,
-				80A87E3D2DA7B391005A800F /* AppModel.swift */,
+				80A87E3D2DA7B391005A800F /* VisionModel.swift */,
 				80735F772E6E2C7B00719CEA /* VisionView+make.swift */,
 			);
 			path = Sky;
@@ -322,7 +322,7 @@
 				801927C42BBD038C0041CE4C /* pipe.camera.metal in Sources */,
 				807049F923378ADC0001617D /* cell.rule.slide.metal in Sources */,
 				80158AAB2BC4459C0081ABAA /* kernel.sampleCube.metal in Sources */,
-				80A87E3E2DA7B391005A800F /* AppModel.swift in Sources */,
+				80A87E3E2DA7B391005A800F /* VisionModel.swift in Sources */,
 				807049F223378ADC0001617D /* pipe.color.metal in Sources */,
 				808441FD2E7B22080008E66B /* SkyVisionView.swift in Sources */,
 				8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */,

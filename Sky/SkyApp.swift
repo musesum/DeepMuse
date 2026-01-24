@@ -60,12 +60,11 @@ struct SkyApp: App {
 
 @main
 struct SkyApp: App {
-    let appModel: AppModel
+
     let skyModel: SkyModel
 
     init() {
-        self.appModel = AppModel.shared
-        self.skyModel = appModel.skyModel
+        self.skyModel = SkyModel.shared
     }
 
     var body: some Scene {
@@ -73,6 +72,9 @@ struct SkyApp: App {
             SkyView(skyModel)
                 .onOpenURL { url in
                     skyModel.readUserArchive(url, local: false)
+                }
+                .onAppear {
+                    NextFrame.shared.pause = false
                 }
         }
     }
