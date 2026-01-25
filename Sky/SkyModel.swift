@@ -70,6 +70,22 @@ class SkyModel {
         PrintLog("〄 A");
         Peers.shared.addDelegate(self, for: .archiveFrame)
     }
+    public func setFrame(_ frame: CGRect,
+                         _ insets: EdgeInsets,
+                         onAppear: Bool) {
+
+        DebugLog { P("🧭 menuFrame\(frame.digits())") }
+        let width = frame.width + insets.leading + insets.trailing
+        let height = frame.height + insets.top + insets.bottom
+        let size = CGSize(width: width, height: height)
+
+        let drawableSize = size * scale  // layer.drawableSize
+        let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+
+        touchView.frame = frame
+        touchCanvas.drawableSize = drawableSize
+        pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
+    }
 }
 
 extension SkyModel: @MainActor ArchiveProto {
@@ -195,6 +211,7 @@ extension SkyModel: @MainActor ArchiveProto {
             archiveExt.addName(name,  ext: "flo.h", data: dataNow)
         }
     }
+
 }
 
 extension SkyModel: @MainActor PeersDelegate {
@@ -214,4 +231,5 @@ extension SkyModel: @MainActor PeersDelegate {
             }
         }
     }
+
 }

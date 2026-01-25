@@ -17,13 +17,11 @@ struct VisionView: View {
     @ObservedObject var handsPhase: HandsPhase
     
     let visionModel: VisionModel
-    let skyModel: SkyModel
     var immersed: Bool { immersionModel.state != .windowed }
 
     init(_ visionModel: VisionModel) {
         self.visionModel = visionModel
-        self.skyModel = visionModel.skyModel
-        self.handsPhase = skyModel.handsPhase
+        self.handsPhase = visionModel.handsPhase
         PrintLog("🎬 VisionView")
     }
     
@@ -50,7 +48,7 @@ struct VisionView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            SkyVisionView(skyModel)
+            SkyVisionView(visionModel)
                 .frame(minWidth  : immersed ? 640 : 800,
                        maxWidth  : immersed ? 800 : 1920,
                        minHeight : immersed ? 480 : 600,
@@ -79,7 +77,7 @@ struct VisionView: View {
             .padding(16)
         }
         .onAppear {
-            skyModel.setImmersion(immersionModel.state != .windowed)
+            visionModel.setImmersion(immersionModel.state != .windowed)
             Task {
                 if let handsTracker = visionModel.handsTracker {
                     await handsTracker.startHands()

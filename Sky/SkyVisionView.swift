@@ -14,26 +14,26 @@ struct SkyVisionView: View {
     @Environment(ImmersionModel.self) var immersion
 
     let id = Visitor.nextId()
-    let skyModel: SkyModel
+    let visionModel: VisionModel
     let cornerVms: [CornerVm]
     let touchView: TouchViewRepresentable!
     let panicState: PanicState
 
-    public init(_ skyModel: SkyModel) {
+    public init(_ visionModel: VisionModel) {
 
-        self.skyModel = skyModel
-        let menuVms = skyModel.menus.menuVms
+        self.visionModel = visionModel
+        let menuVms = visionModel.menus.menuVms
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
-        self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
-        self.panicState = PanicState(skyModel.root˚)
-        NextFrame.shared.addFrameDelegate("SkyCanvas".hash, skyModel)
+        self.touchView = TouchViewRepresentable(menuVms, visionModel.touchView)
+        self.panicState = PanicState(visionModel.root˚)
+        NextFrame.shared.addFrameDelegate("SkyCanvas".hash, visionModel)
     }
 
     func changedGeoFrame(_ geo: GeometryProxy, onAppear: Bool) {
         DebugLog { P("🎬 SkyView changed geometry ") }
         let frame = geo.frame(in: .global)
         let insets = geo.safeAreaInsets
-        skyModel.setFrame(frame, insets, onAppear: onAppear)
+        visionModel.setFrame(frame, insets, onAppear: onAppear)
     }
     func touchWidth(_ geo: GeometryProxy) -> CGFloat {
         geo.size.width +
@@ -65,7 +65,7 @@ struct SkyVisionView: View {
         if changed {
             switch phase {
             case .active: NextFrame.shared.pause = false
-            case .inactive: skyModel.saveArchive("Snapshot", "autosaved") { NextFrame.shared.pause = true }
+            case .inactive: visionModel.saveArchive("Snapshot", "autosaved") { NextFrame.shared.pause = true }
             default:  break
             }
         }
@@ -91,7 +91,7 @@ struct SkyVisionView: View {
                             .frame(width: touchWidth(geo), height: touchHeight(geo))
                             .offset(touchOffset(geo))
                     }
-                    skyModel.menuView
+                    visionModel.menuView
                         .background(.clear)
                         .persistentSystemOverlays(immersion.isImmersed ? .hidden : .visible)
                 }

@@ -13,14 +13,13 @@ struct SkyView: View {
     @Environment(\.scenePhase) var scenePhase
 
     let id = Visitor.nextId()
-    let skyModel: SkyModel
     let cornerVms: [CornerVm]
     let touchView: TouchViewRepresentable!
     let panicState: PanicState
 
-    public init(_ skyModel: SkyModel) {
+    public init() {
 
-        self.skyModel = skyModel
+        let skyModel = SkyModel.shared
         let menuVms = skyModel.menus.menuVms
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
         self.touchView = TouchViewRepresentable(menuVms, skyModel.touchView)
@@ -32,7 +31,7 @@ struct SkyView: View {
         DebugLog { P("🎬 SkyView changed geometry ") }
         let frame = geo.frame(in: .global)
         let insets = geo.safeAreaInsets
-        skyModel.setFrame(frame, insets, onAppear: onAppear)
+        SkyModel.shared.setFrame(frame, insets, onAppear: onAppear)
     }
     func touchWidth(_ geo: GeometryProxy) -> CGFloat {
         geo.size.width +
@@ -64,7 +63,7 @@ struct SkyView: View {
         if changed {
             switch phase {
             case .active: NextFrame.shared.pause = false
-            case .inactive: skyModel.saveArchive("Snapshot", "autosaved") { NextFrame.shared.pause = true }
+            case .inactive: SkyModel.shared.saveArchive("Snapshot", "autosaved") { NextFrame.shared.pause = true }
             default:  break
             }
         }
@@ -87,7 +86,7 @@ struct SkyView: View {
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 } else {
-                    skyModel.menuView
+                    SkyModel.shared.menuView
                         .background(.clear)
                         .persistentSystemOverlays(.hidden)
                 }

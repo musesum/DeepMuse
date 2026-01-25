@@ -6,7 +6,7 @@ import MuMenu
 import MuVision
 
 #if os(visionOS)
-extension SkyModel  { // visionOS
+extension VisionModel  { // visionOS
 
     func setImmersion(_ immersion: Bool) {
 
@@ -33,27 +33,7 @@ extension SkyModel  { // visionOS
         NextFrame.shared.pause = immersion
     }
 
-    func setFrame(_ frame: CGRect,
-                   _ insets: EdgeInsets,
-                   onAppear: Bool) {
-
-        self.insets = insets + 40
-
-        var size: CGSize
-        switch renderState {
-        case .immersed:
-            if pipeline.viewports.count > 0,
-               let v = pipeline.viewports.first {
-                size = CGSize(width: v.width, height: v.height) / scale
-            } else {
-                size = CGSize(width: 1355, height: 1087) //... ignore; hard coded
-                return secondMenuFrame()
-            }
-        default:
-            size = frame.size
-        }
-        setSize(size, onAppear: onAppear)
-    }
+    
     func setSize(_ size: CGSize, onAppear: Bool) {
         let drawableSize = size * scale // layer.drawableSize
         let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -82,22 +62,7 @@ extension SkyModel  { // visionOS
 @MainActor
 extension SkyModel { // iOS, iPadOS
 
-    func setFrame(_ frame: CGRect,
-                  _ insets: EdgeInsets,
-                  onAppear: Bool) {
-
-        DebugLog { P("🧭 menuFrame\(frame.digits())") }
-        let width = frame.width + insets.leading + insets.trailing
-        let height = frame.height + insets.top + insets.bottom
-        let size = CGSize(width: width, height: height)
-
-        let drawableSize = size * scale  // layer.drawableSize
-        let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-
-        touchView.frame = frame
-        touchCanvas.drawableSize = drawableSize
-        pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
-    }
+    
 }
 #endif
 extension SkyModel: NextFrameDelegate {

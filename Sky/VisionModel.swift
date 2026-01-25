@@ -19,15 +19,32 @@ class VisionModel: SkyModel {
    
     override init () {
         super.init()
-        self.handsModel = HandsModel(skyModel.touchCanvas, skyModel.root˚)
+        self.handsModel = HandsModel(touchCanvas, root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)
     }
-    func setImmersion(_ immersion: Bool) {
-        skyModel.setImmersion(immersion)
-    }
-
     func openURL(_ url: URL) {
-        skyModel.readUserArchive(url, local: false)
+        readUserArchive(url, local: false)
+    }
+    override func setFrame(_ frame: CGRect,
+                           _ insets: EdgeInsets,
+                           onAppear: Bool) {
+
+        self.insets = insets + 40
+
+        var size: CGSize
+        switch renderState {
+        case .immersed:
+            if pipeline.viewports.count > 0,
+               let v = pipeline.viewports.first {
+                size = CGSize(width: v.width, height: v.height) / scale
+            } else {
+                size = CGSize(width: 1355, height: 1087) //... ignore; hard coded
+                return secondMenuFrame()
+            }
+        default:
+            size = frame.size
+        }
+        setSize(size, onAppear: onAppear)
     }
 }
 #endif

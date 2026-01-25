@@ -18,12 +18,10 @@ struct SkyApp: App {
     @State public var immersionModel: ImmersionModel
 
     let visionModel: VisionModel
-    let skyModel: SkyModel
 
     init() {
         self.immersionModel = ImmersionModel()
         self.visionModel = VisionModel()
-        self.skyModel = visionModel.skyModel
     }
 
     var body: some Scene {
@@ -31,7 +29,8 @@ struct SkyApp: App {
         WindowGroup(id: "SkyApp") {
             VisionView(visionModel)
                 .environment(immersionModel)
-                .onOpenURL { url in visionModel.openURL(url) }
+                .onOpenURL { url in
+                    visionModel.readUserArchive(url, local: false) }
                 .onChange(of: immersionModel.state) { _, state in
                     DebugLog { P("🎬 SkyApp.onChange tab: \(state)") }
                     Task { @MainActor in
@@ -46,7 +45,7 @@ struct SkyApp: App {
                             }
                         }
                     }
-                    skyModel.setImmersion(state != .windowed)
+                    visionModel.setImmersion(state != .windowed)
                 }
         }
         .windowStyle(.plain)
@@ -69,9 +68,9 @@ struct SkyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SkyView(skyModel)
+            SkyView()
                 .onOpenURL { url in
-                    skyModel.readUserArchive(url, local: false)
+                    SkyModel.shared.readUserArchive(url, local: false)
                 }
                 .onAppear {
                     NextFrame.shared.pause = false

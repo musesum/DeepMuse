@@ -16,8 +16,8 @@ struct ImmersiveScene: SwiftUI.Scene {
     let pipeline: SkyPipeline
     let menuView: MenuView
 
-    init(_ appModel: AppModel) {
-        let skyModel = appModel.skyModel
+    init(_ skyModel: SkyModel) {
+        let skyModel = skyModel
         self.pipeline = skyModel.pipeline
         self.menuView = skyModel.menuView
     }
