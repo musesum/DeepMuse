@@ -15,14 +15,8 @@ struct SkyApp: App {
 
     @Environment(\.dismissImmersiveSpace) var dismissImmersive
     @Environment(\.openImmersiveSpace) var openImmersive
-    @State public var immersionModel: ImmersionModel
-
-    let visionModel: VisionModel
-
-    init() {
-        self.immersionModel = ImmersionModel()
-        self.visionModel = VisionModel()
-    }
+    @State public var immersionModel = ImmersionModel()
+    let visionModel = VisionModel()
 
     var body: some Scene {
 
@@ -59,12 +53,6 @@ struct SkyApp: App {
 
 @main
 struct SkyApp: App {
-
-    let skyModel: SkyModel
-
-    init() {
-        self.skyModel = SkyModel.shared
-    }
 
     var body: some Scene {
         WindowGroup {

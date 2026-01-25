@@ -22,9 +22,7 @@ class VisionModel: SkyModel {
         self.handsModel = HandsModel(touchCanvas, root˚)
         self.handsTracker = HandsTracker(handsModel.handsFlo)
     }
-    func openURL(_ url: URL) {
-        readUserArchive(url, local: false)
-    }
+    
     override func setFrame(_ frame: CGRect,
                            _ insets: EdgeInsets,
                            onAppear: Bool) {

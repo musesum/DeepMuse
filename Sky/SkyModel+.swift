@@ -58,12 +58,6 @@ extension VisionModel  { // visionOS
         }
     }
 }
-#else
-@MainActor
-extension SkyModel { // iOS, iPadOS
-
-    
-}
 #endif
 extension SkyModel: NextFrameDelegate {
     nonisolated func goFrame() -> Bool {
