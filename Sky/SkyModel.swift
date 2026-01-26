@@ -67,7 +67,6 @@ class SkyModel {
         self.menus = Menus(root˚, archiveVm, handsPhase)
         self.menuView = MenuView(menus.menuVms)
         archiveVm.archiveProto = self
-        PrintLog("〄 A");
         Peers.shared.addDelegate(self, for: .archiveFrame)
     }
     public func setFrame(_ frame: CGRect,

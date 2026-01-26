@@ -27,7 +27,7 @@ class VisionModel: SkyModel {
                            _ insets: EdgeInsets,
                            onAppear: Bool) {
 
-        self.insets = insets + 40
+        self.insets = insets + 40 // MuFlo.extensions operator +
 
         var size: CGSize
         switch renderState {
