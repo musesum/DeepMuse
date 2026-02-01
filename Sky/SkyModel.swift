@@ -104,19 +104,6 @@ extension SkyModel: @MainActor ArchiveProto {
         }
     }
 
-    func shareItem(_ url: URL) {
-        Task {
-            guard let data = try? Data(contentsOf: url) else {
-                return PrintLog("⁉️ Error reading archive file")
-            }
-            await Peers.shared.sendItem(.archiveFrame) {
-                (try? JSONEncoder().encode(ArchiveFrame(url: url, data: data))) ?? {
-                    PrintLog("⁉️ Error encoding archive frame")
-                    return nil
-                }()
-            }
-        }
-    }
 
     // snapshot on framebuffer, draw Texture and skyGraph
     public func saveArchive(_ title: String,
@@ -227,6 +214,20 @@ extension SkyModel: @MainActor PeersDelegate {
                 readUserArchive(tempUrl, local: false)
             } catch {
                 PrintLog("⁉️ Error saving received archive: \(error)")
+            }
+        }
+    }
+    func shareItem(_ item: Any) {
+        guard let url = item as? URL else { return }
+        Task {
+            guard let data = try? Data(contentsOf: url) else {
+                return PrintLog("⁉️ Error reading archive file")
+            }
+            await Peers.shared.sendItem(.archiveFrame) {
+                (try? JSONEncoder().encode(ArchiveFrame(url: url, data: data))) ?? {
+                    PrintLog("⁉️ Error encoding archive frame")
+                    return nil
+                }()
             }
         }
     }
