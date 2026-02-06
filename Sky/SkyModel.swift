@@ -217,6 +217,10 @@ extension SkyModel: @MainActor PeersDelegate {
             }
         }
     }
+    public func resetItem(_ item: PlayItem) {
+        //...... maybe ignore?
+    }
+
     func shareItem(_ item: Any) {
         guard let url = item as? URL else { return }
         Task {
