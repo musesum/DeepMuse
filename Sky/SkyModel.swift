@@ -222,7 +222,10 @@ extension SkyModel: @MainActor PeersDelegate {
     public func playItem(_ item: PlayItem, from: DataFrom) {
         received(data: item.data, from: from)
     }
-    func shareItem(_ item: Any) {
+    public func dropped(from: DataFrom) {
+        //PrintLog("📡 SkyModel dropped")
+    }
+    public func shareItem(_ item: Any) {
         guard let url = item as? URL else { return }
         Task {
             guard let data = try? Data(contentsOf: url) else {
