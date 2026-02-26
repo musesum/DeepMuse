@@ -95,9 +95,11 @@ extension SkyModel: @MainActor ArchiveProto {
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
         NextFrame.shared.addBetweenFrame {
-
+            DebugLog { P("🏛️ A") }
             self.pipeline.alignNameTex()
+            DebugLog { P("🏛️ F") }
             Reset.reset()
+            DebugLog { P("🏛️ G") }
         }
         if local {
             shareItem(url)
