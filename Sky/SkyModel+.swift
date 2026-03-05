@@ -40,7 +40,7 @@ extension VisionModel  { // visionOS
 
         touchCanvas.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
-        NoDebugLog { P("🧭 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
+        NoDebugLog { P("🚰 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
     }
 
     /// Adjust frame after rendering first frame
@@ -53,7 +53,7 @@ extension VisionModel  { // visionOS
     ///   and try it again.
     func secondMenuFrame() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            NoDebugLog { P("🧭 Immersive secondMenuFrame") }
+            NoDebugLog { P("👓 Immersive secondMenuFrame") }
             self.setFrame(self.touchView.frame, self.insets, onAppear: false)
         }
     }

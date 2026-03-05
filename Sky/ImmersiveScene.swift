@@ -26,7 +26,7 @@ struct ImmersiveScene: SwiftUI.Scene {
         ImmersiveSpace(id: Self.id) {
             CompositorLayer(configuration: ContentStageConfiguration()) {
                 layerRenderer in
-                DebugLog{ P("🧭 Immmersive CompositorLayer") }
+                DebugLog{ P("👓 Immmersive CompositorLayer") }
                 let renderer = Renderer(layerRenderer, pipeline)
                 Task(priority: .high) { try await renderer.renderLoop() }
             }
@@ -41,7 +41,7 @@ struct ContentStageConfiguration: CompositorLayerConfiguration {
 
     func makeConfiguration(capabilities: LayerRenderer.Capabilities,
                            configuration: inout LayerRenderer.Configuration) {
-        NoDebugLog{ P("🧭 Immmersive makeConfiguration") }
+        NoDebugLog{ P("👓 Immmersive makeConfiguration") }
         configuration.depthFormat = .depth32Float
         configuration.colorFormat = MuRenderPixelFormat
 
