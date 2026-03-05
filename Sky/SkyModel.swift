@@ -94,13 +94,9 @@ extension SkyModel: @MainActor ArchiveProto {
         archive.readUrl(url, local: local)
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
-        NextFrame.shared.addBetweenFrame {
-            DebugLog { P("🏛️ A") }
-            self.pipeline.alignNameTex()
-            DebugLog { P("🏛️ F") }
-            Reset.reset()
-            DebugLog { P("🏛️ G") }
-        }
+       
+        pipeline.alignNameTex()
+        Reset.reset()
         if local {
             shareItem(url)
         }
@@ -129,6 +125,7 @@ extension SkyModel: @MainActor ArchiveProto {
 
         // save snapshot of flo graph
         saveFloScript("now", scriptOps: .Now)
+        saveFloScript("full", scriptOps: .Full) //.....
         archiveExt.replace(title, with: tempName)
 
         completion()
@@ -175,9 +172,9 @@ extension SkyModel: @MainActor ArchiveProto {
                         let path = child.path(3)
                         DebugLog { P("🏛️ \(#function) \(path)") }
 
-                        //  new save texture as png
+                        //  save texture as png in texture/ subdirectory
                         if let pngData = textureToPngData(childTex) {
-                            archiveExt.addName(path, ext: "png", data: pngData)
+                            archiveExt.addName("texture/" + path, ext: "png", data: pngData)
                         }
                     }
                 }
