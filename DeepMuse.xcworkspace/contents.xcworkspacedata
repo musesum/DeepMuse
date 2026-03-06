@@ -32,4 +32,7 @@
          location = "group:MuVision">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:renderEnc.swift">
+   </FileRef>
 </Workspace>
