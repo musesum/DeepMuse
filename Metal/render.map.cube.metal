@@ -87,6 +87,5 @@ fragment half4 cubeIndexFragment
     half4 sampled = inTex.sample(s, inCoord);
     float mix = mixcube.x;
     float alpha = mixcube.y;
-    float transparency = 1; //.. set transparncy for when camera
-    return half4(sampled.xyz,  transparency * mix * alpha); // outside of cube
+    return half4(sampled.xyz,  mix * alpha); // outside of cube
 }
