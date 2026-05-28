@@ -9,6 +9,7 @@ DeepMuse uses the following packages:
   MuAudio  - Wrapper around AudioKit for Midi support
   MuPlato  - Platonic solids
   MuFlo    - Functional Dataflow graph
+  MuHands  - Hand pose Skeleton
   MuVision - Apple Vision Pro Support 
   MuMenu   - Deep contextual menus
   MuPeers  - Network service to synchronize devices
