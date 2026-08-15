@@ -42,8 +42,12 @@ public class SkyPipeline: Pipeline {
         case "cube"   : pipeNode = CubeNode  (self, flo˚)
         case "plato"  : pipeNode = PlatoNode (self, flo˚)
 
-        case "slide","zha","ave","fade","melt","tunl","fred"
+        case "slide","zha","ave","fade","melt","tunl","fred",
+             "drift","warren","noise"
             /**/      : pipeNode = CellNode  (self, flo˚)
+        case "shape"  : pipeNode = ShapeNode (self, flo˚)
+        case "wave"   : pipeNode = WaveNode  (self, flo˚)
+        case "field"  : pipeNode = FieldNode (self, flo˚)
         default       : pipeNode = PipeNode  (self, flo˚)
         }
         pipeParent?.pipeChildren.append(pipeNode)

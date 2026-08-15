@@ -76,7 +76,7 @@ struct SkyVisionView: View {
         GeometryReader { geo in
             Group {
                 // activity indicator during startup
-                if scenePhase != .active {
+                if scenePhase != .active || !visionModel.startup.done {
                     ZStack {
                         Image("icon.ring")
                             .scaleEffect(0.33)
@@ -84,7 +84,8 @@ struct SkyVisionView: View {
                             .progressViewStyle(.circular)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                } else {
+                }
+                if visionModel.startup.menusReady {
                     if immersion.state == .windowed {
                         touchView
                             .cornerRadius(40)

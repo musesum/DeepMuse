@@ -7,6 +7,9 @@ import MuVision
 import MuMenu
 import MuPeers
 import Observation
+#if os(iOS)
+import MuDisplay
+#endif
 
 struct SkyView: View {
 
@@ -16,9 +19,11 @@ struct SkyView: View {
     let cornerVms: [CornerVm]
     let touchView: TouchViewRepresentable!
     let panicState: PanicState
+    #if os(iOS)
+    @StateObject private var externalDisplay = ExternalDisplayManager()
+    #endif
 
     public init() {
-
         let skyModel = SkyModel.shared
         let menuVms = skyModel.menus.menuVms
         self.cornerVms = menuVms.map { $0.rootVm.cornerVm }
@@ -85,7 +90,12 @@ struct SkyView: View {
                             .progressViewStyle(.circular)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                } else {
+                } else if !SkyModel.shared.startup.done {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
+                if SkyModel.shared.startup.menusReady {
                     SkyModel.shared.menuView
                         .background(.clear)
                         .persistentSystemOverlays(.hidden)
@@ -97,6 +107,19 @@ struct SkyView: View {
             }
             .onChange(of: scenePhase) { changedScene($1, changed: true) }
             .onChange(of: geo.frame(in: .global)) { changedGeoFrame(geo, onAppear: false) }
+            #if os(iOS)
+            .sheet(isPresented: $externalDisplay.showChoice) {
+                // present even with no display attached (Living parity) —
+                // the chooser renders Mirror/Extend with an empty resolution list
+                ExternalDisplayChooser(
+                    resolutions: externalDisplay.externalScreen.map {
+                        DisplayModeProvider.resolutions(for: $0) } ?? [],
+                    currentSize: externalDisplay.currentSize,
+                    initialMode: externalDisplay.mode,
+                    onChoose: { externalDisplay.choose($0) },
+                    onResolution: { externalDisplay.applyResolution($0) })
+            }
+            #endif
         }
     }
 }

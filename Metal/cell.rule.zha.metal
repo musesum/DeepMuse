@@ -113,7 +113,7 @@ kernel void zhaKernel
     uint HiC = (ua << 8) + ur;
     uint LoC = (ug << 8) + ub;
 
-    /** calculate */
+    {{ // cell.rule.zha
 
     int alarm  = (LoC >> shift) & 1;
     int time   = (LoC >> 1) & mask;
@@ -148,4 +148,5 @@ kernel void zhaKernel
     const half4 outItem = half4(fr, fg, fb, fa);
 
     outTex.write(outItem, gid);
+    }}
 }

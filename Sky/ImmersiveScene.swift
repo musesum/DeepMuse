@@ -27,7 +27,10 @@ struct ImmersiveScene: SwiftUI.Scene {
             CompositorLayer(configuration: ContentStageConfiguration()) {
                 layerRenderer in
                 DebugLog{ P("👓 Immmersive CompositorLayer") }
-                let renderer = Renderer(layerRenderer, pipeline)
+                // Swift 6: renderer is created here but consumed only inside the
+                // render-loop task; the annotation silences the sending diagnostic
+                // without changing behavior.
+                nonisolated(unsafe) let renderer = Renderer(layerRenderer, pipeline)
                 Task(priority: .high) { try await renderer.renderLoop() }
             }
         }

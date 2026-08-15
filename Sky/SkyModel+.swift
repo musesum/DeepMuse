@@ -41,6 +41,7 @@ extension VisionModel  { // visionOS
         touchCanvas.drawableSize = drawableSize
         pipeline.resizeFrame(frame, drawableSize, scale, onAppear)
         NoDebugLog { P("🚰 \(self.renderState.rawValue) size\(size.digits()) ports:\(self.pipeline.viewports.count)") }
+        if !startup.menusReady { Task { @MainActor in self.startup.menusReady = true } }
     }
 
     /// Adjust frame after rendering first frame
@@ -62,7 +63,24 @@ extension VisionModel  { // visionOS
 extension SkyModel: NextFrameDelegate {
     nonisolated func goFrame() -> Bool {
         Task { @MainActor in
+            syncPairMix()   // re-reads the flag before the frame encodes it
             pipeline.renderFrame()
+            if !startup.done {
+                startup.done = true
+                for menuVm in menus.menuVms {
+                    menuVm.rootVm.cornerVm.setStartupCenter(nil)
+                }
+                // trunk flash after the ring lands; showNow self-arms the fade timeout
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    for menuVm in self.menus.menuVms {
+                        menuVm.rootVm.showTrunks(false)
+                    }
+                }
+                // defer past ring flight + trunk fade-in: CoreMIDI (~0.8s) would starve it
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+                    self.loadAudio()
+                }
+            }
         }
         return true
     }
