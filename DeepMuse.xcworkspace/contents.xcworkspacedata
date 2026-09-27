@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:scratch.h">
+   </FileRef>
+   <FileRef
       location = "container:DeepMuse.xcodeproj">
    </FileRef>
    <Group
@@ -24,6 +27,9 @@
       </FileRef>
       <FileRef
          location = "group:MuPlato">
+      </FileRef>
+      <FileRef
+         location = "group:MuRouter">
       </FileRef>
       <FileRef
          location = "group:MuSky">

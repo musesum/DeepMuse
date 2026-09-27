@@ -36,6 +36,18 @@ struct PlatoVertex {
 
 // MARK: - vertex
 
+/// position of vertex i at range01
+static float3 platoMorph(constant FlatIn* v, uint i, float r) {
+    return v[i].pos0.xyz + (v[i].pos1.xyz - v[i].pos0.xyz) * r;
+}
+/// unit v, else unit fallback, else +z -- never NaN
+static float3 platoUnit(float3 v, float3 fallback) {
+    float l = length(v);
+    if (l > 1e-9) { return v / l; }
+    float fl = length(fallback);
+    return fl > 1e-9 ? fallback / fl : float3(0, 0, 1);
+}
+
 vertex PlatoVertex platoVertex
 (
  constant FlatIn* vertices [[ buffer(0) ]],
@@ -47,12 +59,41 @@ vertex PlatoVertex platoVertex
     PlatoVertex platoVertex;
     UniformEye eye = eyes.eye[ampId];
 
-    float3 pos0  = vertices[vertexId].pos0.xyz;
-    float3 pos1  = vertices[vertexId].pos1.xyz;
-    float3 norm0 = vertices[vertexId].norm0.xyz;
-    float3 norm1 = vertices[vertexId].norm1.xyz;
-    float4 pos   = float4((pos0  + (pos1 - pos0) * range01), 1);
-    float4 norm  = float4((norm0 + (norm1-norm0) * range01), 0);
+    float3 p     = platoMorph(vertices, vertexId, range01);
+    float4 pos   = float4(p, 1);
+    float3 radial = platoUnit(p, float3(0, 0, 1));
+
+    // face normal of the triangle as drawn now: the mesh is unindexed
+    // (index i = vertex i), so its corners are the aligned triple.
+    // turned away from the origin (the tables' winding is mixed), the
+    // same rule as PhaseTriangles.outward, so range01 0 and 1 match the cpu
+    uint t = vertexId - vertexId % 3;
+    float3 a = platoMorph(vertices, t,     range01);
+    float3 b = platoMorph(vertices, t + 1, range01);
+    float3 c = platoMorph(vertices, t + 2, range01);
+    float3 fn = cross(b - a, c - a);
+    if (dot(fn, a + b + c) < 0) { fn = -fn; }
+    float3 face = platoUnit(fn, p);
+
+    // vertex normal: welded on the cpu at both ends, lerped here;
+    // w = plato.phase w, face (0) … vertex (1)
+    float4 n0    = vertices[vertexId].norm0;
+    float3 vert  = n0.xyz + (vertices[vertexId].norm1.xyz - n0.xyz) * range01;
+    float  blend = clamp(n0.w, 0.0, 1.0);
+    float3 n     = face + (vert - face) * blend;
+
+    // opposed ends (norm0·norm1 < 0) or a vertex normal opposite its face
+    // (the fins at a phase start lie in planes through the origin, so
+    // their outward side is a coin toss) would pass through zero
+    // mid-morph or mid-slider and flip 180°. two continuous lifts along
+    // the radial direction keep n off zero, so it swings through radial:
+    // - short n (|n| < 0.5, only where ends oppose) is lifted to radial·n ≥ 0.5
+    // - blend > 0 keeps a vertex normal out of the inward half (radial·n ≥ 0.1)
+    // both are zero for pure face shading
+    float lenLift = 1.0 - smoothstep(0.25, 0.5, length(n));
+    float d = dot(n, radial);
+    n += (lenLift * max(0.0, 0.5 - d) + blend * max(0.0, 0.1 - d)) * radial;
+    float4 norm = float4(platoUnit(n, radial), 0);
 
     float4 worldNorm = normalize(norm);
     float4 eyeDirection = normalize(pos);

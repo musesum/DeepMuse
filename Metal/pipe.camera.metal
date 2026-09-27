@@ -57,3 +57,35 @@ kernel void cameraKernel
     float4 inPix = inTex.sample(samplr, uv);
     outTex.write(inPix, gid);
 }
+
+// subject mask: the same center-crop as the frame, taken from the FRAME's size;
+// the Vision mask (≈512²) maps over the whole frame by uv, not by its own pixels
+kernel void cameraMaskKernel
+(
+ texture2d<float>                maskTex  [[ texture(0) ]],
+ texture2d<float, access::write> outTex   [[ texture(1) ]],
+ texture2d<float>                frameTex [[ texture(2) ]],
+ uint2 gid [[ thread_position_in_grid ]])
+{
+    float2 outSize = float2(outTex.get_width(), outTex.get_height());
+    float2 outPx = float2(gid) + 0.5;
+
+    float2 inSize = float2(frameTex.get_width(), frameTex.get_height());
+    float inAspect  = inSize.x / inSize.y;
+    float outAspect = outSize.x / outSize.y;
+
+    float2 inPx;
+    if (outAspect > inAspect) {
+        float scale = outSize.x / inSize.x;
+        float cropY = (inSize.y * scale - outSize.y) * 0.5;
+        inPx = float2(outPx.x, outPx.y + cropY) / scale;
+    } else {
+        float scale = outSize.y / inSize.y;
+        float cropX = (inSize.x * scale - outSize.x) * 0.5;
+        inPx = float2(outPx.x + cropX, outPx.y) / scale;
+    }
+    float2 uv = inPx / inSize;
+
+    constexpr sampler samplr(filter::linear, address::clamp_to_edge);
+    outTex.write(maskTex.sample(samplr, uv), gid);
+}

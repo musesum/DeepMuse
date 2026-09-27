@@ -72,7 +72,8 @@ extension SkyModel: NextFrameDelegate {
                 }
                 // trunk flash after the ring lands; showNow self-arms the fade timeout
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    for menuVm in self.menus.menuVms {
+                    // NE holds the graph leaf; its trunk stays closed until asked for
+                    for menuVm in self.menus.menuVms where menuVm.cornerType.corner != .NE {
                         menuVm.rootVm.showTrunks(false)
                     }
                 }

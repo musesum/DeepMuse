@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0164187CFB60FFC0D55F688D /* StripPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432A6D52BA60DFB47720853 /* StripPicker.swift */; };
+		499DB57F289373EDE5AF194E /* BeatClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBAB89CB649516773872A1 /* BeatClock.swift */; };
+		49BA13CE8D58B6718B2C2B91 /* pipe.router.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3960FBA4D5AFAF616B2CB21B /* pipe.router.metal */; };
 		4F01442F7280A9F24E807309 /* SkyPipeline+Embed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C739E2297AACC412D38B65DE /* SkyPipeline+Embed.swift */; };
+		57769A47282A69181E658B4D /* pipe.strip.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4A68AD273D804F165BFBCEBE /* pipe.strip.metal */; };
 		80158AAB2BC4459C0081ABAA /* kernel.sampleCube.metal in Sources */ = {isa = PBXBuildFile; fileRef = 80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */; };
 		801927C42BBD038C0041CE4C /* pipe.camera.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C32BBD038C0041CE4C /* pipe.camera.metal */; };
 		801927C92BBD04340041CE4C /* render.map.cube.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C52BBD04340041CE4C /* render.map.cube.metal */; };
-		801927CA2BBD04340041CE4C /* pipe.camix.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C62BBD04340041CE4C /* pipe.camix.metal */; };
 		801927CB2BBD04340041CE4C /* render.map.flat.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C72BBD04340041CE4C /* render.map.flat.metal */; };
 		801927CC2BBD04340041CE4C /* render.plato.metal in Sources */ = {isa = PBXBuildFile; fileRef = 801927C82BBD04340041CE4C /* render.plato.metal */; };
 		8036D85D2BBCD12E00BB35EE /* SkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8036D85C2BBCD12E00BB35EE /* SkyView.swift */; };
@@ -47,8 +50,8 @@
 		80DC21892337AE9300B99CD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80DC21842337ACFB00B99CD9 /* Assets.xcassets */; };
 		80DD00032F00000000000003 /* MuDisplay in Frameworks */ = {isa = PBXBuildFile; productRef = 80DD00022F00000000000002 /* MuDisplay */; };
 		80DD00052F00000000000005 /* ExternalDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DD00042F00000000000004 /* ExternalDisplay.swift */; };
+		80DD00082F00000000000008 /* MuMusic in Frameworks */ = {isa = PBXBuildFile; productRef = 80DD00072F00000000000007 /* MuMusic */; };
 		80E0AFB72DA0C5160056E787 /* ImmersiveScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0AFB62DA0C5160056E787 /* ImmersiveScene.swift */; };
-		88D5449CE395A38D4286DFF3 /* cell.rule.slide.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.rule.slide.metal */; };
 		88D54401E395A38D4286DFF3 /* cell.rule.zha.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = 806B2DD22C2CED5D0054C979 /* cell.rule.zha.metal */; };
 		88D54402E395A38D4286DFF3 /* cell.rule.ave.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = 806B2DCA2C2CED5D0054C979 /* cell.rule.ave.metal */; };
 		88D54403E395A38D4286DFF3 /* cell.rule.fade.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = 806B2DCC2C2CED5D0054C979 /* cell.rule.fade.metal */; };
@@ -58,6 +61,7 @@
 		88D54407E395A38D4286DFF3 /* cell.rule.drift.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = F1A5E00000000000000B0000 /* cell.rule.drift.metal */; };
 		88D54408E395A38D4286DFF3 /* cell.rule.warren.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = F1A5E00000000000000B0002 /* cell.rule.warren.metal */; };
 		88D54409E395A38D4286DFF3 /* cell.rule.noise.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = F1A5E00000000000000B0003 /* cell.rule.noise.metal */; };
+		88D5449CE395A38D4286DFF3 /* cell.rule.slide.metal in Copy Metal Templates */ = {isa = PBXBuildFile; fileRef = 8070496A23378ADB0001617D /* cell.rule.slide.metal */; };
 		F1A5E00000000000000A0000 /* cell.rule.drift.metal in Sources */ = {isa = PBXBuildFile; fileRef = F1A5E00000000000000B0000 /* cell.rule.drift.metal */; };
 		F1A5E00000000000000A0001 /* cell.rule.happy.metal in Sources */ = {isa = PBXBuildFile; fileRef = F1A5E00000000000000B0001 /* cell.rule.happy.metal */; };
 		F1A5E00000000000000A0002 /* cell.rule.warren.metal in Sources */ = {isa = PBXBuildFile; fileRef = F1A5E00000000000000B0002 /* cell.rule.warren.metal */; };
@@ -104,10 +108,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3960FBA4D5AFAF616B2CB21B /* pipe.router.metal */ = {isa = PBXFileReference; includeInIndex = 1; path = pipe.router.metal; sourceTree = "<group>"; };
+		4A68AD273D804F165BFBCEBE /* pipe.strip.metal */ = {isa = PBXFileReference; includeInIndex = 1; path = pipe.strip.metal; sourceTree = "<group>"; };
+		4EDBAB89CB649516773872A1 /* BeatClock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BeatClock.swift; sourceTree = "<group>"; };
 		80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = kernel.sampleCube.metal; sourceTree = "<group>"; };
 		801927C32BBD038C0041CE4C /* pipe.camera.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.camera.metal; sourceTree = "<group>"; };
 		801927C52BBD04340041CE4C /* render.map.cube.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.map.cube.metal; sourceTree = "<group>"; };
-		801927C62BBD04340041CE4C /* pipe.camix.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = pipe.camix.metal; sourceTree = "<group>"; };
 		801927C72BBD04340041CE4C /* render.map.flat.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.map.flat.metal; sourceTree = "<group>"; };
 		801927C82BBD04340041CE4C /* render.plato.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = render.plato.metal; sourceTree = "<group>"; };
 		8036D85C2BBCD12E00BB35EE /* SkyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyView.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 		80DD00042F00000000000004 /* ExternalDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDisplay.swift; sourceTree = "<group>"; };
 		80E0AFB62DA0C5160056E787 /* ImmersiveScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveScene.swift; sourceTree = "<group>"; };
 		80F4A9423001D391005F977E /* Refactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Refactor.h; sourceTree = "<group>"; };
+		8432A6D52BA60DFB47720853 /* StripPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StripPicker.swift; sourceTree = "<group>"; };
 		C739E2297AACC412D38B65DE /* SkyPipeline+Embed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SkyPipeline+Embed.swift"; sourceTree = "<group>"; };
 		F1A5E00000000000000B0000 /* cell.rule.drift.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.drift.metal; sourceTree = "<group>"; };
 		F1A5E00000000000000B0001 /* cell.rule.happy.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = cell.rule.happy.metal; sourceTree = "<group>"; };
@@ -168,6 +175,7 @@
 				80BD62D92A5B9B6800F51B7A /* MuAudio in Frameworks */,
 				80BDD7CA28919CF000C6E2BF /* MuMenu in Frameworks */,
 				80DD00032F00000000000003 /* MuDisplay in Frameworks */,
+				80DD00082F00000000000008 /* MuMusic in Frameworks */,
 				807533472A8CA0C600A1808C /* MuPlato in Frameworks */,
 				80AF1D002E35382C002AE153 /* MuHands in Frameworks */,
 				80A0D01F2BC1A1F1005C2B6B /* MuSky in Frameworks */,
@@ -193,6 +201,8 @@
 				80A87E3D2DA7B391005A800F /* VisionModel.swift */,
 				80735F772E6E2C7B00719CEA /* VisionView+make.swift */,
 				C739E2297AACC412D38B65DE /* SkyPipeline+Embed.swift */,
+				4EDBAB89CB649516773872A1 /* BeatClock.swift */,
+				8432A6D52BA60DFB47720853 /* StripPicker.swift */,
 			);
 			path = Sky;
 			sourceTree = "<group>";
@@ -254,7 +264,6 @@
 				F1A5E00000000000000B0008 /* cell.wave.metal */,
 				F1A5E00000000000000B0009 /* cell.field.metal */,
 				801927C32BBD038C0041CE4C /* pipe.camera.metal */,
-				801927C62BBD04340041CE4C /* pipe.camix.metal */,
 				8070496323378ADB0001617D /* pipe.color.metal */,
 				8090E31029DBA9B4003E02CC /* pipe.tile.metal */,
 				801927C52BBD04340041CE4C /* render.map.cube.metal */,
@@ -262,6 +271,8 @@
 				801927C82BBD04340041CE4C /* render.plato.metal */,
 				80158AAA2BC4459C0081ABAA /* kernel.sampleCube.metal */,
 				809B425A2CE542A50016D296 /* rotateTexture.metal */,
+				4A68AD273D804F165BFBCEBE /* pipe.strip.metal */,
+				3960FBA4D5AFAF616B2CB21B /* pipe.router.metal */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -299,6 +310,7 @@
 				807533462A8CA0C600A1808C /* MuPlato */,
 				80BE47532B34C08600EB05F4 /* MuVision */,
 				80DD00022F00000000000002 /* MuDisplay */,
+				80DD00072F00000000000007 /* MuMusic */,
 				80A0D01E2BC1A1F1005C2B6B /* MuSky */,
 				80AF1CFF2E35382C002AE153 /* MuHands */,
 			);
@@ -341,6 +353,7 @@
 				80860AD62DEF5E4A007A20DD /* XCRemoteSwiftPackageReference "swift-nio" */,
 				80AF1CFE2E35382C002AE153 /* XCRemoteSwiftPackageReference "MuHands" */,
 				80DD00012F00000000000001 /* XCLocalSwiftPackageReference "MuDisplay" */,
+				80DD00062F00000000000006 /* XCLocalSwiftPackageReference "MuMusic" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 807048E823378A090001617D /* Products */;
@@ -398,7 +411,6 @@
 				F1A5E00000000000000A0009 /* cell.field.metal in Sources */,
 				807049F623378ADC0001617D /* pipe.draw.metal in Sources */,
 				801927C92BBD04340041CE4C /* render.map.cube.metal in Sources */,
-				801927CA2BBD04340041CE4C /* pipe.camix.metal in Sources */,
 				8036D85D2BBCD12E00BB35EE /* SkyView.swift in Sources */,
 				80DD00052F00000000000005 /* ExternalDisplay.swift in Sources */,
 				801927C42BBD038C0041CE4C /* pipe.camera.metal in Sources */,
@@ -410,6 +422,10 @@
 				8090E31129DBA9B4003E02CC /* pipe.tile.metal in Sources */,
 				801927CC2BBD04340041CE4C /* render.plato.metal in Sources */,
 				4F01442F7280A9F24E807309 /* SkyPipeline+Embed.swift in Sources */,
+				499DB57F289373EDE5AF194E /* BeatClock.swift in Sources */,
+				0164187CFB60FFC0D55F688D /* StripPicker.swift in Sources */,
+				57769A47282A69181E658B4D /* pipe.strip.metal in Sources */,
+				49BA13CE8D58B6718B2C2B91 /* pipe.router.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -537,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -564,7 +580,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,7 +619,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Deep Muse";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,6 +670,10 @@
 		80DD00012F00000000000001 /* XCLocalSwiftPackageReference "MuDisplay" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../Mu/MuDisplay;
+		};
+		80DD00062F00000000000006 /* XCLocalSwiftPackageReference "MuMusic" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../Mu/MuMusic;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -758,6 +778,10 @@
 		80DD00022F00000000000002 /* MuDisplay */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MuDisplay;
+		};
+		80DD00072F00000000000007 /* MuMusic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MuMusic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

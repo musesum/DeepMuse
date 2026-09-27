@@ -1835,8 +1835,6 @@ kernel void warrenKernel
     const half4 Cne = inTex.read(nei);
     const half4 Cse = inTex.read(sei);
     const half4 Csw = inTex.read(swi);
-#if 0
-#else
     const int selfB = int(uint(C.b * 255. + 0.5));       // llc  (fallback value)
 
     const int nwB = int(uint(Cnw.b * 255. + 0.5));       // llnw
@@ -1891,7 +1889,7 @@ kernel void warrenKernel
     float fr = float(uint(r2) & 0xffu) / 255.;   // HiC low byte = r2 (winner flag)
     float fa = 0.0;                              // HiC high byte = 0
     outTex.write(half4(fr, fg, fb, fa), ci);
-#endif
+
 }
 
 // the v1 neighbour-setup block leaks object-like macros (x,y,x1,y1) to file scope;

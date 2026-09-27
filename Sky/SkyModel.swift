@@ -27,6 +27,7 @@ class SkyModel {
     private let ripples: Ripples
     private let camera: CameraSession
     private let tapeFlo: TapeFlo
+    private let beatClock: BeatClock
 
     internal var insets = EdgeInsets()
     internal let scale: CGFloat
@@ -53,6 +54,7 @@ class SkyModel {
     public var stateFrame = [RenderState: CGRect]()
     #if os(iOS)
     private var cameraPinch: CameraPinch?
+    private var pencilInput: PencilInput?
     #endif
 
     init() {
@@ -80,17 +82,20 @@ class SkyModel {
         self.touchCanvas = TouchCanvas(touchDraw, scale)
         self.pipeline = SkyPipeline(root˚, renderState, archive, touchDraw, scale, bounds, ripples, camera, touchCanvas)
         pipeline.bindEmbeds()
-        self.drawDot = DrawDot(root˚, "draw.dot", touchCanvas)
-        self.drawPal = DrawPal(root˚, "draw.ripple", touchCanvas, ripples)
+        self.drawDot = DrawDot(root˚, "canvas.dot", touchCanvas)
+        self.drawPal = DrawPal(root˚, "canvas.ripple", touchCanvas, ripples)
         self.touchView = TouchView(pipeline, touchCanvas)
         self.handsPhase = HandsPhase(root˚)
         self.menus = Menus(root˚, archiveVm, handsPhase, startHidden: true)
         self.menuView = MenuView(menus.menuVms)
+        self.beatClock = BeatClock(root˚)
+        StripPicker.install()
         archiveVm.archiveProto = self
         bindCodeLeaf()
         Peers.shared.addDelegate(self, for: .archiveFrame)
         #if os(iOS)
         self.cameraPinch = CameraPinch(touchView, root˚)
+        self.pencilInput = PencilInput(touchView, root˚)
         #endif
     }
     /// route editor submits into the runtime shader compiler
@@ -409,6 +414,49 @@ final class CameraPinch: NSObject, UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         true
+    }
+}
+
+/// Apple Pencil double tap and squeeze on the canvas. Both pulse a
+/// `sky.input.pencil` node whose flo edge sets `swap` or `fold` on canvas:
+/// the menu shows the paint leaf shown last, swaps canvas.real and
+/// canvas.false, or dismisses the one that is up. The leaf shown is the
+/// layer drawn on -- the menu writes canvas.brush.paint w, not this -- so
+/// the tap is the Pencil "switch tool" gesture. The system preference wins:
+/// a user who set either gesture to Ignore in Settings gets nothing here
+@MainActor
+final class PencilInput: NSObject, UIPencilInteractionDelegate {
+
+    private let tap˚     : Flo?
+    private let squeeze˚ : Flo?
+    private var interaction: UIPencilInteraction?
+
+    init(_ touchView: UIView, _ root˚: Flo) {
+        tap˚     = root˚.findPath("sky.input.pencil.tap")
+        squeeze˚ = root˚.findPath("sky.input.pencil.squeeze")
+        super.init()
+        let interaction = UIPencilInteraction()
+        interaction.delegate = self
+        interaction.isEnabled = true
+        touchView.addInteraction(interaction)
+        self.interaction = interaction
+    }
+    func pencilInteraction(_ interaction: UIPencilInteraction,
+                           didReceiveTap tap: UIPencilInteraction.Tap) {
+        guard UIPencilInteraction.preferredTapAction != .ignore else { return }
+        tap˚?.setNameNums([("x", 1)], .fire, Visitor(0, .user))
+        // a pulse, not a state: back to 0 silently, so a snapshot never
+        // saves x 1 and an archive merge never refires the swap edge
+        tap˚?.setNameNums([("x", 0)], .sneak, Visitor(0))
+    }
+    func pencilInteraction(_ interaction: UIPencilInteraction,
+                           didReceiveSqueeze squeeze: UIPencilInteraction.Squeeze) {
+        guard UIPencilInteraction.preferredSqueezeAction != .ignore else { return }
+        switch squeeze.phase {
+        case .began             : squeeze˚?.setNameNums([("x", 1)], .fire, Visitor(0, .user))
+        case .ended, .cancelled : squeeze˚?.setNameNums([("x", 0)], .fire, Visitor(0, .user))
+        default                 : break
+        }
     }
 }
 #endif

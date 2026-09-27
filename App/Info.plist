@@ -49,6 +49,8 @@
 	<string>feed microphone to synthesizer</string>
 	<key>NSMotionUsageDescription</key>
 	<string>Feed motion to synthesizer</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>save performances to photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>feed photos to synthesizer</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
