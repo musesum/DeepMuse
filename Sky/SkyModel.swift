@@ -358,7 +358,8 @@ extension SkyModel: @MainActor ArchiveProto {
                         DebugLog { P("🏛️ \(#function) \(path)") }
 
                         //  save texture as png in texture/ subdirectory
-                        if let pngData = textureToPngData(childTex) {
+                        // `rgba` on the flo: keep the alpha, the real layer's transparent ground
+                        if let pngData = textureToPngData(childTex, alpha: child.hasExpr("rgba")) {
                             archiveExt.addName("texture/" + path, ext: "png", data: pngData)
                         }
                     }
