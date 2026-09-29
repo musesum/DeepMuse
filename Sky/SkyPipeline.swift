@@ -59,7 +59,9 @@ public class SkyPipeline: Pipeline {
             pipeNode = cubeNode
         case "plato"  :
             let platoNode = PlatoNode(self, flo˚)
-            touchCanvas.touchBegan = { [weak platoNode] point in platoNode?.touchBegan(point) ?? false }
+            touchCanvas.touchPress = { [weak platoNode] t in
+                platoNode?.press(t.hash, t.point, pressure: t.pressure,
+                                 radius: t.radius, phase: t.phase) ?? false }
             pipeNode = platoNode
 
         case "slide","zha","ave","fade","melt","tunl","fred",
