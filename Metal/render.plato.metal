@@ -76,7 +76,7 @@ vertex PlatoVertex platoVertex
     float3 face = platoUnit(fn, p);
 
     // vertex normal: welded on the cpu at both ends, lerped here;
-    // w = plato.phase w, face (0) … vertex (1)
+    // w = plato.material normal, face (0) … vertex (1)
     float4 n0    = vertices[vertexId].norm0;
     float3 vert  = n0.xyz + (vertices[vertexId].norm1.xyz - n0.xyz) * range01;
     float  blend = clamp(n0.w, 0.0, 1.0);

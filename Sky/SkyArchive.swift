@@ -15,5 +15,6 @@ public class SkyArchive: ArchiveFlo {
 #endif
     init(_ root˚: Flo) {
         super.init(root˚, bundles, snapName, scriptNames)
+        ArchiveNames.convertArchives(root˚, skip: [snapName])
     }
 }

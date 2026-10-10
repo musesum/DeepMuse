@@ -1,6 +1,7 @@
 // created by musesum on 7/30/24
 
 import SwiftUI
+import UniformTypeIdentifiers
 import MuFlo
 import MuAudio
 import MuSky
@@ -276,6 +277,7 @@ extension SkyModel: @MainActor ArchiveProto {
     func readUserArchive(_ url: URL, local: Bool) {
 
         archive.readUrl(url, local: local)
+        loadArchiveMedia()
         let archName = url.deletingPathExtension().lastPathComponent
         DebugLog { P("🏛️ \"\(archName)\" \(local ? "local" : "remote")") }
         NextFrame.shared.addBetweenFrame {
@@ -288,9 +290,40 @@ extension SkyModel: @MainActor ArchiveProto {
     }
 
 
-    // snapshot on framebuffer, draw Texture and skyGraph
+    /// the album a user archive carried: embedded frames come in as a pick,
+    /// local links load again from this device's photo library; either
+    /// replaces the strip's set, and an archive without media leaves it
+    private func loadArchiveMedia() {
+        let media = archive.takeMedia()
+        guard !media.isEmpty, let strip = pipeline.stripNode else { return }
+        if !media.links.isEmpty {
+            StripPicker.load(assetIds: media.links) { picks in strip.loadPicks(picks) }
+            return
+        }
+        let dir = FileManager.default.temporaryDirectory
+        let picks: [StripPick] = media.files.compactMap { name, data in
+            let url = dir.appendingPathComponent("archive-\(UUID().uuidString)-\(name)")
+            if UTType(filenameExtension: url.pathExtension)?.conforms(to: .movie) == true {
+                // the strip moves the file into its own set
+                return (try? data.write(to: url)).map { _ in StripPick(.video(url)) }
+            }
+            return UIImage(data: data).map { StripPick(.image($0)) }
+        }
+        strip.loadPicks(picks)
+    }
+
+    /// the album the archive sheet offers to carry: frames loaded, and
+    /// whether every one has its photo library identifier for a local link
+    var albumMedia: (count: Int, linkable: Bool) {
+        let strip = pipeline.stripNode
+        return (strip?.frameCount ?? 0, strip?.hasLinks ?? false)
+    }
+
+    // snapshot on framebuffer, draw Texture and skyGraph; `media` the album,
+    // as the archive sheet's Local Media radio chose
     public func saveArchive(_ title: String,
                             _ description: String,
+                            media: ArchiveMedia,
                             _ completion: @escaping CallVoid) {
 
         // setup temp filename with current time
@@ -304,6 +337,7 @@ extension SkyModel: @MainActor ArchiveProto {
 
         addScreenIcon() // make icon from an image snapshot of framebuffer
         saveTextures()  // MetNodeDraws output texture as `.tex`
+        saveMedia()     // the album's frames, or their photo library names
 
         // restore prior framebuffer state
         pipeline.layer.framebufferOnly = frameBufferOnly
@@ -311,6 +345,7 @@ extension SkyModel: @MainActor ArchiveProto {
         // save snapshot of flo graph
         saveFloScript("now", scriptOps: .Now)
         saveFloScript("full", scriptOps: .Full) //.....
+        archiveExt.addName("description", ext: "txt", data: Data(description.utf8))
         archiveExt.replace(title, with: tempName)
 
         completion()
@@ -381,6 +416,32 @@ extension SkyModel: @MainActor ArchiveProto {
             let dataNow = Data(script.utf8)
             archiveExt.addName(name,  ext: "flo.h", data: dataNow)
         }
+
+        // embed: the strip's saved stills and movies as media/NN.<ext>;
+        // local link: media/links.json, their photo library identifiers, only
+        // when every frame has one; no: nothing of the album
+        func saveMedia() {
+            guard media != .no, let strip = pipeline.stripNode else { return }
+            let picks = strip.archivePicks
+            switch media {
+            case .embed:
+                for pick in picks {
+                    let name = pick.url.deletingPathExtension().lastPathComponent
+                    if let data = try? Data(contentsOf: pick.url) {
+                        archiveExt.addName("media/" + name, ext: pick.url.pathExtension, data: data)
+                    }
+                }
+            case .link:
+                let ids = picks.compactMap(\.assetId)
+                if ids.count == picks.count, let data = try? JSONEncoder().encode(ids) {
+                    archiveExt.addName("media/links", ext: "json", data: data)
+                } else {
+                    PrintLog("⁉️ saveArchive: local link with \(picks.count - ids.count) frame(s) the library did not name")
+                }
+            case .no: break
+            }
+            DebugLog { P("🏛️ media \(media.rawValue): \(picks.count) frames") }
+        }
     }
 
 }
@@ -421,7 +482,7 @@ final class CameraPinch: NSObject, UIGestureRecognizerDelegate {
 /// Apple Pencil double tap and squeeze on the canvas. Both pulse a
 /// `sky.input.pencil` node whose flo edge sets `swap` or `fold` on canvas:
 /// the menu shows the paint leaf shown last, swaps canvas.real and
-/// canvas.false, or dismisses the one that is up. The leaf shown is the
+/// canvas.pal, or dismisses the one that is up. The leaf shown is the
 /// layer drawn on -- the menu writes canvas.brush.paint w, not this -- so
 /// the tap is the Pencil "switch tool" gesture. The system preference wins:
 /// a user who set either gesture to Ignore in Settings gets nothing here
@@ -466,17 +527,15 @@ extension SkyModel: @MainActor PeersDelegate {
     
     public func received(data: Data, from: DataFrom) {
         if let archiveFrame = try? JSONDecoder().decode(ArchiveFrame.self, from: data) {
-            // Save the received archive data to a temporary file
-            let tempDir = FileManager.default.temporaryDirectory
-            let tempUrl = tempDir.appendingPathComponent(archiveFrame.name).appendingPathExtension("mu")
-            
-            do {
-                try archiveFrame.data.write(to: tempUrl)
-                // Process the archive as a remote archive
-                readUserArchive(tempUrl, local: false)
-            } catch {
-                PrintLog("⁉️ Error saving received archive: \(error)")
+            // received before, by name and checksum: the file already here;
+            // else a new file in the archive leaf's Shared tab. Either one loads
+            // as a remote archive, and is the current one
+            guard let url = archiveVm.receive(name: archiveFrame.name, data: archiveFrame.data) else {
+                return PrintLog("⁉️ Error saving received archive: \(archiveFrame.name)")
             }
+            DebugLog { P("🏛️ received \"\(archiveFrame.name)\" → \(self.archiveVm.isShared(url) ? "Shared" : "Mine")/\(url.lastPathComponent)") }
+            readUserArchive(url, local: false)
+            archiveVm.setCurrent(url)
         }
     }
     public func resetItem(_ item: PlayItem) {

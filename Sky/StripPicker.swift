@@ -25,7 +25,7 @@ enum StripPicker {
         }
     }
 
-    static func present(_ done: @escaping ([StripItem]) -> Void) {
+    static func present(_ done: @escaping ([StripPick]) -> Void) {
         // a picker is already up or its authorization ask is still pending: ignore the
         // extra fire instead of stacking a second picker on top of the first (Dev
         // 2026-09-18: multiple pick fires used to orphan the visible picker's delegate)
@@ -45,9 +45,13 @@ enum StripPicker {
             .compactMap({ $0 as? UIWindowScene })
             .first(where: { $0.activationState == .foregroundActive }),
               let root = scene.keyWindow?.rootViewController else { return }
+        // full access: the library-backed picker, whose results carry the asset
+        // identifiers an archive's local link names the set by. Otherwise the
         // no-arg config = the out-of-process picker: the whole library even under
         // Limited Access (`.shared()` scopes to the grant and hid every video)
-        var config = PHPickerConfiguration()
+        var config = PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+            ? PHPickerConfiguration(photoLibrary: .shared())
+            : PHPickerConfiguration()
         // a flat union: `.videos` alone drops slo-mo, timelapse, cinematic, screen
         // recordings and Live Photo motion; a nested `.any(of:)` is unreliable
         config.filter = .any(of: [.images, .videos, .slomoVideos, .timelapseVideos,
@@ -74,16 +78,75 @@ enum StripPicker {
     /// picked slots, filled from the provider callbacks in any order
     final class Picks: @unchecked Sendable {
         private let lock = NSLock()
-        private var items: [StripItem?]
-        init(_ count: Int) { items = Array(repeating: nil, count: count) }
-        func set(_ i: Int, _ item: StripItem) { lock.withLock { items[i] = item } }
-        var ordered: [StripItem] { lock.withLock { items.compactMap { $0 } } }
+        private var picks: [StripPick?]
+        init(_ count: Int) { picks = Array(repeating: nil, count: count) }
+        func set(_ i: Int, _ pick: StripPick) { lock.withLock { picks[i] = pick } }
+        var ordered: [StripPick] { lock.withLock { picks.compactMap { $0 } } }
+    }
+
+    /// an archive's local link: the photo library's assets by identifier, in
+    /// the archive's order, delivered as a pick delivers them (a movie or a
+    /// Live Photo as a file copy, a still as an image); one the library no
+    /// longer has is left out. Asks for access first when never asked
+    static func load(assetIds: [String], done: @escaping ([StripPick]) -> Void) {
+        if PHPhotoLibrary.authorizationStatus(for: .readWrite) == .notDetermined {
+            Task {
+                _ = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
+                load(assetIds: assetIds, done: done)
+            }
+            return
+        }
+        var byId = [String: PHAsset]()
+        PHAsset.fetchAssets(withLocalIdentifiers: assetIds, options: nil)
+            .enumerateObjects { asset, _, _ in byId[asset.localIdentifier] = asset }
+        let picks = Picks(assetIds.count)
+        let group = DispatchGroup()
+        for (i, id) in assetIds.enumerated() {
+            guard let asset = byId[id] else {
+                PrintLog("⁉️ StripPicker link \(i): not in the library")
+                continue
+            }
+            let resources = PHAssetResource.assetResources(for: asset)
+            // a movie, or a Live Photo's motion: the picker hands both back as movies
+            let movie = asset.mediaType == .video
+                ? (resources.first { $0.type == .fullSizeVideo } ?? resources.first { $0.type == .video })
+                : resources.first { $0.type == .pairedVideo }
+            group.enter()
+            if let movie {
+                let ext = (movie.originalFilename as NSString).pathExtension.lowercased()
+                let copy = FileManager.default.temporaryDirectory
+                    .appendingPathComponent("strip-\(UUID().uuidString).\(ext.isEmpty ? "mov" : ext)")
+                let options = PHAssetResourceRequestOptions()
+                options.isNetworkAccessAllowed = true
+                PHAssetResourceManager.default().writeData(for: movie, toFile: copy, options: options) { error in
+                    if let error {
+                        PrintLog("⁉️ StripPicker link \(i) movie: \(error.localizedDescription)")
+                    } else {
+                        picks.set(i, StripPick(.video(copy), assetId: id))
+                    }
+                    group.leave()
+                }
+            } else {
+                let options = PHImageRequestOptions()
+                options.deliveryMode = .highQualityFormat // one delivery
+                options.isNetworkAccessAllowed = true
+                PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize,
+                                                      contentMode: .aspectFit, options: options) { image, _ in
+                    if let image { picks.set(i, StripPick(.image(image), assetId: id)) }
+                    group.leave()
+                }
+            }
+        }
+        group.notify(queue: .main) {
+            DebugLog { P("🎞️ strip links \(picks.ordered.count) of \(assetIds.count)") }
+            done(picks.ordered)
+        }
     }
 
     final class Delegate: NSObject, PHPickerViewControllerDelegate,
                           UIAdaptivePresentationControllerDelegate {
-        let done: ([StripItem]) -> Void
-        init(_ done: @escaping ([StripItem]) -> Void) { self.done = done }
+        let done: ([StripPick]) -> Void
+        init(_ done: @escaping ([StripPick]) -> Void) { self.done = done }
 
         /// put away by a touch outside the sheet or a swipe down: nothing was
         /// picked, so the strip keeps the set it has; the slot is released so
@@ -105,6 +168,8 @@ enum StripPicker {
             StripPicker.active = nil
             StripPicker.delegates[ObjectIdentifier(picker)] = nil
             let providers = results.map(\.itemProvider)
+            // nil unless the picker was made with the library (full access)
+            let ids = results.map(\.assetIdentifier)
             let picks = Picks(providers.count)
             let group = DispatchGroup()
             for (i, provider) in providers.enumerated() {
@@ -121,7 +186,7 @@ enum StripPicker {
                             .appendingPathComponent("strip-\(UUID().uuidString).\(ext)")
                         do {
                             try FileManager.default.copyItem(at: url, to: copy)
-                            picks.set(i, .video(copy))
+                            picks.set(i, StripPick(.video(copy), assetId: ids[i]))
                         } catch {
                             PrintLog("⁉️ StripPicker movie \(i) copy: \(error.localizedDescription)")
                         }
@@ -130,7 +195,7 @@ enum StripPicker {
                           provider.canLoadObject(ofClass: UIImage.self) {
                     group.enter()
                     provider.loadObject(ofClass: UIImage.self) { object, _ in
-                        if let image = object as? UIImage { picks.set(i, .image(image)) }
+                        if let image = object as? UIImage { picks.set(i, StripPick(.image(image), assetId: ids[i])) }
                         group.leave()
                     }
                 }

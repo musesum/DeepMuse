@@ -64,7 +64,7 @@ struct SpiralUniforms
     float circleRays;
 };
 // sizeof(SpiralUniforms) == 20 bytes (5 x float32, naturally 4-byte aligned,
-// no inter-field padding). Field order above IS the required byte layout —
+// no inter-field padding).   Field order above IS the required byte layout —
 // match it exactly in any Swift-side mirror struct.
 
 constant float kPI = 3.14159265358979323846f; // WinSky main/Defs.h:20

@@ -14,7 +14,7 @@ kernel void drawDotKernel
 (
  texture2d<half, access::read>   inTex   [[ texture(0) ]],
  texture2d<half, access::write>  outTex  [[ texture(1) ]],
- constant float2&                shift   [[ buffer(0) ]], // canvas.shift / pipe.draw.shift, index (false) layer
+ constant float2&                shift   [[ buffer(0) ]], // canvas.shift / pipe.draw.shift, index (pal) layer
  constant uint&                  aspect  [[ buffer(1) ]],
  device const Dot*               dots    [[ buffer(2) ]],
  constant uint&                  dotCount[[ buffer(3) ]],
@@ -93,7 +93,7 @@ kernel void drawRealKernel
 
     for (int i = int(dotCount) - 1; i >= 0; --i) {
         if (dots[i].radius < 0) {
-            // clear: the real layer goes transparent, the false layer shows through
+            // clear: the real layer goes transparent, the pal layer shows through
             coverOut.write(float4(0), gid);
             return outTex.write(float4(0), gid);
         }
